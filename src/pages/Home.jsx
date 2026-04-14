@@ -64,7 +64,7 @@ function Home() {
                                 </svg>
                             </span>
                             <br />
-                            <span className="text-gray-300 text-xl md:text-4xl lg:text-4xl">Strengthening MSMEs. Building Bharat 🇮🇳</span>
+                            <span className="text-gray-300 text-xl md:text-4xl lg:text-4xl">Strengthening MSMEs. Building Bharat <span className="bg-linear-to-br from-amber-600 via-white to-green-600 bg-clip-text text-transparent">🇮🇳</span></span>
                         </h1>
                         <p className="mt-8 text-gray-300 text-lg md:text-xl text-center max-w-2xl mx-auto leading-relaxed animate-fade-up-delay">
                             A national platform dedicated to supporting MSMEs, startups, and business owners with the right opportunities, connections, knowledge, and growth resources.
@@ -133,8 +133,8 @@ function Home() {
             {/* Vision & Mission */}
             <section className="relative overflow-hidden bg-[#1D2B4E]">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-                <div className="relative py-20 max-w-7xl mx-auto md:py-28">
-                    <div className="text-center mb-14">
+                <div className="relative py-20 max-w-7xl mx-auto md:py-20">
+                    <div className="text-center mb-10">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-amber-600/10 text-amber-600 text-sm font-semibold mb-5 tracking-wide">OUR PURPOSE</span>
                     <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-4">Vision & Mission</h3>
                     </div>
@@ -142,13 +142,13 @@ function Home() {
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="relative group border border-white/60 overflow-hidden rounded-2xl">
                             <div className="absolute -bottom-20 -right-30 w-100 h-100 bg-amber-600/30 opacity-20 rounded-full"></div>
-                            <div className="relative bg-card/80 backdrop-blur-sm p-8 md:p-10 h-full hover:border-primary/40 transition-colors duration-300 overflow-hidden">
+                            <div className="relative bg-card/80 backdrop-blur-sm p-8 md:p-8 h-full hover:border-primary/40 transition-colors duration-300 overflow-hidden">
                                 <div className="w-14 h-14 rounded-2xl bg-amber-600 flex items-center justify-center mb-6">
                                     <Eye className="w-7 h-7 text-white" />
                                 </div>
                                 <h4 className="text-2xl md:text-3xl font-display font-bold text-white">Our Vision</h4>
                                 <div className="w-16 h-1 bg-linear-to-r from-amber-600 via-white to-green-600 rounded-full mt-4 mb-5" />
-                                <p className="text-white leading-relaxed text-base md:text-lg">
+                                <p className="text-white leading-relaxed text-sm">
                                     To create India's most trusted platform for entrepreneurs, MSMEs, and startups by providing growth opportunities, meaningful connections, and business support systems.
                                 </p>
                             </div>
@@ -156,7 +156,7 @@ function Home() {
 
                         <div className="relative group border border-white/60 overflow-hidden rounded-2xl">
                             <div className="absolute inset-0 bg-linear-to-br from-amber-600 via-white to-green-600 rounded-2xl opacity-20 transition-opacity duration-500 blur-xl" />
-                            <div className="relative bg-card/80 backdrop-blur-sm p-8 md:p-10 h-full hover:border-primary/40 transition-colors duration-300 overflow-hidden">
+                            <div className="relative bg-card/80 backdrop-blur-sm p-8 md:p-8 h-full hover:border-primary/40 transition-colors duration-300 overflow-hidden">
                             <div className="w-14 h-14 rounded-2xl bg-amber-600 flex items-center justify-center mb-6">
                                 <Target className="w-7 h-7 text-white" />
                             </div>
@@ -168,7 +168,7 @@ function Home() {
                                     <div className="w-5 h-5 rounded-full bg-linear-to-br from-primary to-accent flex items-center justify-center mt-0.5 shrink-0">
                                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
                                     </div>
-                                    <span className="text-white leading-relaxed">{m}</span>
+                                    <span className="text-white text-sm leading-relaxed">{m}</span>
                                 </li>
                                 ))}
                             </ul>
