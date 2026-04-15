@@ -31,14 +31,14 @@ const Navbar = () => {
               to={link.path}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 location.pathname === link.path
-                  ? "bg-amber-600/10 text-amber-600"
+                  ? "bg-amber-500/10 text-amber-500"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <Button className="ml-4 w-full bg-amber-600">
+          <Button className="ml-4 w-full bg-amber-500">
             <Link to="/membership">Join ECB</Link>
           </Button>
         </div>
@@ -70,7 +70,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="px-6 pt-2">
-            <button className="w-full bg-amber-600">
+            <button className="w-full bg-amber-500">
               <Link to="/membership" onClick={() => setOpen(false)}>Join ECB</Link>
             </button>
           </div>
