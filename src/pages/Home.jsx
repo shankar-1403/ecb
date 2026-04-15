@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import Button from "../components/ui/button";
-import { Users, Building2, Rocket, BookOpen, Heart, CheckCircle2, Eye, Target, Handshake, Globe, Lightbulb, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin,Send } from "lucide-react";
+import { Users, Building2, Rocket, BookOpen, Heart, CheckCircle2, Eye, Target, Handshake, Globe, Lightbulb, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers } from "lucide-react";
 import Layout from "../components/Layout";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
 import { useState, useRef } from "react";
 import About from "../assets/about.webp";
 import { CardStack } from "../components/ui/cardStack";
+import { ContactFormCard } from "../components/ContactForm";
+import { ServiceOfferingCard } from "../components/ServiceOfferingCard";
 
 const offerings = [
   { number:"01",icon: Users, title: "Business Networking", desc: "Connect with entrepreneurs, industry leaders, and professionals." },
@@ -33,23 +35,49 @@ const missions = [
   "Build a strong and self-reliant business ecosystem",
 ];
 
-const CARDS = [
-    {
-        id: 1,
-        name: "Networking opportunities",
-    },
-    {
-        id: 2,
-        name: "Business growth support",
-    },
-    {
-        id: 3,
-        name: "Access to business resources",
-    },
-    {
-        id: 4,
-        name: "Updates on opportunities",
-    },
+const MEMBERSHIP_BENEFIT_CARDS = [
+  {
+    id: 1,
+    title: "Networking opportunities",
+    description: "Meet founders, mentors, and partners who understand MSME realities—not generic pitch rooms.",
+    detail: "Curated circles, warm intros, and sector meetups across states.",
+    icon: Users,
+  },
+  {
+    id: 2,
+    title: "Business growth support",
+    description: "Practical help on positioning, pipeline, and the next milestone so momentum does not stall.",
+    detail: "Peer learning and expert sessions aligned to how you operate day to day.",
+    icon: TrendingUp,
+  },
+  {
+    id: 3,
+    title: "Access to business resources",
+    description: "Templates, playbooks, and pointers to programmes that save time when you are moving fast.",
+    detail: "One place to discover what matters for compliance, digital, and scale.",
+    icon: Layers,
+  },
+  {
+    id: 4,
+    title: "Updates on opportunities",
+    description: "Timely signals on schemes, tenders, and openings that fit growing businesses—not noise.",
+    detail: "Digestible updates so you can act quickly with your team.",
+    icon: Bell,
+  },
+  {
+    id: 5,
+    title: "Events & webinars",
+    description: "Participation in member events and live sessions built around real founder questions.",
+    detail: "Learn, ask, and connect without leaving your city when you need virtual access.",
+    icon: CalendarDays,
+  },
+  {
+    id: 6,
+    title: "Visibility for your business",
+    description: "Showcase moments inside the ECB community and allied touchpoints so the right people notice you.",
+    detail: "Spotlights and introductions that support trust—not cold spam.",
+    icon: Megaphone,
+  },
 ];
 
 function AnimatedSection({ children, className = '' }) {
@@ -115,11 +143,11 @@ function Home() {
     return (
         <Layout>
             {/* Hero */}
-            <section className="relative overflow-hidden pt-50">
+            <section className="relative overflow-hidden pt-28 pb-8 sm:pt-32 md:pt-40 lg:pt-44 xl:pt-48">
                 <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-                <div className="relative max-w-7xl mx-auto flex items-center">
-                    <div className="max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up">
+                <div className="relative max-w-7xl mx-auto flex flex-col items-center gap-12 px-4 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-6">
+                    <div className="max-w-2xl w-full text-center lg:text-left">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
                             <Sparkles className="w-3 h-3 text-amber-500" />
                             <span className="text-sm font-semibold tracking-wide">India's Entrepreneur Growth Platform</span>
                         </div>
@@ -143,31 +171,33 @@ function Home() {
                         <p className="mt-8 text-gray-600 text-lg md:text-lg animate-fade-up-delay">
                             A national platform dedicated to supporting MSMEs, startups, and business owners with the right opportunities, connections, knowledge, and growth resources.
                         </p>
-                        <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2">
+                        <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2 justify-center lg:justify-start">
                             <Link to="/membership">
-                                <Button size="lg" className="text-base group bg-amber-500 px-8 py-6 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-shadow" asChild>Join ECB<ArrowRight  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"  /></Button>
-                            </Link>
-                            <Link to="/membership">
-                                <Button size="lg" className="text-base group bg-[#1D2F4F] px-8 py-6 shadow-lg shadow-[#1D2F4F]/25 hover:shadow-[#1D2F4F]/40 transition-shadow" asChild>Become a Member<ArrowRight  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"  /></Button>
+                                <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 transition-shadow hover:shadow-amber-500/40">
+                                    Join ECB
+                                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                </Button>
                             </Link>
                             <Link to="/services" className="text-black">
-                                <Button variant="outline" className="text-base px-8 py-6 text-black shadow-lg group bg-transparent cursor-pointer">
+                                <Button size="lg" variant="outline" className="group bg-transparent text-black shadow-lg">
                                     Explore Opportunities
                                     <ArrowRight  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"  />
                                 </Button>
                             </Link>
                         </div>
                     </div>
-                    <div>
-                        <div className="flex items-center justify-center w-full">
-                            <CardStack items={CARDS} />
-                        </div>
+                    <div className="shrink-0 w-full flex justify-center lg:justify-end lg:w-auto">
+                        <CardStack
+                            items={MEMBERSHIP_BENEFIT_CARDS}
+                            ctaHref="/membership"
+                            ctaLabel="Apply for membership"
+                        />
                     </div>
                 </div>
                 
-                <div className="relative mt-30 z-10">
-                    <div className="mx-auto max-w-6xl px-5 md:px-8">
-                        <AnimatedSection className="relative overflow-hidden rounded-3xl bg-[#252D4B] p-10 shadow-elevated md:p-8">
+                <div className="relative z-10 mt-12 sm:mt-16 md:mt-20 lg:mt-24">
+                    <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
+                        <AnimatedSection className="relative overflow-hidden rounded-2xl bg-[#252D4B] p-6 shadow-elevated sm:rounded-3xl sm:p-8 md:p-10">
                             <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-size-[18px_18px] opacity-60" />
                             <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-gold/15 blur-3xl" />
                             <div className="absolute -left-20 -bottom-20 h-60 w-60 rounded-full bg-primary-foreground/5 blur-3xl" />
@@ -188,10 +218,10 @@ function Home() {
 
 
             {/* About ECB */}
-            <section className="relative py-20 md:py-28">
+            <section className="relative py-16 sm:py-20 md:py-28">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-                <div className="relative flex gap-12 md:gap-16 items-center w-full max-w-7xl mx-auto">
-                    <div className="w-[50%]">
+                <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:gap-12 sm:px-5 md:gap-16 md:px-6 lg:flex-row lg:items-center">
+                    <div className="w-full min-w-0 lg:flex-1">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">WHO WE ARE</span>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                             About ECB
@@ -203,14 +233,14 @@ function Home() {
                             Our mission is to support businesses with access to funding awareness, networking opportunities, government scheme information, skill development programs, and strategic partnerships.
                         </p>
                         <Link to="/about">
-                            <Button className="mt-8 group bg-amber-500" asChild>
+                            <Button size="lg" className="group mt-8 bg-amber-500">
                                 Learn More About Us
-                                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
                         </Link>
                     </div>
-                    <div className="w-[50%]">
-                        <img src={About} alt="About Section" width={"100%"} height={"100%"} className="rounded-3xl" />
+                    <div className="w-full min-w-0 lg:flex-1">
+                        <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-[4/3] max-h-[420px] lg:max-h-none" />
                     </div>
                 </div>
             </section>
@@ -218,8 +248,8 @@ function Home() {
             {/* Vision & Mission */}
             <section className="relative overflow-hidden bg-[#1D2B4E]">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-                <div className="relative py-20 max-w-7xl mx-auto md:py-10">
-                    <div className="text-center mb-10">
+                <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-5 sm:py-20 md:px-6 md:py-10">
+                    <div className="mb-10 text-center">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">OUR PURPOSE</span>
                     <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-4">Vision & Mission</h3>
                     </div>
@@ -265,36 +295,37 @@ function Home() {
             
 
             {/* Offerings */}
-            <section className="py-20 overflow-hidden md:py-28 bg-gray-50">
-                <div className="text-center mb-14">
+            <section className="relative overflow-hidden py-20 md:py-28 bg-gray-50">
+                <div className="relative text-center mb-12 md:mb-14 px-4">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">OUR SERVICES</span>
-                    <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">What We Offer</h5>
+                    <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#1D2F4F]">What We Offer</h5>
+                    <p className="mt-4 mx-auto max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
+                        Explore how ECB supports your journey—swipe or use the arrows to browse our core offerings.
+                    </p>
                 </div>
-                <div className="max-w-7xl mx-auto">
-                    <Carousel className="w-full">
-                        <CarouselContent>
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-14">
+                    <Carousel className="w-full" opts={{ align: "start", containScroll: "trimSnaps" }}>
+                        <CarouselContent className="-ml-5 md:-ml-6">
                             {offerings.map(({ icon: Icon, title, desc, number }) => (
                                 <CarouselItem
                                     key={title}
-                                    className="basis-full md:basis-1/2 lg:basis-1/3 py-3"
+                                    className="pl-5 md:pl-6 basis-full sm:basis-1/2 xl:basis-1/3"
                                 >
-                                    <div className="group relative rounded-3xl p-6 md:p-8 flex flex-col justify-end overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 min-h-45 md:min-h-60 bg-card border border-amber-500 hover:border-amber-500/40 bg-white">
-                                    <div className="absolute top-1 right-1">
-                                        <span className="font-bold text-6xl text-gray-300/30">{number}</span>
-                                    </div>
-                                    <div className="absolute -top-10 -left-10 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-125"></div>
-
-                                    {/* Optional second bubble */}
-                                    <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-green-600/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-125"></div>
-                                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 border border-amber-500">
-                                        <Icon className="w-5 h-5 text-amber-500"/>
-                                    </div>
-
-                                    <h5 className="text-lg md:text-xl font-bold text-foreground">{title}</h5>
-
-                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-                                    <Link to={"/"} className="text-amber-500 text-sm mt-4 hover:underline font-bold">Read More</Link>
-                                    </div>
+                                    <ServiceOfferingCard
+                                        number={number}
+                                        icon={Icon}
+                                        title={title}
+                                        desc={desc}
+                                        footer={
+                                            <Link
+                                                to="/services"
+                                                className="group/link inline-flex w-fit items-center gap-1.5 rounded-lg border border-amber-500/80 bg-white px-4 py-2.5 text-sm font-semibold text-[#1D2F4F] shadow-sm transition hover:border-amber-500 hover:bg-amber-50/70 hover:pl-5 hover:shadow"
+                                            >
+                                                Read more
+                                                <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-0.5" />
+                                            </Link>
+                                        }
+                                    />
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
@@ -346,54 +377,47 @@ function Home() {
 
             {/* Contact */}
             <section className="py-20 md:py-28">
-                <div className="py-20 max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
+                <div className="py-12 md:py-16 max-w-7xl mx-auto px-4 md:px-6">
+                    <div className="text-center mb-12 md:mb-14">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">GET IN TOUCH</span>
                     <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
                     <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Have a question or want to collaborate? We'd love to hear from you.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-5 gap-8 max-w-7xl mx-auto">
-                        <div className="md:col-span-2 space-y-6">
+                    <div className="grid md:grid-cols-5 gap-8 lg:gap-10 max-w-7xl mx-auto items-start">
+                        <div className="md:col-span-2 space-y-4">
                             {[
-                            { icon: Mail, label: "Email", value: "info@ecbindia.org" },
-                            { icon: Phone, label: "Phone", value: "+91 98765 43210" },
-                            { icon: MapPin, label: "Location", value: "New Delhi, India" },
-                            ].map(({ icon: Icon, label, value }) => (
-                                <a href={label === "Email" ? `mailto:${value}` : label === "Phone" ? `tel:${value}` : null} key={label} className="flex items-start gap-4 group shadow-2xl p-6 bg-card rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                                    <div className="w-12 h-12 rounded-xl bg-amber-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                        <Icon className="w-5 h-5 text-amber-500" />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm text-muted-foreground">{label}</p>
-                                        <p className="font-display font-semibold text-foreground">{value}</p>
-                                    </div>
-                                </a>
-                            ))}
-                            <div className="mt-8 p-6 rounded-2xl bg-[#1D2F4F]">
-                                <h3 className="text-lg font-display font-bold text-white">Let's Build Together</h3>
+                            { icon: Mail, label: "Email", value: "info@ecbindia.org", href: "mailto:info@ecbindia.org" },
+                            { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
+                            { icon: MapPin, label: "Location", value: "New Delhi, India", href: null },
+                            ].map(({ icon: Icon, label, value, href }) => {
+                                const inner = (
+                                    <>
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-amber-500/15 to-amber-600/5 ring-1 ring-amber-500/10">
+                                            <Icon className="h-5 w-5 text-amber-600" />
+                                        </div>
+                                        <div className="min-w-0 pt-0.5">
+                                            <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">{label}</p>
+                                            <p className="mt-1 font-semibold text-foreground">{value}</p>
+                                        </div>
+                                    </>
+                                );
+                                const cardClass = "flex items-start gap-4 rounded-2xl border border-gray-200/90 bg-white p-5 shadow-md transition hover:-translate-y-0.5 hover:border-amber-500/25 hover:shadow-lg";
+                                return href ? (
+                                    <a key={label} href={href} className={cardClass}>{inner}</a>
+                                ) : (
+                                    <div key={label} className={cardClass}>{inner}</div>
+                                );
+                            })}
+                            <div className="rounded-2xl border border-white/10 bg-linear-to-br from-[#1D2F4F] to-[#15243d] p-6 text-white shadow-lg">
+                                <h3 className="text-lg font-display font-bold">Let&apos;s Build Together</h3>
                                 <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 500+ entrepreneurs who are growing their businesses with ECB.</p>
                             </div>
                         </div>
 
-                        <form className="md:col-span-3 space-y-5 rounded-3xl bg-card p-8 shadow-2xl shadow-primary/5">
-                            <div>
-                                <input name="name" placeholder="Your name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="rounded-xl border p-2 w-full border-gray-300 focus:border focus:border-amber-500" maxLength={100} />
-                            </div>
-                            <div>
-                                <input name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="rounded-xl border p-2 w-full border-gray-300 focus:border focus:border-amber-500" maxLength={255} />
-                            </div>
-                            <div>
-                                <input name="phone" type="number" placeholder="+91 00000 00000" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="rounded-xl border p-2 w-full border-gray-300 focus:border focus:border-amber-500" maxLength={15} />
-                            </div>
-                            <div>
-                                <textarea name="message" placeholder="How can we help you?" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="rounded-xl border p-2 w-full border-gray-300 focus:border focus:border-amber-500 min-h-30" maxLength={1000} />
-                            </div>
-                            <Button type="submit" size="lg" className="w-full rounded-xl bg-amber-500 cursor-pointer text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-amber-500/90 transition-all text-base py-6">
-                            <Send className="w-4 h-4 mr-2" />
-                            Send Message
-                            </Button>
-                        </form>
+                        <div className="md:col-span-3">
+                            <ContactFormCard formData={formData} setFormData={setFormData} submitLabel="Send message" />
+                        </div>
                     </div>
                 </div>
             </section>

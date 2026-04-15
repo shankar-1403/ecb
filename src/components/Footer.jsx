@@ -3,10 +3,10 @@ import Logo from "../assets/logo.webp";
 
 const Footer = () => (
   <footer className="bg-[#1D314E] text-white">
-    <div className="py-12 md:py-10 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-6 md:py-12">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <Link to="/">
+          <Link to="/" className="inline-block cursor-pointer">
             <img src={Logo} alt="ECB Logo" className="h-20"/>
           </Link>
           <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-sm">
@@ -25,7 +25,7 @@ const Footer = () => (
               { label: "Contact", path: "/contact" },
             ].map((l) => (
               <li key={l.path}>
-                <Link to={l.path} className="text-sm text-secondary-foreground/70 hover:text-secondary-foreground transition-colors">
+                <Link to={l.path} className="cursor-pointer text-sm text-secondary-foreground/70 transition-colors hover:text-secondary-foreground">
                   {l.label}
                 </Link>
               </li>
