@@ -1,16 +1,70 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
 import AboutImg from "../assets/about.webp";
-import { ArrowRight, Check, Eye, Target, Users, Lightbulb, HeartHandshake, InfoIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Target,
+  Users,
+  Lightbulb,
+  HeartHandshake,
+  InfoIcon,
+  Building2,
+  TrendingUp,
+  Sparkles,
+} from "lucide-react";
+import { cn } from "../lib/utils";
 
 const objectives = [
-  "Promote entrepreneurship in India",
-  "Support MSMEs and startups",
-  "Create networking opportunities",
-  "Provide business growth support",
-  "Encourage innovation and collaboration",
+  {
+    text: "Promote entrepreneurship in India",
+    icon: Lightbulb,
+  },
+  {
+    text: "Support MSMEs and startups",
+    icon: Building2,
+  },
+  {
+    text: "Create networking opportunities",
+    icon: Users,
+  },
+  {
+    text: "Provide business growth support",
+    icon: TrendingUp,
+  },
+  {
+    text: "Encourage innovation and collaboration",
+    icon: Sparkles,
+  },
 ];
+
+const objectiveFade = {
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+const objectiveStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.06 } },
+};
+
+function ObjectivesGrid({ children, className }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-48px" });
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      variants={objectiveStagger}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const values = [
   {
@@ -100,44 +154,86 @@ function About() {
       </section>
 
       {/* Our Objective */}
-      <section className="relative overflow-hidden bg-[#1D2B4E] py-12 text-white sm:py-16 md:py-20">
+      <section className="relative overflow-hidden bg-[#1D2B4E] py-16 text-white sm:py-20 md:py-24">
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-25"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 30% 20%, hsl(24, 90%, 50%) 0%, transparent 40%), radial-gradient(circle at 70% 80%, hsl(145, 50%, 45%) 0%, transparent 40%)",
+              "radial-gradient(circle at 25% 15%, hsl(24, 90%, 50%) 0%, transparent 42%), radial-gradient(circle at 78% 85%, hsl(145, 50%, 42%) 0%, transparent 45%)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12 md:mb-14">
-            <span className="inline-block rounded-full bg-amber-500/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-amber-600">What we pursue</span>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Our Objective</h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Clear priorities that guide how ECB shows up for entrepreneurs, MSMEs, and startups across India.
-            </p>
-            <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-linear-to-r from-amber-500 to-amber-600/80" />
-          </div>
+        <div
+          className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+        <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-amber-500/12 blur-[100px]" />
+        <div className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-green-500/10 blur-[90px]" />
 
-          <div className="mx-auto grid max-w-5xl gap-4 sm:gap-5 md:grid-cols-2">
-            {objectives.map((line, index) => (
-              <div
-                key={line}
-                className="group relative flex gap-4 overflow-hidden rounded-2xl border border-gray-200/95 bg-white p-5 shadow-sm ring-1 ring-black/5 transition duration-300 hover:-translate-y-0.5 hover:border-amber-500/70 hover:shadow-md sm:gap-5 sm:p-6 md:rounded-3xl"
-              >
-                <div className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-amber-400 via-amber-500 to-amber-600/80 opacity-90" aria-hidden />
-                <div className="flex shrink-0 flex-col items-center justify-center pl-2">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-500/70 bg-amber-50 text-xs font-bold tabular-nums text-amber-800 shadow-sm sm:h-12 sm:w-12 sm:text-sm">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <div className="min-w-0 flex-1 pt-0.5">
-                  <p className="text-base font-medium leading-snug text-gray-800 sm:text-lg">{line}</p>
-                </div>
-                <div className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-green-600/15 bg-green-50 text-green-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:right-5 sm:top-5">
-                  <Check className="h-4 w-4" strokeWidth={2.5} />
-                </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
+          <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+            <motion.div
+              className="lg:col-span-5 xl:col-span-4"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <div className="lg:sticky lg:top-28">
+                <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-amber-400">
+                  What we pursue
+                </span>
+                <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+                  Our Objective
+                </h2>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70 sm:text-base">
+                  Clear priorities that guide how ECB shows up for entrepreneurs, MSMEs, and startups across India.
+                </p>
+                <div className="mt-6 h-1 w-24 rounded-full bg-linear-to-r from-amber-400 via-amber-500 to-green-500/80" />
+             
               </div>
-            ))}
+            </motion.div>
+
+            <ObjectivesGrid className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:col-span-7 xl:col-span-8">
+              {objectives.map((obj, index) => {
+                const Icon = obj.icon;
+                const wide = index === objectives.length - 1;
+                return (
+                  <motion.article
+                    key={obj.text}
+                    variants={objectiveFade}
+                    className={cn(
+                      "group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/[0.09] to-white/[0.02] p-5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-md transition duration-500 sm:rounded-3xl sm:p-6",
+                      "hover:border-amber-400/35 hover:from-white/[0.12] hover:shadow-[0_24px_60px_-20px_rgba(245,158,11,0.12)]",
+                      wide && "sm:col-span-2",
+                    )}
+                  >
+                    <div
+                      className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-amber-500/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                      aria-hidden
+                    />
+                    <div className="relative flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
+                      <div className="flex shrink-0 items-center gap-3 sm:flex-col sm:items-start sm:gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400 ring-1 ring-amber-500/25 sm:h-14 sm:w-14">
+                          <Icon className="h-6 w-6 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                        </div>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-lg font-semibold leading-snug text-white sm:text-xl">{obj.text}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-white/65 sm:text-[0.9375rem]">{obj.hint}</p>
+                      </div>
+                    </div>
+                    <div
+                      className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      aria-hidden
+                    />
+                  </motion.article>
+                );
+              })}
+            </ObjectivesGrid>
           </div>
         </div>
       </section>

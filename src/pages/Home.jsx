@@ -6,7 +6,7 @@ import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'fra
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
 import { useState, useRef } from "react";
 import About from "../assets/about.webp";
-import { CardStack } from "../components/ui/cardStack";
+import { HeroBenefitSpotlight } from "../components/ui/heroBenefitSpotlight";
 import { ContactFormCard } from "../components/ContactForm";
 import { ServiceOfferingCard } from "../components/ServiceOfferingCard";
 
@@ -187,7 +187,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="shrink-0 w-full flex justify-center lg:justify-end lg:w-auto">
-                        <CardStack
+                        <HeroBenefitSpotlight
                             items={MEMBERSHIP_BENEFIT_CARDS}
                             ctaHref="/membership"
                             ctaLabel="Apply for membership"
