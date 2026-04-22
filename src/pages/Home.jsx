@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import Button from "../components/ui/button";
-import { Users, Building2, Rocket, BookOpen, Heart, CheckCircle2, Eye, Target, Handshake, Globe, Lightbulb, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers } from "lucide-react";
+import { Users, Building2, Rocket, BookOpen, Heart, Eye, Target, Handshake, Globe, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers, BadgeCheck,Banknote,Briefcase,Building,Cpu,GraduationCap,HeartHandshake,LayoutDashboard,LineChart,Network,Scale,Truck,UsersRound,FileText,ShieldCheck } from "lucide-react";
 import Layout from "../components/Layout";
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
+import { motion, useInView} from 'framer-motion';
 import { useState, useRef } from "react";
 import About from "../assets/about.webp";
 import { HeroBenefitSpotlight } from "../components/ui/heroBenefitSpotlight";
 import { ContactFormCard } from "../components/ContactForm";
-import { ServiceOfferingCard } from "../components/ServiceOfferingCard";
 
 const offerings = [
   { number:"01",icon: Users, title: "Business Networking", desc: "Connect with entrepreneurs, industry leaders, and professionals." },
@@ -19,21 +17,64 @@ const offerings = [
 ];
 
 const whyJoin = [
-  { text: "Why Join ECB", detail: "Connect with entrepreneurs, industry leaders, and professionals." },
-  { icon: Globe, text: "Expand your business network", detail: "Connect with 500+ entrepreneurs across India" },
-  { icon: TrendingUp, text: "Get access to opportunities & updates", detail: "Stay ahead with curated business insights" },
-  { icon: Award, text: "Learn from industry experts", detail: "Mentorship from successful entrepreneurs" },
-  { icon: Zap, text: "Grow your business faster", detail: "Accelerate with proven strategies & tools" },
-  { icon: Users, text: "Be part of a strong entrepreneur community", detail: "Join a supportive network that lifts you up" },
+  { text: "Why Join as Elite Ambassador", detail: "Connect with entrepreneurs, industry leaders, and professionals." },
+  { icon: Globe, text: "Access to high-quality entrepreneur leads", detail: "Connect with 500+ entrepreneurs across India" },
+  { icon: TrendingUp, text: "National & global business visibility", detail: "Stay ahead with curated business insights" },
+  { icon: Award, text: "Strategic collaboration opportunities", detail: "Mentorship from successful entrepreneurs" },
+  { icon: Zap, text: "Positioning as trusted expert", detail: "Accelerate with proven strategies & tools" },
+  { icon: Users, text: "Revenue growth opportunities", detail: "Join a supportive network that lifts you up" },
+  { icon: Users, text: "Participation in events & summits", detail: "Join a supportive network that lifts you up" },
 ];
 
-const missions = [
-  "Support MSMEs and startups in scaling their business",
-  "Connect entrepreneurs with industry experts and networks",
-  "Spread awareness about government schemes and business opportunities",
-  "Promote entrepreneurship across India",
-  "Build a strong and self-reliant business ecosystem",
+const steps = [
+  {
+    number: "01",
+    title: "Apply for Empanelment",
+    description: "Submit your application and showcase your profile to begin your journey with us.",
+    icon: FileText,
+  },
+  {
+    number: "02",
+    title: "Verification & Approval",
+    description: "Our team carefully reviews your credentials to ensure quality and authenticity.",
+    icon: ShieldCheck,
+  },
+  {
+    number: "03",
+    title: "Get Listed as Elite Ambassador",
+    description: "Join our exclusive roster and gain visibility as a recognized Elite Ambassador.",
+    icon: Award,
+  },
+  {
+    number: "04",
+    title: "Receive Opportunities & Collaborations",
+    description: "Unlock premium opportunities and collaborate with leading brands worldwide.",
+    icon: Sparkles,
+  },
 ];
+
+const SERVICE_ITEMS = [
+  { title: "Finance & Funding", Icon: Banknote },
+  { title: "Technology Enablement", Icon: Cpu },
+  { title: "Marketing & Branding", Icon: Megaphone },
+  { title: "Government Schemes & Subsidies", Icon: Building2 },
+  { title: "Entrepreneurial Ideation & Orientation", Icon: Target },
+  { title: "Business Planning & Strategy", Icon: LayoutDashboard },
+  { title: "Company Formation & Legal Structuring", Icon: Scale },
+  { title: "Financial Structuring & Advisory", Icon: LineChart },
+  { title: "Infrastructure & Real Estate Solutions", Icon: Building },
+  { title: "Human Resources & Talent Acquisition", Icon: Users },
+  { title: "Sales Distribution & Logistics", Icon: Truck },
+  { title: "Credit Rating & Financial Health", Icon: BadgeCheck },
+  { title: "Growth Strategy & Expansion", Icon: TrendingUp },
+  { title: "Consulting Coaching & Training", Icon: GraduationCap },
+  { title: "Liaisoning & Government Connect", Icon: Handshake },
+  { title: "Networking & Business Visibility", Icon: Network },
+  { title: "Virtual CXO Services", Icon: Briefcase },
+  { title: "Strategic Advisory Boards", Icon: UsersRound },
+  { title: "CSR & Social Impact", Icon: HeartHandshake },
+];
+
 
 const MEMBERSHIP_BENEFIT_CARDS = [
   {
@@ -102,9 +143,6 @@ function CountUpStat({ value, label, icon }) {
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94]}}
         className="flex flex-col items-center gap-3"
       >
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white transition-transform duration-300 group-hover:scale-110">
-          <StatIcon className="h-5 w-5 text-white" />
-        </div>
         <div className="font-heading text-3xl font-extrabold text-white md:text-4xl">
           {value}
         </div>
@@ -144,18 +182,18 @@ function Home() {
         <Layout>
             {/* Hero */}
             <section className="relative overflow-hidden pt-28 pb-8 sm:pt-32 md:pt-40 lg:pt-44 xl:pt-48">
-                <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-                <div className="relative max-w-7xl mx-auto flex flex-col items-center gap-12 px-4 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-6">
+                <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, white 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, white 50%)" }} />
+                <div className="relative max-w-7xl mx-auto flex flex-col items-center gap-10 px-4 lg:flex-row lg:items-center lg:justify-between md:gap-4 lg:px-6">
                     <div className="max-w-2xl w-full text-center lg:text-left">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
                             <Sparkles className="w-3 h-3 text-amber-500" />
                             <span className="text-sm font-semibold tracking-wide">India's Entrepreneur Growth Platform</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold leading-[1.1] animate-fade-up">
+                        <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold leading-[1.1] animate-fade-up mb-6">
                             Empowering Indian
                             <br />
                             <span className="relative">
-                                <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-500 bg-clip-text text-transparent">Entrepreneurs</span>
+                                <span className="bg-linear-to-b from-amber-500 to-amber-600 bg-clip-text font-bold text-transparent italic font-new-display tracking-tight">Entrepreneurs</span>
                                 <svg className="absolute -bottom-4 left-0 w-full" viewBox="0 0 300 20" fill="none">
                                     <path
                                         d="M0 15 Q150 -5 300 15"
@@ -166,21 +204,19 @@ function Home() {
                                 </svg>
                             </span>
                             <br />
-                            <span className="text-gray-600 text-xl md:text-4xl lg:text-3xl">Strengthening MSMEs. Building Bharat <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-500 bg-clip-text text-transparent">🇮🇳</span></span>
                         </h1>
-                        <p className="mt-8 text-gray-600 text-lg md:text-lg animate-fade-up-delay">
-                            A national platform dedicated to supporting MSMEs, startups, and business owners with the right opportunities, connections, knowledge, and growth resources.
-                        </p>
+                        <span className="text-gray-600 text-xl md:text-4xl lg:text-2xl relative">Strengthening MSMEs. Building Bharat <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-500 bg-clip-text text-transparent">🇮🇳</span></span>
+                        <p className="mt-8 text-gray-600 text-lg md:text-lg animate-fade-up-delay">A Global Initiative empowering Entrepreneurs with Finance, Technology, Strategy, and Growth Ecosystems.</p>
                         <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2 justify-center lg:justify-start">
                             <Link to="/membership">
                                 <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 transition-shadow hover:shadow-amber-500/40">
-                                    Join ECB
+                                    Apply as Elite Ambassador
                                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                 </Button>
                             </Link>
                             <Link to="/services" className="text-black">
                                 <Button size="lg" variant="outline" className="group bg-transparent text-black shadow-lg">
-                                    Explore Opportunities
+                                    Explore Services
                                     <ArrowRight  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"  />
                                 </Button>
                             </Link>
@@ -203,12 +239,12 @@ function Home() {
                             <div className="absolute -left-20 -bottom-20 h-60 w-60 rounded-full bg-primary-foreground/5 blur-3xl" />
                             <motion.div variants={stagger} className="relative grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
                                 {[
-                                    { icon: Handshake, value: "500+", label: "Entrepreneurs Connected" },
-                                    { icon: Globe, value: "28+", label: "States Covered" },
-                                    { icon: Lightbulb, value: "100+", label: "Startups Supported" },
-                                    { icon: Building2, value: "200+", label: "Businesses Empowered" },
+                                    { value: "500+", label: "Entrepreneurs Connected" },
+                                    { value: "28+", label: "States Covered" },
+                                    { value: "100+", label: "Startups Supported" },
+                                    { value: "200+", label: "Businesses Empowered" },
                                 ].map((s) => (
-                                    <CountUpStat key={s.label} value={s.value} label={s.label} icon={s.icon} />
+                                    <CountUpStat key={s.label} value={s.value} label={s.label} />
                                 ))}
                             </motion.div>
                         </AnimatedSection>
@@ -222,18 +258,11 @@ function Home() {
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:gap-12 sm:px-5 md:gap-16 md:px-6 lg:flex-row lg:items-center">
                     <div className="w-full min-w-0 lg:flex-1">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">WHO WE ARE</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                            About ECB
-                        </h2>
-                        <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">
-                            Entrepreneur Connect Bharat (ECB) is an initiative created to empower entrepreneurs, startups, and MSMEs across India. We aim to build a strong business ecosystem where entrepreneurs can connect, grow, and succeed through collaboration, guidance, and opportunities.
-                        </p>
-                        <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
-                            Our mission is to support businesses with access to funding awareness, networking opportunities, government scheme information, skill development programs, and strategic partnerships.
-                        </p>
+                        <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-5">About ECB</span>
+                        <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold leading-10">A global initiative for India’s entrepreneur economy</h2>
+                        <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">Entrepreneurs Connect Bharat is a global initiative designed to build a powerful ecosystem connecting entrepreneurs with verified experts across finance, technology, strategy, legal, marketing, and business growth services.</p>
                         <Link to="/about">
-                            <Button size="lg" className="group mt-8 bg-amber-500">
+                            <Button size="lg" className="group mt-20 bg-amber-500">
                                 Learn More About Us
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
@@ -241,6 +270,33 @@ function Home() {
                     </div>
                     <div className="w-full min-w-0 lg:flex-1">
                         <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-[4/3] max-h-[420px] lg:max-h-none" />
+                    </div>
+                </div>
+            </section>
+
+            {/* Services Offered */}
+            <section className="relative py-16 sm:py-20 md:py-28">
+                <div className="relative mx-auto w-full max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 md:gap-16 md:px-6 lg:items-center">
+                    <div className="w-full">
+                        <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-5">Full spectrum</span>
+                        <h3 className="text-3xl md:text-4xl lg:text-4xl font-bold leading-10">Services offered through the ECB network</h3>
+                        <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 mt-6">
+                        {SERVICE_ITEMS.map(({ title, Icon }, i) => (
+                            <div className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-slate-200/90 bg-white p-5 shadow-sm shadow-slate-900/4 transition-all duration-300 hover:border-amber-500/35 hover:shadow-lg hover:shadow-amber-500/20" transition={{ duration: 0.22 }}>
+                                <div className="absolute left-0 top-0 h-full w-0.75 bg-linear-to-b from-amber-400/90 via-amber-500/70 to-amber-600/50" aria-hidden />
+                                <span
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-slate-50 to-slate-100/80 text-amber-500 ring-1 ring-amber-500/80 transition-colors group-hover:bg-amber-500 group-hover:text-amber-500 group-hover:ring-amber-500"
+                                    transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                                >
+                                    <Icon className="h-5 w-5" aria-hidden />
+                                </span>
+                                <div>
+                                    <h3 className="text-base font-bold leading-snug">{title}</h3>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -263,91 +319,96 @@ function Home() {
                                 </div>
                                 <h4 className="text-2xl md:text-3xl font-display font-bold text-white">Our Vision</h4>
                                 <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-5" />
-                                <p className="text-white leading-relaxed text-sm">
-                                    To create India's most trusted platform for entrepreneurs, MSMEs, and startups by providing growth opportunities, meaningful connections, and business support systems.
-                                </p>
+                                <p className="text-white leading-relaxed text-sm">To build India's most powerful entrepreneur support ecosystem</p>
                             </div>
                         </div>
 
                         <div className="relative group border border-white/60 overflow-hidden rounded-2xl">
                             <div className="absolute inset-0 bg-linear-to-br from-amber-500 via-white to-green-600 rounded-2xl opacity-20 transition-opacity duration-500 blur-xl" />
                             <div className="relative bg-card/80 backdrop-blur-sm p-8 md:p-8 h-full hover:border-primary/40 transition-colors duration-300 overflow-hidden">
-                            <div className="w-14 h-14 rounded-2xl bg-amber-500 flex items-center justify-center mb-6">
-                                <Target className="w-7 h-7 text-white" />
-                            </div>
-                            <h4 className="text-2xl md:text-3xl font-display font-bold text-white">Our Mission</h4>
-                            <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-5" />
-                            <ul className="space-y-1">
-                                {missions.map((m) => (
-                                <li key={m} className="flex items-start gap-3">
-                                    <div className="w-5 h-5 rounded-full bg-linear-to-br from-primary to-accent flex items-center justify-center mt-0.5 shrink-0">
-                                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
-                                    </div>
-                                    <span className="text-white text-sm leading-relaxed">{m}</span>
-                                </li>
-                                ))}
-                            </ul>
+                                <div className="w-14 h-14 rounded-2xl bg-amber-500 flex items-center justify-center mb-6">
+                                    <Target className="w-7 h-7 text-white" />
+                                </div>
+                                <h4 className="text-2xl md:text-3xl font-display font-bold text-white">Our Mission</h4>
+                                <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-5" />
+                                <p className="text-white leading-relaxed text-sm">Enable entrepreneurs with trusted experts across every business function.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            
 
-            {/* Offerings */}
-            <section className="relative overflow-hidden py-20 md:py-28 bg-gray-50">
-                <div className="relative text-center mb-12 md:mb-14 px-4">
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">OUR SERVICES</span>
-                    <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#1D2F4F]">What We Offer</h5>
-                    <p className="mt-4 mx-auto max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-                        Explore how ECB supports your journey—swipe or use the arrows to browse our core offerings.
-                    </p>
+            <section className="relative w-full overflow-hidden py-24 sm:py-32">
+                {/* Background decoration */}
+                <div className="pointer-events-none absolute inset-0 -z-10">
+                    <div className="absolute left-1/2 top-0 h-125 w-125 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
                 </div>
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-14">
-                    <Carousel className="w-full" opts={{ align: "start", containScroll: "trimSnaps" }}>
-                        <CarouselContent className="-ml-5 md:-ml-6">
-                            {offerings.map(({ icon: Icon, title, desc, number }) => (
-                                <CarouselItem
-                                    key={title}
-                                    className="pl-5 md:pl-6 basis-full sm:basis-1/2 xl:basis-1/3"
-                                >
-                                    <ServiceOfferingCard
-                                        number={number}
-                                        icon={Icon}
-                                        title={title}
-                                        desc={desc}
-                                        footer={
-                                            <Link
-                                                to="/services"
-                                                className="group/link inline-flex w-fit items-center gap-1.5 rounded-lg border border-amber-500/80 bg-white px-4 py-2.5 text-sm font-semibold text-[#1D2F4F] shadow-sm transition hover:border-amber-500 hover:bg-amber-50/70 hover:pl-5 hover:shadow"
-                                            >
-                                                Read more
-                                                <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-0.5" />
-                                            </Link>
-                                        }
-                                    />
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
 
-                        <CarouselPrevious />
-                        <CarouselNext />
-                    </Carousel>
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    {/* Header */}
+                    <div className="mx-auto max-w-2xl text-center">
+                    <p className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">Process</p>
+                    <h4 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">How it Works</h4>
+                    <p className="mt-4 text-lg text-muted-foreground">A simple four-step journey to becoming part of our elite network.</p>
+                    </div>
+
+                    {/* Steps */}
+                    <div className="relative mt-20">
+
+                    <ol className="grid gap-12 md:grid-cols-4 md:gap-6">
+                        {steps.map((step, idx) => {
+                        const Icon = step.icon;
+                        return (
+                            <li
+                            key={step.number}
+                            className="group relative animate-fade-in pl-24 md:pl-0"
+                            style={{ animationDelay: `${idx * 120}ms`, animationFillMode: "both" }}
+                            >
+                            {/* Icon bubble */}
+                            <div className="absolute left-0 top-0 md:relative md:mx-auto md:flex md:justify-center">
+                                <div className="relative">
+                                <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl transition-all duration-500 group-hover:bg-primary/40" />
+                                    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-amber-500 bg-amber-500/5 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-amber-500 group-hover:shadow-lg">
+                                        <Icon className="h-8 w-8 text-amber-500" strokeWidth={1.75} />
+                                    </div>
+                                    {/* Step number badge */}
+                                    <span className="absolute -right-1 -top-1 flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white shadow-md ring-4 ring-background">
+                                        {idx + 1}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="md:mt-6 md:text-center">
+                                <p className="text-[12px] font-semibold uppercase tracking-widest text-muted-foreground">Step {step.number}</p>
+                                <h5 className="mt-1 text-base font-semibold text-amber-500">{step.title}</h5>
+                                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{step.description}</p>
+                            </div>
+
+                            {idx < steps.length - 1 && (
+                                <div className="absolute right-0 top-10 hidden translate-x-1/2 md:block" aria-hidden="true">
+                                    <ArrowRight className="w-5 h-5 text-amber-500"/>
+                                </div>
+                            )}
+                            </li>
+                        );
+                        })}
+                    </ol>
+                    </div>
                 </div>
-            </section>
-            
+                </section>
 
             {/* Why Join */}
             <section className="py-20 md:py-28 relative">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 max-w-7xl mx-auto relative">
                     {whyJoin.map(({ icon: Icon, text, detail }, i) => {
-                    const span = i === 0 ? "md:col-span-2 md:row-span-2 flex justify-center items-center": "";
+                    const span = i === 0 ? "md:col-span-2 md:row-span-3 flex justify-center items-center": "";
                     const isHero = i === 0;
                     return (
                         <div
                         key={text}
-                        className={`group relative rounded-3xl p-6 md:p-8 flex flex-col overflow-hidden  hover:shadow-xl hover:shadow-primary/10 min-h-45 md:min-h-50 ${span} ${isHero ? "border border-gray-200" : "bg-white border border-amber-500/30 hover:border-primary/40 justify-end transition-all duration-300 hover:-translate-y-1"}`}
+                        className={`group relative rounded-3xl p-6 md:p-6 flex flex-col overflow-hidden hover:shadow-xl hover:shadow-primary/10 min-h-30 ${span} ${isHero ? "border border-gray-200" : "bg-white border border-amber-500/30 hover:border-primary/40 justify-center transition-all duration-300 hover:-translate-y-1"}`}
                         >
                             {isHero ? <div className="absolute inset-0 bg-[#1D2F4F] rounded-2xl transition-opacity duration-500"/> : null}
                             {isHero ? 
@@ -356,15 +417,16 @@ function Home() {
                                     <div className="absolute -bottom-20 -right-30 w-130 h-130 bg-green-600/30 opacity-50 blur-2xl rounded-full"></div>
                                 </> : null}
 
-                            <div className={`relative ${isHero ? 'flex flex-col justify-center items-center':null}`}>
+                            <div className={`relative ${isHero ? 'flex flex-col justify-center items-center max-w-xl':'flex flex-row items-center gap-4'}`}>
                                 {isHero?null:
-                                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-3 ${isHero ? "bg-primary-foreground/20" : "bg-amber-500/30"}`}>
-                                        <Icon className="w-5 h-5 text-amber-500" />
+                                    <div>
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${isHero ? "bg-primary-foreground/20" : "bg-amber-500/30"}`}>
+                                            <Icon className="w-5 h-5 text-amber-500" />
+                                        </div>
                                     </div>
                                 }
                                 {isHero ? <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide text-center">Join The Movement</span>: null }
-                                <h5 className={`font-display font-bold ${isHero ? "text-lg md:text-5xl text-white" : "text-foreground text-lg md:text-xl "}`}>{text}</h5>
-                                <p className={`mt-1 text-sm leading-relaxed ${isHero ? "text-white" : "text-muted-foreground"}`}>{detail}</p>
+                                <h5 className={`font-display font-bold ${isHero ? "text-lg md:text-5xl text-white text-center" : "text-foreground text-lg md:text-xl "}`}>{text}</h5>
                                 
                                 {isHero ? <div className="flex justify-center items-center mt-4"><Link to={'/membership'} className="cursor-pointer"><Button className="bg-amber-500">Join Now</Button></Link></div>:null}
                             </div>
@@ -379,17 +441,17 @@ function Home() {
             <section className="py-20 md:py-28">
                 <div className="py-12 md:py-16 max-w-7xl mx-auto px-4 md:px-6">
                     <div className="text-center mb-12 md:mb-14">
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">GET IN TOUCH</span>
-                    <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
-                    <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Have a question or want to collaborate? We'd love to hear from you.</p>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">GET IN TOUCH</span>
+                        <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
+                        <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Have a question or want to collaborate? We'd love to hear from you.</p>
                     </div>
 
                     <div className="grid md:grid-cols-5 gap-8 lg:gap-10 max-w-7xl mx-auto items-start">
                         <div className="md:col-span-2 space-y-4">
                             {[
-                            { icon: Mail, label: "Email", value: "info@ecbindia.org", href: "mailto:info@ecbindia.org" },
-                            { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
-                            { icon: MapPin, label: "Location", value: "New Delhi, India", href: null },
+                            { icon: Mail, label: "Email", value: "contact@ec-bharat.in", href: "mailto:contact@ec-bharat.in" },
+                            { icon: Phone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+91 22 3512 0060" },
+                            { icon: MapPin, label: "Location", value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093", href: null },
                             ].map(({ icon: Icon, label, value, href }) => {
                                 const inner = (
                                     <>
@@ -410,7 +472,7 @@ function Home() {
                                 );
                             })}
                             <div className="rounded-2xl border border-white/10 bg-linear-to-br from-[#1D2F4F] to-[#15243d] p-6 text-white shadow-lg">
-                                <h3 className="text-lg font-display font-bold">Let&apos;s Build Together</h3>
+                                <h5 className="text-lg font-display font-bold">Let&apos;s Build Together</h5>
                                 <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 500+ entrepreneurs who are growing their businesses with ECB.</p>
                             </div>
                         </div>

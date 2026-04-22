@@ -182,3 +182,7 @@
     border-right-color: var(--border);
   }
 }
+
+.font-new-display{
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+}

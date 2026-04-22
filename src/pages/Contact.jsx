@@ -6,9 +6,9 @@ import { ContactFormCard } from "../components/ContactForm";
 import { Mail, Phone, MapPin, Send, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const contactItems = [
-  { icon: Mail, label: "Email", value: "info@ecbindia.org", href: "mailto:info@ecbindia.org" },
-  { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
-  { icon: MapPin, label: "Location", value: "New Delhi, India", href: null },
+  { icon: Mail, label: "Email", value: "contact@ec-bharat.in", href: "mailto:contact@ec-bharat.in" },
+  { icon: Phone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+91 22 3512 0060" },
+  { icon: MapPin, label: "Location", value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093", href: null },
 ];
 
 function Contact() {

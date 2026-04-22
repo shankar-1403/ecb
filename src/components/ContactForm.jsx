@@ -35,7 +35,7 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
       onSubmit={handleSubmit}
       className="relative overflow-hidden rounded-3xl border border-gray-200/90 bg-white shadow-[0_24px_60px_-15px_rgba(29,47,79,0.18)] md:rounded-[1.75rem]"
     >
-      <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-amber-400 to-green-600" aria-hidden />
+      <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
       <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-[#1D2F4F]/5 blur-3xl pointer-events-none" />
 

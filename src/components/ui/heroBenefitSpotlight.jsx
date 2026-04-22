@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 const ease = [0.25, 0.46, 0.45, 0.94];
 
 /** Fixed body height; description uses remaining space with scroll if needed. */
-const SPOTLIGHT_BODY_CLASS = "h-[300px] md:h-[316px]";
+const SPOTLIGHT_BODY_CLASS = "h-[200px] md:h-[200px]";
 
 /**
  * Hero visual: one benefit at a time with dots + arrows; auto-advances on a timer.
@@ -60,15 +60,15 @@ export function HeroBenefitSpotlight({
   const Icon = card.icon;
 
   return (
-    <div className="relative w-full max-w-[min(22rem,calc(100vw-2rem))] shrink-0">
+    <div className="relative w-full shrink-0">
       <div className="pointer-events-none absolute -inset-8 rounded-4xl bg-linear-to-tr from-amber-500/15 via-white/0 to-green-600/12 blur-2xl" />
-
       <div
         className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_24px_56px_-20px_rgba(29,47,79,0.3)] md:rounded-3xl"
         onPointerEnter={() => setPointerPause(true)}
         onPointerLeave={() => setPointerPause(false)}
       >
         {/* <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-amber-500/10 via-green-500/5 to-transparent" /> */}
+      <div className="bg-linear-to-r from-amber-500 via-45% via-white to-green-500 absolute left-0 right-0 top-0 h-1 rounded-t-2xl opacity-90"></div>
 
         <div className="relative px-5 pb-5 pt-6 md:px-6 md:pb-6 md:pt-7">
 
@@ -109,18 +109,6 @@ export function HeroBenefitSpotlight({
                   </div>
                 </div>
 
-                <div className="h-20 w-full max-w-76 shrink-0">
-                  {card.detail ? (
-                    <div
-                      className="h-full overflow-y-auto overscroll-contain rounded-xl border border-green-500/20 bg-green-500/5 px-3 py-2 text-left [scrollbar-gutter:stable]"
-                      style={{ scrollbarWidth: "thin" }}
-                    >
-                      <p className="text-xs leading-relaxed text-gray-600">{card.detail}</p>
-                    </div>
-                  ) : (
-                    <div className="h-full rounded-xl border border-transparent" aria-hidden />
-                  )}
-                </div>
               </motion.div>
             </AnimatePresence>
           </div>

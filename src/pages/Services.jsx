@@ -1,40 +1,27 @@
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
-import Button from "../components/ui/button";
-import { ServiceOfferingCard } from "../components/ServiceOfferingCard";
-import { ArrowRight, Users, Building2, Rocket, BookOpen, Heart, Sparkles } from "lucide-react";
+import { Users, Building2, Banknote, Cpu, Megaphone, Sparkles,Target,LayoutDashboard,Scale,LineChart,Building,Truck,BadgeCheck,TrendingUp,GraduationCap,Handshake,Network,Briefcase,UsersRound,HeartHandshake } from "lucide-react";
 
-const services = [
-  {
-    number: "01",
-    icon: Users,
-    title: "Business networking",
-    desc: "Structured meetups, sector circles, and warm introductions so relationships turn into pipeline and partnerships.",
-  },
-  {
-    number: "02",
-    icon: Building2,
-    title: "MSME support",
-    desc: "Plain-language clarity on schemes, registrations, and programmes that affect cash flow, compliance, and growth.",
-  },
-  {
-    number: "03",
-    icon: Rocket,
-    title: "Growth opportunities",
-    desc: "Visibility for your offering, access to buyer conversations, and signals on where demand is heating up.",
-  },
-  {
-    number: "04",
-    icon: BookOpen,
-    title: "Learning & development",
-    desc: "Workshops and expert sessions on positioning, digital growth, fundraising readiness, and operational excellence.",
-  },
-  {
-    number: "05",
-    icon: Heart,
-    title: "Community support",
-    desc: "A culture of generosity—founders sharing playbooks, vendors, and lessons so no one has to learn everything the hard way.",
-  },
+const SERVICE_ITEMS = [
+  { title: "Finance & Funding", Icon: Banknote },
+  { title: "Technology Enablement", Icon: Cpu },
+  { title: "Marketing & Branding", Icon: Megaphone },
+  { title: "Government Schemes & Subsidies", Icon: Building2 },
+  { title: "Entrepreneurial Ideation & Orientation", Icon: Target },
+  { title: "Business Planning & Strategy", Icon: LayoutDashboard },
+  { title: "Company Formation & Legal Structuring", Icon: Scale },
+  { title: "Financial Structuring & Advisory", Icon: LineChart },
+  { title: "Infrastructure & Real Estate Solutions", Icon: Building },
+  { title: "Human Resources & Talent Acquisition", Icon: Users },
+  { title: "Sales Distribution & Logistics", Icon: Truck },
+  { title: "Credit Rating & Financial Health", Icon: BadgeCheck },
+  { title: "Growth Strategy & Expansion", Icon: TrendingUp },
+  { title: "Consulting Coaching & Training", Icon: GraduationCap },
+  { title: "Liaisoning & Government Connect", Icon: Handshake },
+  { title: "Networking & Business Visibility", Icon: Network },
+  { title: "Virtual CXO Services", Icon: Briefcase },
+  { title: "Strategic Advisory Boards", Icon: UsersRound },
+  { title: "CSR & Social Impact", Icon: HeartHandshake },
 ];
 
 function Services() {
@@ -78,24 +65,20 @@ function Services() {
               Each programme is built to compound—networks, clarity, and momentum for MSMEs and founders.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            {services.map(({ icon: Icon, title, desc, number }) => (
-              <ServiceOfferingCard
-                key={title}
-                number={number}
-                icon={Icon}
-                title={title}
-                desc={desc}
-                footer={
-                  <Link
-                    to="/contact"
-                    className="group/link inline-flex w-fit items-center gap-1.5 rounded-lg border border-amber-500/80 bg-white px-4 py-2.5 text-sm font-semibold text-[#1D2F4F] shadow-sm transition hover:border-amber-500 hover:bg-amber-50/70 hover:pl-5 hover:shadow"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SERVICE_ITEMS.map(({ title, Icon }, i) => (
+              <div className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-slate-200/90 bg-white p-5 shadow-sm shadow-slate-900/4 transition-all duration-300 hover:border-amber-500/35 hover:shadow-lg hover:shadow-amber-500/20" transition={{ duration: 0.22 }}>
+                  <div className="absolute left-0 top-0 h-full w-0.75 bg-linear-to-b from-amber-400/90 via-amber-500/70 to-amber-600/50" aria-hidden />
+                  <span
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-slate-50 to-slate-100/80 text-amber-500 ring-1 ring-amber-500/80 transition-colors group-hover:bg-amber-500 group-hover:text-amber-500 group-hover:ring-amber-500"
+                      transition={{ type: "spring", stiffness: 400, damping: 22 }}
                   >
-                    Enquire
-                    <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-0.5" />
-                  </Link>
-                }
-              />
+                      <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <div>
+                      <h3 className="text-base font-bold leading-snug">{title}</h3>
+                  </div>
+              </div>
             ))}
           </div>
         </div>

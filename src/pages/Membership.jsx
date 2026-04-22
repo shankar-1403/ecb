@@ -1,26 +1,14 @@
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
-import {
-  ArrowRight,
-  Sparkles,
-  Users,
-  TrendingUp,
-  Layers,
-  Bell,
-  CalendarDays,
-  Megaphone,
-  Shield,
-} from "lucide-react";
+import {ArrowRight,Sparkles,Shield,CheckCircle2, ClipboardList, FileText, UserRound,} from "lucide-react";
 
-const benefits = [
-  { text: "Networking opportunities", icon: Users },
-  { text: "Business growth support", icon: TrendingUp },
-  { text: "Access to business resources", icon: Layers },
-  { text: "Updates on opportunities", icon: Bell },
-  { text: "Participation in events & webinars", icon: CalendarDays },
-  { text: "Visibility for your business", icon: Megaphone },
-];
+const STEPS = [
+  { n: "1", title: "Identity & firm", body: "Who you are and where you operate.", Icon: UserRound },
+  { n: "2", title: "Expertise footprint", body: "Practice areas and experience depth.", Icon: ClipboardList },
+  { n: "3", title: "Evidence & narrative", body: "Profile materials and how you serve founders.", Icon: FileText },
+  { n: "4", title: "Review & submit", body: "We validate and route to the right steward.", Icon: CheckCircle2 },
+]
 
 function Membership() {
   return (
@@ -40,20 +28,12 @@ function Membership() {
              
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
                 <Sparkles className="w-3 h-3 text-amber-500" />
-                <span className="text-sm font-semibold">Membership</span>
+                <span className="text-sm font-semibold">Empanelment</span>
               </div>
 
-              <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">
-                Become a Member of{" "}
-                <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
-                  ECB
-                </span>
-              </h1>
+              <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Ambassador</h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">
-                Join Entrepreneur Connect Bharat (ECB) and become part of a growing community of entrepreneurs and business
-                professionals.
-              </p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and expertise footprint. Our team reviews fit, credibility, and alignment with ECB's quality bar for entrepreneur outcomes.</p>
 
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link to="/contact" className="w-full sm:w-auto">
@@ -78,7 +58,7 @@ function Membership() {
             </div>
 
             <div className="relative lg:col-span-5">
-              <div className="absolute -inset-4 rounded-[2rem] bg-linear-to-br from-amber-400/20 via-transparent to-green-600/15 blur-2xl lg:-inset-6" />
+              <div className="absolute -inset-4 rounded-4xl bg-linear-to-br from-amber-400/20 via-transparent to-green-600/15 blur-2xl lg:-inset-6" />
               <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-[#1D2F4F] via-[#243554] to-[#15243d] p-8 text-white shadow-2xl md:p-10">
                 <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-amber-500/20 blur-3xl" />
                 <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-green-500/10 blur-3xl" />
@@ -112,82 +92,150 @@ function Membership() {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="relative border-t border-gray-200/80 bg-gray-50 py-16 md:py-24">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-white to-transparent"
-          aria-hidden
-        />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="mx-auto max-w-3xl text-center md:max-w-2xl">
-            <span className="inline-block rounded-full border border-amber-500/25 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
-              What you get
-            </span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#1D2F4F] md:text-4xl">Membership Benefits</h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-linear-to-r from-amber-500 to-green-600" />
-          </div>
+      <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-4 sticky top-0">
+              <div  >
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">Journey</p>
+                <h2 className="mt-2 text-xl font-semibold">What happens next</h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Four checkpoints mirror how our stewards evaluate fit — clarity upfront reduces
+                  back-and-forth and protects your time.
+                </p>
+                <ol className="mt-8 space-y-4">
+                  {STEPS.map(({ n, title, body, Icon }) => (
+                    <li
+                      key={n}
+                      className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition hover:border-amber-500/25 hover:shadow-md"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-amber-500/20 to-green-500/10 ring-1 ring-amber-500/15">
+                        <Icon className="h-5 w-5" aria-hidden />
+                      </span>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-amber-500">
+                          Step {n}
+                        </p>
+                        <p className="mt-0.5 font-semibold">{title}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-slate-600">{body}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
 
-          <div className="mx-auto mt-12 max-w-5xl">
-            <div className="overflow-hidden rounded-[1.75rem] border border-gray-200/90 bg-white shadow-[0_24px_60px_-20px_rgba(29,47,79,0.12)] ring-1 ring-black/5">
-              <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-amber-400 to-green-600" />
-              <div className="grid gap-px bg-gray-100/80 md:grid-cols-2">
-                {benefits.map(({ text, icon: Icon }) => (
+            <div className="lg:col-span-8">
+              {status === "success" ? (
+                <div
+                  className="relative overflow-hidden rounded-2xl border border-emerald-200/80 bg-linear-to-br from-emerald-50 via-white to-teal-50/50 p-8 shadow-[0_16px_48px_-20px_rgba(16,185,129,0.25)] sm:p-10"
+                  role="status"
+                >
                   <div
-                    key={text}
-                    className="group flex gap-4 bg-white p-6 transition md:p-7 md:hover:bg-amber-500/5"
-                  >
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-amber-500/12 to-amber-600/5 ring-1 ring-amber-500/15 transition group-hover:from-amber-500 group-hover:to-amber-600 group-hover:ring-amber-500/40">
-                      <Icon className="h-5 w-5 text-amber-700 transition group-hover:text-white" />
-                    </div>
-                    <div className="min-w-0 pt-1">
-                      <p className="text-base font-medium leading-snug text-gray-800 md:text-[1.05rem]">{text}</p>
+                    className="pointer-events-none absolute -right-12 top-0 h-40 w-40 rounded-full bg-emerald-200/30 blur-3xl"
+                    aria-hidden
+                  />
+                  <div className="relative flex items-start gap-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30">
+                      <CheckCircle2 className="h-6 w-6" aria-hidden />
+                    </span>
+                    <div>
+                      <p className="text-lg font-semibold text-emerald-950">Application received (demo)</p>
+                      <p className="mt-2 text-sm leading-relaxed text-emerald-900/85">
+                        Thank you. In production, this form would connect to your CRM or inbox. Your
+                        details were validated successfully.
+                      </p>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        className="mt-6"
+                        onClick={() => setStatus("idle")}
+                      >
+                        Submit another application
+                      </Button>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ) : (
+                <div className="overflow-hidden rounded-2xl border border-gray-400/20">
+                  <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
+                  <form
+                    className="space-y-8 p-6 sm:p-10"
+                    noValidate
+                  >
+                    <div>
+                      <h2 className="text-lg font-semibold">Application form</h2>
+                      <p className="mt-2 text-sm text-slate-600">
+                        Fields marked by validation are required. Uploads are optional in this
+                        demo.
+                      </p>
+                    </div>
+
+                    <div className="grid gap-6 sm:grid-cols-2">
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="fullName">Full name</label>
+                        <input id="fullName" autoComplete="name" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="companyName">Company name</label>
+                        <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+
+                      <div>
+                        <label className="mb-4" htmlFor="email">Email</label>
+                        <input id="email" type="email" autoComplete="email" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+
+                      <div>
+                        <label className="mb-4" htmlFor="phone">Phone</label>
+                        <input id="phone" type="tel" autoComplete="tel" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
+                        />
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="city">City</label>
+                        <input id="city" autoComplete="address-level2" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+
+
+                      <div >
+                        <label className="mb-4" htmlFor="yearsExperience">Years of experience</label>
+                        <input id="yearsExperience" inputMode="numeric" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
+                        />
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="websiteOrLinkedIn">Website or LinkedIn</label>
+                        <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="profile">Upload profile (optional)</label>
+                        <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer"/>
+                        <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="description">Short description of services</label>
+                        <textarea id="description" rows={5} className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                      <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
+                      <p className="max-w-md text-xs leading-relaxed text-slate-500">
+                        By submitting, you agree to be contacted regarding empanelment. This demo
+                        does not persist data.
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              )}
             </div>
           </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative pb-20 md:pb-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-linear-to-br from-[#1D2B4E] via-[#243554] to-[#15243d] px-8 py-14 text-center shadow-2xl md:px-16 md:py-16">
-            <div className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-amber-500/15 blur-3xl" />
-            <div className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-green-500/10 blur-3xl" />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[length:20px_20px] opacity-50" />
-
-            <div className="relative mx-auto max-w-2xl">
-              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">Take the next step with ECB</h2>
-              <p className="mt-4 text-sm leading-relaxed text-white/75 md:text-base">
-                Tell us about your business on the contact form - we&apos;ll follow up with membership details and how to get
-                the most from the community.
-              </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="w-full min-w-[220px] bg-linear-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/35 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
-                  >
-                    Apply for Membership
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/about">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full min-w-[220px] border-white/30 bg-white/5 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/10 sm:w-auto"
-                  >
-                    About ECB
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </Layout>
   );
 }

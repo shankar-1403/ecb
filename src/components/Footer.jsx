@@ -6,9 +6,13 @@ const Footer = () => (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-6 md:py-12">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <Link to="/" className="inline-block cursor-pointer">
-            <img src={Logo} alt="ECB Logo" className="h-20"/>
-          </Link>
+          <div>
+            <div className="p-2 w-30 flex items-center justify-center bg-white rounded-lg">
+              <Link to="/" className="inline-block cursor-pointer">
+                <img src={Logo} alt="ECB Logo" className="h-18"/>
+              </Link>
+            </div>
+          </div>
           <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-sm">
             Entrepreneur Connect Bharat (ECB) is committed to empowering entrepreneurs and MSMEs
             across India through networking, opportunities, and growth support.
@@ -35,9 +39,9 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-secondary-foreground/50">Contact</h4>
           <ul className="space-y-2 text-sm text-secondary-foreground/70">
-            <li>Email: info@ecb.in</li>
-            <li>Phone: +91 XXXXX XXXXX</li>
-            <li>Location: India</li>
+            <li>Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093</li>
+            <li className="flex flex-col"><div className="w-20 font-bold">Email:</div> <a href="mailto:contact@ec-bharat.in">contact@ec-bharat.in</a></li>
+            <li className="flex flex-col"><div className="w-20 font-bold">Phone:</div> <a href="tel:+91 22 3512 0060">+91 22 3512 0060</a></li>
           </ul>
         </div>
       </div>
