@@ -4,10 +4,10 @@ import Button from "../components/ui/button";
 import {ArrowRight,Sparkles,Shield,CheckCircle2, ClipboardList, FileText, UserRound,} from "lucide-react";
 
 const STEPS = [
-  { n: "1", title: "Identity & firm", body: "Who you are and where you operate.", Icon: UserRound },
-  { n: "2", title: "Expertise footprint", body: "Practice areas and experience depth.", Icon: ClipboardList },
-  { n: "3", title: "Evidence & narrative", body: "Profile materials and how you serve founders.", Icon: FileText },
-  { n: "4", title: "Review & submit", body: "We validate and route to the right steward.", Icon: CheckCircle2 },
+  {title: "Get access to verified business requirements", Icon: UserRound },
+  {title: "Work as an outsourced partner across multiple domains", Icon: ClipboardList },
+  {title: "Focus on delivery—We bring the opportunities", Icon: FileText },
+  {title: "Grow with a structured, scalable ecosystem", Icon: CheckCircle2 },
 ]
 
 function Partners() {
@@ -28,7 +28,7 @@ function Partners() {
              
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
                 <Sparkles className="w-3 h-3 text-amber-500" />
-                <span className="text-sm font-semibold">Empanelment</span>
+                <span className="text-sm font-semibold">Partner</span>
               </div>
 
               <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Become an Execution Partner</h1>
@@ -56,38 +56,6 @@ function Partners() {
                 </Link>
               </div>
             </div>
-
-            <div className="relative lg:col-span-5">
-              <div className="absolute -inset-4 rounded-4xl bg-linear-to-br from-amber-400/20 via-transparent to-green-600/15 blur-2xl lg:-inset-6" />
-              <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-[#1D2F4F] via-[#243554] to-[#15243d] p-8 text-white shadow-2xl md:p-10">
-                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-amber-500/20 blur-3xl" />
-                <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-green-500/10 blur-3xl" />
-                <div className="relative flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-                    <Shield className="h-6 w-6 text-amber-500" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-amber-500/90">Why it matters</p>
-                    <p className="mt-2 text-sm leading-relaxed text-white/85 md:text-base">
-                      We are building a network of trusted partners who can execute, deliver, and scale services across industries.
-
-                    </p>
-                  </div>
-                </div>
-                <div className="relative mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-8 text-center">
-                  {[
-                    { k: "500+", v: "Members & growing" },
-                    { k: "28+", v: "States" },
-                    { k: "100+", v: "Sessions" },
-                  ].map(({ k, v }) => (
-                    <div key={v}>
-                      <p className="text-xl font-extrabold text-white md:text-2xl">{k}</p>
-                      <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-white/50 md:text-xs">{v}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -98,10 +66,9 @@ function Partners() {
             <div className="lg:col-span-4 sticky top-0">
               <div  >
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">Journey</p>
-                <h2 className="mt-2 text-xl font-semibold">What happens next</h2>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  Four checkpoints mirror how our stewards evaluate fit — clarity upfront reduces
-                  back-and-forth and protects your time.
+                <h2 className="mt-2 text-xl font-semibold">What This Means</h2>
+                 <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  We are building a network of trusted partners who can execute, deliver, and scale services across industries.
                 </p>
                 <ol className="mt-8 space-y-4">
                   {STEPS.map(({ n, title, body, Icon }) => (
@@ -114,7 +81,7 @@ function Partners() {
                       </span>
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-amber-500">
-                          Step {n}
+                          
                         </p>
                         <p className="mt-0.5 font-semibold">{title}</p>
                         <p className="mt-1 text-xs leading-relaxed text-slate-600">{body}</p>
@@ -166,14 +133,13 @@ function Partners() {
                     <div>
                       <h2 className="text-lg font-semibold">Application form</h2>
                       <p className="mt-2 text-sm text-slate-600">
-                        Fields marked by validation are required. Uploads are optional in this
-                        demo.
+                        Fields marked by validation are required.
                       </p>
                     </div>
 
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="fullName">Full name</label>
+                        <label className="mb-4" htmlFor="fullName">Full Name</label>
                         <input id="fullName" autoComplete="name" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
                       </div>
 
@@ -189,7 +155,7 @@ function Partners() {
 
                       <div>
                         <label className="mb-4" htmlFor="phone">Phone</label>
-                        <input id="phone" type="tel" autoComplete="tel" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
+                        <input id="phone" type="number" autoComplete="number" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
                         />
                       </div>
 
@@ -207,14 +173,28 @@ function Partners() {
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="servicesyouoffer">Services You Offer</label>
-                        <input id="servicesyouoffer" placeholder="https:// or linkedin.com/in/…" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <form className="max-w-sm mr-auto">
+                          <select id="countries" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
+                            <option selected>Choose a service</option>
+                            <option value="US">Loans / Financial Services</option>
+                            <option value="CA">Insurance / Risk Advisory</option>
+                            <option value="FR">Compliance / Legal</option>
+                            <option value="DE">Accounting / Taxation</option>
+                            <option value="DE">Consulting / Strategy</option>
+                            <option value="DE">Technology / IT Services</option>
+                            <option value="DE">HR / Recruitment</option>
+                            <option value="DE">Other</option>
+                          </select>
+                       </form>
+
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="profile">Upload profile (optional)</label>
-                        <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer"/>
-                        <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
+                        <label className="mb-4" htmlFor="targetclients">Target Clients</label>
+                        <input id="targetclients" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
                       </div>
+
+                  
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="description">Brief About Your Services</label>
