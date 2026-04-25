@@ -7,6 +7,7 @@ import { useState, useRef } from "react";
 import About from "../assets/about.webp";
 import { HeroBenefitSpotlight } from "../components/ui/heroBenefitSpotlight";
 import { ContactFormCard } from "../components/ContactForm";
+import CountUp from "../components/CountUp";
 
 const offerings = [
   { number:"01",icon: Users, title: "Business Networking", desc: "Connect with entrepreneurs, industry leaders, and professionals." },
@@ -130,28 +131,7 @@ function AnimatedSection({ children, className = '' }) {
     </motion.div>
   );
 }
-
-function CountUpStat({ value, label, icon }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const StatIcon = icon;
-  return (
-    <motion.div ref={ref} variants={fadeUp} className="group text-center">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94]}}
-        className="flex flex-col items-center gap-3"
-      >
-        <div className="font-heading text-3xl font-extrabold text-white md:text-4xl">
-          {value}
-        </div>
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/50">{label}</p>
-      </motion.div>
-    </motion.div>
-  );
-}
-
+   
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94]} },
@@ -176,6 +156,24 @@ const slideInLeft = {
   hidden: { opacity: 0, x: -40 },
   show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94]} },
 };
+
+function CountUpStat({ value, label }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="font-heading text-3xl font-extrabold text-white md:text-4xl">
+        {isInView && <CountUp end={value} suffix="+" />}
+      </div>
+
+      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/50">
+        {label}
+      </p>
+    </div>
+  );
+}
+
 function Home() {
     const [formData, setFormData] = useState({name:"",email:"",phone:"",message:""});
     return (
@@ -207,7 +205,7 @@ function Home() {
                         </h1>
                         <span className="text-gray-600 text-xl md:text-4xl lg:text-2xl relative">Strengthening MSMEs. Building Bharat <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-500 bg-clip-text text-transparent">🇮🇳</span></span>
                         <p className="mt-8 text-gray-600 text-lg md:text-lg animate-fade-up-delay">A Global Initiative empowering Entrepreneurs with Finance, Technology, Strategy, and Growth Ecosystems.</p>
-                        <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2 justify-center lg:justify-start">
+                        <div className="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
                             <Link to="/membership">
                                 <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 transition-shadow hover:shadow-amber-500/40">
                                     Apply as Elite Ambassador
@@ -238,14 +236,14 @@ function Home() {
                             <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-gold/15 blur-3xl" />
                             <div className="absolute -left-20 -bottom-20 h-60 w-60 rounded-full bg-primary-foreground/5 blur-3xl" />
                             <motion.div variants={stagger} className="relative grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
-                                {[
-                                    { value: "500+", label: "Entrepreneurs Connected" },
-                                    { value: "28+", label: "States Covered" },
-                                    { value: "100+", label: "Startups Supported" },
-                                    { value: "200+", label: "Businesses Empowered" },
-                                ].map((s) => (
-                                    <CountUpStat key={s.label} value={s.value} label={s.label} />
-                                ))}
+                             {[
+                              { value: 500, label: "Entrepreneurs Connected" },
+                              { value: 20, label: "States Covered" },
+                              { value: 100, label: "Startups Supported" },
+                              { value: 200, label: "Businesses Empowered" },
+                             ].map((s) => (
+                              <CountUpStat key={s.label} value={s.value} label={s.label} />
+                             ))}
                             </motion.div>
                         </AnimatedSection>
                     </div>
@@ -483,8 +481,22 @@ function Home() {
                     </div>
                 </div>
             </section>
+            <a
+             href="https://wa.me/919999999999"   // 🔁 replace with your number
+             target="_blank"
+             rel="noopener noreferrer"
+             className="fixed bottom-6 right-6 z-50 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition-transform"
+            >
+             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              className="w-6 h-6 fill-white"
+             >
+              <path d="M16 3C9.372 3 4 8.372 4 15c0 2.385.7 4.61 1.9 6.48L4 29l7.77-2.02A11.94 11.94 0 0016 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 21.8c-1.97 0-3.86-.58-5.46-1.68l-.39-.25-4.61 1.2 1.23-4.49-.26-.41A9.8 9.8 0 016.2 15c0-5.41 4.39-9.8 9.8-9.8s9.8 4.39 9.8 9.8-4.39 9.8-9.8 9.8zm5.35-7.35c-.29-.14-1.71-.84-1.98-.94-.27-.1-.46-.14-.65.14s-.75.94-.92 1.13c-.17.19-.34.21-.63.07-.29-.14-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.16-.23-.55-.47-.47-.65-.48h-.55c-.19 0-.51.07-.77.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.2 3.02c.15.19 2.06 3.15 5 4.42.7.3 1.25.48 1.68.61.7.22 1.34.19 1.85.12.56-.08 1.71-.7 1.95-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.33z"/>
+             </svg>
+            </a>
         </Layout>
-    )
-};
+    );
+}
 
 export default Home;

@@ -42,7 +42,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((item, idx) => (
             <div
-              key={item.name}
+              key={item.name || item.label}
               className="relative"
               onMouseEnter={() => setVisible(idx)}
               onMouseLeave={() => setVisible(null)}
@@ -109,18 +109,41 @@ const Navbar = () => {
 
       {open && (
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t bg-card pb-4 md:hidden">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setOpen(false)}
-              className={`block cursor-pointer px-4 py-3 text-sm font-medium transition-colors sm:px-6 ${
-                location.pathname === link.path ? "bg-primary/5 text-primary" : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link, idx) => {
+  if (link.children) {
+    return (
+      <div key={link.name || idx} className="px-4 py-2">
+        <p className="text-sm font-semibold">{link.name}</p>
+
+        {link.children.map((child) => (
+          <Link
+            key={child.path}
+            to={child.path}
+            onClick={() => setOpen(false)}
+            className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground"
+          >
+            {child.name}
+          </Link>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      key={link.path}
+      to={link.path}
+      onClick={() => setOpen(false)}
+      className={`block px-4 py-3 text-sm font-medium ${
+        location.pathname === link.path
+          ? "bg-primary/5 text-primary"
+          : "text-muted-foreground hover:text-foreground"
+      }`}
+    >
+      {link.label}
+    </Link>
+  );
+})}
           <div className="px-4 pt-3 sm:px-6">
             <Link to="/membership" onClick={() => setOpen(false)} className="block">
               <Button className="w-full bg-amber-500">Join ECB</Button>

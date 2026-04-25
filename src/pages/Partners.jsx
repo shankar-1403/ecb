@@ -139,15 +139,33 @@ function Partners() {
 
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="fullName">Full Name</label>
-                        <input id="fullName" autoComplete="name" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
-                      </div>
-
-                      <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="companyName">Company Name</label>
                         <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
                       </div>
 
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="companysize">Company Size</label>
+                        <form className="max-w-sm mr-auto">
+                          <select id="companysize" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
+                            <option selected>-- select --</option>
+                            <option value="0-100">0-100</option>
+                            <option value="100-250">100-250</option>
+                            <option value="250-500">250-500</option>
+                            <option value="500+">500+</option>
+                          </select>
+                       </form>
+
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="full Name">Full Name</label>
+                        <input id="fullName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="designation">Designation</label>
+                        <input id="designation" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                      </div>
+                      
                       <div>
                         <label className="mb-4" htmlFor="email">Email</label>
                         <input id="email" type="email" autoComplete="email" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
@@ -157,7 +175,7 @@ function Partners() {
                         <label className="mb-4" htmlFor="phone">Phone</label>
                         <input id="phone" type="number" autoComplete="number" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
                         />
-                      </div>
+                      </div>  
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="city">City</label>
@@ -172,32 +190,35 @@ function Partners() {
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="servicesyouoffer">Services You Offer</label>
+                        <label className="mb-4" htmlFor="servicesyouoffer">Services you Offer</label>
+                        <input id="servicesyouoffer" inputMode="numeric" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
+                        />
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label className="mb-4" htmlFor="industry">Industry</label>
                         <form className="max-w-sm mr-auto">
-                          <select id="countries" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
-                            <option selected>Choose a service</option>
-                            <option value="US">Loans / Financial Services</option>
-                            <option value="CA">Insurance / Risk Advisory</option>
-                            <option value="FR">Compliance / Legal</option>
-                            <option value="DE">Accounting / Taxation</option>
-                            <option value="DE">Consulting / Strategy</option>
-                            <option value="DE">Technology / IT Services</option>
-                            <option value="DE">HR / Recruitment</option>
+                          <select id="industry" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
+                            <option selected>-- select --</option>
+                            <option value="Technology / IT">Technology / IT</option>
+                            <option value="Finance & Banking">Finance & Banking</option>
+                            <option value="Healthcare & Pharma">Healthcare & Pharma</option>
+                            <option value="Marketing & Branding">Marketing & Branding</option>
+                            <option value="Legal & Compliance">Legal & Compliance</option>
+                            <option value="Business Consulting">Business Consulting</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
+                            <option value="Education & Training">Education & Training</option>
+                            <option value="Logistics & Distribution">Logistics & Distribution</option>
+                            <option value="Retail & E-commerce">Retail & E-commerce</option>
+                            <option value="Government / Public Sector">Government / Public Sector</option>
                             <option value="DE">Other</option>
                           </select>
                        </form>
 
                       </div>
-
                       <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="targetclients">Target Clients</label>
-                        <input id="targetclients" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
-                      </div>
-
-                  
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="description">Brief About Your Services</label>
+                        <label className="mb-4" htmlFor="description">Brief About Your Services (optional)</label>
                         <textarea id="description" rows={5} className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
                       </div>
                     </div>

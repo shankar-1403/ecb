@@ -77,7 +77,7 @@ function Membership() {
                 <div className="relative mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-8 text-center">
                   {[
                     { k: "500+", v: "Members & growing" },
-                    { k: "28+", v: "States" },
+                    { k: "20+", v: "States" },
                     { k: "100+", v: "Sessions" },
                   ].map(({ k, v }) => (
                     <div key={v}>
