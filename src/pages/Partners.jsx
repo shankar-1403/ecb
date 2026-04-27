@@ -22,42 +22,49 @@ function Partners() {
               "radial-gradient(circle at 15% 30%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(145, 60%, 40%) 0%, transparent 45%)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-            <div className="lg:col-span-7">
-             
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
-                <Sparkles className="w-3 h-3 text-amber-500" />
-                <span className="text-sm font-semibold">Partner</span>
-              </div>
+       <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
+  <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 justify-center">
+    
+    <div className="lg:col-span-12 flex flex-col items-center text-center">
+      
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up mx-auto">
+        <Sparkles className="w-3 h-3 text-amber-500" />
+        <span className="text-sm font-semibold">Partner</span>
+      </div>
 
-              <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Become an Execution Partner</h1>
+      <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05] mx-auto">
+        Become an Execution Partner
+      </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Partner with us as an execution expert and deliver services to corporates and MSMEs through the ECB ecosystem. From finance and insurance to compliance and consulting, we connect you with real business opportunities.</p>
+      <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">
+        Partner with us as an execution expert and deliver services to corporates and MSMEs through the ECB ecosystem. From finance and insurance to compliance and consulting, we connect you with real business opportunities.
+      </p>
 
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link to="/contact" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full bg-linear-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
-                  >
-                    Apply as a Partner   
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/services" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full border-2 border-[#1D2F4F]/15 bg-white/90 text-base font-semibold text-[#1D2F4F] shadow-sm backdrop-blur-sm transition hover:border-amber-500/40 hover:bg-amber-500/5 sm:w-auto"
-                  >
-                    Explore services
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center justify-center">
+        <Link to="/contact" className="w-full sm:w-auto">
+          <Button
+            size="lg"
+            className="w-full bg-linear-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
+          >
+            Apply as a Partner
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
+
+        <Link to="/services" className="w-full sm:w-auto">
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full border-2 border-[#1D2F4F]/15 bg-white/90 text-base font-semibold text-[#1D2F4F] shadow-sm backdrop-blur-sm transition hover:border-amber-500/40 hover:bg-amber-500/5 sm:w-auto"
+          >
+            Explore services
+          </Button>
+        </Link>
+      </div>
+
+    </div>
+  </div>
+</div>
       </section>
 
       <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">

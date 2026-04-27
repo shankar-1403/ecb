@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
+  { label: "Team", path: "/team" },
   { name: "Membership",
     children: [
       { name: "Elite Ambassador", path: "/membership/elite-ambassador" },

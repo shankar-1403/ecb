@@ -35,23 +35,24 @@ function Services() {
               "radial-gradient(circle at 15% 30%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(145, 60%, 40%) 0%, transparent 45%)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
-            <Sparkles className="w-3 h-3 text-amber-500" />
-            <span className="text-sm font-semibold">Our Services</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
-            Programmes built around{" "}
-            <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
-              how you actually grow
-            </span>
-          </h1>
-          <p className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed">
-            Every pillar below is designed to compound: better networks, sharper positioning, and clearer next steps
-            for MSMEs and founders across India.
-          </p>
-          
-        </div>
+       <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
+  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up mx-auto">
+    <Sparkles className="w-3 h-3 text-amber-500" />
+    <span className="text-sm font-semibold">Our Services</span>
+  </div>
+
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl mx-auto">
+        Programmes built around{" "}
+       <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
+        how you actually grow
+       </span>
+      </h1>
+
+        <p className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed mx-auto">
+         Every pillar below is designed to compound: better networks, sharper positioning, and clearer  next steps
+         for MSMEs and founders across India.
+        </p>
+       </div>
       </section>
 
       <section className="relative overflow-hidden bg-gray-50 py-16 md:py-24">

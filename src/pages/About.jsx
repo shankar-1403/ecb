@@ -95,19 +95,23 @@ function About() {
               "radial-gradient(circle at 20% 40%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(145, 60%, 40%) 0%, transparent 45%)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
-            <InfoIcon className="w-3 h-3 text-amber-500" />
-            <span className="text-sm font-semibold">About ECB</span>
-          </div>
-          <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
-            Entrepreneurs Connect Bharat{" "}
-            <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
-              (ECB)
-            </span>
-          </h1>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">ECB convenes serious practitioners - from Big-4 alumni boutiques to specialist firms - around a shared mandate: dependable outcomes for founders, family businesses, and MSMEs navigating complexity at speed.</p>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
+         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up mx-auto">
+          <InfoIcon className="w-3 h-3 text-amber-500" />
+           <span className="text-sm font-semibold">About ECB</span>
         </div>
+
+      <h1 className="mt-5 max-w-4xl mx-auto text-3xl font-bold leading-tight tracking-tight text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
+        Entrepreneurs Connect Bharat{" "}
+        <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
+        (ECB)
+        </span>
+      </h1>
+
+  <p className="mt-6 max-w-3xl mx-auto text-base leading-relaxed text-muted-foreground sm:text-lg">
+    ECB convenes serious practitioners - from Big-4 alumni boutiques to specialist firms - around a shared mandate: dependable outcomes for founders, family businesses, and MSMEs navigating complexity at speed.
+  </p>
+ </div>
       </section>
 
       {/* Vision & Mission */}
