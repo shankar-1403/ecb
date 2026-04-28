@@ -71,56 +71,55 @@ function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
             {SERVICE_ITEMS.map(({ title, Icon }, i) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-120px" }}
                 transition={{
-                  duration: 0.5,
-                  delay: i * 0.08, // stagger effect
+                  duration: 0.35,     // faster animation
+                  delay: i * 0.04,    // tighter stagger (was slow before)
                   ease: "easeOut",
                 }}
-                className="group relative flex items-center gap-4 overflow-hidden rounded-xl p-[1px] transition-all duration-500 hover:-translate-y-1"
+                className="group relative rounded-xl p-[1px] transition-all duration-300 hover:-translate-y-1"
               >
-                
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-500" />
+
+              
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-300" />
 
                
-                <div className="relative z-10 flex items-center gap-4 w-full rounded-xl bg-white p-5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] transition-all duration-500 group-hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)] overflow-hidden">
+                <div className="relative z-10 flex items-center gap-4 w-full rounded-xl bg-white p-5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group-hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)] overflow-hidden">
 
                  
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-green-500/5 opacity-80 pointer-events-none" />
 
                  
-                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-slate-50 to-slate-100 text-amber-500 ring-1 ring-amber-500/30 transition-all duration-500 group-hover:bg-amber-100 group-hover:ring-amber-500">
-                    <span className="inline-block transition-transform duration-500 group-hover:rotate-6 group-hover:-translate-y-1">
+                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-slate-50 to-slate-100 text-amber-500 ring-1 ring-amber-500/30 transition-all duration-300 group-hover:bg-amber-100 group-hover:ring-amber-500">
+                    <span className="inline-block transition-transform duration-300 group-hover:rotate-6 group-hover:-translate-y-1">
                       <Icon className="h-5 w-5" />
                     </span>
                   </span>
 
-                  
-                  <div className="relative z-10">
-                    <h3 className="text-base font-bold leading-snug transition-colors duration-300 group-hover:text-amber-600">
+                 
+                  <div className="relative z-10 flex-1">
+                    <h3 className="text-sm sm:text-base font-bold leading-snug break-words transition-colors duration-300 group-hover:text-amber-600">
                       {title}
                     </h3>
                   </div>
 
-                 
+                  
                   <div className="absolute bottom-0 left-0 h-[2px] w-full bg-transparent">
-                    <div className="h-full w-0 bg-gradient-to-r from-amber-500 via-amber-400 to-green-500 transition-all duration-500 group-hover:w-full" />
+                    <div className="h-full w-0 bg-gradient-to-r from-amber-500 via-amber-400 to-green-500 transition-all duration-300 group-hover:w-full" />
                   </div>
 
                   
-                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000" />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700" />
                   </div>
 
                 </div>
-
-
               </motion.div>
             ))}
           </div>

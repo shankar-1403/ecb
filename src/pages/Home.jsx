@@ -257,7 +257,7 @@ function Home() {
             </section>
 
 
-            
+
             <section className="relative py-16 sm:py-20 md:py-28">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:gap-12 sm:px-5 md:gap-16 md:px-6 lg:flex-row lg:items-center">
@@ -294,57 +294,55 @@ function Home() {
                         </p>
                     </div>
 
-                 
-                    <div className="grid grid-cols-3 gap-4 mt-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                         {SERVICE_ITEMS.map(({ title, Icon }, i) => (
                             <motion.div
                                 key={title}
-                                initial={{ opacity: 0, y: 40 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
+                                viewport={{ once: true, margin: "-120px" }}
                                 transition={{
-                                    duration: 0.5,
-                                    delay: i * 0.08,
+                                    duration: 0.35,     // faster animation
+                                    delay: i * 0.04,    // tighter stagger (was slow before)
                                     ease: "easeOut",
                                 }}
-                                className="group relative rounded-xl p-[1px] transition-all duration-500 hover:-translate-y-1"
+                                className="group relative rounded-xl p-[1px] transition-all duration-300 hover:-translate-y-1"
                             >
 
-                           
-                                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-500" />
+                               
+                                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-300" />
 
-                           
-                                <div className="relative z-10 flex items-center gap-4 w-full rounded-xl bg-white p-5 shadow-[0_12px_35px_-12px_rgba(0,0,0,0.12)] transition-all duration-500 group-hover:shadow-[0_25px_60px_-15px_rgba(245,158,11,0.25)] overflow-hidden">
+                            
+                                <div className="relative z-10 flex items-center gap-4 w-full rounded-xl bg-white p-5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group-hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)] overflow-hidden">
 
                                  
                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-green-500/5 opacity-80 pointer-events-none" />
 
-                                    
-                                    <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-white to-slate-100 text-amber-500 ring-1 ring-amber-500/30 transition-all duration-500 group-hover:bg-amber-100 group-hover:ring-amber-500">
-                                        <span className="inline-block transition-transform duration-500 group-hover:rotate-6 group-hover:-translate-y-1">
+                                  
+                                    <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-slate-50 to-slate-100 text-amber-500 ring-1 ring-amber-500/30 transition-all duration-300 group-hover:bg-amber-100 group-hover:ring-amber-500">
+                                        <span className="inline-block transition-transform duration-300 group-hover:rotate-6 group-hover:-translate-y-1">
                                             <Icon className="h-5 w-5" />
                                         </span>
                                     </span>
 
-                               
-                                    <div className="relative z-10">
-                                        <h3 className="text-base font-bold leading-snug text-slate-800 transition-all duration-300 group-hover:text-amber-600">
+                                    
+                                    <div className="relative z-10 flex-1">
+                                        <h3 className="text-sm sm:text-base font-bold leading-snug break-words transition-colors duration-300 group-hover:text-amber-600">
                                             {title}
                                         </h3>
                                     </div>
 
                                  
                                     <div className="absolute bottom-0 left-0 h-[2px] w-full bg-transparent">
-                                        <div className="h-full w-0 bg-gradient-to-r from-amber-500 via-amber-400 to-green-500 transition-all duration-500 group-hover:w-full" />
+                                        <div className="h-full w-0 bg-gradient-to-r from-amber-500 via-amber-400 to-green-500 transition-all duration-300 group-hover:w-full" />
                                     </div>
 
-                                  
-                                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                                        <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+                                    
+                                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                                        <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700" />
                                     </div>
 
                                 </div>
-
                             </motion.div>
                         ))}
                     </div>
@@ -394,7 +392,6 @@ function Home() {
 
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-                    
                     <div className="mx-auto max-w-2xl text-center">
                         <p className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-5 tracking-wide">
                             Process
@@ -424,15 +421,15 @@ function Home() {
                                             delay: idx * 0.1,
                                             ease: "easeOut",
                                         }}
-                                        className="group relative pl-24 md:pl-0 h-full"
+                                        className="group relative flex justify-center md:block h-full"
                                     >
-                                    
-                                        <div className="relative p-[1px] rounded-xl transition-all duration-500 hover:-translate-y-2 h-full">
 
-                                            
-                                            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-500" />
+                                        <div className="relative w-full max-w-sm md:max-w-none p-[1px] rounded-xl transition-all duration-500 hover:-translate-y-2 h-full">
 
                                           
+                                            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-500" />
+
+                                         
                                             <div className="relative z-10 flex flex-col h-full rounded-xl bg-white p-6 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] transition-all duration-500 group-hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)]">
 
                                               
@@ -472,7 +469,7 @@ function Home() {
                                             </div>
                                         </div>
 
-                                     
+                                        
                                         {idx < steps.length - 1 && (
                                             <div className="absolute right-0 top-10 hidden translate-x-1/2 md:block">
                                                 <ArrowRight className="w-5 h-5 text-amber-500 transition-transform duration-300 group-hover:translate-x-1" />
@@ -485,7 +482,7 @@ function Home() {
                     </div>
                 </div>
             </section>
-            
+
             <section className="py-20 md:py-28 relative">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 max-w-7xl mx-auto relative">
