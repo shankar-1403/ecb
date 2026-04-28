@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
-import {ArrowRight,Sparkles,Shield,CheckCircle2, ClipboardList, FileText, UserRound,} from "lucide-react";
+import { ArrowRight, Sparkles, Shield, CheckCircle2, ClipboardList, FileText, UserRound, } from "lucide-react";
 
 const STEPS = [
   { n: "1", title: "Identity & firm", body: "Who you are and where you operate.", Icon: UserRound },
@@ -11,9 +12,9 @@ const STEPS = [
 ]
 
 function Membership() {
+  const [status, setStatus] = useState("idle");
   return (
     <Layout>
-      {/* Hero */}
       <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28">
         <div
           className="absolute inset-0 opacity-15"
@@ -25,7 +26,7 @@ function Membership() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-7">
-             
+
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
                 <Sparkles className="w-3 h-3 text-amber-500" />
                 <span className="text-sm font-semibold">Empanelment</span>
@@ -39,7 +40,7 @@ function Membership() {
                 <Link to="/contact" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="w-full bg-linear-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
                   >
                     Apply for Membership
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -58,7 +59,7 @@ function Membership() {
             </div>
 
             <div className="relative lg:col-span-5">
-              <div className="absolute -inset-4 rounded-4xl bg-linear-to-br from-amber-400/20 via-transparent to-green-600/15 blur-2xl lg:-inset-6" />
+              <div className="absolute -inset-4 rounded-4xl bg-gradientS-to-br from-amber-400/20 via-transparent to-green-600/15 blur-2xl lg:-inset-6" />
               <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-[#1D2F4F] via-[#243554] to-[#15243d] p-8 text-white shadow-2xl md:p-10">
                 <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-amber-500/20 blur-3xl" />
                 <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-green-500/10 blur-3xl" />
@@ -160,6 +161,10 @@ function Membership() {
                 <div className="overflow-hidden rounded-2xl border border-gray-400/20">
                   <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
                   <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setStatus("success");
+                    }}
                     className="space-y-8 p-6 sm:p-10"
                     noValidate
                   >
@@ -174,17 +179,17 @@ function Membership() {
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="fullName">Full name</label>
-                        <input id="fullName" autoComplete="name" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <input id="fullName" autoComplete="name" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="companyName">Company name</label>
-                        <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
                       <div>
                         <label className="mb-4" htmlFor="email">Email</label>
-                        <input id="email" type="email" autoComplete="email" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <input id="email" type="email" autoComplete="email" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
                       <div>
@@ -195,7 +200,7 @@ function Membership() {
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="city">City</label>
-                        <input id="city" autoComplete="address-level2" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <input id="city" autoComplete="address-level2" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
 
@@ -207,18 +212,18 @@ function Membership() {
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="websiteOrLinkedIn">Website or LinkedIn</label>
-                        <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="profile">Upload profile (optional)</label>
-                        <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer"/>
+                        <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
                         <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
                       </div>
 
                       <div className="sm:col-span-2">
                         <label className="mb-4" htmlFor="description">Short description of services</label>
-                        <textarea id="description" rows={5} className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"/>
+                        <textarea id="description" rows={5} className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
                     </div>
 
