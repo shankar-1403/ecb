@@ -56,72 +56,125 @@ function Services() {
         </div>
       </section>
 
-      <section className="relative py-16 sm:py-20 md:py-28">
-        <div className="relative mx-auto w-full max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 md:gap-16 md:px-6 lg:items-center">
+      <section
+        className="relative py-16 sm:py-20 md:py-28"
+        style={{
+          background: "linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #fff7ed 100%)",
+        }}
+      >
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-5 md:px-6">
 
-          <div className="w-full">
+          <div className="w-full mb-12">
             <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-5">
               Full spectrum
             </span>
-            <h3 className="text-3xl md:text-4xl lg:text-4xl font-bold leading-10">
+            <h3 className="text-3xl md:text-4xl font-bold leading-tight">
               Services offered through the ECB network
             </h3>
-            <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">
+            <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">
               Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-            {SERVICE_ITEMS.map(({ title, Icon }, i) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-120px" }}
-                transition={{
-                  duration: 0.35,     // faster animation
-                  delay: i * 0.04,    // tighter stagger (was slow before)
-                  ease: "easeOut",
-                }}
-                className="group relative rounded-xl p-[1px] transition-all duration-300 hover:-translate-y-1"
-              >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SERVICE_ITEMS.map(({ title, Icon }, i) => {
+              const total = SERVICE_ITEMS.length;
+              const lastRowCount = total % 3;
+              const isOnlyInLastRow = lastRowCount === 1 && i === total - 1;
 
-              
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/40 via-transparent to-green-500/40 opacity-70 group-hover:opacity-100 transition duration-300" />
+              return (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.28, delay: i * 0.045, ease: "easeOut" }}
+                  whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }}
+                  className={`group relative ${isOnlyInLastRow ? "lg:col-start-2" : ""}`}
+                >
+                  <div
+                    className="relative flex flex-row items-center gap-4 rounded-2xl px-5 py-5 min-h-[72px] overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.25)]"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 100%)",
+                      backdropFilter: "blur(16px) saturate(180%)",
+                      WebkitBackdropFilter: "blur(16px) saturate(180%)",
+                      border: "1px solid rgba(245,158,11,0.25)",
+                      boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(0,0,0,0.04)",
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 opacity-40 pointer-events-none"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.1) 40%, rgba(34,197,94,0.05) 100%)",
+                      }}
+                    />
+                    <div
+                      className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
+                      style={{
+                        background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)",
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" />
 
-               
-                <div className="relative z-10 flex items-center gap-4 w-full rounded-xl bg-white p-5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group-hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)] overflow-hidden">
+                    <div className="relative z-10 shrink-0 self-center">
+                      <div className="relative flex h-12 w-12 items-center justify-center">
+                        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 48 48">
+                          <motion.rect
+                            x="2" y="2" width="44" height="44" rx="12"
+                            fill="none"
+                            stroke="rgba(245,158,11,0.5)"
+                            strokeWidth="1.5"
+                            strokeDasharray="140"
+                            strokeDashoffset="140"
+                            animate={{ strokeDashoffset: [140, 0, 140] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.12 }}
+                            className="group-hover:opacity-0 transition-opacity duration-200"
+                          />
+                        </svg>
 
-                 
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-green-500/5 opacity-80 pointer-events-none" />
+                        <div
+                          className="absolute inset-0 rounded-xl group-hover:opacity-0 transition-opacity duration-300"
+                          style={{
+                            background: "linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,248,230,0.5) 100%)",
+                            backdropFilter: "blur(8px)",
+                            WebkitBackdropFilter: "blur(8px)",
+                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 8px -2px rgba(245,158,11,0.15)",
+                          }}
+                        />
 
-                 
-                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-slate-50 to-slate-100 text-amber-500 ring-1 ring-amber-500/30 transition-all duration-300 group-hover:bg-amber-100 group-hover:ring-amber-500">
-                    <span className="inline-block transition-transform duration-300 group-hover:rotate-6 group-hover:-translate-y-1">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                  </span>
+                        <motion.div
+                          className="relative z-10 text-amber-500 group-hover:text-white transition-colors duration-300"
+                          animate={{ rotate: [0, 0, 8, -8, 0] }}
+                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </motion.div>
 
-                 
-                  <div className="relative z-10 flex-1">
-                    <h3 className="text-sm sm:text-base font-bold leading-snug break-words transition-colors duration-300 group-hover:text-amber-600">
-                      {title}
-                    </h3>
+                        <motion.div
+                          className="absolute inset-0 pointer-events-none"
+                          animate={{
+                            boxShadow: [
+                              "0 0 0px 0px rgba(245,158,11,0)",
+                              "0 0 10px 3px rgba(245,158,11,0.3)",
+                              "0 0 0px 0px rgba(245,158,11,0)",
+                            ],
+                          }}
+                          transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }}
+                          style={{ borderRadius: "12px" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="relative z-10 flex-1 self-center min-w-0">
+                      <h3 className="text-sm sm:text-[0.9rem] font-semibold leading-snug text-slate-700 group-hover:text-white transition-colors duration-300">
+                        {title}
+                      </h3>
+                    </div>
+
                   </div>
-
-                  
-                  <div className="absolute bottom-0 left-0 h-[2px] w-full bg-transparent">
-                    <div className="h-full w-0 bg-gradient-to-r from-amber-500 via-amber-400 to-green-500 transition-all duration-300 group-hover:w-full" />
-                  </div>
-
-                  
-                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700" />
-                  </div>
-
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>

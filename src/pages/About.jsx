@@ -9,6 +9,8 @@ import puja_sharma from "../assets/teamwebp/puja_sharma.webp";
 import bhatiasir_ from "../assets/teamwebp/bhatiasir_.webp";
 import rameshkumar_img from "../assets/teamwebp/rameshkumar_img.webp";
 import vijay_sharma from "../assets/teamwebp/vijay_sharma.webp";
+import sanjay_jhanwar from "../assets/teamwebp/sanjay_jhanwar.webp";
+import takshilkumar from "../assets/teamwebp/takshilkumar.webp";
 import {
   ArrowRight,
   Target,
@@ -113,6 +115,14 @@ const team = [
   {
     name: "Mrs. Puja Sharma",
     img: puja_sharma,
+  },
+  {
+    name: "Mr. Sanjay Jhanwar",
+    img: sanjay_jhanwar,
+  },
+  {
+    name: "Mr. Takshil Kumar",
+    img: takshilkumar,
   },
 ];
 function About() {
