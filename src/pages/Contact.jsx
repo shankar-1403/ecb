@@ -81,7 +81,7 @@ function Contact() {
                   and one concrete goal so we can tailor our reply.
                 </p>
                 <Link
-                  to="/membership"
+                  to="/membership/elite-ambassador"
                   className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-400 transition hover:text-amber-500"
                 >
                   Membership overview
