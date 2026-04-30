@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
       <main className="min-w-0 flex-1 w-full">{children}</main>
       <Footer />
 
-      <div className="fixed bottom-6 sm:bottom-16 right-4 z-50 flex flex-col items-center gap-3">
+      <div className="fixed bottom-6 sm:bottom-6 right-4 z-50 flex flex-col items-center gap-3">
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

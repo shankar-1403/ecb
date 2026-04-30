@@ -1,22 +1,14 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "../../lib/utils";
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 
-/** Fixed body height; description uses remaining space with scroll if needed. */
-const SPOTLIGHT_BODY_CLASS = "h-[200px] md:h-[200px]";
-
-/**
- * Hero visual: one benefit at a time with dots + arrows; auto-advances on a timer.
- * @param {Array<{ id: string|number, title: string, description: string, detail?: string, icon?: React.ComponentType<{ className?: string }> }>} items
- * @param {number} [intervalMs] — time between automatic slide changes
- */
 export function HeroBenefitSpotlight({
   items,
-  ctaHref = "/membership",
+  ctaHref = "/membership/partner-with-us",
   ctaLabel = "Apply for membership",
   intervalMs = 5500,
 }) {
@@ -27,13 +19,10 @@ export function HeroBenefitSpotlight({
   );
   const n = items?.length ?? 0;
 
-  const go = useCallback(
-    (dir) => {
-      if (!n) return;
-      setI((prev) => (prev + dir + n) % n);
-    },
-    [n],
-  );
+  const go = useCallback((dir) => {
+    if (!n) return;
+    setI((prev) => (prev + dir + n) % n);
+  }, [n]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -48,72 +37,91 @@ export function HeroBenefitSpotlight({
 
   useEffect(() => {
     if (n < 2 || pointerPause || reduceMotion) return;
-    const id = window.setInterval(() => {
-      setI((prev) => (prev + 1) % n);
-    }, intervalMs);
+    const id = window.setInterval(() => setI((prev) => (prev + 1) % n), intervalMs);
     return () => window.clearInterval(id);
   }, [n, pointerPause, reduceMotion, intervalMs]);
 
   const card = n > 0 ? items[i] : null;
   if (!n || !card) return null;
-
   const Icon = card.icon;
 
   return (
     <div className="relative w-full shrink-0">
-      <div className="pointer-events-none absolute -inset-8 rounded-4xl bg-linear-to-tr from-amber-500/15 via-white/0 to-green-600/12 blur-2xl" />
+      <motion.div
+        className="pointer-events-none absolute -inset-6 rounded-3xl blur-2xl"
+        animate={{ opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        style={{ background: "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(255,255,255,0) 50%, rgba(22,163,74,0.1) 100%)" }}
+      />
+
       <div
-        className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_24px_56px_-20px_rgba(29,47,79,0.3)] md:rounded-3xl"
+        className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-gray-200/80 bg-white shadow-[0_32px_64px_-20px_rgba(29,47,79,0.25),0_8px_24px_-8px_rgba(245,158,11,0.1)]"
         onPointerEnter={() => setPointerPause(true)}
         onPointerLeave={() => setPointerPause(false)}
       >
-        {/* <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-amber-500/10 via-green-500/5 to-transparent" /> */}
-      <div className="bg-linear-to-r from-amber-500 via-45% via-white to-green-500 absolute left-0 right-0 top-0 h-1 rounded-t-2xl opacity-90"></div>
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-white to-green-500 rounded-t-2xl" />
+        <div className="absolute inset-x-0 top-1 h-24 bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none" />
 
-        <div className="relative px-5 pb-5 pt-6 md:px-6 md:pb-6 md:pt-7">
+        <div className="absolute top-4 right-4 pointer-events-none select-none">
+          <svg viewBox="0 0 80 80" className="w-20 h-20 text-amber-500/5" fill="currentColor">
+            <circle cx="40" cy="40" r="36" />
+          </svg>
+        </div>
 
-          <div
-            className={cn(
-              "flex min-h-0 shrink-0 flex-col overflow-hidden px-0.5",
-              SPOTLIGHT_BODY_CLASS,
-            )}
-          >
+        <div className="relative px-5 pb-6 pt-6 md:px-7 md:pb-7 md:pt-7">
+
+          <div className="min-h-[260px] sm:min-h-[280px] flex flex-col">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={card.id}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.28, ease }}
-                className="flex h-full w-full flex-col"
+                transition={{ duration: 0.3, ease }}
+                className="flex flex-col h-full"
               >
                 {Icon ? (
-                  <div className="relative mb-2.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-amber-500 to-amber-700 shadow-lg ring-[3px] ring-white">
-                    {/* <div className="absolute inset-0 rounded-2xl bg-linear-to-tr from-amber-500/20 to-transparent" /> */}
-                    <Icon className="relative h-6 w-6 text-white md:h-7 md:w-7" />
-                  </div>
+                  <motion.div
+                    className="relative mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-lg"
+                    style={{ background: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)" }}
+                    whileHover={{ scale: 1.08, rotate: 3 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  >
+                    <div className="absolute inset-0 rounded-2xl bg-white/10" />
+                    <Icon className="relative h-7 w-7 text-white" />
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl"
+                      animate={{ boxShadow: ["0 0 0px 0px rgba(245,158,11,0)", "0 0 16px 4px rgba(245,158,11,0.35)", "0 0 0px 0px rgba(245,158,11,0)"] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  </motion.div>
                 ) : (
-                  <div className="mb-2.5 h-15 w-15 shrink-0" aria-hidden />
+                  <div className="mb-4 h-14 w-14 shrink-0" aria-hidden />
                 )}
 
-                <p className="line-clamp-2 w-full max-w-76 shrink-0 text-balance text-base font-bold leading-snug text-[#1D2F4F] md:text-lg">
+                <p className="text-base font-bold leading-snug text-[#1D2F4F] md:text-lg mb-3 max-w-[280px]">
                   {card.title}
                 </p>
 
-                <div className="mx-auto mt-2 flex min-h-0 w-full max-w-76 flex-1 flex-col">
-                  <div
-                    className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-0.5 [scrollbar-gutter:stable]"
-                    style={{ scrollbarWidth: "thin" }}
-                  >
-                    <p className="text-left text-sm leading-relaxed text-pretty text-gray-600">{card.description}</p>
-                  </div>
-                </div>
+                <p className="text-sm leading-relaxed text-gray-600 max-w-[280px] flex-1">
+                  {card.description}
+                </p>
 
+                {card.detail && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.15 }}
+                    className="mt-3 text-xs leading-relaxed text-amber-600/80 font-medium border-l-2 border-amber-400/40 pl-3"
+                  >
+                    {card.detail}
+                  </motion.p>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
             {items.map((it, idx) => (
               <button
                 key={it.id}
@@ -121,7 +129,7 @@ export function HeroBenefitSpotlight({
                 onClick={() => setI(idx)}
                 className={cn(
                   "h-2 rounded-full transition-all duration-300",
-                  idx === i ? "w-7 bg-amber-500" : "w-2 bg-gray-300 hover:bg-gray-400",
+                  idx === i ? "w-7 bg-amber-500" : "w-2 bg-gray-200 hover:bg-gray-300",
                 )}
                 aria-label={`Show benefit ${idx + 1}`}
                 aria-current={idx === i ? true : undefined}
@@ -132,10 +140,10 @@ export function HeroBenefitSpotlight({
           <div className="mt-5">
             <Link
               to={ctaHref}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-amber-500/30 bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-amber-500/20 transition-transform hover:scale-[1.01] active:scale-[0.99]"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]"
             >
               {ctaLabel}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
