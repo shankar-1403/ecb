@@ -66,7 +66,7 @@ const MEMBERSHIP_BENEFIT_CARDS = [
 ];
 
 const STATS = [
-    { value: 500, label: "Entrepreneurs Connected", icon: Users },
+    { value: 5000, label: "Entrepreneurs Connected", icon: Users },
     { value: 20, label: "States Covered", icon: Globe },
     { value: 100, label: "Startups Supported", icon: Rocket },
     { value: 200, label: "Businesses Empowered", icon: TrendingUp },
@@ -86,7 +86,7 @@ const TESTIMONIALS = [
 
 const ABOUT_STRENGTHS = [
     { icon: Globe, text: "Pan-India network spanning 20+ states with verified domain experts" },
-    { icon: ShieldCheck, text: "Trusted by 500+ entrepreneurs, MSMEs and growing businesses" },
+    { icon: ShieldCheck, text: "Trusted by 5000+ entrepreneurs, MSMEs and growing businesses" },
     { icon: Handshake, text: "Strategic tie-ups with government bodies, NBFCs and corporates" },
     { icon: Rocket, text: "End-to-end support from ideation to scale across 19 service domains" },
     { icon: Award, text: "Recognized platform for Elite Ambassadors across India" },
