@@ -276,7 +276,7 @@ function Home() {
                             </motion.div>
 
                             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-                                A Global Initiative empowering Entrepreneurs with Finance, Technology, Strategy, and Growth Ecosystems.
+                                Most trusted ecosystem platform for handholding MSMEs, startups, and business entrepreneurs.
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
