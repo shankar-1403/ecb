@@ -73,15 +73,15 @@ const STATS = [
 ];
 
 const TESTIMONIALS = [
-    { name: "Rajesh Sharma", role: "Founder, TechMSME", quote: "ECB connected me with the right experts at the right time. My business scaled 3x within a year of joining the network.", location: "Mumbai" },
-    { name: "Priya Mehta", role: "CEO, GreenVentures", quote: "The government scheme guidance alone saved us lakhs. ECB is genuinely invested in entrepreneur success.", location: "Pune" },
-    { name: "Arjun Nair", role: "Director, LogiScale", quote: "What sets ECB apart is the quality of their network. Every connection has been meaningful and business-relevant.", location: "Bangalore" },
-    { name: "Sneha Kulkarni", role: "Co-Founder, FinBridge", quote: "ECB's financial advisory network helped us close our first institutional round. Couldn't have done it without them.", location: "Hyderabad" },
-    { name: "Vikram Patel", role: "MD, BuildRight Infra", quote: "The events and summits gave us visibility we couldn't have bought with marketing spend. Quality connections every time.", location: "Ahmedabad" },
-    { name: "Anita Desai", role: "CEO, EduReach India", quote: "As a woman entrepreneur, ECB gave me a platform where my expertise was recognized and my business grew meaningfully.", location: "Delhi" },
-    { name: "Ravi Menon", role: "Founder, AgriTech Solutions", quote: "The government scheme connect through ECB got us MSME subsidies worth ₹12 lakhs. Game changer for our startup.", location: "Chennai" },
-    { name: "Meera Joshi", role: "Director, LegalEase", quote: "ECB's network brought us 3 major corporate clients within 6 months. The ROI on membership is unmatched.", location: "Jaipur" },
-    { name: "Sanjay Batra", role: "CEO, CloudScale Tech", quote: "The strategic advisory board connections through ECB elevated our company from startup to scaleup in under 2 years.", location: "Gurgaon" },
+    { name: "Rajesh Sharma", role: "Founder", quote: "ECB connected me with the right experts at the right time. My business scaled 3x within a year of joining the network.", location: "Mumbai" },
+    { name: "Priya Mehta", role: "CEO", quote: "The government scheme guidance alone saved us lakhs. ECB is genuinely invested in entrepreneur success.", location: "Pune" },
+    { name: "Arjun Nair", role: "Director", quote: "What sets ECB apart is the quality of their network. Every connection has been meaningful and business-relevant.", location: "Bangalore" },
+    { name: "Sneha Kulkarni", role: "Co-Founder", quote: "ECB's financial advisory network helped us close our first institutional round. Couldn't have done it without them.", location: "Hyderabad" },
+    { name: "Vikram Patel", role: "MD", quote: "The events and summits gave us visibility we couldn't have bought with marketing spend. Quality connections every time.", location: "Ahmedabad" },
+    { name: "Anita Desai", role: "CEO", quote: "As a woman entrepreneur, ECB gave me a platform where my expertise was recognized and my business grew meaningfully.", location: "Delhi" },
+    { name: "Ravi Menon", role: "Founder", quote: "The government scheme connect through ECB got us MSME subsidies worth ₹12 lakhs. Game changer for our startup.", location: "Chennai" },
+    { name: "Meera Joshi", role: "Director", quote: "ECB's network brought us 3 major corporate clients within 6 months. The ROI on membership is unmatched.", location: "Jaipur" },
+    { name: "Sanjay Batra", role: "CEO", quote: "The strategic advisory board connections through ECB elevated our company from startup to scaleup in under 2 years.", location: "Gurgaon" },
 ];
 
 const ABOUT_STRENGTHS = [
@@ -224,7 +224,7 @@ function Home() {
     return (
         <Layout>
 
-           
+
             <section className="relative overflow-hidden pt-20 pb-0 sm:pt-24 md:pt-28 lg:pt-32">
                 <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }} />
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: `linear-gradient(to right, rgba(245,158,11,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,158,11,0.07) 1px, transparent 1px)`, backgroundSize: "48px 48px" }} />
@@ -336,7 +336,7 @@ function Home() {
                 </div>
             </section>
 
-           
+
             <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }}>
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:px-6 lg:px-8 lg:flex-row lg:items-center lg:gap-16">
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={slideInLeft} className="w-full min-w-0 lg:flex-1">
@@ -373,7 +373,7 @@ function Home() {
                 </div>
             </section>
 
-         
+
             <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #fff7ed 100%)" }}>
                 <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full mb-10">
@@ -416,7 +416,7 @@ function Home() {
                 </div>
             </section>
 
-        
+
             <section className="relative overflow-hidden bg-[#1D2B4E]">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
@@ -446,7 +446,7 @@ function Home() {
                 </div>
             </section>
 
-            
+
             <section className="relative w-full overflow-hidden py-14 sm:py-18 md:py-20">
                 <div className="pointer-events-none absolute inset-0 -z-10">
                     <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-amber-500/5 blur-3xl" />
@@ -499,7 +499,7 @@ function Home() {
                     </div>
                 </div>
             </section>
-          
+
             <section className="py-14 sm:py-18 md:py-20 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }}>
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
@@ -553,11 +553,11 @@ function Home() {
                                 { icon: Megaphone, text: "Marketing & branding support" },
                                 { icon: Building2, text: "Government scheme access" },
                             ],
-                            pillStyle: { background: "rgba(255,255,255,0.5)", border: "1px solid rgba(0,0,0,0.06)" },
-                            iconStyle: { background: "rgba(245,158,11,0.06)" },
-                            iconBorder: "border-amber-500/10",
-                            iconColor: "text-amber-400",
-                            textColor: "text-slate-500",
+                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid rgba(245,158,11,0.25)" },
+                            iconStyle: { background: "rgba(245,158,11,0.1)" },
+                            iconBorder: "border-amber-500/20",
+                            iconColor: "text-amber-500",
+                            textColor: "text-[#1D2F4F]",
                         },
                     ].map((row, rowIdx) => (
                         <div
@@ -601,7 +601,7 @@ function Home() {
             </section>
 
 
-         
+
             <section className="relative py-14 sm:py-18 md:py-20 overflow-hidden bg-[#1D2B4E]">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
@@ -670,7 +670,7 @@ function Home() {
                 </div>
             </section>
 
-           
+
             <section className="py-14 sm:py-18 md:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">

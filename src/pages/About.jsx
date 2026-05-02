@@ -39,16 +39,6 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
-function ObjectivesGrid({ children, className }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-48px" });
-  return (
-    <motion.div ref={ref} className={className} initial="hidden" animate={inView ? "show" : "hidden"} variants={objectiveStagger}>
-      {children}
-    </motion.div>
-  );
-}
-
 const values = [
   { icon: Users, title: "Collaboration first", desc: "We believe stronger businesses are built when founders learn from each other and lift the ecosystem together." },
   { icon: Lightbulb, title: "Practical knowledge", desc: "Sessions and resources focus on what you can apply this week—not abstract theory disconnected from MSME reality." },
@@ -89,69 +79,159 @@ function About() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#1D2B4E]">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
-          <div className="mb-10 text-center">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">OUR PURPOSE</span>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h3>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { icon: Eye, title: "Our Vision", text: "To build India's most powerful entrepreneur support ecosystem — where every MSME has access to the right expertise, network, and opportunity to scale." },
-              { icon: Target, title: "Our Mission", text: "Enable entrepreneurs with trusted experts across every business function — from finance and legal to marketing and technology — through a verified, pan-India network." },
-            ].map(({ icon: Icon, title, text }) => (
-              <motion.div key={title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="relative group border border-white/20 overflow-hidden rounded-2xl hover:border-amber-500/40 transition-colors duration-300">
-                <div className="absolute inset-0 bg-white/5 group-hover:bg-white/8 transition-colors duration-300" />
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
-                <div className="relative p-7 sm:p-8 md:p-10 h-full">
-                  <div className="w-fit rounded-2xl bg-amber-500 flex items-center justify-center mb-5 shadow-lg shadow-amber-500/30 p-3">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h4 className="text-2xl md:text-3xl font-display font-bold text-white">{title}</h4>
-                  <div className="w-16 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-4" />
-                  <p className="text-white/80 leading-relaxed text-sm md:text-base">{text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section
+        className="relative overflow-hidden py-10 sm:py-14 md:py-16"
+        style={{
+          background:
+            "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)",
+        }}
+      >
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
-      <section className="relative overflow-hidden bg-white py-16 sm:py-20 md:py-24">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-          <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
-            <motion.div className="lg:col-span-5 xl:col-span-4" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}>
-              <div className="lg:sticky lg:top-28">
-                <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-amber-400">What we pursue</span>
-                <h3 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Our Objective</h3>
-                <p className="mt-4 max-w-md text-sm leading-relaxed sm:text-base">Clear priorities that guide how ECB shows up for entrepreneurs, MSMEs, and startups across India.</p>
-                <div className="w-16 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-5" />
+        <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5 md:px-6">
+
+         
+          <div className="lg:hidden">
+            <div className="text-center mb-8">
+              <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">
+                What we pursue
+              </span>
+              <h3 className="mt-4 text-3xl font-bold text-[#1D2F4F]">
+                Our Objective
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Clear priorities guiding ECB across India.
+              </p>
+              <div className="w-16 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: Lightbulb, title: "Promote entrepreneurship in India", detail: "Building the foundation for a thriving ecosystem." },
+                { icon: Building2, title: "Support MSMEs and startups", detail: "Connecting businesses with the right resources." },
+                { icon: Users, title: "Create networking opportunities", detail: "500+ entrepreneurs across 20+ states." },
+                { icon: TrendingUp, title: "Provide business growth support", detail: "End-to-end guidance for scaling businesses." },
+                { icon: Sparkles, title: "Encourage innovation and collaboration", detail: "Fostering creative thinking across ECB." },
+              ].map(({ icon: Icon, title, detail }) => (
+                <div
+                  key={title}
+                  className="group rounded-2xl p-5 border border-amber-200/50 bg-white/90 hover:border-amber-400/60 hover:shadow-[0_12px_32px_-8px_rgba(245,158,11,0.2)] transition-all duration-300"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3 group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-300">
+                    <Icon className="w-5 h-5 text-amber-500 group-hover:text-white transition-colors duration-300" />
+                  </div>
+
+                  <h4 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition-colors">
+                    {title}
+                  </h4>
+
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          
+          <div className="hidden lg:block">
+            <style>{`
+        @keyframes float0 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
+        @keyframes float1 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
+        @keyframes float2 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-7px)} }
+        @keyframes float3 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
+        @keyframes float4 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
+
+        .f0{animation:float0 5s ease-in-out infinite;}
+        .f1{animation:float1 6s ease-in-out infinite;}
+        .f2{animation:float2 5.5s ease-in-out infinite;}
+        .f3{animation:float3 6.5s ease-in-out infinite;}
+        .f4{animation:float4 6s ease-in-out infinite;}
+
+        .ocard{
+          position:absolute;
+          width:200px;
+          background:rgba(255,255,255,0.95);
+          border:1px solid rgba(245,158,11,0.25);
+          border-radius:18px;
+          padding:16px;
+          backdrop-filter:blur(10px);
+          transition:all 0.3s;
+          z-index:5;
+          box-shadow:0 6px 24px -6px rgba(0,0,0,0.08);
+        }
+
+        .ocard:hover{
+          background:#1D2F4F;
+          border-color:rgba(245,158,11,0.7);
+          box-shadow:0 20px 48px -8px rgba(245,158,11,0.4);
+          transform:scale(1.06) !important;
+          z-index:20;
+        }
+
+        .ocard:hover .ci{background:rgba(245,158,11,0.25);}
+        .ocard:hover .ct{color:white;}
+        .ocard:hover .cd{color:rgba(255,255,255,0.65);}
+      `}</style>
+
+            <div className="relative w-full" style={{ height: "380px" }}>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 380">
+                <path d="M 80 350 A 400 300 0 0 1 920 350" fill="none" stroke="rgba(245,158,11,0.15)" strokeWidth="1.5" strokeDasharray="6,5" />
+              </svg>
+
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-96 z-10">
+                <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500 mb-2">
+                  What we pursue
+                </span>
+                <h3 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h3>
+                <p className="mt-2 text-base text-muted-foreground">
+                  Clear priorities guiding ECB across India.
+                </p>
+                <div className="w-14 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
               </div>
-            </motion.div>
-            <ObjectivesGrid className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:col-span-7 xl:col-span-8">
-              {objectives.map((obj, index) => {
-                const Icon = obj.icon;
-                const wide = index === objectives.length - 1;
+
+              {[
+                { angle: 200, floatClass: "f0", icon: Lightbulb, title: "Promote entrepreneurship in India", detail: "Building the foundation for a thriving ecosystem." },
+                { angle: 240, floatClass: "f1", icon: Building2, title: "Support MSMEs and startups", detail: "Connecting businesses with the right resources." },
+                { angle: 270, floatClass: "f2", icon: Users, title: "Create networking opportunities", detail: "500+ entrepreneurs across 20+ states." },
+                { angle: 300, floatClass: "f3", icon: TrendingUp, title: "Provide business growth support", detail: "End-to-end guidance for scaling businesses." },
+                { angle: 340, floatClass: "f4", icon: Sparkles, title: "Encourage innovation and collaboration", detail: "Fostering creative thinking across ECB." },
+              ].map(({ angle, floatClass, icon: Icon, title, detail }) => {
+                const rad = (angle * Math.PI) / 180;
+                const cx = 50;
+                const cy = 84;
+                const rx = 40;
+                const ry = 65;
+
+                const x = cx + rx * Math.cos(rad);
+                const y = cy + ry * Math.sin(rad);
+
                 return (
-                  <motion.article key={obj.text} variants={objectiveFade} className={cn("group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.09] to-white/[0.02] p-5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-md transition duration-500 sm:rounded-3xl sm:p-6 hover:border-amber-400/35 hover:from-white/12 hover:shadow-[0_24px_60px_-20px_rgba(245,158,11,0.12)]", wide && "sm:col-span-2")}>
-                    <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-amber-500/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
-                    <div className="relative flex items-center gap-4 sm:gap-5">
-                      <div className="flex shrink-0 items-center gap-3 sm:flex-col sm:items-start sm:gap-3">
-                        <div className="flex h-14 w-14 md:h-10 md:w-10 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400 ring-1 ring-amber-500/25">
-                          <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={1.75} />
-                        </div>
-                      </div>
-                      <div>
-                        <h4 className="md:text-base font-semibold leading-snug sm:text-xl">{obj.text}</h4>
-                      </div>
+                  <div
+                    key={title}
+                    className={`ocard ${floatClass}`}
+                    style={{
+                      left: `calc(${x}% - 100px)`,
+                      top: `calc(${y}% - 85px)`,
+                    }}
+                  >
+                    <div className="ci w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3">
+                      <Icon className="w-5 h-5 text-amber-500" />
                     </div>
-                    <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
-                  </motion.article>
+
+                    <p className="ct text-sm font-semibold text-[#1D2F4F] mb-1.5">
+                      {title}
+                    </p>
+
+                    <p className="cd text-xs text-gray-500">
+                      {detail}
+                    </p>
+                  </div>
                 );
               })}
-            </ObjectivesGrid>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -194,7 +274,7 @@ function About() {
 
         <section className="py-16 sm:py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h2>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {team.map((member, index) => (
                 <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl bg-white/70 border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl hover:-translate-y-2">

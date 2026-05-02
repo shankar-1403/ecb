@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.webp";
-
+import { Circle } from "lucide-react";
 const Footer = () => (
   <footer className="bg-[#1D314E] text-white">
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-6 md:py-12">
@@ -63,11 +63,10 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-secondary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs text-secondary-foreground/50 text-center">
 
-        <p>
-          © 2026 Entrepreneur Connect Bharat (ECB). All Rights Reserved.
-        </p>
+      <div className="border-t border-secondary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-xs text-secondary-foreground/50 text-center">
+        <p>© 2026 Entrepreneur Connect Bharat (ECB). All Rights Reserved.</p>
+        <Circle className="w-2 h-2 fill-current hidden sm:block mx-3" />
 
         <p>
           Powered by{" "}
@@ -82,7 +81,6 @@ const Footer = () => (
         </p>
 
       </div>
-
     </div>
   </footer>
 );
