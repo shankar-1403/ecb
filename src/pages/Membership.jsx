@@ -94,6 +94,7 @@ function Membership() {
       </section>
 
       <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-4 sticky top-0">

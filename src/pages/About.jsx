@@ -63,6 +63,7 @@ function About() {
     <Layout>
 
       <section className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-40 md:pb-24">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 40%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(145, 60%, 40%) 0%, transparent 45%)" }} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up mx-auto">
@@ -81,16 +82,13 @@ function About() {
 
       <section
         className="relative overflow-hidden py-10 sm:py-14 md:py-16"
-        style={{
-          background:
-            "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)",
-        }}
+
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
         <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5 md:px-6">
 
-         
+
           <div className="lg:hidden">
             <div className="text-center mb-8">
               <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">
@@ -133,7 +131,7 @@ function About() {
             </div>
           </div>
 
-          
+
           <div className="hidden lg:block">
             <style>{`
         @keyframes float0 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
@@ -235,82 +233,83 @@ function About() {
         </div>
       </section>
 
-      <div style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }}>
+      <div style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }}>
 
-        <section className="relative overflow-hidden pt-14 pb-10 sm:pt-16 sm:pb-12 md:pt-20 md:pb-14">
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500 mb-4 mx-auto">
-              <Sparkles className="w-3 h-3 text-amber-500" />
-              <span className="text-sm font-semibold">Our Team</span>
-            </div>
-            <h1 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
-              Meet the People Behind{" "}
-              <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">ECB</span>
-            </h1>
-            <p className="mt-6 max-w-3xl mx-auto text-muted-foreground sm:text-lg">A collective of professionals supporting entrepreneurs and MSMEs across India.</p>
+      <section className="relative overflow-hidden pt-14 pb-10 sm:pt-16 sm:pb-12 md:pt-20 md:pb-14">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500 mb-4 mx-auto">
+            <Sparkles className="w-3 h-3 text-amber-500" />
+            <span className="text-sm font-semibold">Our Team</span>
           </div>
-        </section>
+          <h1 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
+            Meet the People Behind{" "}
+            <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">ECB</span>
+          </h1>
+          <p className="mt-6 max-w-3xl mx-auto text-muted-foreground sm:text-lg">A collective of professionals supporting entrepreneurs and MSMEs across India.</p>
+        </div>
+      </section>
 
-        <section className="py-5 sm:py-6 md:py-10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h2>
-            <div className="mt-12 flex justify-center">
-              {leadership.map((member, index) => (
-                <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-10 items-center max-w-4xl group">
-                  <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative">
-                    <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
-                    <img src={member.img} alt={member.name} className="relative w-full h-auto max-h-[300px] sm:max-h-[350px] md:h-80 md:max-h-none object-contain md:object-cover rounded-2xl shadow-lg" />
-                  </motion.div>
-                  <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h3>
-                    <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground text-sm sm:text-base">A visionary leader guiding ECB to build a strong ecosystem for entrepreneurs and MSMEs.</p>
-                  </motion.div>
+      <section className="py-5 sm:py-6 md:py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h2>
+          <div className="mt-12 flex justify-center">
+            {leadership.map((member, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-10 items-center max-w-4xl group">
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative">
+                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
+                  <img src={member.img} alt={member.name} className="relative w-full h-auto max-h-[300px] sm:max-h-[350px] md:h-80 md:max-h-none object-contain md:object-cover rounded-2xl shadow-lg" />
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h2>
-            <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {team.map((member, index) => (
-                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl bg-white/70 border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl hover:-translate-y-2">
-                  <div className="overflow-hidden">
-                    <img src={member.img} alt={member.name} className="w-full h-auto max-h-[220px] sm:max-h-[240px] md:h-64 md:max-h-none object-contain md:object-cover transition group-hover:scale-105" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground">{member.role}</p>
-                  </div>
+                <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h3>
+                  <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
+                  <p className="mt-4 text-muted-foreground text-sm sm:text-base">A visionary leader guiding ECB to build a strong ecosystem for entrepreneurs and MSMEs.</p>
                 </motion.div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="pb-12 sm:pb-16 md:pb-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
-            <div className="flex flex-col gap-6 rounded-2xl bg-[#1D2F4F] p-8 text-white sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8 md:rounded-3xl md:p-12 lg:p-14">
-              <div className="min-w-0">
-                <h5 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h5>
-                <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Membership opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
-              </div>
-              <Link to="/membership/elite-ambassador" className="w-full shrink-0 sm:w-auto">
-                <Button size="lg" className="w-full bg-amber-500 shadow-lg shadow-amber-500/30 sm:w-auto">
-                  Explore membership
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
+      <section className="py-16 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h2>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {team.map((member, index) => (
+              <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl bg-white/70 border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl hover:-translate-y-2">
+                <div className="overflow-hidden">
+                  <img src={member.img} alt={member.name} className="w-full h-auto max-h-[220px] sm:max-h-[240px] md:h-64 md:max-h-none object-contain md:object-cover transition group-hover:scale-105" />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition">{member.name}</h3>
+                  <p className="text-sm text-muted-foreground">{member.role}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      <section className="pb-12 sm:pb-16 md:pb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
+          <div className="flex flex-col gap-6 rounded-2xl bg-[#1D2F4F] p-8 text-white sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8 md:rounded-3xl md:p-12 lg:p-14">
+            <div className="min-w-0">
+              <h5 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h5>
+              <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Membership opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
+            </div>
+            <Link to="/membership/elite-ambassador" className="w-full shrink-0 sm:w-auto">
+              <Button size="lg" className="w-full bg-amber-500 shadow-lg shadow-amber-500/30 sm:w-auto">
+                Explore membership
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
-    </Layout>
+    </div>
+
+    </Layout >
   );
 }
 

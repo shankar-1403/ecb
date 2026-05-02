@@ -58,10 +58,9 @@ function Services() {
 
       <section
         className="relative py-16 sm:py-20 md:py-28"
-        style={{
-          background: "linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #fff7ed 100%)",
-        }}
+        
       >
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-5 md:px-6">
 
           <div className="w-full mb-12">

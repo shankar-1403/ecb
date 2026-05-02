@@ -226,7 +226,7 @@ function Home() {
 
 
             <section className="relative overflow-hidden pt-20 pb-0 sm:pt-24 md:pt-28 lg:pt-32">
-                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }} />
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: `linear-gradient(to right, rgba(245,158,11,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,158,11,0.07) 1px, transparent 1px)`, backgroundSize: "48px 48px" }} />
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600" />
                 <div className="absolute bottom-40 right-4 opacity-[0.05] pointer-events-none select-none hidden lg:block">
@@ -337,7 +337,8 @@ function Home() {
             </section>
 
 
-            <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }}>
+            <section className="relative py-14 sm:py-18 md:py-20">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:px-6 lg:px-8 lg:flex-row lg:items-center lg:gap-16">
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={slideInLeft} className="w-full min-w-0 lg:flex-1">
                         <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-5">About ECB</span>
@@ -375,6 +376,7 @@ function Home() {
 
 
             <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #fff7ed 100%)" }}>
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full mb-10">
                         <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-4">Full spectrum</span>
@@ -418,6 +420,7 @@ function Home() {
 
 
             <section className="relative overflow-hidden bg-[#1D2B4E]">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
                     <div className="mb-10 text-center">
@@ -448,6 +451,7 @@ function Home() {
 
 
             <section className="relative w-full overflow-hidden py-14 sm:py-18 md:py-20">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="pointer-events-none absolute inset-0 -z-10">
                     <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-amber-500/5 blur-3xl" />
                 </div>
@@ -534,7 +538,7 @@ function Home() {
                                 { icon: Rocket, text: "Access to verified business leads" },
                                 { icon: BadgeCheck, text: "Credibility & brand recognition" },
                             ],
-                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid rgba(245,158,11,0.25)" },
+                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 20px -4px rgba(245,158,11,0.2), 0 0 0 1px rgba(245,158,11,0.08)" },
                             iconStyle: { background: "rgba(245,158,11,0.1)" },
                             iconBorder: "border-amber-500/20",
                             iconColor: "text-amber-500",
@@ -553,7 +557,7 @@ function Home() {
                                 { icon: Megaphone, text: "Marketing & branding support" },
                                 { icon: Building2, text: "Government scheme access" },
                             ],
-                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid rgba(245,158,11,0.25)" },
+                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 20px -4px rgba(245,158,11,0.2), 0 0 0 1px rgba(245,158,11,0.08)" },
                             iconStyle: { background: "rgba(245,158,11,0.1)" },
                             iconBorder: "border-amber-500/20",
                             iconColor: "text-amber-500",
@@ -562,7 +566,7 @@ function Home() {
                     ].map((row, rowIdx) => (
                         <div
                             key={rowIdx}
-                            className="overflow-hidden"
+                            className="overflow-x-hidden overflow-y-visible py-2"
                             onMouseEnter={(e) => e.currentTarget.querySelector('.track').style.animationPlayState = 'paused'}
                             onMouseLeave={(e) => e.currentTarget.querySelector('.track').style.animationPlayState = 'running'}
                         >
@@ -698,7 +702,9 @@ function Home() {
                                 );
                                 const cardClass = "flex items-start gap-4 rounded-2xl border border-gray-200/90 bg-white p-4 shadow-md transition hover:-translate-y-0.5 hover:border-amber-500/25 hover:shadow-lg";
                                 return href ? (
-                                    <a key={label} href={href} className={cardClass}>{inner}</a>
+                                    <a key={label} href={href} target={label === "Location" ? "_blank" : "_self"} rel="noopener noreferrer" className={cardClass}>
+                                        {inner}
+                                    </a>
                                 ) : (
                                     <div key={label} className={cardClass}>{inner}</div>
                                 );

@@ -8,7 +8,7 @@ import { Mail, Phone, MapPin, Send, ArrowRight, CheckCircle2 } from "lucide-reac
 const contactItems = [
   { icon: Mail, label: "Email", value: "contact@ec-bharat.in", href: "mailto:contact@ec-bharat.in" },
   { icon: Phone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+91 22 3512 0060" },
-  { icon: MapPin, label: "Location", value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093", href:"https://www.google.com/maps?q=Lodha+Supremus+Andheri+East+Mumbai" },
+  { icon: MapPin, label: "Location", value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093", href: "https://www.google.com/maps?q=Lodha+Supremus+Andheri+East+Mumbai" },
 ];
 
 function Contact() {
@@ -46,7 +46,8 @@ function Contact() {
         </div>
       </section>
 
-      <section className="pb-20 md:py-15">
+      <section className="relative pb-20 md:py-15">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
           <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-5 md:gap-8 lg:gap-10">
             <div className="md:col-span-2 space-y-4">
@@ -65,7 +66,7 @@ function Contact() {
                 const cardClass =
                   "flex items-start gap-4 rounded-2xl border border-gray-200/90 bg-white p-5 shadow-md transition hover:-translate-y-0.5 hover:border-amber-500/25 hover:shadow-lg";
                 return href ? (
-                  <a key={label} href={href} className={cardClass}>
+                  <a key={label} href={href} target={label === "Location" ? "_blank" : "_self"} rel="noopener noreferrer" className={cardClass}>
                     {inner}
                   </a>
                 ) : (
