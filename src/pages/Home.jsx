@@ -249,7 +249,7 @@ function Home() {
                         <div className="w-full lg:w-1/2 flex flex-col justify-center py-8 lg:py-1">
                             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-5 w-fit mx-auto lg:mx-0">
                                 <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                                <span className="text-xs sm:text-sm font-semibold tracking-wide">One Platform & End To End Solutions</span>
+                                <span className="text-xs sm:text-sm font-semibold tracking-wide">India's Entrepreneur Growth Platform</span>
                             </motion.div>
 
                             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] text-center lg:text-left">
@@ -276,7 +276,7 @@ function Home() {
                             </motion.div>
 
                             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-                               Entrepreneurs Connect Bharat (ECB), backed by Pcred Group, is a growth-driven business ecosystem connecting startups, MSMEs, and entrepreneurs with investors, corporates, and end-to-end solutions to drive funding, partnerships, and scalable growth
+                                One Platform & End To End Solutions
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
@@ -429,8 +429,8 @@ function Home() {
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
-                            { icon: Eye, title: "Our Vision", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth." },
-                            { icon: Target, title: "Our Mission", text: "To enable entrepreneurs and businesses to achieve structured growth by providing an integrated platform that combines strategic connections, funding access, advisory, and execution support ensuring every opportunity is tracked, nurtured, and converted into real business outcomes." },
+                            { icon: Eye, title: "Our Vision", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth. " },
+                            { icon: Target, title: "Our Mission", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth." },
                         ].map(({ icon: Icon, title, text }) => (
                             <motion.div key={title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="relative group border border-white/20 overflow-hidden rounded-2xl hover:border-amber-500/40 transition-colors duration-300">
                                 <div className="absolute inset-0 bg-white/5 group-hover:bg-white/8 transition-colors duration-300" />
