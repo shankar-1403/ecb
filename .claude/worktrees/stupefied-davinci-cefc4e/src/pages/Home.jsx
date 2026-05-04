@@ -249,7 +249,7 @@ function Home() {
                         <div className="w-full lg:w-1/2 flex flex-col justify-center py-8 lg:py-1">
                             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-5 w-fit mx-auto lg:mx-0">
                                 <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                                <span className="text-xs sm:text-sm font-semibold tracking-wide">One Platform & End To End Solutions</span>
+                                <span className="text-xs sm:text-sm font-semibold tracking-wide">India's Entrepreneur Growth Platform</span>
                             </motion.div>
 
                             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] text-center lg:text-left">
@@ -276,7 +276,7 @@ function Home() {
                             </motion.div>
 
                             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-                               Entrepreneurs Connect Bharat (ECB), backed by Pcred Group, is a growth-driven business ecosystem connecting startups, MSMEs, and entrepreneurs with investors, corporates, and end-to-end solutions to drive funding, partnerships, and scalable growth
+                                Most trusted ecosystem platform for handholding MSMEs, startups, and business entrepreneurs.
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
@@ -303,7 +303,7 @@ function Home() {
                                     ))}
                                 </div>
                                 <p className="text-sm text-gray-500">
-                                    <span className="font-semibold text-gray-700">5000+</span> entrepreneurs already growing with ECB
+                                    <span className="font-semibold text-gray-700">500+</span> entrepreneurs already growing with ECB
                                 </p>
                             </motion.div>
                         </div>
@@ -429,8 +429,8 @@ function Home() {
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
-                            { icon: Eye, title: "Our Vision", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth." },
-                            { icon: Target, title: "Our Mission", text: "To enable entrepreneurs and businesses to achieve structured growth by providing an integrated platform that combines strategic connections, funding access, advisory, and execution support ensuring every opportunity is tracked, nurtured, and converted into real business outcomes." },
+                            { icon: Eye, title: "Our Vision", text: "To build India's most powerful entrepreneur support ecosystem — where every MSME has access to the right expertise, network, and opportunity to scale." },
+                            { icon: Target, title: "Our Mission", text: "Enable entrepreneurs with trusted experts across every business function — from finance and legal to marketing and technology — through a verified, pan-India network." },
                         ].map(({ icon: Icon, title, text }) => (
                             <motion.div key={title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="relative group border border-white/20 overflow-hidden rounded-2xl hover:border-amber-500/40 transition-colors duration-300">
                                 <div className="absolute inset-0 bg-white/5 group-hover:bg-white/8 transition-colors duration-300" />
@@ -547,7 +547,7 @@ function Home() {
                         {
                             animation: "marquee2 70s linear infinite",
                             items: [
-                                { icon: Network, text: "Networking with 5000+ entrepreneurs" },
+                                { icon: Network, text: "Networking with 500+ entrepreneurs" },
                                 { icon: ShieldCheck, text: "Verified expert empanelment" },
                                 { icon: Briefcase, text: "Virtual CXO opportunities" },
                                 { icon: HeartHandshake, text: "CSR & social impact projects" },
@@ -711,7 +711,7 @@ function Home() {
                             })}
                             <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-[#1D2F4F] to-[#15243d] p-5 text-white shadow-lg">
                                 <h5 className="text-base font-display font-bold">Let's Build Together</h5>
-                                <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 5000+ entrepreneurs who are growing their businesses with ECB.</p>
+                                <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 500+ entrepreneurs who are growing their businesses with ECB.</p>
                                 <Link to="/membership/elite-ambassador" className="mt-4 inline-block">
                                     <Button size="sm" className="bg-amber-500 hover:bg-amber-600 mt-2">
                                         Join Now <ArrowRight className="ml-1 h-3 w-3" />
