@@ -282,7 +282,7 @@ function Home() {
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
                                 <Link to="/membership/elite-ambassador">
                                     <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 transition-shadow hover:shadow-amber-500/40 text-sm sm:text-base">
-                                        Apply as Elite Ambassador
+                                        Apply as an Elite Ambassador
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </Button>
                                 </Link>
@@ -424,13 +424,13 @@ function Home() {
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
                     <div className="mb-10 text-center">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">OUR PURPOSE</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Our Purpose</span>
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h3>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
                             { icon: Eye, title: "Our Vision", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth. " },
-                            { icon: Target, title: "Our Mission", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth." },
+                            { icon: Target, title: "Our Mission", text: "To enable entrepreneurs and businesses to achieve structured growth by providing an integrated platform that combines strategic connections, funding access, advisory, and execution support ensuring every opportunity is tracked, nurtured, and converted into real business outcomes." },
                         ].map(({ icon: Icon, title, text }) => (
                             <motion.div key={title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="relative group border border-white/20 overflow-hidden rounded-2xl hover:border-amber-500/40 transition-colors duration-300">
                                 <div className="absolute inset-0 bg-white/5 group-hover:bg-white/8 transition-colors duration-300" />
@@ -496,7 +496,7 @@ function Home() {
                     <div className="mt-10 flex justify-center">
                         <Link to="/membership/elite-ambassador">
                             <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-shadow">
-                                Apply as Elite Ambassador
+                                Apply as an Elite Ambassador
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
                         </Link>
@@ -515,7 +515,7 @@ function Home() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div className="text-center">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Join The Movement</span>
-                        <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as Elite Ambassador</h3>
+                        <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h3>
                         <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">Connect with India's most powerful entrepreneur network and unlock real growth opportunities.</p>
                     </div>
                 </div>
@@ -597,7 +597,7 @@ function Home() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 flex justify-center">
                     <Link to="/membership/elite-ambassador">
                         <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-shadow">
-                            Apply as Elite Ambassador
+                            Apply as an Elite Ambassador
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                     </Link>
