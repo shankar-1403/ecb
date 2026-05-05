@@ -255,15 +255,17 @@ function About() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h2>
             <div className="mt-12 flex justify-center">
               {leadership.map((member, index) => (
-                <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-10 items-center max-w-4xl group">
+                <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
                   <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative">
                     <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
-                    <img src={member.img} alt={member.name} className="relative w-full h-auto max-h-[300px] sm:max-h-[350px] md:h-80 md:max-h-none object-contain md:object-cover rounded-2xl shadow-lg" />
+                    <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
                   </motion.div>
-                  <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left">
+                  <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
                     <h3 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h3>
                     <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground text-sm sm:text-base">A visionary leader guiding ECB to build a strong ecosystem for entrepreneurs and MSMEs.</p>
+                    <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      Dr. G. Ramesh Kumar is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Insurath, and the Chairman of Entrepreneur Connect Bharat (ECB), with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes. He also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.
+                    </p>
                   </motion.div>
                 </motion.div>
               ))}
