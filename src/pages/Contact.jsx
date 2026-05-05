@@ -31,7 +31,7 @@ function Contact() {
         />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-5 md:px-6">
           <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold tracking-wide">
-            Get In Touch
+            GET IN TOUCH
           </span>
           <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold">
             Let&apos;s build{" "}
@@ -78,7 +78,7 @@ function Contact() {
               <div className="rounded-2xl border border-white/10 bg-linear-to-br from-[#1D2F4F] to-[#15243d] p-6 text-white shadow-lg">
                 <h2 className="text-lg font-bold">Office hours</h2>
                 <p className="mt-2 text-sm text-white/80 leading-relaxed">
-                  We respond to most enquiries within two business days. For membership applications, include your sector
+                  We respond to most enquiries within 24 hours. For membership applications, include your sector
                   and one concrete goal so we can tailor our reply.
                 </p>
                 <Link

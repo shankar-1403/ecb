@@ -6,14 +6,14 @@ import { ArrowRight, Sparkles, Shield, CheckCircle2, ClipboardList, FileText, Us
 const STEPS = [
   { title: "Get access to verified business requirements", Icon: UserRound },
   { title: "Work as an outsourced partner across multiple domains", Icon: ClipboardList },
-  { title: "Focus on delivery—We bring the opportunities", Icon: FileText },
+  { title: "While you focus on your work, we bring the right opportunities", Icon: FileText },
   { title: "Grow with a structured, scalable ecosystem", Icon: CheckCircle2 },
 ]
 
 function Partners() {
   return (
     <Layout>
-      <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28">
+      <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
         <div
           className="absolute inset-0 opacity-15"
           style={{
@@ -24,9 +24,17 @@ function Partners() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 justify-center">
             <div className="lg:col-span-12 flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up mx-auto">
-                <Sparkles className="w-3 h-3 text-amber-500" />
-                <span className="text-sm font-semibold">Partner</span>
+              <div>
+                <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+                  <div className="flex items-center gap-2">
+                    <div>
+                      <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                    </div>
+                    <div>
+                      <span className="text-xs sm:text-sm font-semibold tracking-wide">PARTNER</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05] mx-auto">
                 Become an Execution Partner
@@ -35,24 +43,6 @@ function Partners() {
                 Partner with us as an execution expert and deliver services to corporates and MSMEs through the ECB ecosystem. From finance and insurance to compliance and consulting, we connect you with real business opportunities.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center justify-center">
-                <Link to="/contact" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full bg-linear-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
-                  >
-                    Apply as a Partner
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/services" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full border-2 border-[#1D2F4F]/15 bg-white/90 text-base font-semibold text-[#1D2F4F] shadow-sm backdrop-blur-sm transition hover:border-amber-500/40 hover:bg-amber-500/5 sm:w-auto"
-                  >
-                    Explore services
-                  </Button>
-                </Link>
               </div>
             </div>
           </div>
@@ -117,7 +107,7 @@ function Partners() {
                   <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
                   <form className="space-y-8 p-6 sm:p-10" noValidate>
                     <div>
-                      <h2 className="text-lg font-semibold">Application form</h2>
+                      <h2 className="text-lg font-semibold">Apply as a Partner</h2>
                       <p className="mt-2 text-sm text-slate-600">Fields marked by validation are required.</p>
                     </div>
 
@@ -127,15 +117,26 @@ function Partners() {
                         <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
-                      <div className="sm:col-span-2">
+                      <div className="sm:col-span-2 relative">
                         <label className="mb-4" htmlFor="companysize">Company Size</label>
-                        <select id="companysize" defaultValue="" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
+                        <select id="companysize" defaultValue="" className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
                           <option value="" disabled>-- select --</option>
                           <option value="0-100">0-100</option>
                           <option value="100-250">100-250</option>
                           <option value="250-500">250-500</option>
                           <option value="500+">500+</option>
                         </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-4 top-6 flex items-center">
+                          <svg
+                            className="w-4 h-4 text-gray-600"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
                       </div>
 
                       <div className="sm:col-span-2">
@@ -173,24 +174,31 @@ function Partners() {
                         <input id="servicesyouoffer" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
                       </div>
 
-                      <div className="sm:col-span-2">
+                      <div className="sm:col-span-2 relative">
                         <label className="mb-4" htmlFor="industry">Industry</label>
-                        <select id="industry" defaultValue="" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
-                          <option value="" disabled>-- select --</option>
-                          <option value="Technology / IT">Technology / IT</option>
-                          <option value="Finance & Banking">Finance & Banking</option>
-                          <option value="Healthcare & Pharma">Healthcare & Pharma</option>
-                          <option value="Marketing & Branding">Marketing & Branding</option>
-                          <option value="Legal & Compliance">Legal & Compliance</option>
-                          <option value="Business Consulting">Business Consulting</option>
-                          <option value="Manufacturing">Manufacturing</option>
-                          <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
-                          <option value="Education & Training">Education & Training</option>
-                          <option value="Logistics & Distribution">Logistics & Distribution</option>
-                          <option value="Retail & E-commerce">Retail & E-commerce</option>
-                          <option value="Government / Public Sector">Government / Public Sector</option>
-                          <option value="DE">Other</option>
-                        </select>
+                        <div className="relative">
+                          <select id="industry" defaultValue="" className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl pr-10">
+                            <option value="" disabled>-- select --</option>
+                            <option value="Technology / IT">Technology / IT</option>
+                            <option value="Finance & Banking">Finance & Banking</option>
+                            <option value="Healthcare & Pharma">Healthcare & Pharma</option>
+                            <option value="Marketing & Branding">Marketing & Branding</option>
+                            <option value="Legal & Compliance">Legal & Compliance</option>
+                            <option value="Business Consulting">Business Consulting</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
+                            <option value="Education & Training">Education & Training</option>
+                            <option value="Logistics & Distribution">Logistics & Distribution</option>
+                            <option value="Retail & E-commerce">Retail & E-commerce</option>
+                            <option value="Government / Public Sector">Government / Public Sector</option>
+                            <option value="DE">Other</option>
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                            <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
 
                       <div className="sm:col-span-2">

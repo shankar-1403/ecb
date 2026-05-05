@@ -19,7 +19,7 @@ const offerings = [
 
 const whyJoin = [
     { text: "Why Join as Elite Ambassador", detail: "Connect with entrepreneurs, industry leaders, and professionals." },
-    { icon: Globe, text: "Access to high-quality entrepreneur leads", detail: "Connect with 500+ entrepreneurs across India" },
+    { icon: Globe, text: "Access to high-quality entrepreneur leads", detail: "Connect with 5000+ entrepreneurs across India" },
     { icon: TrendingUp, text: "National & global business visibility", detail: "Stay ahead with curated business insights" },
     { icon: Award, text: "Strategic collaboration opportunities", detail: "Mentorship from successful entrepreneurs" },
     { icon: Zap, text: "Positioning as trusted expert", detail: "Accelerate with proven strategies & tools" },
@@ -57,10 +57,10 @@ const SERVICE_ITEMS = [
 ];
 
 const MEMBERSHIP_BENEFIT_CARDS = [
-    { id: 1, title: "Networking opportunities", description: "Meet founders, mentors, and partners who understand MSME realities—not generic pitch rooms.", detail: "Curated circles, warm intros, and sector meetups across states.", icon: Users },
+    { id: 1, title: "Networking opportunities", description: "Meet founders, mentors, and partners who understand MSME realities without generic pitch rooms.", detail: "Curated circles, warm intros, and sector meetups across states.", icon: Users },
     { id: 2, title: "Business growth support", description: "Practical help on positioning, pipeline, and the next milestone so momentum does not stall.", detail: "Peer learning and expert sessions aligned to how you operate day to day.", icon: TrendingUp },
     { id: 3, title: "Access to business resources", description: "Templates, playbooks, and pointers to programmes that save time when you are moving fast.", detail: "One place to discover what matters for compliance, digital, and scale.", icon: Layers },
-    { id: 4, title: "Updates on opportunities", description: "Timely signals on schemes, tenders, and openings that fit growing businesses—not noise.", detail: "Digestible updates so you can act quickly with your team.", icon: Bell },
+    { id: 4, title: "Updates on opportunities", description: "Timely signals on schemes, tenders, and openings that fit growing businesses without noise.", icon: Bell },
     { id: 5, title: "Events & webinars", description: "Participation in member events and live sessions built around real founder questions.", detail: "Learn, ask, and connect without leaving your city when you need virtual access.", icon: CalendarDays },
     { id: 6, title: "Visibility for your business", description: "Showcase moments inside the ECB community and allied touchpoints so the right people notice you.", detail: "Spotlights and introductions that support trust—not cold spam.", icon: Megaphone },
 ];
@@ -247,10 +247,18 @@ function Home() {
                     <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-12 xl:gap-16">
 
                         <div className="w-full lg:w-1/2 flex flex-col justify-center py-8 lg:py-1">
-                            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-5 w-fit mx-auto lg:mx-0">
-                                <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                                <span className="text-xs sm:text-sm font-semibold tracking-wide">India's Entrepreneur Growth Platform</span>
-                            </motion.div>
+                            <div>
+                                <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+                                    <div className="flex items-center gap-2">
+                                        <div>
+                                            <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                                        </div>
+                                        <div>
+                                            <span className="text-xs sm:text-sm font-semibold tracking-wide">INDIA'S ENTREPENEUR GROWTH PLATFORM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] text-center lg:text-left">
                                 Empowering Indian
@@ -317,7 +325,7 @@ function Home() {
 
                     <div className="mt-8 sm:mt-10">
                         <AnimatedSection
-                            className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8"
+                            className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-3 md:p-4"
                             style={{ background: "linear-gradient(135deg, #1D2F4F 0%, #162440 100%)", boxShadow: "0 25px 60px -15px rgba(29,47,79,0.5), 0 0 0 1px rgba(245,158,11,0.1)" }}
                         >
                             <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:18px_18px] opacity-60" />
@@ -326,7 +334,7 @@ function Home() {
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/60 to-transparent" />
                             <motion.div variants={stagger} className="relative grid grid-cols-2 md:grid-cols-4 gap-0">
                                 {STATS.map((s, i) => (
-                                    <div key={s.label} className={`relative px-3 py-4 sm:px-6 sm:py-5 ${i !== 0 ? "border-l border-white/10" : ""} ${i < 2 ? "border-b border-white/10 md:border-b-0" : ""}`}>
+                                    <div key={s.label} className="relative px-2 py-3 sm:px-4 sm:py-4">
                                         <CountUpStat value={s.value} label={s.label} Icon={s.icon} />
                                     </div>
                                 ))}
@@ -341,7 +349,7 @@ function Home() {
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:px-6 lg:px-8 lg:flex-row lg:items-center lg:gap-16">
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={slideInLeft} className="w-full min-w-0 lg:flex-1">
-                        <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-5">About ECB</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">ABOUT ECB</span>
                         <h2 className="text-3xl md:text-4xl font-bold leading-tight">A global initiative for India's entrepreneur economy</h2>
                         <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">Entrepreneurs Connect Bharat is a global initiative designed to build a powerful ecosystem connecting entrepreneurs with verified experts across finance, technology, strategy, legal, marketing, and business growth services.</p>
                         <ul className="mt-6 space-y-3">
@@ -363,12 +371,22 @@ function Home() {
                     </motion.div>
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={scaleUp} className="w-full min-w-0 lg:flex-1">
                         <div className="relative">
-                            <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-[4/3] transition-transform duration-500 hover:scale-[1.02]" />
-                            <div className="absolute -bottom-4 -left-4 rounded-2xl border border-amber-200/60 bg-white p-4 shadow-lg hidden sm:block">
+                            <motion.img
+                                src={About}
+                                alt="About Section"
+                                className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-[4/3]"
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                            <motion.div
+                                className="absolute -bottom-4 -left-4 rounded-2xl border border-amber-200/60 bg-white p-4 shadow-lg hidden sm:block"
+                                animate={{ y: [0, -8, 0] }}
+                                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                            >
                                 <p className="text-xs font-semibold uppercase tracking-wide text-amber-500">Est.</p>
                                 <p className="text-2xl font-bold text-[#1D2F4F]">2020</p>
                                 <p className="text-xs text-gray-500">Building Bharat</p>
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
@@ -379,7 +397,7 @@ function Home() {
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full mb-10">
-                        <span className="inline-block px-4 py-1 rounded-full border border-amber-500 bg-amber-500/5 text-amber-500 text-xs font-semibold mb-4">Full spectrum</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
                         <h3 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h3>
                         <p className="mt-3 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
                     </div>
@@ -391,24 +409,26 @@ function Home() {
                             return (
                                 <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.28, delay: i * 0.045, ease: "easeOut" }} whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }} className={`group relative ${isOnlyInLastRow ? "lg:col-start-2" : ""}`}>
                                     <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-[68px] overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.25)]"
-                                        style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 100%)", backdropFilter: "blur(16px) saturate(180%)", WebkitBackdropFilter: "blur(16px) saturate(180%)", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(0,0,0,0.04)" }}>
-                                        <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.1) 40%, rgba(34,197,94,0.05) 100%)" }} />
+                                        style={{ background: "#ffffff", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07)" }}>
+
+                                        <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" style={{ background: "linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%)" }} />
+
                                         <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)" }} />
-                                        <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" />
+
                                         <div className="relative z-10 shrink-0 self-center">
                                             <div className="relative flex h-11 w-11 items-center justify-center">
                                                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 48 48">
                                                     <motion.rect x="2" y="2" width="44" height="44" rx="12" fill="none" stroke="rgba(245,158,11,0.5)" strokeWidth="1.5" strokeDasharray="140" strokeDashoffset="140" animate={{ strokeDashoffset: [140, 0, 140] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.12 }} className="group-hover:opacity-0 transition-opacity duration-200" />
                                                 </svg>
                                                 <div className="absolute inset-0 rounded-xl group-hover:opacity-0 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,248,230,0.5) 100%)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 8px -2px rgba(245,158,11,0.15)" }} />
-                                                <motion.div className="relative z-10 text-amber-500 group-hover:text-white transition-colors duration-300" animate={{ rotate: [0, 0, 8, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}>
+                                                <motion.div className="relative z-10 text-amber-500 group-hover:text-amber-700 transition-colors duration-300" animate={{ rotate: [0, 0, 8, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}>
                                                     <Icon className="h-5 w-5" />
                                                 </motion.div>
                                                 <motion.div className="absolute inset-0 pointer-events-none" animate={{ boxShadow: ["0 0 0px 0px rgba(245,158,11,0)", "0 0 10px 3px rgba(245,158,11,0.3)", "0 0 0px 0px rgba(245,158,11,0)"] }} transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }} style={{ borderRadius: "12px" }} />
                                             </div>
                                         </div>
                                         <div className="relative z-10 flex-1 self-center min-w-0">
-                                            <h3 className="text-sm font-semibold leading-snug text-slate-700 group-hover:text-white transition-colors duration-300">{title}</h3>
+                                            <h3 className="text-sm font-semibold leading-snug text-slate-700 group-hover:text-amber-800 transition-colors duration-300">{title}</h3>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -424,12 +444,14 @@ function Home() {
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
                     <div className="mb-10 text-center">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Our Purpose</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">OUR PURPOSE</span>
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h3>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
-                            { icon: Eye, title: "Our Vision", text: "To be the Most Trusted & Preferred Globally Connected, Execution-driven business ecosystem where MSMEs, startups, and enterprises seamlessly collaborate, access capital, and scale beyond boundaries transforming connections into measurable economic growth. " },
+                            {
+                                icon: Eye, title: "Our Vision", text: "To become the world’s most trusted and preferred execution-driven global business ecosystem for collaboration, capital access, and scalable growth, enabling MSMEs, startups, and enterprises to connect, collaborate, and expand beyond borders while driving measurable economic impact. "
+                            },
                             { icon: Target, title: "Our Mission", text: "To enable entrepreneurs and businesses to achieve structured growth by providing an integrated platform that combines strategic connections, funding access, advisory, and execution support ensuring every opportunity is tracked, nurtured, and converted into real business outcomes." },
                         ].map(({ icon: Icon, title, text }) => (
                             <motion.div key={title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="relative group border border-white/20 overflow-hidden rounded-2xl hover:border-amber-500/40 transition-colors duration-300">
@@ -457,7 +479,7 @@ function Home() {
                 </div>
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
-                        <p className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Process</p>
+                        <p className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">PROCESS</p>
                         <h4 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">How it Works</h4>
                         <p className="mt-4 text-base sm:text-lg text-muted-foreground">A simple four-step journey to becoming part of our elite network.</p>
                     </div>
@@ -514,7 +536,7 @@ function Home() {
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div className="text-center">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Join The Movement</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">JOIN THE MOVEMENT</span>
                         <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h3>
                         <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">Connect with India's most powerful entrepreneur network and unlock real growth opportunities.</p>
                     </div>
@@ -611,7 +633,7 @@ function Home() {
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Member Stories</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">MEMBER STORIES</span>
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h3>
                         <p className="mt-3 text-white/60 max-w-xl mx-auto text-sm sm:text-base">Real entrepreneurs. Real results. Real growth through the ECB network.</p>
                     </div>
@@ -650,24 +672,19 @@ function Home() {
                             </motion.div>
                         </AnimatePresence>
 
-                        <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-amber-500/60 hover:bg-amber-500/10 transition-all duration-200 z-10 hidden lg:flex">
+                        <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
                             <ChevronLeft className="w-5 h-5" />
                         </button>
-                        <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-amber-500/60 hover:bg-amber-500/10 transition-all duration-200 z-10 hidden lg:flex">
+                        <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
                             <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
 
                     <div className="flex items-center justify-center gap-4 mt-8">
-                        <button onClick={prev} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-amber-500/60 hover:bg-amber-500/10 transition-all duration-200 lg:hidden">
+                        <button onClick={prev} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
                             <ChevronLeft className="w-5 h-5" />
                         </button>
-                        <div className="flex gap-2">
-                            {Array.from({ length: totalPages }).map((_, i) => (
-                                <button key={i} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-amber-500" : "w-2 bg-white/20 hover:bg-white/40"}`} />
-                            ))}
-                        </div>
-                        <button onClick={next} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-amber-500/60 hover:bg-amber-500/10 transition-all duration-200 lg:hidden">
+                        <button onClick={next} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
                             <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
@@ -678,7 +695,7 @@ function Home() {
             <section className="py-14 sm:py-18 md:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">Get In Touch</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">GET IN TOUCH</span>
                         <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
                         <p className="mt-3 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">Have a question or want to collaborate? We'd love to hear from you.</p>
                     </div>

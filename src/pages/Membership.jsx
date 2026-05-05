@@ -15,7 +15,7 @@ function Membership() {
   const [status, setStatus] = useState("idle");
   return (
     <Layout>
-      <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28">
+      <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
         <div
           className="absolute inset-0 opacity-15"
           style={{
@@ -27,34 +27,25 @@ function Membership() {
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-7">
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-amber-500 mb-4 animate-fade-up lg:mx-0 mx-auto">
-                <Sparkles className="w-3 h-3 text-amber-500" />
-                <span className="text-sm font-semibold">Empanelment</span>
+              <div>
+                <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+                  <div className="flex items-center gap-2">
+                    <div>
+                      <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                    </div>
+                    <div>
+                      <span className="text-xs sm:text-sm font-semibold tracking-wide">EMPANELMENT</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Ambassador</h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and expertise footprint. Our team reviews fit, credibility, and alignment with ECB's quality bar for entrepreneur outcomes.</p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and areas of expertise. Our team reviews your profile for credibility, fit, and alignment with ECB’s standards. </p>
 
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link to="/contact" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:from-amber-600 hover:to-amber-700 sm:w-auto"
-                  >
-                    Apply for Membership
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/services" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full border-2 border-[#1D2F4F]/15 bg-white/90 text-base font-semibold text-[#1D2F4F] shadow-sm backdrop-blur-sm transition hover:border-amber-500/40 hover:bg-amber-500/5 sm:w-auto"
-                  >
-                    Explore services
-                  </Button>
-                </Link>
+
               </div>
             </div>
 
@@ -70,22 +61,9 @@ function Membership() {
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-amber-500/90">Why it matters</p>
                     <p className="mt-2 text-sm leading-relaxed text-white/85 md:text-base">
-                      ECB is built for operators who want credible peers, practical sessions, and introductions that respect
-                      your time.
+                      ECB is built for operators who want to connect with credible peers, learn through practical sessions, and exchange meaningful insights.
                     </p>
                   </div>
-                </div>
-                <div className="relative mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-8 text-center">
-                  {[
-                    { k: "500+", v: "Members & growing" },
-                    { k: "20+", v: "States" },
-                    { k: "100+", v: "Sessions" },
-                  ].map(({ k, v }) => (
-                    <div key={v}>
-                      <p className="text-xl font-extrabold text-white md:text-2xl">{k}</p>
-                      <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-white/50 md:text-xs">{v}</p>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
@@ -102,8 +80,7 @@ function Membership() {
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">Journey</p>
                 <h2 className="mt-2 text-xl font-semibold">What happens next</h2>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  Four checkpoints mirror how our stewards evaluate fit — clarity upfront reduces
-                  back-and-forth and protects your time.
+                  Four checkpoints show how our team evaluates fit sharing details early helps keep things smooth and efficient.
                 </p>
                 <ol className="mt-8 space-y-4">
                   {STEPS.map(({ n, title, body, Icon }) => (
@@ -170,7 +147,7 @@ function Membership() {
                     noValidate
                   >
                     <div>
-                      <h2 className="text-lg font-semibold">Application form</h2>
+                      <h2 className="text-lg font-semibold">Apply as an Elite Ambassador</h2>
                       <p className="mt-2 text-sm text-slate-600">
                         Fields marked by validation are required. Uploads are optional in this
                         demo.
