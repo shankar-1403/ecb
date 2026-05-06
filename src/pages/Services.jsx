@@ -69,7 +69,7 @@ function Services() {
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mb-10">
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
-            <h3 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h3>
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

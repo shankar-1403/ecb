@@ -398,7 +398,7 @@ function Home() {
                 <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
-                        <h3 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h3>
+                        <h2 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h2>
                         <p className="mt-3 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -445,7 +445,7 @@ function Home() {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
                     <div className="mb-10 text-center">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">OUR PURPOSE</span>
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h3>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h2>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
@@ -461,7 +461,7 @@ function Home() {
                                     <div className="w-fit rounded-2xl bg-amber-500 flex items-center justify-center mb-5 shadow-lg shadow-amber-500/30 p-3">
                                         <Icon className="w-7 h-7 text-white" />
                                     </div>
-                                    <h4 className="text-2xl md:text-3xl font-display font-bold text-white">{title}</h4>
+                                    <h3 className="text-2xl md:text-3xl font-display font-bold text-white">{title}</h3>
                                     <div className="w-16 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-4" />
                                     <p className="text-white/80 leading-relaxed text-sm md:text-base">{text}</p>
                                 </div>
@@ -480,7 +480,7 @@ function Home() {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <p className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">PROCESS</p>
-                        <h4 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">How it Works</h4>
+                        <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">How it Works</h2>
                         <p className="mt-4 text-base sm:text-lg text-muted-foreground">A simple four-step journey to becoming part of our elite network.</p>
                     </div>
                     <div className="relative mt-14 sm:mt-16">
@@ -505,7 +505,7 @@ function Home() {
                                                         <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                                                     </span>
                                                 </div>
-                                                <h5 className="text-sm sm:text-base font-semibold text-[#1D2F4F]">{step.title}</h5>
+                                                <h3 className="text-sm sm:text-base font-semibold text-[#1D2F4F]">{step.title}</h3>
                                                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                                             </div>
                                         </div>
@@ -537,7 +537,7 @@ function Home() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div className="text-center">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">JOIN THE MOVEMENT</span>
-                        <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h3>
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h2>
                         <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">Connect with India's most powerful entrepreneur network and unlock real growth opportunities.</p>
                     </div>
                 </div>
@@ -634,7 +634,7 @@ function Home() {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">MEMBER STORIES</span>
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h3>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h2>
                         <p className="mt-3 text-white/60 max-w-xl mx-auto text-sm sm:text-base">Real entrepreneurs. Real results. Real growth through the ECB network.</p>
                     </div>
 
@@ -696,7 +696,7 @@ function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">GET IN TOUCH</span>
-                        <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h2>
                         <p className="mt-3 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">Have a question or want to collaborate? We'd love to hear from you.</p>
                     </div>
                     <div className="grid md:grid-cols-5 gap-6 lg:gap-10 items-start">
@@ -727,7 +727,7 @@ function Home() {
                                 );
                             })}
                             <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-[#1D2F4F] to-[#15243d] p-5 text-white shadow-lg">
-                                <h5 className="text-base font-display font-bold">Let's Build Together</h5>
+                                <h3 className="text-base font-display font-bold">Let's Build Together</h3>
                                 <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 5000+ entrepreneurs who are growing their businesses with ECB.</p>
                                 <Link to="/membership/elite-ambassador" className="mt-4 inline-block">
                                     <Button size="sm" className="bg-amber-500 hover:bg-amber-600 mt-2">

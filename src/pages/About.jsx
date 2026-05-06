@@ -102,9 +102,9 @@ function About() {
               <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">
                 What we pursue
               </span>
-              <h3 className="mt-4 text-3xl font-bold text-[#1D2F4F]">
+              <h2 className="mt-4 text-3xl font-bold text-[#1D2F4F]">
                 Our Objective
-              </h3>
+              </h2>
               <p className="mt-3 text-sm text-muted-foreground">
                 Clear priorities guiding ECB across India.
               </p>
@@ -189,7 +189,7 @@ function About() {
                 <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">
                   WHAT WE PERSUE
                 </span>
-                <h3 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h3>
+                <h2 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h2>
                 <p className="mt-2 text-base text-muted-foreground">
                   Clear priorities guiding ECB across India.
                 </p>
@@ -249,17 +249,17 @@ function About() {
             <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">
               <span className="text-sm font-semibold">OUR TEAM</span>
             </div>
-            <h1 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
               Meet the People Behind{" "}
               <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">ECB</span>
-            </h1>
+            </h2>
             <p className="mt-6 max-w-3xl mx-auto text-muted-foreground sm:text-lg">A collective of professionals supporting entrepreneurs and MSMEs across India.</p>
           </div>
         </section>
 
         <section className="py-5 sm:py-6 md:py-1">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-7">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h3>
             <div className="mt-12 flex justify-center">
               {leadership.map((member, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
@@ -268,13 +268,13 @@ function About() {
                     <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
-                    <h3 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h3>
+                    <h4 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h4>
                     <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Ramesh Kumar is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Insurath, and the Chairman of Entrepreneur Connect Bharat (ECB), with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
-                     </p>
-                     <p  className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Ramesh Kumar  also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
+                      Dr. G. Ramesh Kumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Executive Director at Insurath, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
+                    </p>
+                    <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      Dr. G. Ramesh Kumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
                   </motion.div>
                 </motion.div>
               ))}
@@ -284,17 +284,17 @@ function About() {
 
         <section className="py-16 sm:py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h3>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {team.map((member, index) => (
                 <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl hover:-translate-y-2">
                   <div className="p-2">
                     <div className="overflow-hidden bg-gray-300/70 rounded-xl">
-                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-[220px] sm:max-h-[240px] md:h-64 md:max-h-none object-contain md:object-cover"/>
+                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-[220px] sm:max-h-[240px] md:h-64 md:max-h-none object-contain md:object-cover" />
                     </div>
                   </div>
                   <div className="pb-3">
-                    <h3 className="text-lg font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition">{member.name}</h3>
+                    <h4 className="text-lg font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition">{member.name}</h4>
                     <p className="text-sm text-muted-foreground">{member.role}</p>
                   </div>
                 </motion.div>
@@ -307,7 +307,7 @@ function About() {
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
             <div className="flex flex-col gap-6 rounded-2xl bg-[#1D2F4F] p-8 text-white sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8 md:rounded-3xl md:p-12 lg:p-14">
               <div className="min-w-0">
-                <h5 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h5>
+                <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h3>
                 <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
               </div>
               <Link to="/membership/partner-with-us" className="w-full shrink-0 sm:w-auto">
