@@ -241,7 +241,7 @@ function About() {
                     <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
-                    <h4 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h4>
+                    <h5 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h5>
                     <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                       Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Executive Director at Insurath, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
@@ -266,9 +266,10 @@ function About() {
                       <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-64 md:max-h-none object-contain md:object-cover" />
                     </div>
                   </div>
-                  <div className="pb-3">
-                    <h4 className="text-lg font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition">{member.name}</h4>
-                    <p className="text-sm text-muted-foreground">{member.role}</p>
+                  <div className="pb-3 px-2">
+                    {/* <p className="text-xs font-semibold text-amber-500">Management & Board Members</p> */}
+                    <h4 className="text-lg font-semibold text-amber-500 group-hover:text-amber-600 transition">{member.name}</h4>
+                    <p className="text-sm text-amber-500">{member.role}</p>
                   </div>
                 </motion.div>
               ))}

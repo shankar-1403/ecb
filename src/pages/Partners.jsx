@@ -27,7 +27,7 @@ function Label({ htmlFor, children }) {
 }
 
 
-const initialFormData = { company: '', size: '', turnover:'', name: '', designation: '', email: '', phone: '', city: '', experience: '', services: '', industry: '', message: '' };
+const initialFormData = { company: '', company_size: '', turnover:'', name: '', designation: '', email: '', phone: '', location: '', experience: '', services: '', industry: '', background: '' };
 
 function Partners() {
 
@@ -63,24 +63,24 @@ function Partners() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone || !formData.email) {
-      setErrorMessage('Please fill in name, phone and email.');
+    if (!formData.company || !formData.company_size || !formData.turnover || !formData.name || !formData.designation || !formData.email || !formData.phone || !formData.location || !formData.experience || !formData.services || !formData.industry || !formData.background) {
+      setErrorMessage('Please fill all the required details in *');
       return;
     }
 
     const payload = {
       company: formData.company,
-      size: formData.size,
+      company_size: formData.company_size,
+      turnover: formData.turnover,
       name: formData.name,
       designation: formData.designation,
       email: formData.email,
       phone: formData.phone,
-      city: formData.city,
+      location: formData.location,
       experience: formData.experience,
       services: formData.services,
       industry: formData.industry,
-      message: formData.message,
-      turnover: formData.turnover,
+      background: formData.background,
     };
     try {
       await push(ref(db, 'partner'), {
@@ -104,7 +104,7 @@ function Partners() {
               "radial-gradient(circle at 15% 30%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(145, 60%, 40%) 0%, transparent 45%)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-5 md:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 justify-center">
             <div className="lg:col-span-12 flex flex-col items-center text-center">
               <div>
@@ -120,7 +120,7 @@ function Partners() {
                 </div>
               </div>
               <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05] mx-auto">
-                Become an Execution Partner
+                Become an Elite Solutions Subscriber/ Elite Solutions Provider
               </h1>
               <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">
                 Partner with us as an execution expert and deliver services to corporates and MSMEs through the ECB ecosystem. From finance and insurance to compliance and consulting, we connect you with real business opportunities.
@@ -133,8 +133,8 @@ function Partners() {
       </section>
 
       <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-4 sticky top-0">
               <div>
@@ -168,7 +168,7 @@ function Partners() {
                 <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
                 <form onSubmit={handleSubmit} className="space-y-8 p-6 sm:p-10" >
                   <div>
-                    <h2 className="text-lg font-semibold">Apply as a Partner</h2>
+                    <h3 className="text-lg font-semibold">Apply as Elite Solutions Subscriber/ Elite Solutions Provider</h3>
                     <p className="mt-2 text-sm text-slate-600">Fields marked by validation are required.</p>
                   </div>
 
@@ -178,10 +178,10 @@ function Partners() {
                       <input id="name" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
-                    <div className="sm:col-span-2 relative">
-                      <label className="mb-4" htmlFor="companysize">Company Size *</label>
-                      <select id="companysize" value={formData.size} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
-                        <option value="" disabled>employees strength</option>
+                    <div className="relative">
+                      <Label className="mb-4" htmlFor="company_size">Company Size (Employees Strength)*</Label>
+                      <select id="company_size" name="company_size" value={formData.company_size} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
+                        <option value="" selected>-- select --</option>
                         <option value="0-100">0-100</option>
                         <option value="100-250">100-250</option>
                         <option value="250-500">250-500</option>
@@ -200,14 +200,14 @@ function Partners() {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-2 relative">
-                      <label className="mb-4" htmlFor="turnover">Approximate Turnover *</label>
-                      <select id="turnover" name="turnover"value={formData.turnover} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
-                        <option value="disabled">-- select --</option>
-                        <option value="0cr-100cr">0cr-100cr</option>
-                        <option value="100cr-250cr">100cr-250cr</option>
-                        <option value="250cr-500cr">250cr-500cr</option>
-                        <option value="500cr+">500cr+</option>
+                    <div className="relative">
+                      <Label className="mb-4" htmlFor="turnover">Approximate Turnover *</Label>
+                      <select id="turnover" name="turnover" value={formData.turnover} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
+                        <option value="" selected>-- select --</option>
+                        <option value="0-100cr">0-100cr</option>
+                        <option value="100-250cr">100-250cr</option>
+                        <option value="250-500cr">250-500cr</option>
+                        <option value="Above 500cr">Above 500cr</option>
                       </select>
                       <div className="pointer-events-none absolute inset-y-0 right-4 top-6 flex items-center">
                         <svg
@@ -229,40 +229,40 @@ function Partners() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label htmlFor="name">Designation *</Label>
-                      <input id="name" name="designation" value={formData.designation} onChange={handleInputChange} className={fieldBase} />
+                      <Label htmlFor="designation">Designation *</Label>
+                      <input id="designation" name="designation" value={formData.designation} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <label className="mb-4" htmlFor="email">Email *</label>
-                      <input id="name" name="email" value={formData.email} onChange={handleInputChange} className={fieldBase} />
+                      <Label className="mb-4" htmlFor="email">Email *</Label>
+                      <input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <label className="mb-4" htmlFor="phone">Phone *</label>
-                      <input id="name" name="phone" value={formData.phone} onChange={handleInputChange} className={fieldBase} />
-                    </div>
-
-                    <div className="sm:col-span-2">
-                      <label className="mb-4" htmlFor="city">Location *</label>
-                      <input id="name" name="city" value={formData.city} onChange={handleInputChange} className={fieldBase} />
+                      <Label className="mb-4" htmlFor="phone">Phone *</Label>
+                      <input id="phone" name="phone" type="number" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
                     </div>
 
                     <div>
-                      <label className="mb-4" htmlFor="yearsExperience">Years of experience *</label>
+                      <Label className="mb-4" htmlFor="experience">Years of experience *</Label>
                       <input id="name" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
+                    <div>
+                      <Label className="mb-4" htmlFor="services">Services you Offer *</Label>
+                      <input id="services" name="services" value={formData.services} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
                     <div className="sm:col-span-2">
-                      <label className="mb-4" htmlFor="servicesyouoffer">Services you Offer *</label>
-                      <input id="name" name="services" value={formData.services} onChange={handleInputChange} className={fieldBase} />
+                      <Label className="mb-4" htmlFor="location">Location *</Label>
+                      <input id="location" name="location" value={formData.location} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div className="sm:col-span-2 relative">
-                      <label className="mb-4" htmlFor="industry">Industry *</label>
+                      <Label className="mb-4" htmlFor="industry">Industry *</Label>
                       <div className="relative">
                         <select id="industry" name="industry" value={formData.industry} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
-                          <option value="disabled">-- select --</option>
+                          <option value="" selected>-- select --</option>
                           <option value="Technology / IT">Technology / IT</option>
                           <option value="Finance & Banking">Finance & Banking</option>
                           <option value="Healthcare & Pharma">Healthcare & Pharma</option>
@@ -286,13 +286,14 @@ function Partners() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label className="mb-4" htmlFor="description">Brief About Your Services *</label>
-                      <textarea id="description" rows={3} name="message" value={formData.message} onChange={handleInputChange} className={fieldBase} />
+                      <Label className="mb-4" htmlFor="background">Professional Background *</Label>
+                      <textarea id="background" rows={3} name="background" value={formData.background} onChange={handleInputChange} className={fieldBase} />
                     </div>
                   </div>
-
+                  {submitState && <p className="text-xs text-green-600">{submitState}</p>}
+                  {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
+                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">Submit application</Button>
                     <p className="max-w-md text-xs leading-relaxed text-slate-500">
                       Our team will review your profile and connect with you for the next steps.
                     </p>

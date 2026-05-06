@@ -25,7 +25,7 @@ const STEPS = [
   { n: "4", title: "Review & submit", body: "We validate and route to the right steward.", Icon: CheckCircle2 },
 ]
 
-const initialFormData = { name: '', company: '', email: '', phone: '', city: '', experience: '', links: '', file: null, message: '' };
+const initialFormData = { name: '', company: '', entrepreneurs:'', phone: '', email: '', location: '', experience: '', links: '', file: null, message: '' };
 
 function Membership() {
   const [formData, setFormData] = useState(initialFormData);
@@ -60,17 +60,18 @@ function Membership() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone || !formData.email) {
-      setErrorMessage('Please fill in name, phone and email.');
+    if (!formData.name || !formData.entrepreneurs || !formData.phone || !formData.email || !formData.location || !formData.experience || !formData.message) {
+      setErrorMessage('Please fill all the required details with *');
       return;
     }
 
     const payload = {
       name: formData.name,
       company: formData.company,
+      entrepreneurs:formData.entrepreneurs,
       phone: formData.phone,
       email: formData.email,
-      city: formData.city,
+      location: formData.location,
       experience: formData.experience,
       links: formData.links,
       file: formData.file,
@@ -115,7 +116,7 @@ function Membership() {
                   </div>
                 </div>
 
-                <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Solution Ambassador</h1>
+                <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Solutions Ambassador</h1>
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and areas of expertise. Our team reviews your profile for credibility, fit, and alignment with ECB’s standards. </p>
               </div>
             </div>
@@ -144,7 +145,7 @@ function Membership() {
 
       <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-4">
               <div className="sticky top-20 self-start">
@@ -174,7 +175,7 @@ function Membership() {
                 <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
                 <form onSubmit={handleSubmit} className="space-y-8 p-6 sm:p-10">
                   <div>
-                    <h3 className="text-lg font-semibold">Apply as an Elite Ambassador</h3>
+                    <h3 className="text-lg font-semibold">Apply as an Elite Solutions Ambassador</h3>
                     <p className="mt-2 text-sm text-slate-600">Fields marked by validation are required. Uploads are optional in this demo.</p>
                   </div>
                   <div className="grid gap-6 sm:grid-cols-2">
@@ -184,14 +185,13 @@ function Membership() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label className="mb-4" htmlFor="companyName">Company name *</Label>
-                      <input id="companyName" name="company" value={formData.company} onChange={handleInputChange}
-                        className={fieldBase} />
+                      <Label htmlFor="company">Company name</Label>
+                      <input id="company" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div className="sm:col-span-2 relative">
-                      <label className="mb-4" htmlFor="entrepreneurs">Approximate Network Entrepreneurs *</label>
-                      <input id="entrepreneurs" name="entrepreneurs" type="number" value={formData.entrepreneurs} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}/>
+                      <Label htmlFor="entrepreneurs">Approximate Network of Entrepreneurs *</Label>
+                      <input id="entrepreneurs" name="entrepreneurs" value={formData.entrepreneurs} onChange={handleInputChange} className={fieldBase}/>
                     </div>
 
                     <div>
@@ -205,36 +205,39 @@ function Membership() {
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="city">Location *</Label>
-                      <input id="city" name="city" value={formData.city} onChange={handleInputChange} className={fieldBase} />
+                      <Label htmlFor="location">Location *</Label>
+                      <input id="location" name="location" value={formData.location} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
 
                     <div>
-                      <Label className="mb-4" htmlFor="yearsExperience">Years of experience *</Label>
-                      <input id="yearsExperience" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
+                      <Label htmlFor="experience">Years of experience *</Label>
+                      <input id="experience" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="websiteOrLinkedIn">Website or LinkedIn</Label>
-                      <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" name="links" value={formData.links} onChange={handleInputChange} className={fieldBase} />
+                      <Label htmlFor="links">Website or LinkedIn</Label>
+                      <input id="links" placeholder="https:// or linkedin.com/in/…" name="links" value={formData.links} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="profile">Upload profile</Label>
+                      <Label htmlFor="profile">Upload profile</Label>
                       <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
                       <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label className="mb-4" htmlFor="description">Short description of services</Label>
+                      <Label htmlFor="description">Short description of services *</Label>
                       <textarea id="description" rows={3} name="message" value={formData.message} onChange={handleInputChange} className={fieldBase} />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
+                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">Submit application</Button>
+                    {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
+                    {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
                   </div>
+                  
                 </form>
               </div>
             </div>

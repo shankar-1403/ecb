@@ -102,9 +102,18 @@ function Contact() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-5 md:px-6">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold tracking-wide">
-            GET IN TOUCH
-          </span>
+          <div>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+              <div className="flex items-center gap-2">
+                <div>
+                  <Phone className="w-3 h-3 text-amber-500 shrink-0" />
+                </div>
+                <div>
+                  <span className="text-xs sm:text-sm font-semibold tracking-wide uppercase">Get in touch</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold">
             Let&apos;s build{" "}
             <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">

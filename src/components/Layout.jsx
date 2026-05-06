@@ -26,22 +26,18 @@ const Layout = ({ children }) => {
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className={`w-11 h-11 flex items-center justify-center rounded-full bg-[#1D2F4F] text-white shadow-lg hover:bg-amber-500 transition-all duration-300 hover:-translate-y-1 ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+          className={`w-11 h-11 flex items-center justify-center rounded-full bg-amber-500/15 border border-amber-500/60 text-amber-600 shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
             }`}
         >
           <ArrowUp className="w-5 h-5" />
         </button>
 
 
-        <a href="https://wa.me/7982218029"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 shadow-lg hover:scale-110 transition-transform"
-        >
-        <IconBrandWhatsapp className="w-6 h-6 text-white" />
-      </a>
+        <a href="https://wa.me/7982218029" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 shadow-lg hover:scale-110 transition-transform">
+          <IconBrandWhatsapp className="w-6 h-6 text-white" />
+        </a>
 
-    </div>
+      </div>
     </div >
   );
 };

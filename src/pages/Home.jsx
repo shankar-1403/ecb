@@ -139,12 +139,12 @@ function CountUpStat({ value, label, Icon }) {
     return (
         <div ref={ref} className="flex flex-col items-center text-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500/15 ring-1 ring-amber-500/30">
-                <Icon className="h-4 w-4 text-amber-400" />
+                <Icon className="h-4 w-4 text-amber-500" />
             </div>
             <div className="font-heading text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
                 {isInView && <CountUp end={value} suffix="+" />}
             </div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50 leading-relaxed max-w-[100px]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50 leading-relaxed max-w-25">
                 {label}
             </p>
         </div>
@@ -180,12 +180,8 @@ function TestimonialSlider() {
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
                 >
                     {visible.map((t) => (
-                        <div
-                            key={t.name}
-                            className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
-                            style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}
-                        >
-                            <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+                        <div key={t.name} className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1 flex flex-col" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                            <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
                             <Quote className="h-5 w-5 text-amber-500/40 mb-3 shrink-0" />
                             <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
                             <div className="flex items-center gap-3">
@@ -301,7 +297,7 @@ function Home() {
     return (
         <Layout>
             <section className="relative overflow-hidden pt-20 pb-0 sm:pt-24 md:pt-28 lg:pt-32">
-                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #FFF5E6 0%, #ffffff 50%, #fff8ed 100%)" }} />
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: `linear-gradient(to right, rgba(245,158,11,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,158,11,0.07) 1px, transparent 1px)`, backgroundSize: "48px 48px" }} />
                 <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-amber-500 via-white to-green-600" />
                 <div className="absolute bottom-40 right-4 opacity-[0.05] pointer-events-none select-none hidden lg:block">
@@ -339,8 +335,8 @@ function Home() {
                                 Empowering Indian
                                 <br />
                                 <span className="relative inline-block mt-1">
-                                    <span className="bg-gradient-to-b from-amber-500 to-amber-600 bg-clip-text font-bold text-transparent italic font-new-display tracking-tight">Entrepreneurs</span>
-                                    <svg className="absolute -bottom-3 left-0 w-full" viewBox="0 0 300 20" fill="none">
+                                    <span className="bg-linear-to-b from-amber-500 to-amber-600 bg-clip-text font-bold text-transparent italic font-new-display tracking-tight">Entrepreneurs</span>
+                                    <svg className="absolute -bottom-4 left-0 w-full" viewBox="0 0 300 20" fill="none">
                                         <path d="M0 15 Q150 -5 300 15" stroke="hsl(24, 90%, 50%)" strokeWidth="3" strokeLinecap="round" />
                                     </svg>
                                 </span>
@@ -354,7 +350,7 @@ function Home() {
                             >
                                 <span className="text-gray-600 text-lg sm:text-xl lg:text-2xl font-medium">Strengthening MSMEs. Building Bharat</span>
                                 <span className="inline-flex shrink-0 items-center">
-                                    <span className="w-6 h-2 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full block"></span>
+                                    <span className="w-6 h-2 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full block"></span>
                                 </span>
                             </motion.div>
 
@@ -364,13 +360,13 @@ function Home() {
 
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
                                 <Link to="/membership/elite-ambassador">
-                                    <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 transition-shadow hover:shadow-amber-500/40 text-sm sm:text-base">
+                                    <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
                                         Apply as an Elite Ambassador
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </Button>
                                 </Link>
                                 <Link to="/services" className="text-black">
-                                    <Button size="lg" variant="outline" className="group bg-transparent text-black shadow-lg text-sm sm:text-base">
+                                    <Button size="lg" variant="outline" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-transparent px-4 py-3.5 text-sm font-semibold shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
                                         Explore Services
                                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </Button>
@@ -406,7 +402,7 @@ function Home() {
                             <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:18px_18px] opacity-60" />
                             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-amber-500/10 blur-3xl" />
                             <div className="absolute -left-20 -bottom-20 h-56 w-56 rounded-full bg-amber-500/5 blur-3xl" />
-                            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/60 to-transparent" />
+                            <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/60 to-transparent" />
                             <motion.div variants={stagger} className="relative grid grid-cols-2 md:grid-cols-4 gap-0">
                                 {STATS.map((s, i) => (
                                     <div key={s.label} className="relative px-2 py-3 sm:px-4 sm:py-4">
@@ -421,7 +417,7 @@ function Home() {
 
 
             <section className="relative py-14 sm:py-18 md:py-20">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:px-6 lg:px-8 lg:flex-row lg:items-center lg:gap-16">
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={slideInLeft} className="w-full min-w-0 lg:flex-1">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">ABOUT ECB</span>
@@ -429,7 +425,7 @@ function Home() {
                         <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">Entrepreneurs Connect Bharat is a global initiative designed to build a powerful ecosystem connecting entrepreneurs with verified experts across finance, technology, strategy, legal, marketing, and business growth services.</p>
                         <ul className="mt-6 space-y-3">
                             {ABOUT_STRENGTHS.map(({ icon: Icon, text }) => (
-                                <li key={text} className="flex items-start gap-3">
+                                <li key={text} className="flex items-center gap-3">
                                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/20 mt-0.5">
                                         <Icon className="h-3.5 w-3.5 text-amber-500" />
                                     </span>
@@ -438,7 +434,7 @@ function Home() {
                             ))}
                         </ul>
                         <Link to="/about">
-                            <Button size="lg" className="group mt-8 bg-amber-500">
+                            <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99] mt-8">
                                 Learn More About Us
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
@@ -446,21 +442,14 @@ function Home() {
                     </motion.div>
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={scaleUp} className="w-full min-w-0 lg:flex-1">
                         <div className="relative">
-                            <motion.img
-                                src={About}
-                                alt="About Section"
-                                className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-[4/3]"
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            />
+                            <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-4/3"/>
                             <motion.div
                                 className="absolute -bottom-4 -left-4 rounded-2xl border border-amber-200/60 bg-white p-4 shadow-lg hidden sm:block"
                                 animate={{ y: [0, -8, 0] }}
                                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                             >
-                                <p className="text-xs font-semibold uppercase tracking-wide text-amber-500">Est.</p>
-                                <p className="text-2xl font-bold text-[#1D2F4F]">2020</p>
-                                <p className="text-xs text-gray-500">Building Bharat</p>
+                                <p className="text-2xl font-bold text-amber-500">5000+</p>
+                                <p className="text-xs text-gray-500">Entrepreneurs Connected</p>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -469,11 +458,11 @@ function Home() {
 
 
             <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #fff7ed 100%)" }}>
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
-                        <h2 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h3>
                         <p className="mt-3 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -515,12 +504,12 @@ function Home() {
 
 
             <section className="relative overflow-hidden bg-[#1D2B4E]">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
                     <div className="mb-10 text-center">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">OUR PURPOSE</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h2>
+                        <h4 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h4>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
@@ -531,13 +520,13 @@ function Home() {
                         ].map(({ icon: Icon, title, text }) => (
                             <motion.div key={title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="relative group border border-white/20 overflow-hidden rounded-2xl hover:border-amber-500/40 transition-colors duration-300">
                                 <div className="absolute inset-0 bg-white/5 group-hover:bg-white/8 transition-colors duration-300" />
-                                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+                                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
                                 <div className="relative p-7 sm:p-8 md:p-10 h-full">
                                     <div className="w-fit rounded-2xl bg-amber-500 flex items-center justify-center mb-5 shadow-lg shadow-amber-500/30 p-3">
                                         <Icon className="w-7 h-7 text-white" />
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-display font-bold text-white">{title}</h3>
-                                    <div className="w-16 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-4" />
+                                    <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-4 mb-4" />
                                     <p className="text-white/80 leading-relaxed text-sm md:text-base">{text}</p>
                                 </div>
                             </motion.div>
@@ -548,14 +537,11 @@ function Home() {
 
 
             <section className="relative w-full overflow-hidden py-14 sm:py-18 md:py-20">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
-                <div className="pointer-events-none absolute inset-0 -z-10">
-                    <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-amber-500/5 blur-3xl" />
-                </div>
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <p className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">PROCESS</p>
-                        <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">How it Works</h2>
+                        <h5 className="mt-2 text-3xl sm:text-5xl font-bold tracking-tight text-foreground">How it Works</h5>
                         <p className="mt-4 text-base sm:text-lg text-muted-foreground">A simple four-step journey to becoming part of our elite network.</p>
                     </div>
                     <div className="relative mt-14 sm:mt-16">
@@ -564,8 +550,8 @@ function Home() {
                                 const Icon = step.icon;
                                 return (
                                     <li key={step.number} className="group relative h-full">
-                                        <div className="relative h-full p-[1px] rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
-                                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-500/30 via-transparent to-green-500/30 opacity-0 group-hover:opacity-100 transition duration-300 blur-md" />
+                                        <div className="relative h-full p-px rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
+                                            <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-amber-500/30 via-transparent to-green-500/30 opacity-0 group-hover:opacity-100 transition duration-300 blur-md" />
                                             <div className="relative z-10 flex flex-col items-start text-left h-full rounded-2xl border border-amber-200/60 p-5 sm:p-6 shadow-sm transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.2)] group-hover:border-amber-300/80"
                                                 style={{ background: "linear-gradient(145deg, rgba(255,251,235,0.9) 0%, rgba(255,247,220,0.7) 50%, rgba(255,255,255,0.95) 100%)" }}>
                                                 <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
@@ -592,7 +578,7 @@ function Home() {
 
                     <div className="mt-10 flex justify-center">
                         <Link to="/membership/elite-ambassador">
-                            <Button size="lg" className="group bg-amber-500 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-shadow">
+                            <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
                                 Apply as an Elite Ambassador
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
@@ -602,17 +588,17 @@ function Home() {
             </section>
 
             <section className="py-14 sm:py-18 md:py-20 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #fffbeb 0%, #f0fdf4 60%, #fff7ed 100%)" }}>
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
 
                 <style>{`
-        @keyframes marquee1 { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes marquee2 { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-    `}</style>
+                    @keyframes marquee1 { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+                    @keyframes marquee2 { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+                `}</style>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div className="text-center">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">JOIN THE MOVEMENT</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h2>
+                        <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h5>
                         <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">Connect with India's most powerful entrepreneur network and unlock real growth opportunities.</p>
                     </div>
                 </div>
@@ -709,7 +695,7 @@ function Home() {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">MEMBER STORIES</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h2>
+                        <h5 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h5>
                         <p className="mt-3 text-white/60 max-w-xl mx-auto text-sm sm:text-base">Real entrepreneurs. Real results. Real growth through the ECB network.</p>
                     </div>
 
@@ -730,7 +716,7 @@ function Home() {
                                         className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
                                         style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}
                                     >
-                                        <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+                                        <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
                                         <Quote className="h-5 w-5 text-amber-500/40 mb-3 shrink-0" />
                                         <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
                                         <div className="flex items-center gap-3">
@@ -747,10 +733,10 @@ function Home() {
                             </motion.div>
                         </AnimatePresence>
 
-                        <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
+                        <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
                             <ChevronLeft className="w-5 h-5" />
                         </button>
-                        <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
+                        <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
                             <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
@@ -771,7 +757,7 @@ function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">GET IN TOUCH</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h2>
+                        <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
                         <p className="mt-3 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">Have a question or want to collaborate? We'd love to hear from you.</p>
                     </div>
                     <div className="grid md:grid-cols-5 gap-6 lg:gap-10 items-start">
@@ -802,7 +788,7 @@ function Home() {
                                 );
                             })}
                             <div className="rounded-2xl border border-amber-500/20 bg-linear-to-br from-[#1D2F4F] to-[#15243d] p-5 text-white shadow-lg">
-                                <h3 className="text-base font-display font-bold">Let's Build Together</h3>
+                                <h5 className="text-base font-display font-bold">Let's Build Together</h5>
                                 <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 5000+ entrepreneurs who are growing their businesses with ECB.</p>
                                 <Link to="/membership/elite-ambassador" className="mt-4 inline-block">
                                     <Button size="sm" className="bg-amber-500 hover:bg-amber-600 mt-2">
@@ -818,43 +804,43 @@ function Home() {
                                 <div className="absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-[#1D2F4F]/5 blur-3xl pointer-events-none" />
 
                                 <div className="relative border-b border-gray-100 bg-linear-to-br from-gray-50/90 to-white px-6 py-5 md:px-8 md:py-6">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/25">
-                                    <MessageSquare className="h-5 w-5" strokeWidth={2.2} />
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/25">
+                                            <MessageSquare className="h-5 w-5" strokeWidth={2.2} />
+                                        </div>
+                                        <div>
+                                            <h5 className="text-lg font-bold text-[#1D2F4F] md:text-xl">Send us a message</h5>
+                                            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                                Share a few details and we&apos;ll get back to you as soon as we can.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div>
-                                    <h3 className="text-lg font-bold text-[#1D2F4F] md:text-xl">Send us a message</h3>
-                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                                        Share a few details and we&apos;ll get back to you as soon as we can.
-                                    </p>
-                                    </div>
-                                </div>
                                 </div>
 
                                 <div className="relative space-y-5 px-6 py-6 md:space-y-6 md:px-8 md:py-8">
-                                <div className="grid gap-5 sm:grid-cols-2">
-                                    <div>
-                                    <Label htmlFor="name">Full name *</Label>
-                                    <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100}/>
+                                    <div className="grid gap-5 sm:grid-cols-2">
+                                        <div>
+                                        <Label htmlFor="name">Full name *</Label>
+                                        <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100}/>
+                                        </div>
+                                        <div>
+                                        <Label htmlFor="phone">Phone *</Label>
+                                        <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                                        </div>
+                                        
                                     </div>
                                     <div>
-                                    <Label htmlFor="phone">Phone *</Label>
-                                    <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                                        <Label htmlFor="email">Email *</Label>
+                                        <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255}/>
                                     </div>
-                                    
-                                </div>
-                                <div>
-                                    <Label htmlFor="email">Email *</Label>
-                                    <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255}/>
-                                </div>
-                                <div>
-                                    <Label htmlFor="message">Message</Label>
-                                    <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
-                                </div>
+                                    <div>
+                                        <Label htmlFor="message">Message</Label>
+                                        <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
+                                    </div>
 
-                                <Button type="submit" size="lg" className="w-full rounded-lg bg-amber-500 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:bg-amber-600 hover:shadow-amber-500/40">Send Message</Button>
-                                {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
-                                {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
+                                    <Button type="submit" size="lg" className="w-full rounded-lg bg-amber-500 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:bg-amber-600 hover:shadow-amber-500/40">Send Message</Button>
+                                    {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
+                                    {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
                                 </div>
                             </form>
                         </div>

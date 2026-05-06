@@ -41,7 +41,7 @@ function Services() {
             <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
               <div className="flex items-center gap-2">
                 <div>
-                  <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                  <Briefcase className="w-3 h-3 text-amber-500 shrink-0" />
                 </div>
                 <div>
                   <span className="text-xs sm:text-sm font-semibold tracking-wide">OUR SERVICES</span>
@@ -64,8 +64,7 @@ function Services() {
         </div>
       </section>
 
-      <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #fff7ed 100%)" }}>
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+      <section className="relative py-14 sm:py-18 md:py-20">
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mb-10">
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
@@ -79,12 +78,11 @@ function Services() {
               const isOnlyInLastRow = lastRowCount === 1 && i === total - 1;
               return (
                 <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.28, delay: i * 0.045, ease: "easeOut" }} whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }} className={`group relative ${isOnlyInLastRow ? "lg:col-start-2" : ""}`}>
-                  <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-[68px] overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.25)]"
-                    style={{ background: "#ffffff", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07)" }}>
+                  <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-17 overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.25)]" style={{ background: "#ffffff", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07)" }}>
 
                     <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" style={{ background: "linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%)" }} />
 
-                    <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)" }} />
+                    <div className="absolute top-0 left-0 right-0 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)" }} />
 
                     <div className="relative z-10 shrink-0 self-center">
                       <div className="relative flex h-11 w-11 items-center justify-center">

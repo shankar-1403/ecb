@@ -28,13 +28,13 @@ const Navbar = () => {
     <nav className="fixed top-0 z-50 w-full bg-white/90 shadow-lg backdrop-blur-lg">
       <div className="mx-auto flex min-h-18 max-w-7xl items-center justify-between gap-3 px-4 sm:px-5 md:min-h-8 md:px-6">
         <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2 py-2">
-          <div className="flex items-center gap-2">
+          <div className="flex items-start gap-2">
             <div>
               <img src={Logo} alt="ECB Logo" className="h-14 w-auto sm:h-16 md:h-12" width={160} height={80} />
             </div>
             <div>
-              <p className="font-semibold text-sm">Entrepreneurs Connect Bharat</p>
-              <p className="uppercase text-[11px] leading-4 text-gray-600 ">Global Initiative of PCRED</p>
+              <p className="font-semibold text-[12px] leading-8 md:text-sm text-amber-500">Entrepreneurs Connect Bharat</p>
+              <p className="text-[9px] md:text-[11px] leading-2 text-gray-600 ">Global Initiative of PCRED</p>
             </div>
           </div>
         </Link>
@@ -110,45 +110,40 @@ const Navbar = () => {
       {open && (
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t bg-card pb-4 md:hidden">
           {navLinks.map((link, idx) => {
-  if (link.children) {
-    return (
-      <div key={link.name || idx} className="px-4 py-2">
-        <p className="text-sm font-semibold">{link.name}</p>
+            if (link.children) {
+              return (
+                <div key={link.name || idx} className="px-4 py-2">
+                  <p className="text-sm font-semibold">{link.name}</p>
 
-        {link.children.map((child) => (
-          <Link
-            key={child.path}
-            to={child.path}
-            onClick={() => setOpen(false)}
-            className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground"
-          >
-            {child.name}
-          </Link>
-        ))}
-      </div>
-    );
-  }
+                  {link.children.map((child) => (
+                    <Link
+                      key={child.path}
+                      to={child.path}
+                      onClick={() => setOpen(false)}
+                      className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      {child.name}
+                    </Link>
+                  ))}
+                </div>
+              );
+            }
 
-  return (
-    <Link
-      key={link.path}
-      to={link.path}
-      onClick={() => setOpen(false)}
-      className={`block px-4 py-3 text-sm font-medium ${
-        location.pathname === link.path
-          ? "bg-primary/5 text-primary"
-          : "text-muted-foreground hover:text-foreground"
-      }`}
-    >
-      {link.label}
-    </Link>
-  );
-})}
-          <div className="px-4 pt-3 sm:px-6">
-            <Link to="/membership" onClick={() => setOpen(false)} className="block">
-              <Button className="w-full bg-amber-500">Join ECB</Button>
-            </Link>
-          </div>
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setOpen(false)}
+                className={`block px-4 py-3 text-sm font-medium ${
+                  location.pathname === link.path
+                    ? "bg-primary/5 text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>
