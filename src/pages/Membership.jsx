@@ -115,7 +115,7 @@ function Membership() {
                   </div>
                 </div>
 
-                <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Ambassador</h1>
+                <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Solution Ambassador</h1>
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and areas of expertise. Our team reviews your profile for credibility, fit, and alignment with ECB’s standards. </p>
               </div>
             </div>
@@ -189,6 +189,11 @@ function Membership() {
                         className={fieldBase} />
                     </div>
 
+                    <div className="sm:col-span-2 relative">
+                      <label className="mb-4" htmlFor="entrepreneurs">Approximate Network Entrepreneurs *</label>
+                      <input id="entrepreneurs" name="entrepreneurs" type="number" value={formData.entrepreneurs} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}/>
+                    </div>
+
                     <div>
                       <Label htmlFor="email">Email *</Label>
                       <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255} />
@@ -200,7 +205,7 @@ function Membership() {
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="city">City *</Label>
+                      <Label className="mb-4" htmlFor="city">Location *</Label>
                       <input id="city" name="city" value={formData.city} onChange={handleInputChange} className={fieldBase} />
                     </div>
 

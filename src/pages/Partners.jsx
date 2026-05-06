@@ -27,7 +27,7 @@ function Label({ htmlFor, children }) {
 }
 
 
-const initialFormData = { company: '', size: '', name: '', designation: '', email: '', phone: '', city: '', experience: '', services: '', industry: '', message: '' };
+const initialFormData = { company: '', size: '', turnover:'', name: '', designation: '', email: '', phone: '', city: '', experience: '', services: '', industry: '', message: '' };
 
 function Partners() {
 
@@ -80,6 +80,7 @@ function Partners() {
       services: formData.services,
       industry: formData.industry,
       message: formData.message,
+      turnover: formData.turnover,
     };
     try {
       await push(ref(db, 'partner'), {
@@ -179,8 +180,8 @@ function Partners() {
 
                     <div className="sm:col-span-2 relative">
                       <label className="mb-4" htmlFor="companysize">Company Size *</label>
-                      <select id="companysize" value={formData.size} onChange={handleInputChange} className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
-                        <option value="" disabled>-- select --</option>
+                      <select id="companysize" value={formData.size} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
+                        <option value="" disabled>employees strength</option>
                         <option value="0-100">0-100</option>
                         <option value="100-250">100-250</option>
                         <option value="250-500">250-500</option>
@@ -198,6 +199,29 @@ function Partners() {
                         </svg>
                       </div>
                     </div>
+
+                    <div className="sm:col-span-2 relative">
+                      <label className="mb-4" htmlFor="turnover">Approximate Turnover *</label>
+                      <select id="turnover" name="turnover"value={formData.turnover} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
+                        <option value="disabled">-- select --</option>
+                        <option value="0cr-100cr">0cr-100cr</option>
+                        <option value="100cr-250cr">100cr-250cr</option>
+                        <option value="250cr-500cr">250cr-500cr</option>
+                        <option value="500cr+">500cr+</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-4 top-6 flex items-center">
+                        <svg
+                          className="w-4 h-4 text-gray-600"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
+
 
                     <div className="sm:col-span-2">
                       <Label htmlFor="name">Full name *</Label>
@@ -220,7 +244,7 @@ function Partners() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label className="mb-4" htmlFor="city">City *</label>
+                      <label className="mb-4" htmlFor="city">Location *</label>
                       <input id="name" name="city" value={formData.city} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
@@ -237,7 +261,7 @@ function Partners() {
                     <div className="sm:col-span-2 relative">
                       <label className="mb-4" htmlFor="industry">Industry *</label>
                       <div className="relative">
-                        <select id="industry" name="industry" value={formData.industry} onChange={handleInputChange} className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl pr-10">
+                        <select id="industry" name="industry" value={formData.industry} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
                           <option value="disabled">-- select --</option>
                           <option value="Technology / IT">Technology / IT</option>
                           <option value="Finance & Banking">Finance & Banking</option>
@@ -262,7 +286,7 @@ function Partners() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label className="mb-4" htmlFor="description">Brief About Your Services (optional)</label>
+                      <label className="mb-4" htmlFor="description">Brief About Your Services *</label>
                       <textarea id="description" rows={3} name="message" value={formData.message} onChange={handleInputChange} className={fieldBase} />
                     </div>
                   </div>
