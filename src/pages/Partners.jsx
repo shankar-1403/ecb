@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
 import { ArrowRight, Sparkles, Shield, CheckCircle2, ClipboardList, FileText, UserRound, } from "lucide-react";
+import { db } from "../lib/firebase";
+import { push, ref } from "firebase/database";
+import { useState, useEffect, useRef } from "react";
+
 
 const STEPS = [
   { title: "Get access to verified business requirements", Icon: UserRound },
@@ -10,7 +14,85 @@ const STEPS = [
   { title: "Grow with a structured, scalable ecosystem", Icon: CheckCircle2 },
 ]
 
+const fieldBase =
+  "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
+  "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
+
+function Label({ htmlFor, children }) {
+  return (
+    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-gray-800">
+      {children}
+    </label>
+  );
+}
+
+
+const initialFormData = { company: '', size: '', name: '', designation: '', email: '', phone: '', city: '', experience: '', services: '', industry: '', message: '' };
+
 function Partners() {
+
+  const [formData, setFormData] = useState(initialFormData);
+  const [submitState, setSubmitState] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  useEffect(() => {
+    if (!submitState) return;
+
+    const timer = setTimeout(() => {
+      setSubmitState('');
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [submitState]);
+
+  useEffect(() => {
+    if (!errorMessage) return;
+
+    const timer = setTimeout(() => {
+      setErrorMessage('');
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [errorMessage]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.phone || !formData.email) {
+      setErrorMessage('Please fill in name, phone and email.');
+      return;
+    }
+
+    const payload = {
+      company: formData.company,
+      size: formData.size,
+      name: formData.name,
+      designation: formData.designation,
+      email: formData.email,
+      phone: formData.phone,
+      city: formData.city,
+      experience: formData.experience,
+      services: formData.services,
+      industry: formData.industry,
+      message: formData.message,
+    };
+    try {
+      await push(ref(db, 'partner'), {
+        ...payload,
+        createdAt: new Date().toISOString(),
+      });
+
+      setFormData(initialFormData);
+      setSubmitState('Form Submitted Successfully')
+    } catch (error) {
+      console.error('Form submission failed:', error);
+    }
+  };
   return (
     <Layout>
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
@@ -81,141 +163,118 @@ function Partners() {
             </div>
 
             <div className="lg:col-span-8">
-              {status === "success" ? (
-                <div
-                  className="relative overflow-hidden rounded-2xl border border-emerald-200/80 bg-linear-to-br from-emerald-50 via-white to-teal-50/50 p-8 shadow-[0_16px_48px_-20px_rgba(16,185,129,0.25)] sm:p-10"
-                  role="status"
-                >
-                  <div className="pointer-events-none absolute -right-12 top-0 h-40 w-40 rounded-full bg-emerald-200/30 blur-3xl" aria-hidden />
-                  <div className="relative flex items-start gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30">
-                      <CheckCircle2 className="h-6 w-6" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="text-lg font-semibold text-emerald-950">Application received (demo)</p>
-                      <p className="mt-2 text-sm leading-relaxed text-emerald-900/85">
-                        Thank you. In production, this form would connect to your CRM or inbox. Your details were validated successfully.
-                      </p>
-                      <Button type="button" variant="secondary" className="mt-6" onClick={() => setStatus("idle")}>
-                        Submit another application
-                      </Button>
-                    </div>
+              <div className="overflow-hidden rounded-2xl border border-gray-400/20">
+                <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
+                <form onSubmit={handleSubmit} className="space-y-8 p-6 sm:p-10" >
+                  <div>
+                    <h2 className="text-lg font-semibold">Apply as a Partner</h2>
+                    <p className="mt-2 text-sm text-slate-600">Fields marked by validation are required.</p>
                   </div>
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-2xl border border-gray-400/20">
-                  <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
-                  <form className="space-y-8 p-6 sm:p-10" noValidate>
-                    <div>
-                      <h2 className="text-lg font-semibold">Apply as a Partner</h2>
-                      <p className="mt-2 text-sm text-slate-600">Fields marked by validation are required.</p>
+
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="sm:col-span-2">
+                      <Label htmlFor="name">Comapny Name *</Label>
+                      <input id="name" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="companyName">Company Name</label>
-                        <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
+                    <div className="sm:col-span-2 relative">
+                      <label className="mb-4" htmlFor="companysize">Company Size *</label>
+                      <select id="companysize" value={formData.size} onChange={handleInputChange} className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
+                        <option value="" disabled>-- select --</option>
+                        <option value="0-100">0-100</option>
+                        <option value="100-250">100-250</option>
+                        <option value="250-500">250-500</option>
+                        <option value="500+">500+</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-4 top-6 flex items-center">
+                        <svg
+                          className="w-4 h-4 text-gray-600"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
                       </div>
+                    </div>
 
-                      <div className="sm:col-span-2 relative">
-                        <label className="mb-4" htmlFor="companysize">Company Size</label>
-                        <select id="companysize" defaultValue="" className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl">
-                          <option value="" disabled>-- select --</option>
-                          <option value="0-100">0-100</option>
-                          <option value="100-250">100-250</option>
-                          <option value="250-500">250-500</option>
-                          <option value="500+">500+</option>
+                    <div className="sm:col-span-2">
+                      <Label htmlFor="name">Full name *</Label>
+                      <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100} />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <Label htmlFor="name">Designation *</Label>
+                      <input id="name" name="designation" value={formData.designation} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
+                    <div>
+                      <label className="mb-4" htmlFor="email">Email *</label>
+                      <input id="name" name="email" value={formData.email} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
+                    <div>
+                      <label className="mb-4" htmlFor="phone">Phone *</label>
+                      <input id="name" name="phone" value={formData.phone} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="mb-4" htmlFor="city">City *</label>
+                      <input id="name" name="city" value={formData.city} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
+                    <div>
+                      <label className="mb-4" htmlFor="yearsExperience">Years of experience *</label>
+                      <input id="name" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="mb-4" htmlFor="servicesyouoffer">Services you Offer *</label>
+                      <input id="name" name="services" value={formData.services} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+
+                    <div className="sm:col-span-2 relative">
+                      <label className="mb-4" htmlFor="industry">Industry *</label>
+                      <div className="relative">
+                        <select id="industry" name="industry" value={formData.industry} onChange={handleInputChange} className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl pr-10">
+                          <option value="disabled">-- select --</option>
+                          <option value="Technology / IT">Technology / IT</option>
+                          <option value="Finance & Banking">Finance & Banking</option>
+                          <option value="Healthcare & Pharma">Healthcare & Pharma</option>
+                          <option value="Marketing & Branding">Marketing & Branding</option>
+                          <option value="Legal & Compliance">Legal & Compliance</option>
+                          <option value="Business Consulting">Business Consulting</option>
+                          <option value="Manufacturing">Manufacturing</option>
+                          <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
+                          <option value="Education & Training">Education & Training</option>
+                          <option value="Logistics & Distribution">Logistics & Distribution</option>
+                          <option value="Retail & E-commerce">Retail & E-commerce</option>
+                          <option value="Government / Public Sector">Government / Public Sector</option>
+                          <option value="DE">Other</option>
                         </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-4 top-6 flex items-center">
-                          <svg
-                            className="w-4 h-4 text-gray-600"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                          >
+                        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                           </svg>
                         </div>
                       </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="full Name">Full Name</label>
-                        <input id="fullName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="designation">Designation</label>
-                        <input id="designation" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div>
-                        <label className="mb-4" htmlFor="email">Email</label>
-                        <input id="email" type="email" autoComplete="email" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div>
-                        <label className="mb-4" htmlFor="phone">Phone</label>
-                        <input id="phone" type="number" autoComplete="number" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="city">City</label>
-                        <input id="city" autoComplete="address-level2" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div>
-                        <label className="mb-4" htmlFor="yearsExperience">Years of experience</label>
-                        <input id="yearsExperience" inputMode="numeric" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="servicesyouoffer">Services you Offer</label>
-                        <input id="servicesyouoffer" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div className="sm:col-span-2 relative">
-                        <label className="mb-4" htmlFor="industry">Industry</label>
-                        <div className="relative">
-                          <select id="industry" defaultValue="" className="appearance-none bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl pr-10">
-                            <option value="" disabled>-- select --</option>
-                            <option value="Technology / IT">Technology / IT</option>
-                            <option value="Finance & Banking">Finance & Banking</option>
-                            <option value="Healthcare & Pharma">Healthcare & Pharma</option>
-                            <option value="Marketing & Branding">Marketing & Branding</option>
-                            <option value="Legal & Compliance">Legal & Compliance</option>
-                            <option value="Business Consulting">Business Consulting</option>
-                            <option value="Manufacturing">Manufacturing</option>
-                            <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
-                            <option value="Education & Training">Education & Training</option>
-                            <option value="Logistics & Distribution">Logistics & Distribution</option>
-                            <option value="Retail & E-commerce">Retail & E-commerce</option>
-                            <option value="Government / Public Sector">Government / Public Sector</option>
-                            <option value="DE">Other</option>
-                          </select>
-                          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-                            <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="description">Brief About Your Services (optional)</label>
-                        <textarea id="description" rows={5} className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                      <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
-                      <p className="max-w-md text-xs leading-relaxed text-slate-500">
-                        Our team will review your profile and connect with you for the next steps.
-                      </p>
+                    <div className="sm:col-span-2">
+                      <label className="mb-4" htmlFor="description">Brief About Your Services (optional)</label>
+                      <textarea id="description" rows={3} name="message" value={formData.message} onChange={handleInputChange} className={fieldBase} />
                     </div>
-                  </form>
-                </div>
-              )}
+                  </div>
+
+                  <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
+                    <p className="max-w-md text-xs leading-relaxed text-slate-500">
+                      Our team will review your profile and connect with you for the next steps.
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

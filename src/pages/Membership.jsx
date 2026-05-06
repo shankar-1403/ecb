@@ -25,7 +25,7 @@ const STEPS = [
   { n: "4", title: "Review & submit", body: "We validate and route to the right steward.", Icon: CheckCircle2 },
 ]
 
-const initialFormData = {name: '', company:'', email: '', phone: '', city:'', experience:'', links:'', file: null, message: ''};
+const initialFormData = { name: '', company: '', email: '', phone: '', city: '', experience: '', links: '', file: null, message: '' };
 
 function Membership() {
   const [formData, setFormData] = useState(initialFormData);
@@ -44,7 +44,7 @@ function Membership() {
       setSubmitState('');
     }, 5000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, [submitState]);
 
   useEffect(() => {
@@ -54,10 +54,10 @@ function Membership() {
       setErrorMessage('');
     }, 5000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, [errorMessage]);
-    
-  const handleSubmit = async(e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.phone || !formData.email) {
@@ -179,41 +179,42 @@ function Membership() {
                   </div>
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <Label className="mb-4" htmlFor="fullName">Full name *</Label>
-                      <input id="fullName" name="name" className={fieldBase} />
+                      <Label htmlFor="name">Full name *</Label>
+                      <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100} />
                     </div>
 
                     <div className="sm:col-span-2">
                       <Label className="mb-4" htmlFor="companyName">Company name *</Label>
-                      <input id="companyName" name="company" className={fieldBase} />
+                      <input id="companyName" name="company" value={formData.company} onChange={handleInputChange}
+                        className={fieldBase} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="email">Email *</Label>
-                      <input id="email" type="email" name="email" className={fieldBase} />
+                      <Label htmlFor="email">Email *</Label>
+                      <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="phone">Phone *</Label>
-                      <input id="phone" type="number" name="phone" className={fieldBase}/>
+                      <Label htmlFor="phone">Phone *</Label>
+                      <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
                     </div>
 
                     <div>
                       <Label className="mb-4" htmlFor="city">City *</Label>
-                      <input id="city" name="city" className={fieldBase} />
+                      <input id="city" name="city" value={formData.city} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
 
                     <div>
                       <Label className="mb-4" htmlFor="yearsExperience">Years of experience *</Label>
-                      <input id="yearsExperience" type="number" className={fieldBase}/>
+                      <input id="yearsExperience" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
                       <Label className="mb-4" htmlFor="websiteOrLinkedIn">Website or LinkedIn</Label>
-                      <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" className={fieldBase} />
+                      <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" name="links" value={formData.links} onChange={handleInputChange} className={fieldBase} />
                     </div>
-                    
+
                     <div>
                       <Label className="mb-4" htmlFor="profile">Upload profile</Label>
                       <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
@@ -222,7 +223,7 @@ function Membership() {
 
                     <div className="sm:col-span-2">
                       <Label className="mb-4" htmlFor="description">Short description of services</Label>
-                      <textarea id="description" rows={3} className={fieldBase} />
+                      <textarea id="description" rows={3} name="message" value={formData.message} onChange={handleInputChange} className={fieldBase} />
                     </div>
                   </div>
 
