@@ -46,7 +46,7 @@ const values = [
 ];
 
 const leadership = [
-  { name: "Dr. G. Ramesh Kumar", role: "Chairman", img: rameshkumar_img },
+  { name: "Dr. G. Rameshkumar", role: "Chairman", img: rameshkumar_img },
 ];
 
 const team = [
@@ -244,10 +244,10 @@ function About() {
                     <h4 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h4>
                     <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Ramesh Kumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Executive Director at Insurath, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
+                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Executive Director at Insurath, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
                     </p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Ramesh Kumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
+                      Dr. G. Rameshkumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
                   </motion.div>
                 </motion.div>
               ))}
