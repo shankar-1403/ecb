@@ -63,7 +63,7 @@ function About() {
     <Layout>
 
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 40%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(145, 60%, 40%) 0%, transparent 45%)" }} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
           <div>
@@ -88,27 +88,15 @@ function About() {
         </div>
       </section>
 
-      <section
-        className="relative overflow-hidden py-10 sm:py-14 md:py-16"
-
-      >
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
-
+      <section className="relative overflow-hidden py-10 sm:py-14 md:py-16">
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5 md:px-6">
-
-
           <div className="lg:hidden">
             <div className="text-center mb-8">
-              <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">
-                What we pursue
-              </span>
-              <h2 className="mt-4 text-3xl font-bold text-[#1D2F4F]">
-                Our Objective
-              </h2>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Clear priorities guiding ECB across India.
-              </p>
-              <div className="w-16 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
+              <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">What we pursue</span>
+              <h2 className="mt-4 text-3xl font-bold text-[#1D2F4F]">Our Objective</h2>
+              <p className="mt-3 text-sm text-muted-foreground">Clear priorities guiding ECB across India.</p>
+              <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -126,14 +114,8 @@ function About() {
                   <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3 group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-300">
                     <Icon className="w-5 h-5 text-amber-500 group-hover:text-white transition-colors duration-300" />
                   </div>
-
-                  <h4 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition-colors">
-                    {title}
-                  </h4>
-
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {detail}
-                  </p>
+                  <h3 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition-colors">{title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">{detail}</p>
                 </div>
               ))}
             </div>
@@ -142,43 +124,43 @@ function About() {
 
           <div className="hidden lg:block">
             <style>{`
-        @keyframes float0 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
-        @keyframes float1 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
-        @keyframes float2 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-7px)} }
-        @keyframes float3 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
-        @keyframes float4 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
+              @keyframes float0 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
+              @keyframes float1 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
+              @keyframes float2 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-7px)} }
+              @keyframes float3 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
+              @keyframes float4 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
 
-        .f0{animation:float0 5s ease-in-out infinite;}
-        .f1{animation:float1 6s ease-in-out infinite;}
-        .f2{animation:float2 5.5s ease-in-out infinite;}
-        .f3{animation:float3 6.5s ease-in-out infinite;}
-        .f4{animation:float4 6s ease-in-out infinite;}
+              .f0{animation:float0 5s ease-in-out infinite;}
+              .f1{animation:float1 6s ease-in-out infinite;}
+              .f2{animation:float2 5.5s ease-in-out infinite;}
+              .f3{animation:float3 6.5s ease-in-out infinite;}
+              .f4{animation:float4 6s ease-in-out infinite;}
 
-        .ocard{
-          position:absolute;
-          width:200px;
-          background:rgba(255,255,255,0.95);
-          border:1px solid rgba(245,158,11,0.25);
-          border-radius:18px;
-          padding:16px;
-          backdrop-filter:blur(10px);
-          transition:all 0.3s;
-          z-index:5;
-          box-shadow:0 6px 24px -6px rgba(0,0,0,0.08);
-        }
+              .ocard{
+                position:absolute;
+                width:200px;
+                background:rgba(255,255,255,0.95);
+                border:1px solid rgba(245,158,11,0.25);
+                border-radius:18px;
+                padding:16px;
+                backdrop-filter:blur(10px);
+                transition:all 0.3s;
+                z-index:5;
+                box-shadow:0 6px 24px -6px rgba(0,0,0,0.08);
+              }
 
-        .ocard:hover{
-          background:#1D2F4F;
-          border-color:rgba(245,158,11,0.7);
-          box-shadow:0 20px 48px -8px rgba(245,158,11,0.4);
-          transform:scale(1.06) !important;
-          z-index:20;
-        }
+              .ocard:hover{
+                background:#1D2F4F;
+                border-color:rgba(245,158,11,0.7);
+                box-shadow:0 20px 48px -8px rgba(245,158,11,0.4);
+                transform:scale(1.06) !important;
+                z-index:20;
+              }
 
-        .ocard:hover .ci{background:rgba(245,158,11,0.25);}
-        .ocard:hover .ct{color:white;}
-        .ocard:hover .cd{color:rgba(255,255,255,0.65);}
-      `}</style>
+              .ocard:hover .ci{background:rgba(245,158,11,0.25);}
+              .ocard:hover .ct{color:white;}
+              .ocard:hover .cd{color:rgba(255,255,255,0.65);}
+            `}</style>
 
             <div className="relative w-full" style={{ height: "380px" }}>
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 380">
@@ -186,14 +168,10 @@ function About() {
               </svg>
 
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-96 z-10">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">
-                  WHAT WE PERSUE
-                </span>
-                <h2 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h2>
-                <p className="mt-2 text-base text-muted-foreground">
-                  Clear priorities guiding ECB across India.
-                </p>
-                <div className="w-14 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
+                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">WHAT WE PERSUE</span>
+                <h4 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h4>
+                <p className="mt-2 text-base text-muted-foreground">Clear priorities guiding ECB across India.</p>
+                <div className="w-14 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
               </div>
 
               {[
@@ -225,13 +203,8 @@ function About() {
                       <Icon className="w-5 h-5 text-amber-500" />
                     </div>
 
-                    <p className="ct text-sm font-semibold text-[#1D2F4F] mb-1.5">
-                      {title}
-                    </p>
-
-                    <p className="cd text-xs text-gray-500">
-                      {detail}
-                    </p>
+                    <p className="ct text-sm font-semibold text-[#1D2F4F] mb-1.5">{title}</p>
+                    <p className="cd text-xs text-gray-500">{detail}</p>
                   </div>
                 );
               })}
@@ -244,22 +217,22 @@ function About() {
       <div style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }}>
 
         <section className="relative overflow-hidden pt-14 pb-10 sm:pt-16 sm:pb-12 md:pt-20 md:pb-14">
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
             <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">
               <span className="text-sm font-semibold">OUR TEAM</span>
             </div>
-            <h2 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
+            <h5 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
               Meet the People Behind{" "}
               <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">ECB</span>
-            </h2>
+            </h5>
             <p className="mt-6 max-w-3xl mx-auto text-muted-foreground sm:text-lg">A collective of professionals supporting entrepreneurs and MSMEs across India.</p>
           </div>
         </section>
 
         <section className="py-5 sm:py-6 md:py-1">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-7">
-            <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h3>
+            <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h5>
             <div className="mt-12 flex justify-center">
               {leadership.map((member, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
@@ -284,13 +257,13 @@ function About() {
 
         <section className="py-16 sm:py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <h3 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h3>
+            <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h5>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {team.map((member, index) => (
-                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl hover:-translate-y-2">
+                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
                   <div className="p-2">
                     <div className="overflow-hidden bg-gray-300/70 rounded-xl">
-                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-[220px] sm:max-h-[240px] md:h-64 md:max-h-none object-contain md:object-cover" />
+                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-64 md:max-h-none object-contain md:object-cover" />
                     </div>
                   </div>
                   <div className="pb-3">
@@ -307,7 +280,7 @@ function About() {
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
             <div className="flex flex-col gap-6 rounded-2xl bg-[#1D2F4F] p-8 text-white sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8 md:rounded-3xl md:p-12 lg:p-14">
               <div className="min-w-0">
-                <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h3>
+                <h5 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h5>
                 <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
               </div>
               <Link to="/membership/partner-with-us" className="w-full shrink-0 sm:w-auto">

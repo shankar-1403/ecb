@@ -20,9 +20,9 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-secondary-foreground/50">
+          <p className="font-semibold mb-3 text-sm uppercase tracking-wider text-secondary-foreground/50">
             Quick Links
-          </h4>
+          </p>
           <ul className="space-y-2">
             {[
               { label: "Home", path: "/" },
@@ -34,7 +34,7 @@ const Footer = () => (
               <li key={l.path}>
                 <Link
                   to={l.path}
-                  className="cursor-pointer text-sm text-secondary-foreground/70 transition-colors hover:text-secondary-foreground"
+                  className="cursor-pointer text-sm text-secondary-foreground/70 transition-colors hover:text-secondary-foreground hover:text-amber-400 transition"
                 >
                   {l.label}
                 </Link>
@@ -48,47 +48,34 @@ const Footer = () => (
             Contact
           </h4>
           <ul className="space-y-2 text-sm text-secondary-foreground/70">
-            <li>
+            <li className="flex flex-col gap-1">
+              <div><p className="w-20 font-bold">Location:</p></div>
+              <div><p>Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093</p>
+              </div>
+            </li>
+            <li className="flex flex-col gap-1">
+              <div className="w-20 font-bold">Email:</div>
+              <a href="mailto:contact@ec-bharat.com" className="hover:text-amber-400 transition">contact@ec-bharat.com</a>
+            </li>
+            <li className="flex flex-col gap-1">
+              <div className="w-20 font-bold">Phone:</div>
+              <a href="tel:+912235120060" className="hover:text-amber-400 transition">+91 22 3512 0060</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-              <a href="https://www.google.com/maps?q=Lodha+Supremus+Andheri+East+Mumbai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-amber-400 transition"
-  >
-              Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093
-            </a>
-          </li>
-          <li className="flex flex-col">
-            <div className="w-20 font-bold">Email:</div>
-            <a href="mailto:contact@ec-bharat.in">contact@ec-bharat.in</a>
-          </li>
-          <li className="flex flex-col">
-            <div className="w-20 font-bold">Phone:</div>
-            <a href="tel:+912235120060">+91 22 3512 0060</a>
-          </li>
-        </ul>
+
+      <div className="border-t border-secondary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-xs text-secondary-foreground/50 text-center">
+        <p>© 2026 Entrepreneur Connect Bharat (ECB). All Rights Reserved.</p>
+        <Circle className="w-2 h-2 fill-current hidden sm:block mx-3" />
+
+        <p>
+          Powered by{" "}
+          <a href="https://www.pcred.org" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-amber-400 transition">PCRED</a>
+        </p>
       </div>
     </div>
-
-
-    <div className="border-t border-secondary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-xs text-secondary-foreground/50 text-center">
-      <p>© 2026 Entrepreneur Connect Bharat (ECB). All Rights Reserved.</p>
-      <Circle className="w-2 h-2 fill-current hidden sm:block mx-3" />
-
-      <p>
-        Powered by{" "}
-        <a
-          href="https://www.pcred.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold text-white hover:text-amber-400 transition"
-        >
-          PCRED
-        </a>
-      </p>
-
-    </div>
-  </div>
   </footer >
 );
 

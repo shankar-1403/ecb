@@ -56,7 +56,7 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
       <div className="relative space-y-5 px-6 py-6 md:space-y-6 md:px-8 md:py-8">
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <Label htmlFor={`${id}-name`}>Full name</Label>
+            <Label htmlFor={`${id}-name`}>Full name *</Label>
             <input
               id={`${id}-name`}
               name="name"
@@ -70,7 +70,7 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
             />
           </div>
           <div>
-            <Label htmlFor={`${id}-email`}>Email</Label>
+            <Label htmlFor={`${id}-email`}>Email *</Label>
             <input
               id={`${id}-email`}
               name="email"
@@ -87,9 +87,7 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
         </div>
 
         <div>
-          <Label htmlFor={`${id}-phone`} optional>
-            Phone
-          </Label>
+          <Label htmlFor={`${id}-phone`}>Phone *</Label>
           <input
             id={`${id}-phone`}
             name="phone"
@@ -106,18 +104,16 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
         <div>
           <div className="mb-1.5 flex items-center justify-between gap-2">
             <Label htmlFor={`${id}-message`}>Message</Label>
-            <span className="text-xs text-gray-400 tabular-nums">{formData.message.length}/1000</span>
           </div>
           <textarea
             id={`${id}-message`}
             name="message"
-            rows={5}
+            rows={3}
             required={requireFields}
             placeholder="How can we help you?"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             className={`${fieldBase} min-h-[140px] resize-y leading-relaxed`}
-            maxLength={1000}
           />
         </div>
 
@@ -126,7 +122,6 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
           size="lg"
           className="w-full rounded-lg bg-amber-500 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:bg-amber-600 hover:shadow-amber-500/40"
         >
-          <Send className="mr-2 h-4 w-4" />
           {submitLabel}
         </Button>
       </div>

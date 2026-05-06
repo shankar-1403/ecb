@@ -1,13 +1,19 @@
+import { useState,useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/ui/button";
-import { Users, Building2, Rocket, BookOpen, Heart, Eye, Target, Handshake, Globe, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers, BadgeCheck, Banknote, Briefcase, Building, Cpu, GraduationCap, HeartHandshake, LayoutDashboard, LineChart, Network, Scale, Truck, UsersRound, FileText, ShieldCheck, Quote, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+import { Users, Building2, Rocket, BookOpen, Heart, Eye, Target, Handshake, Globe, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers, BadgeCheck, Banknote, Briefcase, Building, Cpu, GraduationCap, HeartHandshake, LayoutDashboard, LineChart, Network, Scale, Truck, UsersRound, FileText, ShieldCheck, Quote, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare } from "lucide-react";
 import Layout from "../components/Layout";
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useState, useRef } from "react";
 import About from "../assets/about.webp";
 import { HeroBenefitSpotlight } from "../components/ui/heroBenefitSpotlight";
 import { ContactFormCard } from "../components/ContactForm";
 import CountUp from "../components/CountUp";
+import { push, ref } from 'firebase/database';
+import { db } from "../lib/firebase";
+
+const fieldBase =
+  "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
+  "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
 
 const offerings = [
     { number: "01", icon: Users, title: "Business Networking", desc: "Connect with entrepreneurs, industry leaders, and professionals." },
@@ -213,22 +219,91 @@ function TestimonialSlider() {
     );
 }
 
+function Label({ htmlFor, children }) {
+  return (
+    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-gray-800">
+      {children}
+    </label>
+  );
+}
+
+const initialFormData = {
+  name: '',
+  phone: '',
+  email: '',
+  message: '',
+};
+
 function Home() {
-    const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+    const [formData, setFormData] = useState(initialFormData);
+    const [submitState, setSubmitState] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState(1);
     const totalPages = Math.ceil(TESTIMONIALS.length / 3);
     const prev = () => { setDirection(-1); setCurrent((c) => (c === 0 ? totalPages - 1 : c - 1)); };
     const next = () => { setDirection(1); setCurrent((c) => (c === totalPages - 1 ? 0 : c + 1)); };
     const visible = TESTIMONIALS.slice(current * 3, current * 3 + 3);
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+    
+    useEffect(() => {
+        if (!submitState) return;
+    
+        const timer = setTimeout(() => {
+          setSubmitState('');
+        }, 5000);
+    
+        return () => clearTimeout(timer); 
+    }, [submitState]);
+    
+    useEffect(() => {
+        if (!errorMessage) return;
+    
+        const timer = setTimeout(() => {
+          setErrorMessage('');
+        }, 5000);
+    
+        return () => clearTimeout(timer); 
+    }, [errorMessage]);
+      
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+    
+        if (!formData.name || !formData.phone || !formData.email) {
+          setErrorMessage('Please fill in name, phone and email.');
+          return;
+        }
+    
+        const payload = {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+        };
+        try {
+          await push(ref(db, 'contacts'), {
+            ...payload,
+            page:'home',
+            createdAt: new Date().toISOString(),
+          });
+    
+          setFormData(initialFormData);
+          setSubmitState('Form Submitted Successfully')
+        } catch (error) {
+          console.error('Form submission failed:', error);
+        }
+    };
+
     return (
         <Layout>
-
-
             <section className="relative overflow-hidden pt-20 pb-0 sm:pt-24 md:pt-28 lg:pt-32">
                 <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }} />
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: `linear-gradient(to right, rgba(245,158,11,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,158,11,0.07) 1px, transparent 1px)`, backgroundSize: "48px 48px" }} />
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-white to-green-600" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-amber-500 via-white to-green-600" />
                 <div className="absolute bottom-40 right-4 opacity-[0.05] pointer-events-none select-none hidden lg:block">
                     <svg viewBox="0 0 200 200" className="w-48 h-48 text-amber-500" fill="none" stroke="currentColor">
                         <circle cx="100" cy="100" r="80" strokeWidth="1.5" />
@@ -726,7 +801,7 @@ function Home() {
                                     <div key={label} className={cardClass}>{inner}</div>
                                 );
                             })}
-                            <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-[#1D2F4F] to-[#15243d] p-5 text-white shadow-lg">
+                            <div className="rounded-2xl border border-amber-500/20 bg-linear-to-br from-[#1D2F4F] to-[#15243d] p-5 text-white shadow-lg">
                                 <h3 className="text-base font-display font-bold">Let's Build Together</h3>
                                 <p className="mt-2 text-sm text-white/80 leading-relaxed">Join 5000+ entrepreneurs who are growing their businesses with ECB.</p>
                                 <Link to="/membership/elite-ambassador" className="mt-4 inline-block">
@@ -737,7 +812,51 @@ function Home() {
                             </div>
                         </div>
                         <div className="md:col-span-3">
-                            <ContactFormCard formData={formData} setFormData={setFormData} submitLabel="Send message" />
+                            <form onSubmit={handleSubmit} className="relative overflow-hidden rounded-3xl border border-gray-200/90 bg-white shadow-[0_24px_60px_-15px_rgba(29,47,79,0.18)] md:rounded-[1.75rem]">
+                                <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
+                                <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+                                <div className="absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-[#1D2F4F]/5 blur-3xl pointer-events-none" />
+
+                                <div className="relative border-b border-gray-100 bg-linear-to-br from-gray-50/90 to-white px-6 py-5 md:px-8 md:py-6">
+                                <div className="flex items-start gap-4">
+                                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/25">
+                                    <MessageSquare className="h-5 w-5" strokeWidth={2.2} />
+                                    </div>
+                                    <div>
+                                    <h3 className="text-lg font-bold text-[#1D2F4F] md:text-xl">Send us a message</h3>
+                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                        Share a few details and we&apos;ll get back to you as soon as we can.
+                                    </p>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div className="relative space-y-5 px-6 py-6 md:space-y-6 md:px-8 md:py-8">
+                                <div className="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                    <Label htmlFor="name">Full name *</Label>
+                                    <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100}/>
+                                    </div>
+                                    <div>
+                                    <Label htmlFor="phone">Phone *</Label>
+                                    <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                                    </div>
+                                    
+                                </div>
+                                <div>
+                                    <Label htmlFor="email">Email *</Label>
+                                    <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255}/>
+                                </div>
+                                <div>
+                                    <Label htmlFor="message">Message</Label>
+                                    <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
+                                </div>
+
+                                <Button type="submit" size="lg" className="w-full rounded-lg bg-amber-500 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:bg-amber-600 hover:shadow-amber-500/40">Send Message</Button>
+                                {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
+                                {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

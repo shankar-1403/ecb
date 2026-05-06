@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
+import { db } from "../lib/firebase";
+import { push, ref } from "firebase/database";
 import { ArrowRight, Sparkles, Shield, CheckCircle2, ClipboardList, FileText, UserRound, } from "lucide-react";
+
+const fieldBase =
+  "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
+  "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
+
+function Label({ htmlFor, children }) {
+  return (
+    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-gray-800">
+      {children}
+    </label>
+  );
+}
 
 const STEPS = [
   { n: "1", title: "Identity & firm", body: "Who you are and where you operate.", Icon: UserRound },
@@ -11,8 +25,69 @@ const STEPS = [
   { n: "4", title: "Review & submit", body: "We validate and route to the right steward.", Icon: CheckCircle2 },
 ]
 
+const initialFormData = {name: '', company:'', email: '', phone: '', city:'', experience:'', links:'', file: null, message: ''};
+
 function Membership() {
-  const [status, setStatus] = useState("idle");
+  const [formData, setFormData] = useState(initialFormData);
+  const [submitState, setSubmitState] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  useEffect(() => {
+    if (!submitState) return;
+
+    const timer = setTimeout(() => {
+      setSubmitState('');
+    }, 5000);
+
+    return () => clearTimeout(timer); 
+  }, [submitState]);
+
+  useEffect(() => {
+    if (!errorMessage) return;
+
+    const timer = setTimeout(() => {
+      setErrorMessage('');
+    }, 5000);
+
+    return () => clearTimeout(timer); 
+  }, [errorMessage]);
+    
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.phone || !formData.email) {
+      setErrorMessage('Please fill in name, phone and email.');
+      return;
+    }
+
+    const payload = {
+      name: formData.name,
+      company: formData.company,
+      phone: formData.phone,
+      email: formData.email,
+      city: formData.city,
+      experience: formData.experience,
+      links: formData.links,
+      file: formData.file,
+      message: formData.message,
+    };
+    try {
+      await push(ref(db, 'elite_ambassador'), {
+        ...payload,
+        createdAt: new Date().toISOString(),
+      });
+
+      setFormData(initialFormData);
+      setSubmitState('Form Submitted Successfully')
+    } catch (error) {
+      console.error('Form submission failed:', error);
+    }
+  };
   return (
     <Layout>
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
@@ -26,32 +101,28 @@ function Membership() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-7">
-
-              <div>
-                <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
-                  <div className="flex items-center gap-2">
-                    <div>
-                      <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                    </div>
-                    <div>
-                      <span className="text-xs sm:text-sm font-semibold tracking-wide">EMPANELMENT</span>
+              <div className="max-w-2xl">
+                <div>
+                  <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+                    <div className="flex items-center gap-2">
+                      <div>
+                        <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                      </div>
+                      <div>
+                        <span className="text-xs sm:text-sm font-semibold tracking-wide">EMPANELMENT</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Ambassador</h1>
-
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and areas of expertise. Our team reviews your profile for credibility, fit, and alignment with ECB’s standards. </p>
-
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-
+                <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-[#1D2F4F] md:text-5xl lg:text-6xl lg:leading-[1.05]">Apply as an Elite Ambassador</h1>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">Share your practice details and areas of expertise. Our team reviews your profile for credibility, fit, and alignment with ECB’s standards. </p>
               </div>
             </div>
 
-            <div className="relative lg:col-span-5">
+            <div className="relative lg:col-span-5 flex justify-end">
               <div className="absolute -inset-4 rounded-4xl bg-gradientS-to-br from-amber-400/20 via-transparent to-green-600/15 blur-2xl lg:-inset-6" />
-              <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-[#1D2F4F] via-[#243554] to-[#15243d] p-8 text-white shadow-2xl md:p-10">
+              <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-[#1D2F4F] via-[#243554] to-[#15243d] p-8 text-white shadow-2xl md:p-10 max-w-md">
                 <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-amber-500/20 blur-3xl" />
                 <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-green-500/10 blur-3xl" />
                 <div className="relative flex items-start gap-4">
@@ -72,31 +143,25 @@ function Membership() {
       </section>
 
       <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-4 sticky top-0">
-              <div  >
+            <div className="lg:col-span-4">
+              <div className="sticky top-20 self-start">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">Journey</p>
                 <h2 className="mt-2 text-xl font-semibold">What happens next</h2>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  Four checkpoints show how our team evaluates fit sharing details early helps keep things smooth and efficient.
-                </p>
-                <ol className="mt-8 space-y-4">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">Four checkpoints show how our team evaluates fit sharing details early helps keep things smooth and efficient.</p>
+                <ol className="mt-4 space-y-4">
                   {STEPS.map(({ n, title, body, Icon }) => (
-                    <li
-                      key={n}
-                      className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition hover:border-amber-500/25 hover:shadow-md"
+                    <li key={n} className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 px-2 py-3 shadow-sm backdrop-blur-sm transition hover:border-amber-500/25 hover:shadow-md"
                     >
                       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-amber-500/20 to-green-500/10 ring-1 ring-amber-500/15">
                         <Icon className="h-5 w-5" aria-hidden />
                       </span>
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-amber-500">
-                          Step {n}
-                        </p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-amber-500">Step {n}</p>
                         <p className="mt-0.5 font-semibold">{title}</p>
-                        <p className="mt-1 text-xs leading-relaxed text-slate-600">{body}</p>
+                        <p className="mt-0.5 text-xs leading-relaxed text-slate-600">{body}</p>
                       </div>
                     </li>
                   ))}
@@ -105,116 +170,67 @@ function Membership() {
             </div>
 
             <div className="lg:col-span-8">
-              {status === "success" ? (
-                <div
-                  className="relative overflow-hidden rounded-2xl border border-emerald-200/80 bg-linear-to-br from-emerald-50 via-white to-teal-50/50 p-8 shadow-[0_16px_48px_-20px_rgba(16,185,129,0.25)] sm:p-10"
-                  role="status"
-                >
-                  <div
-                    className="pointer-events-none absolute -right-12 top-0 h-40 w-40 rounded-full bg-emerald-200/30 blur-3xl"
-                    aria-hidden
-                  />
-                  <div className="relative flex items-start gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30">
-                      <CheckCircle2 className="h-6 w-6" aria-hidden />
-                    </span>
+              <div className="overflow-hidden rounded-2xl border border-gray-400/20">
+                <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
+                <form onSubmit={handleSubmit} className="space-y-8 p-6 sm:p-10">
+                  <div>
+                    <h3 className="text-lg font-semibold">Apply as an Elite Ambassador</h3>
+                    <p className="mt-2 text-sm text-slate-600">Fields marked by validation are required. Uploads are optional in this demo.</p>
+                  </div>
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="sm:col-span-2">
+                      <Label className="mb-4" htmlFor="fullName">Full name *</Label>
+                      <input id="fullName" name="name" className={fieldBase} />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <Label className="mb-4" htmlFor="companyName">Company name *</Label>
+                      <input id="companyName" name="company" className={fieldBase} />
+                    </div>
+
                     <div>
-                      <p className="text-lg font-semibold text-emerald-950">Application received (demo)</p>
-                      <p className="mt-2 text-sm leading-relaxed text-emerald-900/85">
-                        Thank you. In production, this form would connect to your CRM or inbox. Your
-                        details were validated successfully.
-                      </p>
-                      <Button
-                        type="button"
-                        variant="secondary"
-                        className="mt-6"
-                        onClick={() => setStatus("idle")}
-                      >
-                        Submit another application
-                      </Button>
+                      <Label className="mb-4" htmlFor="email">Email *</Label>
+                      <input id="email" type="email" name="email" className={fieldBase} />
+                    </div>
+
+                    <div>
+                      <Label className="mb-4" htmlFor="phone">Phone *</Label>
+                      <input id="phone" type="number" name="phone" className={fieldBase}/>
+                    </div>
+
+                    <div>
+                      <Label className="mb-4" htmlFor="city">City *</Label>
+                      <input id="city" name="city" className={fieldBase} />
+                    </div>
+
+
+                    <div>
+                      <Label className="mb-4" htmlFor="yearsExperience">Years of experience *</Label>
+                      <input id="yearsExperience" type="number" className={fieldBase}/>
+                    </div>
+
+                    <div>
+                      <Label className="mb-4" htmlFor="websiteOrLinkedIn">Website or LinkedIn</Label>
+                      <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" className={fieldBase} />
+                    </div>
+                    
+                    <div>
+                      <Label className="mb-4" htmlFor="profile">Upload profile</Label>
+                      <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
+                      <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <Label className="mb-4" htmlFor="description">Short description of services</Label>
+                      <textarea id="description" rows={3} className={fieldBase} />
                     </div>
                   </div>
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-2xl border border-gray-400/20">
-                  <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setStatus("success");
-                    }}
-                    className="space-y-8 p-6 sm:p-10"
-                    noValidate
-                  >
-                    <div>
-                      <h2 className="text-lg font-semibold">Apply as an Elite Ambassador</h2>
-                      <p className="mt-2 text-sm text-slate-600">
-                        Fields marked by validation are required. Uploads are optional in this
-                        demo.
-                      </p>
-                    </div>
 
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="fullName">Full name</label>
-                        <input id="fullName" autoComplete="name" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="companyName">Company name</label>
-                        <input id="companyName" autoComplete="organization" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div>
-                        <label className="mb-4" htmlFor="email">Email</label>
-                        <input id="email" type="email" autoComplete="email" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div>
-                        <label className="mb-4" htmlFor="phone">Phone</label>
-                        <input id="phone" type="tel" autoComplete="tel" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
-                        />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="city">City</label>
-                        <input id="city" autoComplete="address-level2" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-
-                      <div >
-                        <label className="mb-4" htmlFor="yearsExperience">Years of experience</label>
-                        <input id="yearsExperience" inputMode="numeric" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl"
-                        />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="websiteOrLinkedIn">Website or LinkedIn</label>
-                        <input id="websiteOrLinkedIn" placeholder="https:// or linkedin.com/in/…" className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="profile">Upload profile (optional)</label>
-                        <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
-                        <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="mb-4" htmlFor="description">Short description of services</label>
-                        <textarea id="description" rows={5} className="bg-neutral-secondary-medium border border-gray-200 text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-xl" />
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                      <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
-                      <p className="max-w-md text-xs leading-relaxed text-slate-500">
-                        By submitting, you agree to be contacted regarding empanelment. This demo
-                        does not persist data.
-                      </p>
-                    </div>
-                  </form>
-                </div>
-              )}
+                  <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <Button type="submit" className="sm:min-w-50 bg-amber-500">Submit application</Button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
