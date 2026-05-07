@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
-import { db } from "../lib/firebase";
-import { push, ref } from "firebase/database";
+import CircleLoader from "../components/CircularLoader";
+import { db,storage } from "../lib/firebase";
+import { push, ref, set } from "firebase/database";
+import { ref as storageRef, uploadBytes, getDownloadURL  } from "firebase/storage";
 import { ArrowRight, Sparkles, Shield, CheckCircle2, ClipboardList, FileText, UserRound, } from "lucide-react";
 
 const fieldBase =
@@ -28,9 +30,12 @@ const STEPS = [
 const initialFormData = { name: '', company: '', entrepreneurs:'', phone: '', email: '', location: '', experience: '', links: '', file: null, message: '' };
 
 function Membership() {
+  const fileInputRef = useRef(null);
   const [formData, setFormData] = useState(initialFormData);
+  const [file, setFile] = useState(null);
   const [submitState, setSubmitState] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [submit,setSubmit] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -74,19 +79,34 @@ function Membership() {
       location: formData.location,
       experience: formData.experience,
       links: formData.links,
-      file: formData.file,
       message: formData.message,
     };
     try {
-      await push(ref(db, 'elite_ambassador'), {
+      setSubmit(true);
+      const newRef = push(ref(db, 'elite_ambassador'))
+
+      const filePath = `elite_ambassador/${Date.now()}_${file.name}`
+      const fileRef = storageRef(storage, filePath);
+      await uploadBytes(fileRef, file);
+      const fileURL = await getDownloadURL(fileRef);
+
+      await set(newRef, {
         ...payload,
+        fileURL,
+        filePath,
         createdAt: new Date().toISOString(),
       });
 
       setFormData(initialFormData);
+      setFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
       setSubmitState('Form Submitted Successfully')
     } catch (error) {
       console.error('Form submission failed:', error);
+    } finally{
+      setSubmit(false);
     }
   };
   return (
@@ -222,7 +242,7 @@ function Membership() {
 
                     <div>
                       <Label htmlFor="profile">Upload profile</Label>
-                      <input id="profile" type="file" accept=".pdf,image/jpeg,image/png" className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
+                      <input ref={fileInputRef} id="profile" type="file" accept=".pdf,image/jpeg,image/png" onChange={(e)=>setFile(e.target.files[0])} className="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:shadow-sm file:transition hover:file:bg-amber-500-dark cursor-pointer" />
                       <p className="mt-1 text-xs text-slate-500">PDF, JPG, or PNG — up to 5MB.</p>
                     </div>
 
@@ -233,7 +253,16 @@ function Membership() {
                   </div>
 
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">Submit application</Button>
+                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                      {submit ? (
+                        <div className="flex items-center gap-2">
+                          <CircleLoader />
+                          <span>Submitting...</span>
+                        </div>
+                      ) : (
+                        'Submit application'
+                      )}
+                    </Button>
                     {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
                     {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
                   </div>

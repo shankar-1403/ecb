@@ -10,6 +10,7 @@ import { ContactFormCard } from "../components/ContactForm";
 import CountUp from "../components/CountUp";
 import { push, ref } from 'firebase/database';
 import { db } from "../lib/firebase";
+import CircleLoader from "../components/CircularLoader";
 
 const fieldBase =
   "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
@@ -234,6 +235,7 @@ function Home() {
     const [formData, setFormData] = useState(initialFormData);
     const [submitState, setSubmitState] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [submit, setSubmit] = useState(false);
     const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState(1);
     const totalPages = Math.ceil(TESTIMONIALS.length / 3);
@@ -281,16 +283,19 @@ function Home() {
           message: formData.message,
         };
         try {
-          await push(ref(db, 'contacts'), {
-            ...payload,
-            page:'home',
-            createdAt: new Date().toISOString(),
-          });
-    
-          setFormData(initialFormData);
-          setSubmitState('Form Submitted Successfully')
+            setSubmit(true);
+            await push(ref(db, 'contacts'), {
+                ...payload,
+                page:'home',
+                createdAt: new Date().toISOString(),
+            });
+        
+            setFormData(initialFormData);
+            setSubmitState('Form Submitted Successfully')
         } catch (error) {
-          console.error('Form submission failed:', error);
+            console.error('Form submission failed:', error);
+        } finally {
+            setSubmit(false);
         }
     };
 
@@ -691,7 +696,7 @@ function Home() {
 
             <section className="relative py-14 sm:py-18 md:py-20 overflow-hidden bg-[#1D2B4E]">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">MEMBER STORIES</span>
@@ -837,10 +842,20 @@ function Home() {
                                         <Label htmlFor="message">Message</Label>
                                         <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
                                     </div>
-
-                                    <Button type="submit" size="lg" className="w-full rounded-lg bg-amber-500 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:bg-amber-600 hover:shadow-amber-500/40">Send Message</Button>
-                                    {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
-                                    {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
+                                    <div className="flex justify-between items-center">
+                                        <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                                            {submit ? (
+                                                <div className="flex items-center gap-2">
+                                                    <CircleLoader />
+                                                    <span>Submitting...</span>
+                                                </div>
+                                            ) : (
+                                                'Submit application'
+                                            )}
+                                        </Button>
+                                        {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
+                                        {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
+                                    </div>
                                 </div>
                             </form>
                         </div>

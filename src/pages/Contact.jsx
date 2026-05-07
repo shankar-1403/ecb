@@ -7,6 +7,7 @@ import Button from "../components/ui/button";
 import { ContactFormCard } from "../components/ContactForm";
 import { Mail, Phone, MapPin, Send, ArrowRight, CheckCircle2,MessageSquare } from "lucide-react";
 import { p } from "framer-motion/client";
+import CircleLoader from "../components/CircularLoader";
 
 const fieldBase =
   "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
@@ -37,6 +38,7 @@ function Contact() {
   const [formData, setFormData] = useState(initialFormData);
   const [submitState, setSubmitState] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [submit, setSubmit] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -78,6 +80,7 @@ function Contact() {
       message: formData.message,
     };
     try {
+      setSubmit(true);
       await push(ref(db, 'contacts'), {
         ...payload,
         page:'contact',
@@ -88,6 +91,8 @@ function Contact() {
       setSubmitState('Form Submitted Successfully')
     } catch (error) {
       console.error('Form submission failed:', error);
+    } finally {
+      setSubmit(false);
     }
   };
 
@@ -213,10 +218,20 @@ function Contact() {
                     <Label htmlFor="message">Message</Label>
                     <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
                   </div>
-
-                  <Button type="submit" size="lg" className="w-full rounded-lg bg-amber-500 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition hover:bg-amber-600 hover:shadow-amber-500/40">Send Message</Button>
-                  {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
-                  {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
+                  <div className="flex justify-between items-center">
+                    <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                      {submit ? (
+                        <div className="flex items-center gap-2">
+                          <CircleLoader />
+                          <span>Submitting...</span>
+                        </div>
+                      ) : (
+                        'Submit application'
+                      )}
+                    </Button>
+                    {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
+                    {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
+                  </div>
                 </div>
               </form>
             </div>

@@ -201,3 +201,17 @@
     transform: translateY(0);
   }
 }
+
+.dot-loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 5px dotted #ffffff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

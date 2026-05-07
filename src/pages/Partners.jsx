@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Shield, CheckCircle2, ClipboardList, FileText, Us
 import { db } from "../lib/firebase";
 import { push, ref } from "firebase/database";
 import { useState, useEffect, useRef } from "react";
-
+import CircleLoader from "../components/CircularLoader";
 
 const STEPS = [
   { title: "Get access to verified business requirements", Icon: UserRound },
@@ -30,9 +30,9 @@ function Label({ htmlFor, children }) {
 const initialFormData = { company: '', company_size: '', turnover:'', name: '', designation: '', email: '', phone: '', location: '', experience: '', services: '', industry: '', background: '' };
 
 function Partners() {
-
   const [formData, setFormData] = useState(initialFormData);
   const [submitState, setSubmitState] = useState('');
+  const [submit, setSubmit] = useState(false)
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (event) => {
@@ -83,6 +83,7 @@ function Partners() {
       background: formData.background,
     };
     try {
+      setSubmit(true);
       await push(ref(db, 'partner'), {
         ...payload,
         createdAt: new Date().toISOString(),
@@ -92,6 +93,8 @@ function Partners() {
       setSubmitState('Form Submitted Successfully')
     } catch (error) {
       console.error('Form submission failed:', error);
+    } finally {
+      setSubmit(false);
     }
   };
   return (
@@ -293,7 +296,16 @@ function Partners() {
                   {submitState && <p className="text-xs text-green-600">{submitState}</p>}
                   {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">Submit application</Button>
+                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                      {submit ? (
+                        <div className="flex items-center gap-2">
+                          <CircleLoader />
+                          <span>Submitting...</span>
+                        </div>
+                      ) : (
+                        'Submit application'
+                      )}
+                    </Button>
                     <p className="max-w-md text-xs leading-relaxed text-slate-500">
                       Our team will review your profile and connect with you for the next steps.
                     </p>
