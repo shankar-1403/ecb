@@ -1,6 +1,6 @@
 import { useState,useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import Button from "./ui/button";
 import Logo from "../assets/logo.webp";
 import { AnimatePresence,motion } from "framer-motion";
@@ -33,13 +33,13 @@ const Navbar = () => {
               <img src={Logo} alt="ECB Logo" className="h-14 w-auto sm:h-16 md:h-12" width={160} height={80} />
             </div>
             <div>
-              <p className="font-semibold text-[12px] leading-8 md:text-sm text-amber-500">Entrepreneurs Connect Bharat</p>
-              <p className="text-[9px] md:text-[11px] leading-2 text-gray-600 ">Global Initiative of PCRED</p>
+              <p className="font-semibold text-[12px] leading-9 md:text-sm text-amber-500">Entrepreneurs Connect Bharat</p>
+              <p className="text-[9px] md:text-[11px] leading-0 text-gray-600 ">Global Initiative of PCRED</p>
             </div>
           </div>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((item, idx) => (
             <div
               key={item.name || item.label}
@@ -94,11 +94,12 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
           ))}
+          <a href="https://crm.pcred.org/lead/loan/xADbJsl3JySFojQNYZDC8BXH5Uf1" target="_blank" className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold transition-colors lg:px-4" >Solutions Link</a>
         </div>
 
         <button
           type="button"
-          className="cursor-pointer rounded-lg p-2 hover:bg-muted md:hidden"
+          className="cursor-pointer rounded-lg p-2 hover:bg-muted lg:hidden"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
@@ -108,21 +109,21 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t bg-card pb-4 md:hidden">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t bg-card pb-4 lg:hidden">
           {navLinks.map((link, idx) => {
             if (link.children) {
               return (
                 <div key={link.name || idx} className="px-4 py-2">
-                  <p className="text-sm font-semibold">{link.name}</p>
+                  <p className="text-sm font-semibold mb-2">{link.name}</p>
 
                   {link.children.map((child) => (
                     <Link
                       key={child.path}
                       to={child.path}
                       onClick={() => setOpen(false)}
-                      className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground"
+                      className="flex items-center py-2 text-sm text-muted-foreground font-semibold hover:text-foreground"
                     >
-                      {child.name}
+                      <ChevronRight size={16}/>{child.name}
                     </Link>
                   ))}
                 </div>
@@ -144,6 +145,7 @@ const Navbar = () => {
               </Link>
             );
           })}
+          <a href="https://crm.pcred.org/lead/loan/xADbJsl3JySFojQNYZDC8BXH5Uf1" target="_blank" className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground" >Solutions Link</a>
         </div>
       )}
     </nav>

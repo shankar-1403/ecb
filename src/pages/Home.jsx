@@ -323,7 +323,7 @@ function Home() {
                     <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-12 xl:gap-16">
 
                         <div className="w-full lg:w-1/2 flex flex-col justify-center py-8 lg:py-1">
-                            <div>
+                            <div className="flex justify-center lg:justify-start">
                                 <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
                                     <div className="flex items-center gap-2">
                                         <div>
@@ -363,15 +363,15 @@ function Home() {
                                 One Platform & End To End Solutions
                             </motion.p>
 
-                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                                <Link to="/membership/elite-ambassador">
-                                    <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-col md:flex-row gap-3 justify-center lg:justify-start">
+                                <Link to="/membership/elite-ambassador" className="w-full md:w-auto">
+                                    <Button size="lg" className="w-full group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
                                         Apply as an Elite Ambassador
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </Button>
                                 </Link>
-                                <Link to="/services" className="text-black">
-                                    <Button size="lg" variant="outline" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-transparent px-4 py-3.5 text-sm font-semibold shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
+                                <Link to="/services" className="text-black w-full md:w-auto">
+                                    <Button size="lg" variant="outline" className="w-full group inline-flex items-center justify-center gap-2 rounded-xl bg-transparent px-4 py-3.5 text-sm font-semibold shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]">
                                         Explore Services
                                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </Button>
@@ -477,12 +477,12 @@ function Home() {
                             const isOnlyInLastRow = lastRowCount === 1 && i === total - 1;
                             return (
                                 <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.28, delay: i * 0.045, ease: "easeOut" }} whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }} className={`group relative ${isOnlyInLastRow ? "lg:col-start-2" : ""}`}>
-                                    <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-[68px] overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.25)]"
+                                    <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-17 overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.25)]"
                                         style={{ background: "#ffffff", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07)" }}>
 
                                         <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" style={{ background: "linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%)" }} />
 
-                                        <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)" }} />
+                                        <div className="absolute top-0 left-0 right-0 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)" }} />
 
                                         <div className="relative z-10 shrink-0 self-center">
                                             <div className="relative flex h-11 w-11 items-center justify-center">
@@ -713,7 +713,7 @@ function Home() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: direction * -60 }}
                                 transition={{ duration: 0.35, ease: "easeOut" }}
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+                                className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5"
                             >
                                 {visible.map((t) => (
                                     <div
@@ -774,7 +774,7 @@ function Home() {
                             ].map(({ icon: Icon, label, value, href }) => {
                                 const inner = (
                                     <>
-                                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/15 to-amber-600/5 ring-1 ring-amber-500/10">
+                                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-amber-500/15 to-amber-600/5 ring-1 ring-amber-500/10">
                                             <Icon className="h-5 w-5 text-amber-600" />
                                         </div>
                                         <div className="min-w-0 pt-0.5">
