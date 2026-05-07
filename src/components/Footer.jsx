@@ -47,7 +47,7 @@ const Footer = () => (
             </li>
             <li className="flex flex-col gap-1">
               <p className="w-20 font-bold">Email:</p>
-              <a href="mailto:contact@ec-bharat.com" className="hover:text-amber-400 transition">contact@ec-bharat.com</a>
+              <a href="mailto:ecb@ec-bharat.com" className="hover:text-amber-400 transition">ecb@ec-bharat.com</a>
             </li>
             <li className="flex flex-col gap-1">
               <p className="w-20 font-bold">Phone:</p>

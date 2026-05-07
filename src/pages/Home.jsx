@@ -222,13 +222,13 @@ function TestimonialSlider() {
                 <button onClick={prev} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
                     <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button onClick={next} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
+                <button onClick={next} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden"> 
                     <ChevronRight className="w-5 h-5" />
                 </button>
             </div>
         </div>
     );
-}
+} 
 
 function Label({ htmlFor, children }) {
     return (
@@ -732,7 +732,7 @@ function Home() {
                     <div className="grid md:grid-cols-5 gap-6 lg:gap-10 items-start">
                         <div className="md:col-span-2 space-y-4">
                             {[
-                                { icon: Mail, label: "Email", value: "contact@ec-bharat.in", href: "mailto:contact@ec-bharat.in" },
+                                { icon: Mail, label: "Email", value: "ecb@ec-bharat.com", href: "mailto:ecb@ec-bharat.com" },
                                 { icon: Phone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+912235120060" },
                                 { icon: MapPin, label: "Location", value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093", href: "https://www.google.com/maps?q=Lodha+Supremus+Andheri+East+Mumbai" },
                             ].map(({ icon: Icon, label, value, href }) => {
