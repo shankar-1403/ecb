@@ -1,4 +1,4 @@
-import { useState,useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/ui/button";
 import { Users, Building2, Rocket, BookOpen, Heart, Eye, Target, Handshake, Globe, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers, BadgeCheck, Banknote, Briefcase, Building, Cpu, GraduationCap, HeartHandshake, LayoutDashboard, LineChart, Network, Scale, Truck, UsersRound, FileText, ShieldCheck, Quote, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare } from "lucide-react";
@@ -13,8 +13,8 @@ import { db } from "../lib/firebase";
 import CircleLoader from "../components/CircularLoader";
 
 const fieldBase =
-  "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
-  "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
+    "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
+    "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
 
 const offerings = [
     { number: "01", icon: Users, title: "Business Networking", desc: "Connect with entrepreneurs, industry leaders, and professionals." },
@@ -153,62 +153,76 @@ function CountUpStat({ value, label, Icon }) {
 }
 
 function TestimonialSlider() {
+    const getPerPage = () => {
+        if (typeof window === "undefined") return 3;
+        if (window.innerWidth < 640) return 1;
+        if (window.innerWidth < 1024) return 2;
+        return 3;
+    };
+
     const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState(1);
-    const totalPages = Math.ceil(TESTIMONIALS.length / 3);
+    const [perPage, setPerPage] = useState(getPerPage);
 
-    const prev = () => {
-        setDirection(-1);
-        setCurrent((c) => (c === 0 ? totalPages - 1 : c - 1));
-    };
-    const next = () => {
-        setDirection(1);
-        setCurrent((c) => (c === totalPages - 1 ? 0 : c + 1));
-    };
+    useEffect(() => {
+        const handleResize = () => {
+            setPerPage(getPerPage());
+            setCurrent(0);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-    const visible = TESTIMONIALS.slice(current * 3, current * 3 + 3);
+    const totalPages = Math.ceil(TESTIMONIALS.length / perPage);
+    const prev = () => { setDirection(-1); setCurrent((c) => (c === 0 ? totalPages - 1 : c - 1)); };
+    const next = () => { setDirection(1); setCurrent((c) => (c === totalPages - 1 ? 0 : c + 1)); };
+    const visible = TESTIMONIALS.slice(current * perPage, current * perPage + perPage);
 
     return (
         <div>
-            <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                    key={current}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction * 60 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction * -60 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-                >
-                    {visible.map((t) => (
-                        <div key={t.name} className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1 flex flex-col" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
-                            <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
-                            <Quote className="h-5 w-5 text-amber-500/40 mb-3 shrink-0" />
-                            <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
-                            <div className="flex items-center gap-3">
-                                <div className="w-9 h-9 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
-                                    <span className="text-amber-400 font-bold text-sm">{t.name[0]}</span>
-                                </div>
-                                <div className="min-w-0">
-                                    <p className="text-white font-semibold text-sm truncate">{t.name}</p>
-                                    <p className="text-white/50 text-xs truncate">{t.role} · {t.location}</p>
+            <div className="relative">
+                <AnimatePresence mode="wait" custom={direction}>
+                    <motion.div
+                        key={current}
+                        custom={direction}
+                        initial={{ opacity: 0, x: direction * 60 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: direction * -60 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                        className={`grid gap-5 ${perPage === 1 ? "grid-cols-1" : perPage === 2 ? "grid-cols-2" : "grid-cols-3"}`}
+                    >
+                        {visible.map((t) => (
+                            <div key={t.name} className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1 flex flex-col" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                                <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
+                                <Quote className="h-5 w-5 text-amber-500/40 mb-3 shrink-0" />
+                                <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-9 h-9 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
+                                        <span className="text-amber-400 font-bold text-sm">{t.name[0]}</span>
+                                    </div>
+                                    <div className="min-w-0">
+                                        <p className="text-white font-semibold text-sm truncate">{t.name}</p>
+                                        <p className="text-white/50 text-xs truncate">{t.role} · {t.location}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </motion.div>
-            </AnimatePresence>
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
 
-            <div className="flex items-center justify-center gap-4 mt-8">
-                <button onClick={prev} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-amber-500/60 hover:bg-amber-500/10 transition-all duration-200">
+                <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
                     <ChevronLeft className="w-5 h-5" />
                 </button>
-                <div className="flex gap-2">
-                    {Array.from({ length: totalPages }).map((_, i) => (
-                        <button key={i} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-amber-500" : "w-2 bg-white/20 hover:bg-white/40"}`} />
-                    ))}
-                </div>
-                <button onClick={next} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-amber-500/60 hover:bg-amber-500/10 transition-all duration-200">
+                <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
+                    <ChevronRight className="w-5 h-5" />
+                </button>
+            </div>
+
+            <div className="flex items-center justify-center gap-4 mt-8">
+                <button onClick={prev} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
+                    <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button onClick={next} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
                     <ChevronRight className="w-5 h-5" />
                 </button>
             </div>
@@ -217,18 +231,18 @@ function TestimonialSlider() {
 }
 
 function Label({ htmlFor, children }) {
-  return (
-    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-gray-800">
-      {children}
-    </label>
-  );
+    return (
+        <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-gray-800">
+            {children}
+        </label>
+    );
 }
 
 const initialFormData = {
-  name: '',
-  phone: '',
-  email: '',
-  message: '',
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
 };
 
 function Home() {
@@ -247,49 +261,49 @@ function Home() {
         const { name, value } = event.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-    
+
     useEffect(() => {
         if (!submitState) return;
-    
+
         const timer = setTimeout(() => {
-          setSubmitState('');
+            setSubmitState('');
         }, 5000);
-    
-        return () => clearTimeout(timer); 
+
+        return () => clearTimeout(timer);
     }, [submitState]);
-    
+
     useEffect(() => {
         if (!errorMessage) return;
-    
+
         const timer = setTimeout(() => {
-          setErrorMessage('');
+            setErrorMessage('');
         }, 5000);
-    
-        return () => clearTimeout(timer); 
+
+        return () => clearTimeout(timer);
     }, [errorMessage]);
-      
-    const handleSubmit = async(e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         if (!formData.name || !formData.phone || !formData.email) {
-          setErrorMessage('Please fill in name, phone and email.');
-          return;
+            setErrorMessage('Please fill in name, phone and email.');
+            return;
         }
-    
+
         const payload = {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          message: formData.message,
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            message: formData.message,
         };
         try {
             setSubmit(true);
             await push(ref(db, 'contacts'), {
                 ...payload,
-                page:'home',
+                page: 'home',
                 createdAt: new Date().toISOString(),
             });
-        
+
             setFormData(initialFormData);
             setSubmitState('Form Submitted Successfully')
         } catch (error) {
@@ -447,7 +461,7 @@ function Home() {
                     </motion.div>
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={scaleUp} className="w-full min-w-0 lg:flex-1">
                         <div className="relative">
-                            <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-4/3"/>
+                            <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-4/3" />
                             <motion.div
                                 className="absolute -bottom-4 -left-4 rounded-2xl border border-amber-200/60 bg-white p-4 shadow-lg hidden sm:block"
                                 animate={{ y: [0, -8, 0] }}
@@ -703,57 +717,7 @@ function Home() {
                         <h5 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h5>
                         <p className="mt-3 text-white/60 max-w-xl mx-auto text-sm sm:text-base">Real entrepreneurs. Real results. Real growth through the ECB network.</p>
                     </div>
-
-                    <div className="relative">
-                        <AnimatePresence mode="wait" custom={direction}>
-                            <motion.div
-                                key={current}
-                                custom={direction}
-                                initial={{ opacity: 0, x: direction * 60 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: direction * -60 }}
-                                transition={{ duration: 0.35, ease: "easeOut" }}
-                                className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5"
-                            >
-                                {visible.map((t) => (
-                                    <div
-                                        key={t.name}
-                                        className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
-                                        style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}
-                                    >
-                                        <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
-                                        <Quote className="h-5 w-5 text-amber-500/40 mb-3 shrink-0" />
-                                        <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-9 h-9 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
-                                                <span className="text-amber-400 font-bold text-sm">{t.name[0]}</span>
-                                            </div>
-                                            <div className="min-w-0">
-                                                <p className="text-white font-semibold text-sm truncate">{t.name}</p>
-                                                <p className="text-white/50 text-xs truncate">{t.role} · {t.location}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
-
-                        <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 items-center justify-center text-white hover:scale-110 transition-all duration-200 z-10 hidden lg:flex">
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
-
-                    <div className="flex items-center justify-center gap-4 mt-8">
-                        <button onClick={prev} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button onClick={next} className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/60 flex items-center justify-center text-white hover:scale-110 transition-all duration-200 lg:hidden">
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
+                    <TestimonialSlider />
                 </div>
             </section>
 
@@ -825,22 +789,22 @@ function Home() {
                                 <div className="relative space-y-5 px-6 py-6 md:space-y-6 md:px-8 md:py-8">
                                     <div className="grid gap-5 sm:grid-cols-2">
                                         <div>
-                                        <Label htmlFor="name">Full name *</Label>
-                                        <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100}/>
+                                            <Label htmlFor="name">Full name *</Label>
+                                            <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100} />
                                         </div>
                                         <div>
-                                        <Label htmlFor="phone">Phone *</Label>
-                                        <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                                            <Label htmlFor="phone">Phone *</Label>
+                                            <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
                                         </div>
-                                        
+
                                     </div>
                                     <div>
                                         <Label htmlFor="email">Email *</Label>
-                                        <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255}/>
+                                        <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255} />
                                     </div>
                                     <div>
                                         <Label htmlFor="message">Message</Label>
-                                        <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
+                                        <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`} />
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
@@ -867,4 +831,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Home; 
