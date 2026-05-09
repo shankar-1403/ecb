@@ -33,8 +33,8 @@ const Navbar = () => {
               <img src={Logo} alt="ECB Logo" className="h-14 w-auto sm:h-16 md:h-12" width={160} height={80} />
             </div>
             <div>
-              <p className="font-semibold text-[12px] leading-9 md:text-sm text-amber-500">Entrepreneurs Connect Bharat</p>
-              <p className="text-[9px] md:text-[11px] leading-0 text-gray-600 ">Global Initiative of PCRED</p>
+              <p className="font-semibold text-[12px] leading-9 md:leading-8 md:text-sm text-amber-500">Entrepreneurs Connect Bharat</p>
+              <p className="text-[9px] md:text-[11px] leading-0 text-gray-600 font-semibold">Global Initiative of PCRED</p>
             </div>
           </div>
         </Link>

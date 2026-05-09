@@ -65,6 +65,7 @@ function Services() {
       </section>
 
       <section className="relative py-14 sm:py-18 md:py-20">
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mb-10">
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>

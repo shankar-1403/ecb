@@ -40,7 +40,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <p className="font-semibold mb-3 text-base uppercase tracking-wider text-amber-500">Global Headquaters</p>
+          <p className="font-semibold mb-3 text-base uppercase tracking-wider text-amber-500">Global Headquarters</p>
           <ul className="space-y-2 text-sm text-secondary-foreground/70 border-l border-amber-400/30 pl-4">
             <li className="flex flex-col gap-1">
               <p>Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093</p>

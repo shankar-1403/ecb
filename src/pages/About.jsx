@@ -11,9 +11,21 @@ import rameshkumar_img from "../assets/teamwebp/rameshkumar_img.webp";
 import vijay_sharma from "../assets/teamwebp/vijay_sharma.webp";
 import sanjay_jhanwar from "../assets/teamwebp/sanjay_jhanwar.webp";
 import takshilkumar from "../assets/teamwebp/takshilkumar.webp";
-import {
-  ArrowRight, Target, Users, Lightbulb, HeartHandshake, InfoIcon, Building2, TrendingUp, Sparkles, Eye,
-} from "lucide-react";
+import {ArrowRight, Target, Users, Lightbulb, HeartHandshake, InfoIcon, Building2, TrendingUp, Sparkles, Eye} from "lucide-react";
+import img_2 from "../assets/employees/2.png"
+import img_3 from "../assets/employees/3.png"
+import img_4 from "../assets/employees/4.png"
+import img_5 from "../assets/employees/5.png"
+import img_6 from "../assets/employees/6.png"
+import img_7 from "../assets/employees/7.png"
+import img_8 from "../assets/employees/8.png"
+import img_9 from "../assets/employees/9.png"
+import img_10 from "../assets/employees/10.png"
+import img_11 from "../assets/employees/11.png"
+import img_12 from "../assets/employees/12.png"
+import img_13 from "../assets/employees/13.png"
+import img_14 from "../assets/employees/14.png"
+import img_15 from "../assets/employees/15.png"
 import { cn } from "../lib/utils";
 
 const objectives = [
@@ -65,6 +77,23 @@ const employee = [
   { name: "Mrs. Puja Sharma", img: puja_sharma },
   { name: "Mr. Sanjay Jhanwar", img: sanjay_jhanwar },
   { name: "Mr. Takshil Kumar", img: takshilkumar },
+];
+
+const employees = [
+  { name: "Mr. Ganpat Malviya",img: img_2 },
+  { name: "Mr. Rohan Yadav",img: img_3 },
+  { name: "Mr. Suraj Dubey",img: img_13 },
+  { name: "Mr. Jigar Thakkar",img: img_11 },
+  { name: "Ms. Gurveen Kaur",img: img_5 },
+  { name: "Mr. Vinod Dubey",img: img_9 },
+  { name: "Mr. Aditya Dogra",img: img_6 },
+  { name: "Mr. Sachin Kaushal",img: img_7 },
+  { name: "Mr. Shankar Manjrekar",img: img_15 },
+  { name: "Mr. Sarang Krishna",img: img_4 },
+  { name: "Mr. Rayhan Shaikh",img: img_8 },
+  { name: "Mr. Rambo Dogra",img: img_12 },
+  { name: "Ms. Trupti Jaiswal",img: img_14 },
+  { name: "Ms. Mrunal Kamble",img: img_10 },
 ];
 
 function About() {
@@ -177,7 +206,7 @@ function About() {
               </svg>
 
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-96 z-10">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">WHAT WE PERSUE</span>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">WHAT WE PURSUE</span>
                 <h4 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h4>
                 <p className="mt-2 text-base text-muted-foreground">Clear priorities guiding ECB across India.</p>
                 <div className="w-14 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
@@ -245,8 +274,8 @@ function About() {
             <div className="mt-12 flex justify-center">
               {leadership.map((member, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
-                  <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative">
-                    <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
+                  <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative md:col-span-2 lg:col-span-1">
+                    <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-amber-500 via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
                     <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
@@ -257,6 +286,7 @@ function About() {
                     </p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                       Dr. G. Rameshkumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
+                    <a href="https://www.drgrameshkumar.com/" target="_blank" className="text-amber-500 underline mt-4">https://www.drgrameshkumar.com/</a>
                   </motion.div>
                 </motion.div>
               ))}
@@ -267,12 +297,12 @@ function About() {
         <section className="py-16 sm:py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
             <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h5>
-            <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
               {team.map((member, index) => (
                 <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
                   <div className="p-2">
                     <div className="overflow-hidden bg-gray-300/70 rounded-xl">
-                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-64 md:max-h-none object-contain md:object-cover" />
+                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-80 lg:h-70 md:max-h-none object-contain md:object-cover" />
                     </div>
                   </div>
                   <div className="pb-3 px-2">
@@ -285,15 +315,16 @@ function About() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <h6 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Internal Stake Holders</h6>
-            <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {employee.map((member, index) => (
+        <section className="mx-auto max-w-7xl sm:px-5 md:px-6 relative pb-20">
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+          <div className="text-center bg-[#1D2F4F] px-4 py-8 rounded-3xl">
+            <h5 className="text-3xl md:text-4xl font-bold text-white">Internal Stakeholders</h5>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+              {employees.map((member, index) => (
                 <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
                   <div className="p-2">
                     <div className="overflow-hidden bg-gray-300/70 rounded-xl">
-                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-64 md:max-h-none object-contain md:object-cover" />
+                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-80 lg:h-70 md:max-h-none object-contain md:object-cover" />
                     </div>
                   </div>
                   <div className="pb-3 px-2">
