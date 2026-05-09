@@ -58,6 +58,15 @@ const team = [
   { name: "Mr. Takshil Kumar", img: takshilkumar },
 ];
 
+const employee = [
+  { name: "Mr. Vijay Sharma", img: vijay_sharma },
+  { name: "CA Pooja Dubey", img: pooja_dubey },
+  { name: "Mr. Ashwini Bhatia", img: bhatiasir_ },
+  { name: "Mrs. Puja Sharma", img: puja_sharma },
+  { name: "Mr. Sanjay Jhanwar", img: sanjay_jhanwar },
+  { name: "Mr. Takshil Kumar", img: takshilkumar },
+];
+
 function About() {
   return (
     <Layout>
@@ -267,7 +276,27 @@ function About() {
                     </div>
                   </div>
                   <div className="pb-3 px-2">
-                    {/* <p className="text-xs font-semibold text-amber-500">Management & Board Members</p> */}
+                    <h4 className="text-lg font-semibold text-amber-500 group-hover:text-amber-600 transition">{member.name}</h4>
+                    <p className="text-sm text-amber-500">{member.role}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 sm:py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
+            <h6 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Internal Stake Holders</h6>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {employee.map((member, index) => (
+                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
+                  <div className="p-2">
+                    <div className="overflow-hidden bg-gray-300/70 rounded-xl">
+                      <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-64 md:max-h-none object-contain md:object-cover" />
+                    </div>
+                  </div>
+                  <div className="pb-3 px-2">
                     <h4 className="text-lg font-semibold text-amber-500 group-hover:text-amber-600 transition">{member.name}</h4>
                     <p className="text-sm text-amber-500">{member.role}</p>
                   </div>
@@ -281,7 +310,7 @@ function About() {
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
             <div className="flex flex-col gap-6 rounded-2xl bg-[#1D2F4F] p-8 text-white sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8 md:rounded-3xl md:p-12 lg:p-14">
               <div className="min-w-0">
-                <h5 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h5>
+                <h7 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h7>
                 <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
               </div>
               <Link to="/membership/partner-with-us" className="w-full shrink-0 sm:w-auto">

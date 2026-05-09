@@ -94,7 +94,7 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
           ))}
-          <a href="https://crm.pcred.org/lead/loan/xADbJsl3JySFojQNYZDC8BXH5Uf1" target="_blank" className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold transition-colors lg:px-4" >Solutions Link</a>
+          <a href="https://crm.pcred.org/lead/loan/xADbJsl3JySFojQNYZDC8BXH5Uf1" target="_blank" className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold transition-colors lg:px-4" >ECB MSME Link</a>
         </div>
 
         <button
@@ -145,7 +145,7 @@ const Navbar = () => {
               </Link>
             );
           })}
-          <a href="https://crm.pcred.org/lead/loan/xADbJsl3JySFojQNYZDC8BXH5Uf1" target="_blank" className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground" >Solutions Link</a>
+          <a href="https://crm.pcred.org/lead/loan/xADbJsl3JySFojQNYZDC8BXH5Uf1" target="_blank" className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground" >ECB MSME Link</a>
         </div>
       )}
     </nav>
