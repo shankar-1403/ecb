@@ -6,6 +6,7 @@ import { db } from "../lib/firebase";
 import { push, ref } from "firebase/database";
 import { useState, useEffect, useRef } from "react";
 import CircleLoader from "../components/CircularLoader";
+import { useSnackbar } from "../components/SnackbarContext";
 
 const STEPS = [
   { title: "Get access to verified business requirements", Icon: UserRound },
@@ -27,50 +28,30 @@ function Label({ htmlFor, children }) {
 }
 
 
-const initialFormData = { company: '', company_size: '', turnover:'', name: '', designation: '', email: '', phone: '', location: '', experience: '', services: '', industry: '', background: '' };
+const initialFormData = { company: '', company_website:'', company_size: '', turnover:'', name: '', designation: '', email: '', phone: '', location: '', experience: '', services: '', industry: '', background: '' };
 
 function Partners() {
+  const {showSnackbar} = useSnackbar();
   const [formData, setFormData] = useState(initialFormData);
-  const [submitState, setSubmitState] = useState('');
   const [submit, setSubmit] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  useEffect(() => {
-    if (!submitState) return;
-
-    const timer = setTimeout(() => {
-      setSubmitState('');
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [submitState]);
-
-  useEffect(() => {
-    if (!errorMessage) return;
-
-    const timer = setTimeout(() => {
-      setErrorMessage('');
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [errorMessage]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.company || !formData.company_size || !formData.turnover || !formData.name || !formData.designation || !formData.email || !formData.phone || !formData.location || !formData.experience || !formData.services || !formData.industry || !formData.background) {
-      setErrorMessage('Please fill all the required details in *');
+      showSnackbar('Please fill all the required details in *','error');
       return;
     }
 
     const payload = {
       company: formData.company,
       company_size: formData.company_size,
+      company_website: formData.company_website,
       turnover: formData.turnover,
       name: formData.name,
       designation: formData.designation,
@@ -90,7 +71,7 @@ function Partners() {
       });
 
       setFormData(initialFormData);
-      setSubmitState('Form Submitted Successfully')
+      showSnackbar('Your form has been submitted successfully','success')
     } catch (error) {
       console.error('Form submission failed:', error);
     } finally {
@@ -177,12 +158,16 @@ function Partners() {
 
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <Label htmlFor="name">Comapny Name *</Label>
+                      <Label htmlFor="name">Company name <span className="text-red-500">*</span></Label>
                       <input id="name" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <Label htmlFor="company_website">Comapny website <span className="text-red-500">*</span></Label>
+                      <input id="company_website" name="company_website" value={formData.company_website} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div className="relative">
-                      <Label className="mb-4" htmlFor="company_size">Company Size (Employees Strength)*</Label>
+                      <Label className="mb-4" htmlFor="company_size">Company size (employees strength) <span className="text-red-500">*</span></Label>
                       <select id="company_size" name="company_size" value={formData.company_size} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
                         <option value="" selected>-- select --</option>
                         <option value="0-100">0-100</option>
@@ -204,7 +189,7 @@ function Partners() {
                     </div>
 
                     <div className="relative">
-                      <Label className="mb-4" htmlFor="turnover">Approximate Turnover *</Label>
+                      <Label className="mb-4" htmlFor="turnover">Approximate turnover <span className="text-red-500">*</span></Label>
                       <select id="turnover" name="turnover" value={formData.turnover} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
                         <option value="" selected>-- select --</option>
                         <option value="0-100cr">0-100cr</option>
@@ -224,45 +209,43 @@ function Partners() {
                         </svg>
                       </div>
                     </div>
-
-
-                    <div className="sm:col-span-2">
-                      <Label htmlFor="name">Full name *</Label>
+                    <div>
+                      <Label htmlFor="name">Full name <span className="text-red-500">*</span></Label>
                       <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100} />
                     </div>
 
-                    <div className="sm:col-span-2">
-                      <Label htmlFor="designation">Designation *</Label>
+                    <div>
+                      <Label htmlFor="designation">Designation <span className="text-red-500">*</span></Label>
                       <input id="designation" name="designation" value={formData.designation} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="email">Email *</Label>
+                      <Label className="mb-4" htmlFor="email">Email <span className="text-red-500">*</span></Label>
                       <input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="phone">Phone *</Label>
-                      <input id="phone" name="phone" type="number" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                      <Label className="mb-4" htmlFor="phone">Phone <span className="text-red-500">*</span></Label>
+                      <input id="phone" name="phone" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="experience">Years of experience *</Label>
-                      <input id="name" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
+                      <Label className="mb-4" htmlFor="experience">Years of experience <span className="text-red-500">*</span></Label>
+                      <input id="name" name="experience" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
-                      <Label className="mb-4" htmlFor="services">Services you Offer *</Label>
+                      <Label className="mb-4" htmlFor="services">Services you offer <span className="text-red-500">*</span></Label>
                       <input id="services" name="services" value={formData.services} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label className="mb-4" htmlFor="location">Location *</Label>
+                      <Label className="mb-4" htmlFor="location">Location <span className="text-red-500">*</span></Label>
                       <input id="location" name="location" value={formData.location} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div className="sm:col-span-2 relative">
-                      <Label className="mb-4" htmlFor="industry">Industry *</Label>
+                      <Label className="mb-4" htmlFor="industry">Industry <span className="text-red-500">*</span></Label>
                       <div className="relative">
                         <select id="industry" name="industry" value={formData.industry} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
                           <option value="" selected>-- select --</option>
@@ -289,12 +272,10 @@ function Partners() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label className="mb-4" htmlFor="background">Professional Background *</Label>
+                      <Label className="mb-4" htmlFor="background">Professional overview <span className="text-red-500">*</span></Label>
                       <textarea id="background" rows={3} name="background" value={formData.background} onChange={handleInputChange} className={fieldBase} />
                     </div>
                   </div>
-                  {submitState && <p className="text-xs text-green-600">{submitState}</p>}
-                  {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
                     <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
                       {submit ? (
@@ -303,7 +284,7 @@ function Partners() {
                           <span>Submitting...</span>
                         </div>
                       ) : (
-                        'Submit application'
+                        'Submit Application'
                       )}
                     </Button>
                     <p className="max-w-md text-xs leading-relaxed text-slate-500">

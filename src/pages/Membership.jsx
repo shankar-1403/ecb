@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useSnackbar } from "../components/SnackbarContext";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Button from "../components/ui/button";
@@ -30,11 +31,10 @@ const STEPS = [
 const initialFormData = { name: '', company: '', entrepreneurs:'', phone: '', email: '', location: '', experience: '', links: '', file: null, message: '' };
 
 function Membership() {
+  const { showSnackbar } = useSnackbar();
   const fileInputRef = useRef(null);
   const [formData, setFormData] = useState(initialFormData);
   const [file, setFile] = useState(null);
-  const [submitState, setSubmitState] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
   const [submit,setSubmit] = useState(false);
 
   const handleInputChange = (event) => {
@@ -42,31 +42,11 @@ function Membership() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  useEffect(() => {
-    if (!submitState) return;
-
-    const timer = setTimeout(() => {
-      setSubmitState('');
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [submitState]);
-
-  useEffect(() => {
-    if (!errorMessage) return;
-
-    const timer = setTimeout(() => {
-      setErrorMessage('');
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [errorMessage]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.entrepreneurs || !formData.phone || !formData.email || !formData.location || !formData.experience || !formData.message) {
-      setErrorMessage('Please fill all the required details with *');
+      showSnackbar('Please fill all the required details with *',"error");
       return;
     }
 
@@ -102,7 +82,7 @@ function Membership() {
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
-      setSubmitState('Form Submitted Successfully')
+      showSnackbar('Your form has been submitted successfully',"success")
     } catch (error) {
       console.error('Form submission failed:', error);
     } finally{
@@ -200,7 +180,7 @@ function Membership() {
                   </div>
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <Label htmlFor="name">Full name *</Label>
+                      <Label htmlFor="name">Full name <span className="text-red-500">*</span></Label>
                       <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100} />
                     </div>
 
@@ -210,29 +190,29 @@ function Membership() {
                     </div>
 
                     <div className="sm:col-span-2 relative">
-                      <Label htmlFor="entrepreneurs">Approximate Network of Entrepreneurs *</Label>
+                      <Label htmlFor="entrepreneurs">Approximate network of Entrepreneurs <span className="text-red-500">*</span></Label>
                       <input id="entrepreneurs" name="entrepreneurs" value={formData.entrepreneurs} onChange={handleInputChange} className={fieldBase}/>
                     </div>
 
                     <div>
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email">Email <span className="text-red-500">*</span></Label>
                       <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255} />
                     </div>
 
                     <div>
-                      <Label htmlFor="phone">Phone *</Label>
-                      <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
+                      <Label htmlFor="phone">Phone <span className="text-red-500">*</span></Label>
+                      <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={`appearance-none ${fieldBase}`} maxLength={10} />
                     </div>
 
                     <div>
-                      <Label htmlFor="location">Location *</Label>
+                      <Label htmlFor="location">Location <span className="text-red-500">*</span></Label>
                       <input id="location" name="location" value={formData.location} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
 
                     <div>
-                      <Label htmlFor="experience">Years of experience *</Label>
-                      <input id="experience" name="experience" type="number" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
+                      <Label htmlFor="experience">Years of experience <span className="text-red-500">*</span></Label>
+                      <input id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div>
@@ -247,7 +227,7 @@ function Membership() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label htmlFor="description">Short description of services *</Label>
+                      <Label htmlFor="description">Short description of services <span className="text-red-500">*</span></Label>
                       <textarea id="description" rows={3} name="message" value={formData.message} onChange={handleInputChange} className={fieldBase} />
                     </div>
                   </div>
@@ -260,13 +240,10 @@ function Membership() {
                           <span>Submitting...</span>
                         </div>
                       ) : (
-                        'Submit application'
+                        'Submit Application'
                       )}
                     </Button>
-                    {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
-                    {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
                   </div>
-                  
                 </form>
               </div>
             </div>

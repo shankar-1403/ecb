@@ -132,7 +132,7 @@ function About() {
           <div className="lg:hidden">
             <div className="text-center mb-8">
               <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">What we pursue</span>
-              <h2 className="mt-4 text-3xl font-bold text-[#1D2F4F]">Our Objective</h2>
+              <h2 className="mt-4 text-3xl font-bold text-[#1D2F4F]">Our Objectives</h2>
               <p className="mt-3 text-sm text-muted-foreground">Clear priorities guiding ECB across India.</p>
               <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
             </div>
@@ -206,8 +206,8 @@ function About() {
               </svg>
 
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-96 z-10">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">WHAT WE PURSUE</span>
-                <h4 className="text-5xl font-bold text-[#1D2F4F]">Our Objective</h4>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide uppercase">What we stand for</span>
+                <h4 className="text-5xl font-bold text-[#1D2F4F]">Our Objectives</h4>
                 <p className="mt-2 text-base text-muted-foreground">Clear priorities guiding ECB across India.</p>
                 <div className="w-14 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
               </div>
@@ -215,7 +215,7 @@ function About() {
               {[
                 { angle: 200, floatClass: "f0", icon: Lightbulb, title: "Promote entrepreneurship in India", detail: "Building the foundation for a thriving ecosystem." },
                 { angle: 240, floatClass: "f1", icon: Building2, title: "Support MSMEs and startups", detail: "Connecting businesses with the right resources." },
-                { angle: 270, floatClass: "f2", icon: Users, title: "Create networking opportunities", detail: "500+ entrepreneurs across 20+ states." },
+                { angle: 270, floatClass: "f2", icon: Users, title: "Create networking opportunities", detail: "5000+ entrepreneurs across 20+ states." },
                 { angle: 300, floatClass: "f3", icon: TrendingUp, title: "Provide business growth support", detail: "End-to-end guidance for scaling businesses." },
                 { angle: 340, floatClass: "f4", icon: Sparkles, title: "Encourage innovation and collaboration", detail: "Fostering creative thinking across ECB to build impactful and innovation across all teams." },
               ].map(({ angle, floatClass, icon: Icon, title, detail }) => {
@@ -280,9 +280,9 @@ function About() {
                   </motion.div>
                   <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
                     <h5 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h5>
-                    <p className="text-amber-600 font-semibold mt-1">{member.role}</p>
+                    <p className="text-amber-500 font-semibold mt-1">{member.role}</p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at PCRED Venture Pvt. Ltd. and Executive Director at Insurath, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
+                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at <a href="https://www.pcred.org/" target="_blank" className="text-amber-500">PCRED Venture Pvt. Ltd</a>. and Executive Director at <a href="https://insurath.com/" target="_blank" className="text-amber-500">Insurath</a>, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
                     </p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                       Dr. G. Rameshkumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>

@@ -8,6 +8,7 @@ import { ContactFormCard } from "../components/ContactForm";
 import { Mail, Phone, MapPin, Send, ArrowRight, CheckCircle2,MessageSquare } from "lucide-react";
 import { p } from "framer-motion/client";
 import CircleLoader from "../components/CircularLoader";
+import { useSnackbar } from "../components/SnackbarContext";
 
 const fieldBase =
   "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
@@ -36,40 +37,19 @@ const initialFormData = {
 
 function Contact() {
   const [formData, setFormData] = useState(initialFormData);
-  const [submitState, setSubmitState] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [submit, setSubmit] = useState(false);
-
+  const { showSnackbar } = useSnackbar()
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  useEffect(() => {
-    if (!submitState) return;
-
-    const timer = setTimeout(() => {
-      setSubmitState('');
-    }, 5000);
-
-    return () => clearTimeout(timer); 
-  }, [submitState]);
-
-  useEffect(() => {
-    if (!errorMessage) return;
-
-    const timer = setTimeout(() => {
-      setErrorMessage('');
-    }, 5000);
-
-    return () => clearTimeout(timer); 
-  }, [errorMessage]);
   
   const handleSubmit = async(e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.phone || !formData.email) {
-      setErrorMessage('Please fill in name, phone and email.');
+      showSnackbar('Please fill in name, phone and email',"error");
       return;
     }
 
@@ -88,9 +68,9 @@ function Contact() {
       });
 
       setFormData(initialFormData);
-      setSubmitState('Form Submitted Successfully')
+      showSnackbar('Your form has been submitted successfully',"success")
     } catch (error) {
-      console.error('Form submission failed:', error);
+      showSnackbar('Form submission failed', "error");
     } finally {
       setSubmit(false);
     }
@@ -125,10 +105,7 @@ function Contact() {
               together
             </span>
           </h1>
-          <p className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Partnerships, press, membership, or a simple question—reach out and our team will route your message to the
-            right person.
-          </p>
+          <p className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">For partnerships, memberships, or general enquiries, reach out and our team will guide you to the right person</p>
         </div>
       </section>
 
@@ -162,7 +139,7 @@ function Contact() {
                 );
               })}
               <div className="rounded-2xl border border-white/10 bg-linear-to-br from-[#1D2F4F] to-[#15243d] p-6 text-white shadow-lg">
-                <h2 className="text-lg font-bold">Office hours</h2>
+                <h2 className="text-lg font-bold">Membership Assistance</h2>
                 <p className="mt-2 text-sm text-white/80 leading-relaxed">
                   We respond to most enquiries within 24 hours. For membership applications, include your sector
                   and one concrete goal so we can tailor our reply.
@@ -201,17 +178,17 @@ function Contact() {
                 <div className="relative space-y-5 px-6 py-6 md:space-y-6 md:px-8 md:py-8">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <Label htmlFor="name">Full name *</Label>
+                      <Label htmlFor="name">Full name <span className="text-red-500">*</span></Label>
                       <input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className={fieldBase} maxLength={100}/>
                     </div>
                     <div>
-                      <Label htmlFor="phone">Phone *</Label>
-                      <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                      <Label htmlFor="phone">Phone <span className="text-red-500">*</span></Label>
+                      <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
                     </div>
                     
                   </div>
                   <div>
-                    <Label htmlFor="email">Email *</Label>
+                    <Label htmlFor="email">Email <span className="text-red-500">*</span></Label>
                     <input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleInputChange} className={fieldBase} maxLength={255}/>
                   </div>
                   <div>
@@ -226,11 +203,9 @@ function Contact() {
                           <span>Submitting...</span>
                         </div>
                       ) : (
-                        'Submit application'
+                        'Submit Application'
                       )}
                     </Button>
-                    {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
-                    {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
                   </div>
                 </div>
               </form>

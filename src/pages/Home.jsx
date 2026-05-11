@@ -11,6 +11,7 @@ import CountUp from "../components/CountUp";
 import { push, ref } from 'firebase/database';
 import { db } from "../lib/firebase";
 import CircleLoader from "../components/CircularLoader";
+import { useSnackbar } from "../components/SnackbarContext";
 
 const fieldBase =
     "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
@@ -246,9 +247,8 @@ const initialFormData = {
 };
 
 function Home() {
+    const {showSnackbar} = useSnackbar();
     const [formData, setFormData] = useState(initialFormData);
-    const [submitState, setSubmitState] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
     const [submit, setSubmit] = useState(false);
     const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState(1);
@@ -262,31 +262,11 @@ function Home() {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    useEffect(() => {
-        if (!submitState) return;
-
-        const timer = setTimeout(() => {
-            setSubmitState('');
-        }, 5000);
-
-        return () => clearTimeout(timer);
-    }, [submitState]);
-
-    useEffect(() => {
-        if (!errorMessage) return;
-
-        const timer = setTimeout(() => {
-            setErrorMessage('');
-        }, 5000);
-
-        return () => clearTimeout(timer);
-    }, [errorMessage]);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!formData.name || !formData.phone || !formData.email) {
-            setErrorMessage('Please fill in name, phone and email.');
+            showSnackbar('Please fill in name, phone and email','error');
             return;
         }
 
@@ -305,9 +285,9 @@ function Home() {
             });
 
             setFormData(initialFormData);
-            setSubmitState('Form Submitted Successfully')
+            showSnackbar('Your form has been submitted successfully','success');
         } catch (error) {
-            console.error('Form submission failed:', error);
+            showSnackbar('Form submission failed:', 'error');
         } finally {
             setSubmit(false);
         }
@@ -794,7 +774,7 @@ function Home() {
                                         </div>
                                         <div>
                                             <Label htmlFor="phone">Phone *</Label>
-                                            <input id="phone" name="phone" type="number" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
+                                            <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
                                         </div>
 
                                     </div>
@@ -814,11 +794,9 @@ function Home() {
                                                     <span>Submitting...</span>
                                                 </div>
                                             ) : (
-                                                'Submit application'
+                                                'Submit Application'
                                             )}
                                         </Button>
-                                        {submitState && <p className="text-sm text-green-500 text-center">{submitState}</p>}
-                                        {errorMessage && <p className="text-sm text-red-500 text-center">{errorMessage}</p>}
                                     </div>
                                 </div>
                             </form>
