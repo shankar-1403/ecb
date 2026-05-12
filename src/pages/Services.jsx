@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
-import { Users, Building2, Banknote, Cpu, Megaphone, Sparkles, Target, LayoutDashboard, Scale, LineChart, Building, Truck, BadgeCheck, TrendingUp, GraduationCap, Handshake, Network, Briefcase, UsersRound, HeartHandshake } from "lucide-react";
+import { Users, Building2, Banknote, Cpu, Megaphone, Sparkles, Target, LayoutDashboard, Scale, LineChart, Building, Truck, BadgeCheck, TrendingUp, GraduationCap, Handshake, Network, Briefcase, UsersRound, HeartHandshake, ShieldCheck, Database } from "lucide-react";
 import { motion } from "framer-motion";
 
 const SERVICE_ITEMS = [
@@ -23,6 +23,8 @@ const SERVICE_ITEMS = [
   { title: "Virtual CXO Services", Icon: Briefcase },
   { title: "Strategic Advisory Boards", Icon: UsersRound },
   { title: "CSR & Social Impact", Icon: HeartHandshake },
+  { title: "Strategic Insurance Solutions", Icon: ShieldCheck },
+  { title: "Verified Business Database", Icon: Database },
 ];
 
 function Services() {
@@ -51,9 +53,9 @@ function Services() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl mx-auto">
-            Programmes built around{" "}
+            Programmes Engineered for{" "}
             <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
-              how you actually grow
+              Practical Growth
             </span>
           </h1>
 

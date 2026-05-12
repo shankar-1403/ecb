@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/ui/button";
-import { Users, Building2, Rocket, BookOpen, Heart, Eye, Target, Handshake, Globe, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers, BadgeCheck, Banknote, Briefcase, Building, Cpu, GraduationCap, HeartHandshake, LayoutDashboard, LineChart, Network, Scale, Truck, UsersRound, FileText, ShieldCheck, Quote, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare } from "lucide-react";
+import { Users, Building2, Rocket, BookOpen, Heart, Eye, Target, Handshake, Globe, ArrowRight, Sparkles, TrendingUp, Award, Zap, Mail, Phone, MapPin, Bell, CalendarDays, Megaphone, Layers, BadgeCheck, Banknote, Briefcase, Building, Cpu, GraduationCap, HeartHandshake, LayoutDashboard, LineChart, Network, Scale, Truck, UsersRound, FileText, ShieldCheck, Quote, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare, Database } from "lucide-react";
 import Layout from "../components/Layout";
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import About from "../assets/about.webp";
@@ -62,6 +62,8 @@ const SERVICE_ITEMS = [
     { title: "Virtual CXO Services", Icon: Briefcase },
     { title: "Strategic Advisory Boards", Icon: UsersRound },
     { title: "CSR & Social Impact", Icon: HeartHandshake },
+    { title: "Strategic Insurance Solutions", Icon: ShieldCheck },
+    { title: "Verified Business Database", Icon: Database },
 ];
 
 const MEMBERSHIP_BENEFIT_CARDS = [
@@ -760,7 +762,7 @@ function Home() {
                                         <div>
                                             <h5 className="text-lg font-bold text-[#1D2F4F] md:text-xl">Send us a message</h5>
                                             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                                                Share a few details and we&apos;ll get back to you as soon as we can.
+                                                Share your details and connect with the right support for your business.
                                             </p>
                                         </div>
                                     </div>

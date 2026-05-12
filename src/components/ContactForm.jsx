@@ -47,7 +47,7 @@ export function ContactFormCard({ formData, setFormData, onSubmit, submitLabel =
           <div>
             <h3 className="text-lg font-bold text-[#1D2F4F] md:text-xl">Send us a message</h3>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              Share a few details and we&apos;ll get back to you as soon as we can.
+              Share your details and connect with the right support for your business.
             </p>
           </div>
         </div>
