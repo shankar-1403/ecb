@@ -25,7 +25,7 @@ const STEPS = [
   { n: "1", title: "Identity & firm", body: "Who you are and where you operate.", Icon: UserRound },
   { n: "2", title: "Expertise footprint", body: "Practice areas and experience depth.", Icon: ClipboardList },
   { n: "3", title: "Evidence & narrative", body: "Profile materials and how you serve founders.", Icon: FileText },
-  { n: "4", title: "Review & submit", body: "We validate and route to the right steward.", Icon: CheckCircle2 },
+  { n: "4", title: "Review & submit", body: "We validate and route to the right expert.", Icon: CheckCircle2 },
 ]
 
 const initialFormData = { name: '', company: '', entrepreneurs:'', phone: '', email: '', location: '', experience: '', links: '', file: null, message: '' };

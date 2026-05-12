@@ -162,12 +162,12 @@ function Partners() {
                       <input id="name" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
                     </div>
                     <div className="sm:col-span-2">
-                      <Label htmlFor="company_website">Comapny website <span className="text-red-500">*</span></Label>
+                      <Label htmlFor="company_website">Company website <span className="text-red-500">*</span></Label>
                       <input id="company_website" name="company_website" value={formData.company_website} onChange={handleInputChange} className={fieldBase} />
                     </div>
 
                     <div className="relative">
-                      <Label className="mb-4" htmlFor="company_size">Company size (employees strength) <span className="text-red-500">*</span></Label>
+                      <Label className="mb-4" htmlFor="company_size">Company size (Employee strength) <span className="text-red-500">*</span></Label>
                       <select id="company_size" name="company_size" value={formData.company_size} onChange={handleInputChange} className={`appearance-none ${fieldBase}`}>
                         <option value="" selected>-- select --</option>
                         <option value="0-100">0-100</option>
