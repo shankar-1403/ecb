@@ -98,7 +98,7 @@ const ABOUT_STRENGTHS = [
     { icon: Globe, text: "Pan-India network spanning 20+ states with verified domain experts" },
     { icon: ShieldCheck, text: "Trusted by 5000+ entrepreneurs, MSMEs and growing businesses" },
     { icon: Handshake, text: "Strategic tie-ups with government bodies, NBFCs and corporates" },
-    { icon: Rocket, text: "End-to-end support from ideation to scale across 19 service domains" },
+    { icon: Rocket, text: "End-to-end support from ideation to scale across 21 service domains" },
     { icon: Award, text: "Recognized platform for Elite Ambassadors across India" },
 ];
 

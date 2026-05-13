@@ -30,11 +30,7 @@ const Navbar = () => {
         <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2 py-2">
           <div className="flex items-start gap-2">
             <div>
-              <img src={Logo} alt="ECB Logo" className="h-14 w-auto sm:h-16 md:h-12" width={160} height={80} />
-            </div>
-            <div>
-              <p className="font-semibold text-[12px] leading-9 md:leading-8 md:text-sm text-amber-500">Entrepreneurs Connect Bharat</p>
-              <p className="text-[9px] md:text-[11px] leading-0 text-gray-600 font-semibold">Global Initiative of PCRED</p>
+              <img src={Logo} alt="ECB Logo" className="h-14 w-auto sm:h-16 md:h-14" width={160} height={120} />
             </div>
           </div>
         </Link>

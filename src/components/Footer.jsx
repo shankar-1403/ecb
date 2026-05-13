@@ -7,7 +7,7 @@ const Footer = () => (
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <div className="max-w-xs">
-          <Link to="/" className="p-2 w-30 flex items-center justify-center bg-white rounded-lg">
+          <Link to="/" className="p-2 w-50 flex items-center justify-center bg-white rounded-lg">
             <div className="inline-block cursor-pointer">
               <img src={Logo} alt="ECB Logo" className="h-18" />
             </div>
