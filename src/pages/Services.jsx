@@ -40,10 +40,10 @@ function Services() {
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
           <div>
-            <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4">
               <div className="flex items-center gap-2">
                 <div>
-                  <Briefcase className="w-3 h-3 text-amber-500 shrink-0" />
+                  <Briefcase className="w-3 h-3 text-[#143973] shrink-0" />
                 </div>
                 <div>
                   <span className="text-xs sm:text-sm font-semibold tracking-wide">OUR SERVICES</span>
@@ -54,7 +54,7 @@ function Services() {
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl mx-auto">
             Programmes Engineered for{" "}
-            <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-br from-[#143973] via-[#143973] to-[#143973] bg-clip-text text-transparent">
               Practical Growth
             </span>
           </h1>
@@ -67,10 +67,10 @@ function Services() {
       </section>
 
       <section className="relative py-14 sm:py-18 md:py-20">
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">Services offered through the ECB network</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
           </div>
@@ -93,7 +93,7 @@ function Services() {
                           <motion.rect x="2" y="2" width="44" height="44" rx="12" fill="none" stroke="rgba(245,158,11,0.5)" strokeWidth="1.5" strokeDasharray="140" strokeDashoffset="140" animate={{ strokeDashoffset: [140, 0, 140] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.12 }} className="group-hover:opacity-0 transition-opacity duration-200" />
                         </svg>
                         <div className="absolute inset-0 rounded-xl group-hover:opacity-0 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,248,230,0.5) 100%)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 8px -2px rgba(245,158,11,0.15)" }} />
-                        <motion.div className="relative z-10 text-amber-500 group-hover:text-amber-700 transition-colors duration-300" animate={{ rotate: [0, 0, 8, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}>
+                        <motion.div className="relative z-10 text-[#143973] group-hover:text-amber-700 transition-colors duration-300" animate={{ rotate: [0, 0, 8, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}>
                           <Icon className="h-5 w-5" />
                         </motion.div>
                         <motion.div className="absolute inset-0 pointer-events-none" animate={{ boxShadow: ["0 0 0px 0px rgba(245,158,11,0)", "0 0 10px 3px rgba(245,158,11,0.3)", "0 0 0px 0px rgba(245,158,11,0)"] }} transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }} style={{ borderRadius: "12px" }} />

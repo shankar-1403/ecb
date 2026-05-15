@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className={`w-11 h-11 flex items-center justify-center rounded-full bg-amber-500/15 border border-amber-500/60 text-amber-600 shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+          className={`w-11 h-11 flex items-center justify-center rounded-full bg-[#143973]/15 border border-[#143973]/60 text-[#143973] shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
             }`}
         >
           <ArrowUp className="w-5 h-5" />

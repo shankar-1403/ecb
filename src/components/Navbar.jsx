@@ -50,7 +50,7 @@ const Navbar = () => {
                     to={item.path}
                     className={`cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold transition-colors lg:px-4 ${
                       location.pathname === item.path
-                        ? "bg-linear-to-br from-30% from-amber-500/10 to-amber-500/30 border border-amber-500/10 shadow-sm"
+                        ? "bg-linear-to-br from-30% from-[#143973]/10 to-[#143973]/30 border border-[#143973]/10 shadow-sm"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                     }`}
                   >

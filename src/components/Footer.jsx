@@ -20,7 +20,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <p className="font-semibold mb-3 text-base uppercase tracking-wider text-amber-500">Quick Links</p>
+          <p className="font-semibold mb-3 text-base uppercase tracking-wider text-white">Quick Links</p>
           <ul className="space-y-2 border-l border-amber-400/30 pl-4">
             {[
               { label: "Home", path: "/" },
@@ -40,7 +40,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <p className="font-semibold mb-3 text-base uppercase tracking-wider text-amber-500">Global Headquarters</p>
+          <p className="font-semibold mb-3 text-base uppercase tracking-wider text-white">Global Headquarters</p>
           <ul className="space-y-2 text-sm text-secondary-foreground/70 border-l border-amber-400/30 pl-4">
             <li className="flex flex-col gap-1">
               <p>Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093</p>
@@ -64,7 +64,7 @@ const Footer = () => (
 
       <div className="border-t border-white/30 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-sm text-secondary-foreground/50 text-center">
         <p>© 2026 Entrepreneur Connect Bharat (ECB). All Rights Reserved.</p>
-        <Circle size={8} className="fill-current hidden text-amber-500 sm:block mx-3" />
+        <Circle size={8} className="fill-current hidden text-[#143973] sm:block mx-3" />
         <p>
           Powered by{" "}
           <a href="https://www.pcred.org" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-amber-400 transition">PCRED</a>

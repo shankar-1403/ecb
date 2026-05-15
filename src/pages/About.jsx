@@ -101,14 +101,14 @@ function About() {
     <Layout>
 
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
         <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 40%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(145, 60%, 40%) 0%, transparent 45%)" }} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
           <div>
-            <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">
               <div className="flex items-center gap-2">
                 <div>
-                  <InfoIcon className="w-3 h-3 text-amber-500" />
+                  <InfoIcon className="w-3 h-3 text-[#143973]" />
                 </div>
                 <div>
                   <span className="text-sm font-semibold">ABOUT ECB</span>
@@ -118,7 +118,7 @@ function About() {
           </div>
           <h1 className="mt-5 max-w-4xl mx-auto text-3xl font-bold leading-tight tracking-tight text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
             Entrepreneurs Connect Bharat{" "}
-            <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">(ECB)</span>
+            <span className="bg-linear-to-br from-[#143973] via-[#143973] to-[#143973] bg-clip-text text-transparent">(ECB)</span>
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-base leading-relaxed text-muted-foreground sm:text-lg">
             Entrepreneurs Connect Bharat (ECB), backed by PCRED Group, is a growth-driven business ecosystem connecting startups, MSMEs, and entrepreneurs with investors, corporates, and end-to-end solutions to drive funding, partnerships, and scalable growth.
@@ -127,14 +127,14 @@ function About() {
       </section>
 
       <section className="relative overflow-hidden py-10 sm:py-14 md:py-16">
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
         <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5 md:px-6">
           <div className="lg:hidden">
             <div className="text-center mb-8">
-              <span className="inline-flex rounded-full border border-amber-500/35 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-500">What we pursue</span>
+              <span className="inline-flex rounded-full border border-[#143973]/35 bg-[#143973]/10 px-4 py-1.5 text-sm font-semibold text-[#143973]">What we pursue</span>
               <h2 className="mt-4 text-3xl font-bold text-[#1D2F4F]">Our Objectives</h2>
               <p className="mt-3 text-sm text-muted-foreground">Clear priorities guiding ECB across India.</p>
-              <div className="w-16 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
+              <div className="w-16 h-1 bg-linear-to-r from-[#143973] via-white to-[#143973] rounded-full mt-3 mx-auto" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -149,10 +149,10 @@ function About() {
                   key={title}
                   className="group rounded-2xl p-5 border border-amber-200/50 bg-white/90 hover:border-amber-400/60 hover:shadow-[0_12px_32px_-8px_rgba(245,158,11,0.2)] transition-all duration-300"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3 group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-300">
-                    <Icon className="w-5 h-5 text-amber-500 group-hover:text-white transition-colors duration-300" />
+                  <div className="w-11 h-11 rounded-xl bg-[#143973]/10 border border-[#143973]/20 flex items-center justify-center mb-3 group-hover:bg-[#143973] group-hover:border-[#143973] transition-all duration-300">
+                    <Icon className="w-5 h-5 text-[#143973] group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-amber-600 transition-colors">{title}</h3>
+                  <h3 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-[#143973] transition-colors">{title}</h3>
                   <p className="text-xs text-muted-foreground mt-1">{detail}</p>
                 </div>
               ))}
@@ -206,10 +206,10 @@ function About() {
               </svg>
 
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-96 z-10">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide uppercase">What we stand for</span>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide uppercase">What we stand for</span>
                 <h4 className="text-5xl font-bold text-[#1D2F4F]">Our Objectives</h4>
                 <p className="mt-2 text-base text-muted-foreground">Clear priorities guiding ECB across India.</p>
-                <div className="w-14 h-1 bg-linear-to-r from-amber-500 via-white to-green-600 rounded-full mt-3 mx-auto" />
+                <div className="w-14 h-1 bg-linear-to-r from-[#143973] via-white to-[#143973] rounded-full mt-3 mx-auto" />
               </div>
 
               {[
@@ -237,8 +237,8 @@ function About() {
                       top: `calc(${y}% - 85px)`,
                     }}
                   >
-                    <div className="ci w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-amber-500" />
+                    <div className="ci w-10 h-10 rounded-xl bg-[#143973]/10 border border-[#143973]/20 flex items-center justify-center mb-3">
+                      <Icon className="w-5 h-5 text-[#143973]" />
                     </div>
 
                     <p className="ct text-sm font-semibold text-[#1D2F4F] mb-1.5">{title}</p>
@@ -255,14 +255,14 @@ function About() {
       <div style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }}>
 
         <section className="relative overflow-hidden pt-14 pb-10 sm:pt-16 sm:pb-12 md:pt-20 md:pb-14">
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4 tracking-wide">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">
               <span className="text-sm font-semibold">OUR TEAM</span>
             </div>
             <h5 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
               Meet the People Behind{" "}
-              <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">ECB</span>
+              <span className="bg-linear-to-br from-[#143973] via-[#143973] to-[#143973] bg-clip-text text-transparent">ECB</span>
             </h5>
             <p className="mt-6 max-w-3xl mx-auto text-muted-foreground sm:text-lg">A collective of professionals supporting entrepreneurs and MSMEs across India.</p>
           </div>
@@ -275,18 +275,18 @@ function About() {
               {leadership.map((member, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
                   <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative md:col-span-2 lg:col-span-1">
-                    <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-amber-500 via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
+                    <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-[#143973] via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
                     <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
                     <h5 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h5>
-                    <p className="text-amber-500 font-semibold mt-1">{member.role}</p>
+                    <p className="text-[#143973] font-semibold mt-1">{member.role}</p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at <a href="https://www.pcred.org/" target="_blank" className="text-amber-500">PCRED Venture Pvt. Ltd</a>. and Executive Director at <a href="https://insurath.com/" target="_blank" className="text-amber-500">Insurath</a>, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
+                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at <a href="https://www.pcred.org/" target="_blank" className="text-[#143973]">PCRED Venture Pvt. Ltd</a>. and Executive Director at <a href="https://insurath.com/" target="_blank" className="text-[#143973]">Insurath</a>, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
                     </p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                       Dr. G. Rameshkumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
-                    <a href="https://www.drgrameshkumar.com/" target="_blank" className="text-amber-500 underline mt-4">https://www.drgrameshkumar.com/</a>
+                    <a href="https://www.drgrameshkumar.com/" target="_blank" className="text-[#143973] underline mt-4">https://www.drgrameshkumar.com/</a>
                   </motion.div>
                 </motion.div>
               ))}
@@ -306,8 +306,8 @@ function About() {
                     </div>
                   </div>
                   <div className="pb-3 px-2">
-                    <h4 className="text-lg font-semibold text-amber-500 group-hover:text-amber-600 transition">{member.name}</h4>
-                    <p className="text-sm text-amber-500">{member.role}</p>
+                    <h4 className="text-lg font-semibold text-[#143973] group-hover:text-[#143973] transition">{member.name}</h4>
+                    <p className="text-sm text-[#143973]">{member.role}</p>
                   </div>
                 </motion.div>
               ))}
@@ -316,7 +316,7 @@ function About() {
         </section>
 
         <section className="mx-auto max-w-7xl sm:px-5 md:px-6 relative pb-20">
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
           <div className="text-center bg-[#1D2F4F] px-4 py-8 rounded-3xl">
             <h5 className="text-3xl md:text-4xl font-bold text-white">Internal Stakeholders</h5>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
@@ -328,8 +328,8 @@ function About() {
                     </div>
                   </div>
                   <div className="pb-3 px-2">
-                    <h4 className="text-lg font-semibold text-amber-500 group-hover:text-amber-600 transition">{member.name}</h4>
-                    <p className="text-sm text-amber-500">{member.role}</p>
+                    <h4 className="text-lg font-semibold text-[#143973] group-hover:text-[#143973] transition">{member.name}</h4>
+                    <p className="text-sm text-[#143973]">{member.role}</p>
                   </div>
                 </motion.div>
               ))}
@@ -345,7 +345,7 @@ function About() {
                 <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
               </div>
               <Link to="/membership/partner-with-us" className="w-full shrink-0 sm:w-auto">
-                <Button size="lg" className="w-full bg-amber-500 shadow-lg shadow-amber-500/30 sm:w-auto">
+                <Button size="lg" className="w-full bg-[#143973] shadow-lg shadow-[#143973]/30 sm:w-auto">
                   Explore Partnership
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

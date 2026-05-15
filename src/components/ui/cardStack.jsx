@@ -82,18 +82,18 @@ export function CardStack({
                 opacity: 1 - index * 0.08,
               }}
             >
-              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-linear-to-br from-amber-400/25 via-amber-500/10 to-green-500/20 blur-2xl" />
+              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-linear-to-br from-amber-400/25 via-[#143973]/10 to-green-500/20 blur-2xl" />
               <div className="pointer-events-none absolute -bottom-12 -left-10 h-32 w-32 rounded-full bg-[#1D2F4F]/5 blur-2xl" />
 
-              <div className="relative shrink-0 border-b border-amber-500/15 bg-linear-to-br from-[#1D2F4F] via-[#252D4B] to-[#1D314E] px-4 py-3.5 md:px-5 md:py-4">
+              <div className="relative shrink-0 border-b border-[#143973]/15 bg-linear-to-br from-[#1D2F4F] via-[#252D4B] to-[#1D314E] px-4 py-3.5 md:px-5 md:py-4">
                 <div className="flex items-start gap-3">
                   {Icon ? (
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/20">
-                      <Icon className="h-5 w-5 text-amber-500" />
+                      <Icon className="h-5 w-5 text-[#143973]" />
                     </div>
                   ) : null}
                   <div className="min-w-0 flex-1 pt-0.5">
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-500/90">Included with ECB</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-[#143973]/90">Included with ECB</p>
                     <h3 className="mt-0.5 line-clamp-2 text-base font-bold leading-snug text-white md:text-lg">{card.title}</h3>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export function CardStack({
                 <div className="min-h-0 flex-1 space-y-2 overflow-y-auto overscroll-contain pr-0.5 pb-2">
                   <p className="text-sm leading-relaxed text-gray-600">{card.description}</p>
                   {card.detail ? (
-                    <p className="text-xs leading-relaxed text-gray-500 border-l-2 border-amber-500 pl-3">{card.detail}</p>
+                    <p className="text-xs leading-relaxed text-gray-500 border-l-2 border-[#143973] pl-3">{card.detail}</p>
                   ) : null}
                 </div>
                 <div
@@ -114,7 +114,7 @@ export function CardStack({
                   {index === 0 ? (
                     <Link
                       to={ctaHref}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 transition-colors hover:text-amber-700"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#143973] transition-colors hover:text-amber-700"
                     >
                       {ctaLabel}
                       <ArrowRight className="h-4 w-4" />

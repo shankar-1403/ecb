@@ -17,7 +17,7 @@ const STEPS = [
 
 const fieldBase =
   "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
-  "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
+  "hover:border-gray-300 hover:bg-white focus:border-[#143973] focus:bg-white focus:ring-4 focus:ring-[#143973]/15";
 
 function Label({ htmlFor, children }) {
   return (
@@ -92,10 +92,10 @@ function Partners() {
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 justify-center">
             <div className="lg:col-span-12 flex flex-col items-center text-center">
               <div>
-                <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+                <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4">
                   <div className="flex items-center gap-2">
                     <div>
-                      <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                      <Sparkles className="w-3 h-3 text-[#143973] shrink-0" />
                     </div>
                     <div>
                       <span className="text-xs sm:text-sm font-semibold tracking-wide">PARTNER</span>
@@ -117,12 +117,12 @@ function Partners() {
       </section>
 
       <div className="relative page-content-mesh border-t border-slate-200/80 py-14 sm:py-20">
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-4 sticky top-0">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">Journey</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#143973]">Journey</p>
                 <h2 className="mt-2 text-xl font-semibold">What This Means</h2>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">
                   We are building a network of trusted partners who can execute, deliver, and scale services across industries.
@@ -131,13 +131,13 @@ function Partners() {
                   {STEPS.map(({ title, body, Icon }) => (
                     <li
                       key={title}
-                      className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition hover:border-amber-500/25 hover:shadow-md"
+                      className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition hover:border-[#143973]/25 hover:shadow-md"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-amber-500/20 to-green-500/10 ring-1 ring-amber-500/15">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-[#143973]/20 to-green-500/10 ring-1 ring-[#143973]/15">
                         <Icon className="h-5 w-5" aria-hidden />
                       </span>
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-amber-500"></p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#143973]"></p>
                         <p className="mt-0.5 font-semibold">{title}</p>
                         <p className="mt-1 text-xs leading-relaxed text-slate-600">{body}</p>
                       </div>
@@ -149,7 +149,7 @@ function Partners() {
 
             <div className="lg:col-span-8">
               <div className="overflow-hidden rounded-2xl border border-gray-400/20">
-                <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
+                <div className="h-1.5 w-full bg-linear-to-r from-[#143973] via-white to-[#143973]" aria-hidden />
                 <form onSubmit={handleSubmit} className="space-y-8 p-6 sm:p-10" >
                   <div>
                     <h3 className="text-lg font-semibold">Apply as Elite Solutions Subscriber/ Elite Solutions Provider</h3>
@@ -277,7 +277,7 @@ function Partners() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
                       {submit ? (
                         <div className="flex items-center gap-2">
                           <CircleLoader />

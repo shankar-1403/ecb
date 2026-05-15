@@ -144,8 +144,8 @@ CarouselItem.displayName = "CarouselItem";
 
 const navButtonClass =
   "absolute z-20 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-gray-200/90 bg-white text-[#1D2F4F] shadow-[0_8px_30px_-6px_rgba(29,47,79,0.2)] transition disabled:cursor-not-allowed " +
-  "hover:border-amber-500 hover:bg-amber-500 hover:text-white hover:shadow-lg hover:shadow-amber-500/30 " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 " +
+  "hover:border-[#143973] hover:bg-[#143973] hover:text-white hover:shadow-lg hover:shadow-[#143973]/30 " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#143973] focus-visible:ring-offset-2 " +
   "disabled:pointer-events-none disabled:opacity-30 disabled:shadow-none md:h-12 md:w-12";
 
 // Previous Button

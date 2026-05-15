@@ -12,7 +12,7 @@ import { useSnackbar } from "../components/SnackbarContext";
 
 const fieldBase =
   "w-full rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3.5 text-foreground placeholder:text-gray-400 shadow-sm outline-none transition " +
-  "hover:border-gray-300 hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/15";
+  "hover:border-gray-300 hover:bg-white focus:border-[#143973] focus:bg-white focus:ring-4 focus:ring-[#143973]/15";
 
 const contactItems = [
   { icon: Mail, label: "Email", value: "ecb@ec-bharat.com", href: "mailto:ecb@ec-bharat.com" },
@@ -88,10 +88,10 @@ function Contact() {
         />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-5 md:px-6">
           <div>
-            <div className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-500 text-sm font-semibold mb-4">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4">
               <div className="flex items-center gap-2">
                 <div>
-                  <Phone className="w-3 h-3 text-amber-500 shrink-0" />
+                  <Phone className="w-3 h-3 text-[#143973] shrink-0" />
                 </div>
                 <div>
                   <span className="text-xs sm:text-sm font-semibold tracking-wide uppercase">Get in touch</span>
@@ -101,7 +101,7 @@ function Contact() {
           </div>
           <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold">
             Let&apos;s build{" "}
-            <span className="bg-linear-to-br from-amber-500 via-amber-600 to-green-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-br from-[#143973] via-[#143973] to-[#143973] bg-clip-text text-transparent">
               together
             </span>
           </h1>
@@ -110,15 +110,15 @@ function Contact() {
       </section>
 
       <section className="relative pb-20 md:py-15">
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
         <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
           <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-5 md:gap-8 lg:gap-10">
             <div className="md:col-span-2 space-y-4">
               {contactItems.map(({ icon: Icon, label, value, href }) => {
                 const inner = (
                   <>
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-amber-500/15 to-amber-600/5 ring-1 ring-amber-500/10">
-                      <Icon className="h-5 w-5 text-amber-600" />
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-[#143973]/15 to-[#143973]/5 ring-1 ring-[#143973]/10">
+                      <Icon className="h-5 w-5 text-[#143973]" />
                     </div>
                     <div className="min-w-0 pt-0.5">
                       <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">{label}</p>
@@ -127,7 +127,7 @@ function Contact() {
                   </>
                 );
                 const cardClass =
-                  "flex items-start gap-4 rounded-2xl border border-gray-200/90 bg-white p-5 shadow-md transition hover:-translate-y-0.5 hover:border-amber-500/25 hover:shadow-lg";
+                  "flex items-start gap-4 rounded-2xl border border-gray-200/90 bg-white p-5 shadow-md transition hover:-translate-y-0.5 hover:border-[#143973]/25 hover:shadow-lg";
                 return href ? (
                   <a key={label} href={href} target={label === "Location" ? "_blank" : "_self"} rel="noopener noreferrer" className={cardClass}>
                     {inner}
@@ -146,7 +146,7 @@ function Contact() {
                 </p>
                 <Link
                   to="/membership/elite-ambassador"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-400 transition hover:text-amber-500"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-400 transition hover:text-[#143973]"
                 >
                   Membership overview
                   <ArrowRight className="h-4 w-4" />
@@ -157,13 +157,13 @@ function Contact() {
             <div className="md:col-span-3">
               <form onSubmit={handleSubmit} className="relative overflow-hidden rounded-3xl border border-gray-200/90 bg-white shadow-[0_24px_60px_-15px_rgba(29,47,79,0.18)] md:rounded-[1.75rem]"
               >
-                <div className="h-1.5 w-full bg-linear-to-r from-amber-500 via-white to-green-600" aria-hidden />
-                <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+                <div className="h-1.5 w-full bg-linear-to-r from-[#143973] via-white to-[#143973]" aria-hidden />
+                <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[#143973]/10 blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-[#1D2F4F]/5 blur-3xl pointer-events-none" />
 
                 <div className="relative border-b border-gray-100 bg-linear-to-br from-gray-50/90 to-white px-6 py-5 md:px-8 md:py-6">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/25">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-[#143973] to-[#143973] text-white shadow-lg shadow-[#143973]/25">
                       <MessageSquare className="h-5 w-5" strokeWidth={2.2} />
                     </div>
                     <div>
@@ -196,7 +196,7 @@ function Contact() {
                     <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`}/>
                   </div>
                   <div className="flex justify-between items-center">
-                    <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-amber-500/25 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                    <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
                       {submit ? (
                         <div className="flex items-center gap-2">
                           <CircleLoader />
