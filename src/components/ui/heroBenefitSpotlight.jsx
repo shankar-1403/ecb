@@ -51,7 +51,7 @@ export function HeroBenefitSpotlight({
         className="pointer-events-none absolute -inset-6 rounded-3xl blur-2xl"
         animate={{ opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        style={{ background: "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(255,255,255,0) 50%, rgba(22,163,74,0.1) 100%)" }}
+        style={{ background: "linear-gradient(135deg, rgba(20,57,115,0.15) 0%, rgba(255,255,255,0) 50%, rgba(37,99,235,0.12) 100%)" }}
       />
 
       <div
@@ -62,11 +62,6 @@ export function HeroBenefitSpotlight({
         <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-[#143973] via-white to-[#143973] rounded-t-2xl" />
         <div className="absolute inset-x-0 top-1 h-24 bg-linear-to-b from-[#143973]/5 to-transparent pointer-events-none" />
 
-        <div className="absolute top-4 right-4 pointer-events-none select-none">
-          <svg viewBox="0 0 80 80" className="w-20 h-20 text-[#143973]/5" fill="currentColor">
-            <circle cx="40" cy="40" r="36" />
-          </svg>
-        </div>
 
         <div className="relative px-5 pb-6 pt-6 md:px-7 md:pb-7 md:pt-7">
 
@@ -82,15 +77,16 @@ export function HeroBenefitSpotlight({
               >
                 {Icon ? (
                   <motion.div
-                    className="relative mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-lg bg-[#143973]"
+                    className="relative mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-lg"
+                    style={{ background: "linear-gradient(135deg, #1D2F4F 0%, #2563eb 100%)" }}
                     whileHover={{ scale: 1.08, rotate: 3 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
                     <div className="absolute inset-0 rounded-2xl bg-white/10" />
-                    <Icon className="relative h-7 w-7 text-white" />
+                    <Icon className="relative h-7 w-7" style={{ color: "#9B72C4" }} />
                     <motion.div
                       className="absolute inset-0 rounded-2xl"
-                      animate={{ boxShadow: ["0 0 0px 0px rgba(245,158,11,0)", "0 0 16px 4px rgba(245,158,11,0.35)", "0 0 0px 0px rgba(245,158,11,0)"] }}
+                      animate={{ boxShadow: ["0 0 0px 0px rgba(20,57,115,0)", "0 0 16px 4px rgba(20,57,115,0.35)", "0 0 0px 0px rgba(20,57,115,0)"] }}
                       transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                     />
                   </motion.div>
@@ -111,7 +107,7 @@ export function HeroBenefitSpotlight({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 }}
-                    className="mt-3 text-xs leading-relaxed text-[#143973]/80 font-medium border-l-2 border-[#143973]/40 pl-3"
+                    className="mt-3 text-xs leading-relaxed text-[#143973]/80 font-medium border-l-2 pl-3" style={{ borderColor: "#DAC9EB" }}
                   >
                     {card.detail}
                   </motion.p>
@@ -128,8 +124,9 @@ export function HeroBenefitSpotlight({
                 onClick={() => setI(idx)}
                 className={cn(
                   "h-2 rounded-full transition-all duration-300",
-                  idx === i ? "w-7 bg-[#143973]" : "w-2 bg-gray-200 hover:bg-gray-300",
+                  idx === i ? "w-7 bg-[#143973]" : "w-2",
                 )}
+                style={idx !== i ? { backgroundColor: "rgba(218,201,235,0.7)" } : {}}
                 aria-label={`Show benefit ${idx + 1}`}
                 aria-current={idx === i ? true : undefined}
               />
@@ -139,7 +136,7 @@ export function HeroBenefitSpotlight({
           <div className="mt-5">
             <Link
               to={ctaHref}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1D2F4F] to-[#2563eb] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]"
             >
               {ctaLabel}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

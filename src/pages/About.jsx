@@ -102,13 +102,13 @@ function About() {
 
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-38 md:pb-20">
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
-        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 40%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(145, 60%, 40%) 0%, transparent 45%)" }} />
+        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 40%, hsl(214, 71%, 40%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(210, 50%, 30%) 0%, transparent 45%), radial-gradient(circle at 55% 80%, hsl(276, 35%, 80%) 0%, transparent 35%)" }} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
           <div>
-            <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>
               <div className="flex items-center gap-2">
                 <div>
-                  <InfoIcon className="w-3 h-3 text-[#143973]" />
+                  <InfoIcon className="w-3 h-3" style={{ color: "#9B72C4" }} />
                 </div>
                 <div>
                   <span className="text-sm font-semibold">ABOUT ECB</span>
@@ -118,10 +118,10 @@ function About() {
           </div>
           <h1 className="mt-5 max-w-4xl mx-auto text-3xl font-bold leading-tight tracking-tight text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
             Entrepreneurs Connect Bharat{" "}
-            <span className="bg-linear-to-br from-[#143973] via-[#143973] to-[#143973] bg-clip-text text-transparent">(ECB)</span>
+            <span className="bg-linear-to-br from-[#0d2850] via-[#143973] to-[#2563eb] bg-clip-text text-transparent">(ECB)</span>
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Entrepreneurs Connect Bharat (ECB), backed by PCRED Group, is a growth-driven business ecosystem connecting startups, MSMEs, and entrepreneurs with investors, corporates, and end-to-end solutions to drive funding, partnerships, and scalable growth.
+            Entrepreneurs Connect Bharat (ECB), backed by <a href="https://www.pcred.org" target="_blank" rel="noopener noreferrer" className="text-[#143973] font-bold hover:opacity-80 transition-opacity">PCRED</a> Group, is a growth-driven business ecosystem connecting startups, MSMEs, and entrepreneurs with investors, corporates, and end-to-end solutions to drive funding, partnerships, and scalable growth.
           </p>
         </div>
       </section>
@@ -147,10 +147,10 @@ function About() {
               ].map(({ icon: Icon, title, detail }) => (
                 <div
                   key={title}
-                  className="group rounded-2xl p-5 border border-amber-200/50 bg-white/90 hover:border-amber-400/60 hover:shadow-[0_12px_32px_-8px_rgba(245,158,11,0.2)] transition-all duration-300"
+                  className="group rounded-2xl p-5 border border-[#143973]/20 bg-white/90 hover:border-[#143973]/60 hover:shadow-[0_12px_32px_-8px_rgba(20,57,115,0.2)] transition-all duration-300"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#143973]/10 border border-[#143973]/20 flex items-center justify-center mb-3 group-hover:bg-[#143973] group-hover:border-[#143973] transition-all duration-300">
-                    <Icon className="w-5 h-5 text-[#143973] group-hover:text-white transition-colors duration-300" />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#143973] group-hover:border-[#143973] transition-all duration-300" style={{ backgroundColor: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.4)" }}>
+                    <Icon className="w-5 h-5 group-hover:text-white transition-colors duration-300" style={{ color: "#9B72C4" }} />
                   </div>
                   <h3 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-[#143973] transition-colors">{title}</h3>
                   <p className="text-xs text-muted-foreground mt-1">{detail}</p>
@@ -178,7 +178,7 @@ function About() {
                 position:absolute;
                 width:200px;
                 background:rgba(255,255,255,0.95);
-                border:1px solid rgba(245,158,11,0.25);
+                border:1px solid rgba(20,57,115,0.25);
                 border-radius:18px;
                 padding:16px;
                 backdrop-filter:blur(10px);
@@ -189,24 +189,24 @@ function About() {
 
               .ocard:hover{
                 background:#1D2F4F;
-                border-color:rgba(245,158,11,0.7);
-                box-shadow:0 20px 48px -8px rgba(245,158,11,0.4);
+                border-color:rgba(20,57,115,0.7);
+                box-shadow:0 20px 48px -8px rgba(20,57,115,0.4);
                 transform:scale(1.06) !important;
                 z-index:20;
               }
 
-              .ocard:hover .ci{background:rgba(245,158,11,0.25);}
+              .ocard:hover .ci{background:rgba(20,57,115,0.25);}
               .ocard:hover .ct{color:white;}
               .ocard:hover .cd{color:rgba(255,255,255,0.65);}
             `}</style>
 
             <div className="relative w-full" style={{ height: "380px" }}>
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 380">
-                <path d="M 80 350 A 400 300 0 0 1 920 350" fill="none" stroke="rgba(245,158,11,0.15)" strokeWidth="1.5" strokeDasharray="6,5" />
+                <path d="M 80 350 A 400 300 0 0 1 920 350" fill="none" stroke="rgba(20,57,115,0.15)" strokeWidth="1.5" strokeDasharray="6,5" />
               </svg>
 
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-96 z-10">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide uppercase">What we stand for</span>
+                <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide uppercase" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>What we stand for</span>
                 <h4 className="text-5xl font-bold text-[#1D2F4F]">Our Objectives</h4>
                 <p className="mt-2 text-base text-muted-foreground">Clear priorities guiding ECB across India.</p>
                 <div className="w-14 h-1 bg-linear-to-r from-[#143973] via-white to-[#143973] rounded-full mt-3 mx-auto" />
@@ -237,8 +237,8 @@ function About() {
                       top: `calc(${y}% - 85px)`,
                     }}
                   >
-                    <div className="ci w-10 h-10 rounded-xl bg-[#143973]/10 border border-[#143973]/20 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-[#143973]" />
+                    <div className="ci w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.4)" }}>
+                      <Icon className="w-5 h-5" style={{ color: "#9B72C4" }} />
                     </div>
 
                     <p className="ct text-sm font-semibold text-[#1D2F4F] mb-1.5">{title}</p>
@@ -252,17 +252,17 @@ function About() {
         </div>
       </section>
 
-      <div style={{ background: "linear-gradient(135deg, #fff8ed 0%, #f0fdf4 50%, #fff8ed 100%)" }}>
+      <div style={{ background: "linear-gradient(135deg, #e8f0fc 0%, #f0f5ff 50%, #dbeafe 100%)" }}>
 
         <section className="relative overflow-hidden pt-14 pb-10 sm:pt-16 sm:pb-12 md:pt-20 md:pb-14">
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>
               <span className="text-sm font-semibold">OUR TEAM</span>
             </div>
             <h5 className="mt-5 max-w-4xl mx-auto text-3xl font-bold text-[#1D2F4F] sm:text-4xl md:text-5xl lg:text-6xl">
               Meet the People Behind{" "}
-              <span className="bg-linear-to-br from-[#143973] via-[#143973] to-[#143973] bg-clip-text text-transparent">ECB</span>
+              <span className="bg-linear-to-br from-[#0d2850] via-[#143973] to-[#2563eb] bg-clip-text text-transparent">ECB</span>
             </h5>
             <p className="mt-6 max-w-3xl mx-auto text-muted-foreground sm:text-lg">A collective of professionals supporting entrepreneurs and MSMEs across India.</p>
           </div>
@@ -275,14 +275,14 @@ function About() {
               {leadership.map((member, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
                   <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative md:col-span-2 lg:col-span-1">
-                    <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-[#143973] via-orange-500 to-green-500 opacity-20 blur-lg group-hover:opacity-40 transition"></div>
+                    <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-[#0d2850] via-[#143973] to-[#2563eb] opacity-20 blur-lg group-hover:opacity-40 transition"></div>
                     <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
                     <h5 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h5>
                     <p className="text-[#143973] font-semibold mt-1">{member.role}</p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at <a href="https://www.pcred.org/" target="_blank" className="text-[#143973]">PCRED Venture Pvt. Ltd</a>. and Executive Director at <a href="https://insurath.com/" target="_blank" className="text-[#143973]">Insurath</a>, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
+                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at <a href="https://www.pcred.org/" target="_blank" className="text-[#143973] font-bold hover:opacity-80 transition-opacity">PCRED</a> Venture Pvt. Ltd. and Executive Director at <a href="https://insurath.com/" target="_blank" className="text-[#143973]">Insurath</a>, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
                     </p>
                     <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                       Dr. G. Rameshkumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
@@ -299,7 +299,7 @@ function About() {
             <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h5>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
               {team.map((member, index) => (
-                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
+                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-[#143973]/20 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
                   <div className="p-2">
                     <div className="overflow-hidden bg-gray-300/70 rounded-xl">
                       <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-80 lg:h-70 md:max-h-none object-contain md:object-cover" />
@@ -321,7 +321,7 @@ function About() {
             <h5 className="text-3xl md:text-4xl font-bold text-white">Internal Stakeholders</h5>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
               {employees.map((member, index) => (
-                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-amber-200/40 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
+                <motion.div key={member.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} viewport={{ once: true }} className="group relative rounded-2xl border border-[#143973]/20 shadow-md overflow-hidden transition hover:shadow-2xl bg-white">
                   <div className="p-2">
                     <div className="overflow-hidden bg-gray-300/70 rounded-xl">
                       <img src={member.img} alt={member.name} className="w-full h-auto max-h-55 sm:max-h-60 md:h-80 lg:h-70 md:max-h-none object-contain md:object-cover" />
@@ -341,7 +341,7 @@ function About() {
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
             <div className="flex flex-col gap-6 rounded-2xl bg-[#1D2F4F] p-8 text-white sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8 md:rounded-3xl md:p-12 lg:p-14">
               <div className="min-w-0">
-                <h7 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h7>
+                <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">Ready to grow with us?</h3>
                 <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">Opens doors to curated sessions, peer circles, and introductions aligned to your stage and sector.</p>
               </div>
               <Link to="/membership/partner-with-us" className="w-full shrink-0 sm:w-auto">

@@ -96,7 +96,7 @@ function Membership() {
           className="absolute inset-0 opacity-15"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 15% 30%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(145, 60%, 40%) 0%, transparent 45%)",
+              "radial-gradient(circle at 15% 30%, hsl(214, 71%, 40%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(210, 50%, 30%) 0%, transparent 45%)",
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-6">
@@ -104,10 +104,10 @@ function Membership() {
             <div className="lg:col-span-7">
               <div className="max-w-2xl">
                 <div>
-                  <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4">
+                  <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>
                     <div className="flex items-center gap-2">
                       <div>
-                        <Sparkles className="w-3 h-3 text-[#143973] shrink-0" />
+                        <Sparkles className="w-3 h-3 shrink-0" style={{ color: "#9B72C4" }} />
                       </div>
                       <div>
                         <span className="text-xs sm:text-sm font-semibold tracking-wide">EMPANELMENT</span>
@@ -122,13 +122,13 @@ function Membership() {
             </div>
 
             <div className="relative lg:col-span-5 flex justify-end">
-              <div className="absolute -inset-4 rounded-4xl bg-gradientS-to-br from-amber-400/20 via-transparent to-[#143973]/15 blur-2xl lg:-inset-6" />
+              <div className="absolute -inset-4 rounded-4xl bg-gradientS-to-br from-[#143973]/15 via-transparent to-[#143973]/15 blur-2xl lg:-inset-6" />
               <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-[#1D2F4F] via-[#243554] to-[#15243d] p-8 text-white shadow-2xl md:p-10 max-w-md">
                 <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#143973]/20 blur-3xl" />
-                <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-green-500/10 blur-3xl" />
+                <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-[#143973]/10 blur-3xl" />
                 <div className="relative flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-                    <Shield className="h-6 w-6 text-[#143973]" />
+                    <Shield className="h-6 w-6" style={{ color: "#9B72C4" }} />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-[#143973]/90">Why it matters</p>
@@ -156,11 +156,11 @@ function Membership() {
                   {STEPS.map(({ n, title, body, Icon }) => (
                     <li key={n} className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 px-2 py-3 shadow-sm backdrop-blur-sm transition hover:border-[#143973]/25 hover:shadow-md"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-[#143973]/20 to-green-500/10 ring-1 ring-[#143973]/15">
-                        <Icon className="h-5 w-5" aria-hidden />
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg" style={{ backgroundColor: "rgba(218,201,235,0.25)", border: "1px solid rgba(218,201,235,0.5)" }}>
+                        <Icon className="h-5 w-5" style={{ color: "#9B72C4" }} aria-hidden />
                       </span>
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-[#143973]">Step {n}</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#9B72C4" }}>Step {n}</p>
                         <p className="mt-0.5 font-semibold">{title}</p>
                         <p className="mt-0.5 text-xs leading-relaxed text-slate-600">{body}</p>
                       </div>
@@ -236,7 +236,7 @@ function Membership() {
                     <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
                       {submit ? (
                         <div className="flex items-center gap-2">
-                          <CircleLoader />
+                          <CircleLoader />     
                           <span>Submitting...</span>
                         </div>
                       ) : (

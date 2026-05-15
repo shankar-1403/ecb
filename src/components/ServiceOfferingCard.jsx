@@ -13,12 +13,12 @@ export function ServiceOfferingCard({ number, icon: Icon, title, desc, footer, c
       )}
     >
       {/* Restrained brand accent + soft depth */}
-      <div className="absolute left-0 top-0 h-full w-[3px] bg-linear-to-b from-amber-400/90 via-[#143973]/70 to-[#143973]/50" aria-hidden />
+      <div className="absolute left-0 top-0 h-full w-[3px] bg-linear-to-b from-[#143973]/80 via-[#143973]/70 to-[#143973]/50" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(120% 80% at 100% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 55%), radial-gradient(80% 60% at 0% 100%, rgba(29, 47, 79, 0.04) 0%, transparent 50%)",
+            "radial-gradient(120% 80% at 100% 0%, rgba(20, 57, 115, 0.06) 0%, transparent 55%), radial-gradient(80% 60% at 0% 100%, rgba(29, 47, 79, 0.04) 0%, transparent 50%)",
         }}
       />
 
@@ -29,7 +29,7 @@ export function ServiceOfferingCard({ number, icon: Icon, title, desc, footer, c
           </span>
         ) : null}
 
-        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[#143973]/60 bg-amber-50/90 text-amber-800 shadow-sm transition duration-300 group-hover:border-[#143973]/80 group-hover:bg-amber-50 group-hover:shadow-md">
+        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[#143973]/60 bg-[#e8f0fc]/90 text-[#1D2F4F] shadow-sm transition duration-300 group-hover:border-[#143973]/80 group-hover:bg-[#e8f0fc] group-hover:shadow-md">
           <Icon className="h-5 w-5" strokeWidth={2} />
         </div>
 

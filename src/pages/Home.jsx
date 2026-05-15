@@ -142,7 +142,7 @@ function CountUpStat({ value, label, Icon }) {
     const isInView = useInView(ref, { once: true });
     return (
         <div ref={ref} className="flex flex-col items-center text-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white ring-1 ring-[#143973]/30">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white" style={{ boxShadow: "0 0 0 1px rgba(218,201,235,0.6)" }}>
                 <Icon className="h-4 w-4 text-white" />
             </div>
             <div className="font-heading text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
@@ -196,12 +196,12 @@ function TestimonialSlider() {
                     >
                         {visible.map((t) => (
                             <div key={t.name} className="relative rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-[#143973]/30 transition-all duration-300 hover:-translate-y-1 flex flex-col" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
-                                <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-transparent via-[#143973]/50 to-transparent" />
-                                <Quote className="h-5 w-5 text-[#143973]/40 mb-3 shrink-0" />
+                                <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl" style={{ background: "linear-gradient(to right, transparent, rgba(218,201,235,0.8), transparent)" }} />
+                                <Quote className="h-5 w-5 mb-3 shrink-0" style={{ color: "#9B72C4" }} />
                                 <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
                                 <div className="flex items-center gap-3">
-                                    <div className="w-9 h-9 rounded-full bg-[#143973]/20 border border-[#143973]/30 flex items-center justify-center shrink-0">
-                                        <span className="text-amber-400 font-bold text-sm">{t.name[0]}</span>
+                                    <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.5)" }}>
+                                        <span className="font-bold text-sm" style={{ color: "#9B72C4" }}>{t.name[0]}</span>
                                     </div>
                                     <div className="min-w-0">
                                         <p className="text-white font-semibold text-sm truncate">{t.name}</p>
@@ -298,15 +298,16 @@ function Home() {
     return (
         <Layout>
             <section className="relative overflow-hidden pt-20 pb-0 sm:pt-24 md:pt-28 lg:pt-32">
+                <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 20% 40%, hsl(214, 71%, 40%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(210, 50%, 30%) 0%, transparent 45%), radial-gradient(circle at 55% 80%, hsl(276, 35%, 80%) 0%, transparent 35%)" }} />
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-12 xl:gap-16">
 
                         <div className="w-full lg:w-1/2 flex flex-col justify-center py-8 lg:py-1">
                             <div className="flex justify-center lg:justify-start">
-                                <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4">
+                                <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>
                                     <div className="flex items-center gap-2">
                                         <div>
-                                            <Sparkles className="w-3 h-3 text-[#143973] shrink-0" />
+                                            <Sparkles className="w-3 h-3 shrink-0" style={{ color: "#9B72C4" }} />
                                         </div>
                                         <div>
                                             <span className="text-xs sm:text-sm font-semibold tracking-wide">INDIA'S ENTREPENEUR GROWTH PLATFORM</span>
@@ -334,7 +335,7 @@ function Home() {
 
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-col md:flex-row gap-3 justify-center lg:justify-start">
                                 <Link to="/membership/elite-ambassador" className="w-full md:w-auto">
-                                    <Button size="lg" className="w-full group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]">
+                                    <Button size="lg" className="w-full group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#1D2F4F] to-[#2563eb] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]">
                                         Apply as an Elite Ambassador
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </Button>
@@ -349,7 +350,7 @@ function Home() {
 
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.6 }} className="mt-6 flex items-center gap-3 justify-center lg:justify-start">
                                 <div className="flex -space-x-2">
-                                    {["#1D2F4F", "#f59e0b", "#16a34a", "#1D2F4F"].map((color, i) => (
+                                    {["#1D2F4F", "#143973", "#143973", "#1D2F4F"].map((color, i) => (
                                         <div key={i} className="w-7 h-7 rounded-full border-2 border-white flex items-center justify-center" style={{ backgroundColor: color }}>
                                             <Users className="w-3 h-3 text-white" />
                                         </div>
@@ -371,7 +372,7 @@ function Home() {
                     <div className="mt-8 sm:mt-10">
                         <AnimatedSection
                             className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-3 md:p-4"
-                            style={{ background: "linear-gradient(135deg, #1D2F4F 0%, #162440 100%)", boxShadow: "0 25px 60px -15px rgba(29,47,79,0.5), 0 0 0 1px rgba(245,158,11,0.1)" }}
+                            style={{ background: "linear-gradient(135deg, #1D2F4F 0%, #162440 100%)", boxShadow: "0 25px 60px -15px rgba(29,47,79,0.5), 0 0 0 1px rgba(20,57,115,0.1)" }}
                         >
                             <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-size-[18px_18px] opacity-60" />
                             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#143973]/10 blur-3xl" />
@@ -394,21 +395,21 @@ function Home() {
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
                 <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 sm:px-6 lg:px-8 lg:flex-row lg:items-center lg:gap-16">
                     <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} variants={slideInLeft} className="w-full min-w-0 lg:flex-1">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">ABOUT ECB</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>ABOUT ECB</span>
                         <h2 className="text-3xl md:text-4xl font-bold leading-tight">A global initiative for India's entrepreneur economy</h2>
                         <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">Entrepreneurs Connect Bharat is a global initiative designed to build a powerful ecosystem connecting entrepreneurs with verified experts across finance, technology, strategy, legal, marketing, and business growth services.</p>
                         <ul className="mt-6 space-y-3">
                             {ABOUT_STRENGTHS.map(({ icon: Icon, text }) => (
                                 <li key={text} className="flex items-center gap-3">
-                                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#143973]/10 border border-[#143973]/20 mt-0.5">
-                                        <Icon className="h-3.5 w-3.5 text-[#143973]" />
+                                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg mt-0.5" style={{ backgroundColor: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.5)" }}>
+                                        <Icon className="h-3.5 w-3.5" style={{ color: "#9B72C4" }} />
                                     </span>
                                     <span className="text-sm text-gray-700 leading-relaxed">{text}</span>
                                 </li>
                             ))}
                         </ul>
                         <Link to="/about">
-                            <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99] mt-8">
+                            <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#1D2F4F] to-[#2563eb] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99] mt-8">
                                 Learn More About Us
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
@@ -418,7 +419,7 @@ function Home() {
                         <div className="relative">
                             <img src={About} alt="About Section" className="w-full rounded-2xl object-cover shadow-lg sm:rounded-3xl aspect-4/3" />
                             <motion.div
-                                className="absolute -bottom-4 -left-4 rounded-2xl border border-amber-200/60 bg-white p-4 shadow-lg hidden sm:block"
+                                className="absolute -bottom-4 -left-4 rounded-2xl border border-[#143973]/25 bg-white p-4 shadow-lg hidden sm:block"
                                 animate={{ y: [0, -8, 0] }}
                                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                             >
@@ -431,12 +432,12 @@ function Home() {
             </section>
 
 
-            <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient( #ffffff 0%, #ffffff 80%, #E8EBF2 100%)" }}>
+            <section className="relative py-14 sm:py-18 md:py-20" style={{ background: "linear-gradient(180deg, #ffffff 0%, #f0f5ff 80%, #dbeafe 100%)" }}>
                 <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full mb-10">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">FULL SPECTRUM</span>
-                        <h3 className="text-3xl md:text-4xl font-bold leading-tight text-[#143973]">Services offered through the ECB network</h3>
-                        <p className="mt-3 text-[#143973] leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
+                        <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>FULL SPECTRUM</span>
+                        <h3 className="text-3xl md:text-4xl font-bold leading-tight text-[#1D2F4F]">Services offered through the ECB network</h3>
+                        <p className="mt-3 text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">Elite Ambassadors deliver and orchestrate high-trust outcomes across building, scaling, and governing a modern enterprise.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {SERVICE_ITEMS.map(({ title, Icon }, i) => {
@@ -445,27 +446,26 @@ function Home() {
                             const isOnlyInLastRow = lastRowCount === 1 && i === total - 1;
                             return (
                                 <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.28, delay: i * 0.045, ease: "easeOut" }} whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }} className={`group relative ${isOnlyInLastRow ? "lg:col-start-2" : ""}`}>
-                                    <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-17 overflow-hidden transition-all duration-300 group-hover:shadow-[#143973]"
-                                        style={{ background: "#ffffff", border: "1px solid #E8EBF2", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07)" }}>
+                                    <div className="relative flex flex-row items-center gap-4 rounded-2xl px-4 py-4 min-h-17 overflow-hidden transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(20,57,115,0.25)]" style={{ background: "#ffffff", border: "1px solid rgba(20,57,115,0.25)", boxShadow: "0 4px 24px -4px rgba(0,0,0,0.07)" }}>
 
-                                        <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" style={{ background: "linear-gradient(135deg, #143973 0%, #143973 100%)" }} />
+                                        <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" style={{ background: "linear-gradient(135deg, #dbeafe 0%, #f0f5ff 100%)" }} />
 
                                         <div className="absolute top-0 left-0 right-0 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)" }} />
 
                                         <div className="relative z-10 shrink-0 self-center">
                                             <div className="relative flex h-11 w-11 items-center justify-center">
                                                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 48 48">
-                                                    <motion.rect x="2" y="2" width="44" height="44" rx="12" fill="none" stroke="#E8EBF2" strokeWidth="1.5" strokeDasharray="140" strokeDashoffset="140" animate={{ strokeDashoffset: [140, 0, 140] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.12 }} className="group-hover:opacity-0 transition-opacity duration-200" />
+                                                    <motion.rect x="2" y="2" width="44" height="44" rx="12" fill="none" stroke="rgba(20,57,115,0.5)" strokeWidth="1.5" strokeDasharray="140" strokeDashoffset="140" animate={{ strokeDashoffset: [140, 0, 140] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.12 }} className="group-hover:opacity-0 transition-opacity duration-200" />
                                                 </svg>
-                                                <div className="absolute inset-0 rounded-xl group-hover:opacity-0 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, #E8EBF2 0%, #E8EBF2 100%)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", boxShadow: "inset 0 1px 0 #E8EBF2, 0 2px 8px -2px #E8EBF2" }} />
-                                                <motion.div className="relative z-10 text-[#143973] group-hover:text-white transition-colors duration-300" animate={{ rotate: [0, 0, 8, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}>
+                                                <div className="absolute inset-0 rounded-xl group-hover:opacity-0 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,248,230,0.5) 100%)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 8px -2px rgba(20,57,115,0.15)" }} />
+                                                <motion.div className="relative z-10 group-hover:text-[#1D2F4F] transition-colors duration-300" style={{ color: "#9B72C4" }} animate={{ rotate: [0, 0, 8, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2, times: [0, 0.6, 0.7, 0.85, 1] }}>
                                                     <Icon className="h-5 w-5" />
                                                 </motion.div>
-                                                <motion.div className="absolute inset-0 pointer-events-none" animate={{ boxShadow: ["0 0 0px 0px #E8EBF2", "0 0 10px 3px #E8EBF2", "0 0 0px 0px #E8EBF2"] }} transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }} style={{ borderRadius: "12px" }} />
+                                                <motion.div className="absolute inset-0 pointer-events-none" animate={{ boxShadow: i % 3 === 1 ? ["0 0 0px 0px rgba(218,201,235,0)", "0 0 10px 3px rgba(218,201,235,0.5)", "0 0 0px 0px rgba(218,201,235,0)"] : ["0 0 0px 0px rgba(20,57,115,0)", "0 0 10px 3px rgba(20,57,115,0.3)", "0 0 0px 0px rgba(20,57,115,0)"] }} transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }} style={{ borderRadius: "12px" }} />
                                             </div>
                                         </div>
                                         <div className="relative z-10 flex-1 self-center min-w-0">
-                                            <h3 className="text-sm font-semibold leading-snug text-slate-700 group-hover:text-white transition-colors duration-300">{title}</h3>
+                                            <h3 className="text-sm font-semibold leading-snug text-slate-700 group-hover:text-[#1D2F4F] transition-colors duration-300">{title}</h3>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -478,10 +478,10 @@ function Home() {
 
             <section className="relative overflow-hidden bg-[#143973]">
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(214, 71%, 40%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(210, 50%, 30%) 0%, transparent 50%)" }} />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-20">
                     <div className="mb-10 text-center">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">OUR PURPOSE</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>OUR PURPOSE</span>
                         <h4 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mt-2">Vision & Mission</h4>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
@@ -512,7 +512,7 @@ function Home() {
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
-                        <p className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">PROCESS</p>
+                        <p className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>PROCESS</p>
                         <h5 className="mt-2 text-3xl sm:text-5xl font-bold tracking-tight text-foreground">How it Works</h5>
                         <p className="mt-4 text-base sm:text-lg text-muted-foreground">A simple four-step journey to becoming part of our elite network.</p>
                     </div>
@@ -523,16 +523,16 @@ function Home() {
                                 return (
                                     <li key={step.number} className="group relative h-full">
                                         <div className="relative h-full p-px rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
-                                            <div className="relative z-10 flex flex-col items-start text-left h-full rounded-2xl border border-[#143973]/60 p-5 sm:p-6 shadow-sm transition-all duration-300 group-hover:shadow-[#143973] group-hover:[#E8EBF2]/80" style={{ background: "#143973" }}>
+                                            <div className="relative z-10 flex flex-col items-start text-left h-full rounded-2xl border border-[#0d2850]/60 p-5 sm:p-6 shadow-sm transition-all duration-300 group-hover:shadow-[0_16px_40px_-8px_rgba(20,57,115,0.5)]" style={{ background: "linear-gradient(135deg, #1D2F4F 0%, #143973 60%, #1a4d99 100%)" }}>
                                                 <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
                                                     <div className="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-[#143973]/10 blur-2xl" />
                                                     <div className="absolute -bottom-6 -left-6 h-20 w-20 rounded-full bg-[#143973]/10 blur-2xl" />
                                                 </div>
-                                                <span className="absolute top-3 right-4 text-[55px] sm:text-[65px] font-bold text-[#143973]/10 group-hover:text-[#143973]/20 transition-all duration-300 select-none leading-none">
+                                                <span className="absolute top-3 right-4 text-[55px] sm:text-[65px] font-bold transition-all duration-300 select-none leading-none" style={{ color: "rgba(218,201,235,0.35)" }}>
                                                     {String(step.number).padStart(2, "0")}
                                                 </span>
                                                 <div className="mb-4">
-                                                    <span className="flex items-center justify-center rounded-full bg-[#143973] text-white border border-[#143973]/60 shadow-[0_2px_8px_-2px_rgba(245,158,11,0.2)] transition-all duration-300 group-hover:bg-[#143973] group-hover:text-white group-hover:shadow-[0_4px_16px_-4px_rgba(245,158,11,0.4)] w-fit p-3">
+                                                    <span className="flex items-center justify-center rounded-full bg-[#143973] text-white border border-[#143973]/60 shadow-[0_2px_8px_-2px_rgba(20,57,115,0.2)] transition-all duration-300 group-hover:bg-[#143973] group-hover:text-white group-hover:shadow-[0_4px_16px_-4px_rgba(20,57,115,0.4)] w-fit p-3">
                                                         <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                                                     </span>
                                                 </div>
@@ -548,7 +548,7 @@ function Home() {
 
                     <div className="mt-10 flex justify-center">
                         <Link to="/membership/elite-ambassador">
-                            <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]">
+                            <Button size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#1D2F4F] to-[#2563eb] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]">
                                 Apply as an Elite Ambassador
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Button>
@@ -557,7 +557,7 @@ function Home() {
                 </div>
             </section>
 
-            <section className="py-14 sm:py-18 md:py-20 relative overflow-hidden bg-[#E8EBF2]">
+            <section className="py-14 sm:py-18 md:py-20 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #dbeafe 0%, #e8f0fc 50%, #dbeafe 100%)" }}>
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
 
                 <style>{`
@@ -567,7 +567,7 @@ function Home() {
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div className="text-center">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">JOIN THE MOVEMENT</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>JOIN THE MOVEMENT</span>
                         <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Why Join as an Elite Ambassador</h5>
                         <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">Connect with India's most powerful entrepreneur network and unlock real growth opportunities.</p>
                     </div>
@@ -588,10 +588,10 @@ function Home() {
                                 { icon: Rocket, text: "Access to verified business leads" },
                                 { icon: BadgeCheck, text: "Credibility & brand recognition" },
                             ],
-                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid #E8EBF2", boxShadow: "0 4px 20px -4px #E8EBF2, 0 0 0 1px #E8EBF2" },
-                            iconStyle: { background: "rgba(245,158,11,0.1)" },
+                            pillStyle: { background: "rgba(255,255,255,0.90)", border: "1px solid rgba(20,57,115,0.18)", boxShadow: "0 4px 20px -4px rgba(20,57,115,0.12), 0 0 0 1px rgba(20,57,115,0.08)" },
+                            iconStyle: { background: "rgba(20,57,115,0.1)" },
                             iconBorder: "border-[#143973]/20",
-                            iconColor: "text-[#143973]",
+                            iconColor: "",
                             textColor: "text-[#1D2F4F]",
                         },
                         {
@@ -607,10 +607,10 @@ function Home() {
                                 { icon: Megaphone, text: "Marketing & branding support" },
                                 { icon: Building2, text: "Government scheme access" },
                             ],
-                            pillStyle: { background: "rgba(255,255,255,0.85)", border: "1px solid #E8EBF2", boxShadow: "0 4px 20px -4px #E8EBF2, 0 0 0 1px #E8EBF2" },
-                            iconStyle: { background: "rgba(245,158,11,0.1)" },
+                            pillStyle: { background: "rgba(255,255,255,0.90)", border: "1px solid rgba(20,57,115,0.18)", boxShadow: "0 4px 20px -4px rgba(20,57,115,0.12), 0 0 0 1px rgba(20,57,115,0.08)" },
+                            iconStyle: { background: "rgba(20,57,115,0.1)" },
                             iconBorder: "border-[#143973]/20",
-                            iconColor: "text-[#143973]",
+                            iconColor: "",
                             textColor: "text-[#1D2F4F]",
                         },
                     ].map((row, rowIdx) => (
@@ -634,7 +634,7 @@ function Home() {
                                             className={`w-9 h-9 rounded-xl flex items-center justify-center border ${row.iconBorder} shrink-0`}
                                             style={row.iconStyle}
                                         >
-                                            <Icon className={`w-4 h-4 ${row.iconColor}`} />
+                                            <Icon className="w-4 h-4" style={{ color: "#9B72C4" }} />
                                         </div>
                                         <span className={`text-sm sm:text-base font-semibold ${row.textColor} whitespace-nowrap`}>{text}</span>
                                     </div>
@@ -657,11 +657,11 @@ function Home() {
 
 
             <section className="relative py-14 sm:py-18 md:py-20 overflow-hidden bg-[#1D2B4E]">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(24, 90%, 50%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(145, 60%, 40%) 0%, transparent 50%)" }} />
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, hsl(214, 71%, 40%) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(210, 50%, 30%) 0%, transparent 50%)" }} />
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#143973]/40 to-transparent" />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">MEMBER STORIES</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>MEMBER STORIES</span>
                         <h5 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2">What Our Members Say</h5>
                         <p className="mt-3 text-white/60 max-w-xl mx-auto text-sm sm:text-base">Real entrepreneurs. Real results. Real growth through the ECB network.</p>
                     </div>
@@ -673,7 +673,7 @@ function Home() {
             <section className="py-14 sm:py-18 md:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 sm:mb-12">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4 tracking-wide">GET IN TOUCH</span>
+                        <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>GET IN TOUCH</span>
                         <h5 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">Contact Us</h5>
                         <p className="mt-3 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">Have a question or want to collaborate? We'd love to hear from you.</p>
                     </div>
@@ -686,8 +686,8 @@ function Home() {
                             ].map(({ icon: Icon, label, value, href }) => {
                                 const inner = (
                                     <>
-                                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-[#143973]/15 to-[#143973]/5 ring-1 ring-[#143973]/10">
-                                            <Icon className="h-5 w-5 text-[#143973]" />
+                                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl" style={{ background: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.4)" }}>
+                                            <Icon className="h-5 w-5" style={{ color: "#9B72C4" }} />
                                         </div>
                                         <div className="min-w-0 pt-0.5">
                                             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">{label}</p>
@@ -722,7 +722,7 @@ function Home() {
 
                                 <div className="relative border-b border-gray-100 bg-linear-to-br from-gray-50/90 to-white px-6 py-5 md:px-8 md:py-6">
                                     <div className="flex items-start gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-[#143973] to-[#143973] text-white shadow-lg shadow-[#143973]/25">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-[#1D2F4F] to-[#2563eb] text-white shadow-lg shadow-[#143973]/25">
                                             <MessageSquare className="h-5 w-5" strokeWidth={2.2} />
                                         </div>
                                         <div>
@@ -755,7 +755,7 @@ function Home() {
                                         <textarea id="message" name="message" rows={1} placeholder="How can we help you?" value={formData.message} onChange={handleInputChange} className={`${fieldBase} min-h-30 resize-y leading-relaxed`} />
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                                        <Button type="submit" size="lg" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#1D2F4F] to-[#2563eb] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
                                             {submit ? (
                                                 <div className="flex items-center gap-2">
                                                     <CircleLoader />

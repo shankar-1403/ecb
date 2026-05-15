@@ -83,7 +83,7 @@ function Contact() {
           className="absolute inset-0 opacity-15"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 40%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(145, 60%, 40%) 0%, transparent 45%)",
+              "radial-gradient(circle at 20% 40%, hsl(214, 71%, 40%) 0%, transparent 45%), radial-gradient(circle at 80% 60%, hsl(210, 50%, 30%) 0%, transparent 45%)",
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-5 md:px-6">
@@ -146,7 +146,7 @@ function Contact() {
                 </p>
                 <Link
                   to="/membership/elite-ambassador"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-400 transition hover:text-[#143973]"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#143973] transition hover:text-[#143973]"
                 >
                   Membership overview
                   <ArrowRight className="h-4 w-4" />

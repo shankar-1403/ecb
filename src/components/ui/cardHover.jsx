@@ -32,8 +32,8 @@ export function CardHover() {
     <Card className="w-full max-w-sm border-none p-0 shadow-none">
       <MagicCard
         mode="orb"
-        glowFrom={isDark ? "#ee4f27" : "#E9D5FF"}
-        glowTo={isDark ? "#6b21ef" : "#FBCFE8"}
+        glowFrom={isDark ? "#143973" : "#dbeafe"}
+        glowTo={isDark ? "#1D2F4F" : "#bfdbfe"}
         className="p-0"
       >
         <CardHeader className="border-border border-b p-4 [.border-b]:pb-4">

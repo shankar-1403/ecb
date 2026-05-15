@@ -85,17 +85,17 @@ function Partners() {
           className="absolute inset-0 opacity-15"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 15% 30%, hsl(24, 90%, 50%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(145, 60%, 40%) 0%, transparent 45%)",
+              "radial-gradient(circle at 15% 30%, hsl(214, 71%, 40%) 0%, transparent 45%), radial-gradient(circle at 85% 70%, hsl(210, 50%, 30%) 0%, transparent 45%)",
           }}
         />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-5 md:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 justify-center">
             <div className="lg:col-span-12 flex flex-col items-center text-center">
               <div>
-                <div className="inline-block px-4 py-1.5 rounded-full bg-[#143973]/10 text-[#143973] text-sm font-semibold mb-4">
+                <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4" style={{ backgroundColor: "#DAC9EB", color: "#1D2F4F" }}>
                   <div className="flex items-center gap-2">
                     <div>
-                      <Sparkles className="w-3 h-3 text-[#143973] shrink-0" />
+                      <Sparkles className="w-3 h-3 shrink-0" style={{ color: "#9B72C4" }} />
                     </div>
                     <div>
                       <span className="text-xs sm:text-sm font-semibold tracking-wide">PARTNER</span>
@@ -133,8 +133,8 @@ function Partners() {
                       key={title}
                       className="flex gap-4 rounded-xl border border-slate-200/90 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition hover:border-[#143973]/25 hover:shadow-md"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-[#143973]/20 to-green-500/10 ring-1 ring-[#143973]/15">
-                        <Icon className="h-5 w-5" aria-hidden />
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg" style={{ backgroundColor: "rgba(218,201,235,0.25)", border: "1px solid rgba(218,201,235,0.5)" }}>
+                        <Icon className="h-5 w-5" style={{ color: "#9B72C4" }} aria-hidden />
                       </span>
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-[#143973]"></p>
@@ -277,7 +277,7 @@ function Partners() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-4 border-t border-slate-200/80 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#143973] to-[#143973] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
+                    <Button type="submit" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#1D2F4F] to-[#2563eb] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#143973]/25 transition-all duration-300 hover:shadow-lg hover:shadow-[#143973]/35 hover:scale-[1.02] active:scale-[0.99]" disabled={submit}>
                       {submit ? (
                         <div className="flex items-center gap-2">
                           <CircleLoader />

@@ -48,9 +48,10 @@ const Navbar = () => {
                   <Link
                     key={item.path}
                     to={item.path}
+                    style={location.pathname === item.path ? { backgroundColor: "#DAC9EB", color: "#1D2F4F" } : {}}
                     className={`cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold transition-colors lg:px-4 ${
                       location.pathname === item.path
-                        ? "bg-linear-to-br from-30% from-[#143973]/10 to-[#143973]/30 border border-[#143973]/10 shadow-sm"
+                        ? "shadow-sm"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                     }`}
                   >
@@ -80,7 +81,7 @@ const Navbar = () => {
                       <Link
                         key={child.name}
                         to={child.path}
-                        className="block px-4 py-3 text-sm hover:bg-neutral-100 hover:text-[#E18126] text-blue-950 font-semibold"
+                        className="block px-4 py-3 text-sm hover:bg-[#143973]/10 hover:text-[#143973] text-blue-950 font-semibold"
                       >
                         {child.name}
                       </Link>
@@ -131,9 +132,10 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setOpen(false)}
+                style={location.pathname === link.path ? { backgroundColor: "#DAC9EB", color: "#1D2F4F" } : {}}
                 className={`block px-4 py-3 text-sm font-medium ${
                   location.pathname === link.path
-                    ? "bg-primary/5 text-primary"
+                    ? ""
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >

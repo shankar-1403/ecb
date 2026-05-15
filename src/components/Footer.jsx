@@ -21,7 +21,7 @@ const Footer = () => (
 
         <div>
           <p className="font-semibold mb-3 text-base uppercase tracking-wider text-white">Quick Links</p>
-          <ul className="space-y-2 border-l border-amber-400/30 pl-4">
+          <ul className="space-y-2 border-l border-[#143973]/20 pl-4">
             {[
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
@@ -31,7 +31,7 @@ const Footer = () => (
               { label: "Contact", path: "/contact" },
             ].map((l) => (
               <li key={l.path}>
-                <Link to={l.path} className="cursor-pointer text-sm text-secondary-foreground/70 transition-colors hover:text-secondary-foreground hover:text-amber-400">
+                <Link to={l.path} className="cursor-pointer text-sm text-secondary-foreground/70 transition-colors hover:text-[#93c5fd]">
                   {l.label}
                 </Link>
               </li>
@@ -41,21 +41,21 @@ const Footer = () => (
 
         <div>
           <p className="font-semibold mb-3 text-base uppercase tracking-wider text-white">Global Headquarters</p>
-          <ul className="space-y-2 text-sm text-secondary-foreground/70 border-l border-amber-400/30 pl-4">
+          <ul className="space-y-2 text-sm text-secondary-foreground/70 border-l border-[#143973]/20 pl-4">
             <li className="flex flex-col gap-1">
               <p>Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093</p>
             </li>
             <li className="flex flex-col gap-1">
               <p className="w-20 font-bold">Email:</p>
-              <a href="mailto:ecb@ec-bharat.com" className="hover:text-amber-400 transition">ecb@ec-bharat.com</a>
+              <a href="mailto:ecb@ec-bharat.com" className="hover:text-[#93c5fd] transition">ecb@ec-bharat.com</a>
             </li>
             <li className="flex flex-col gap-1">
               <p className="w-20 font-bold">Phone:</p>
-              <a href="tel:+912235120060" className="hover:text-amber-400 transition">+91 22 3512 0060</a>
+              <a href="tel:+912235120060" className="hover:text-[#93c5fd] transition">+91 22 3512 0060</a>
             </li>
             <li className="flex flex-col gap-1">
               <p className="w-20 font-bold">Whatsapp:</p>
-              <a href="tel:+917982218029" className="hover:text-amber-400 transition">+91 79822 18029</a>
+              <a href="tel:+917982218029" className="hover:text-[#93c5fd] transition">+91 79822 18029</a>
             </li>
           </ul>
         </div>
@@ -64,10 +64,10 @@ const Footer = () => (
 
       <div className="border-t border-white/30 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-sm text-secondary-foreground/50 text-center">
         <p>© 2026 Entrepreneur Connect Bharat (ECB). All Rights Reserved.</p>
-        <Circle size={8} className="fill-current hidden text-[#143973] sm:block mx-3" />
+        <Circle size={8} className="fill-current hidden sm:block mx-3" style={{ color: "#9B72C4" }} />
         <p>
           Powered by{" "}
-          <a href="https://www.pcred.org" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-amber-400 transition">PCRED</a>
+          <a href="https://www.pcred.org" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-[#93c5fd] transition">PCRED</a>
         </p>
       </div>
     </div>

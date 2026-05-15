@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
         </button>
 
 
-        <a href="https://wa.me/7982218029" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 shadow-lg hover:scale-110 transition-transform">
+        <a href="https://wa.me/7982218029" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#143973] shadow-lg hover:scale-110 transition-transform">
           <IconBrandWhatsapp className="w-6 h-6 text-white" />
         </a>
 

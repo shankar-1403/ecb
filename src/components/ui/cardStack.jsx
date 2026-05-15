@@ -82,7 +82,7 @@ export function CardStack({
                 opacity: 1 - index * 0.08,
               }}
             >
-              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-linear-to-br from-amber-400/25 via-[#143973]/10 to-green-500/20 blur-2xl" />
+              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-linear-to-br from-[#143973]/15 via-[#143973]/10 to-[#143973]/20 blur-2xl" />
               <div className="pointer-events-none absolute -bottom-12 -left-10 h-32 w-32 rounded-full bg-[#1D2F4F]/5 blur-2xl" />
 
               <div className="relative shrink-0 border-b border-[#143973]/15 bg-linear-to-br from-[#1D2F4F] via-[#252D4B] to-[#1D314E] px-4 py-3.5 md:px-5 md:py-4">
@@ -114,7 +114,7 @@ export function CardStack({
                   {index === 0 ? (
                     <Link
                       to={ctaHref}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#143973] transition-colors hover:text-amber-700"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#143973] transition-colors hover:text-[#1D2F4F]"
                     >
                       {ctaLabel}
                       <ArrowRight className="h-4 w-4" />
