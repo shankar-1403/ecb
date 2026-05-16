@@ -21,7 +21,7 @@ const Footer = () => (
 
         <div>
           <p className="font-semibold mb-3 text-base uppercase tracking-wider text-white">Quick Links</p>
-          <ul className="space-y-2 border-l border-[#143973]/20 pl-4">
+          <ul className="space-y-2 border-l pl-4" style={{ borderColor: "rgba(155,114,196,0.5)" }}>
             {[
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
@@ -41,7 +41,7 @@ const Footer = () => (
 
         <div>
           <p className="font-semibold mb-3 text-base uppercase tracking-wider text-white">Global Headquarters</p>
-          <ul className="space-y-2 text-sm text-secondary-foreground/70 border-l border-[#143973]/20 pl-4">
+          <ul className="space-y-2 text-sm text-secondary-foreground/70 border-l pl-4" style={{ borderColor: "rgba(155,114,196,0.5)" }}>
             <li className="flex flex-col gap-1">
               <p>Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093</p>
             </li>

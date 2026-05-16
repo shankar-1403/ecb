@@ -146,7 +146,7 @@ function Contact() {
                 </p>
                 <Link
                   to="/membership/elite-ambassador"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#143973] transition hover:text-[#143973]"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-white/80"
                 >
                   Membership overview
                   <ArrowRight className="h-4 w-4" />

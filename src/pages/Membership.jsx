@@ -131,7 +131,7 @@ function Membership() {
                     <Shield className="h-6 w-6" style={{ color: "#9B72C4" }} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#143973]/90">Why it matters</p>
+                    <p className="text-lg font-bold uppercase tracking-wider text-white/70">Why it matters</p>
                     <p className="mt-2 text-sm leading-relaxed text-white/85 md:text-base">
                       ECB is built for operators who want to connect with credible peers, learn through practical sessions, and exchange meaningful insights.
                     </p>

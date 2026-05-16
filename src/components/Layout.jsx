@@ -26,14 +26,15 @@ const Layout = ({ children }) => {
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className={`w-11 h-11 flex items-center justify-center rounded-full bg-[#143973]/15 border border-[#143973]/60 text-[#143973] shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+          style={{ backgroundColor: "rgba(155,114,196,0.15)", borderColor: "#9B72C4", color: "#9B72C4" }}
+          className={`w-11 h-11 flex items-center justify-center rounded-full border shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
             }`}
         >
           <ArrowUp className="w-5 h-5" />
         </button>
 
 
-        <a href="https://wa.me/7982218029" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#143973] shadow-lg hover:scale-110 transition-transform">
+        <a href="https://wa.me/7982218029" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition-transform" style={{ backgroundColor: "#25D366" }}>
           <IconBrandWhatsapp className="w-6 h-6 text-white" />
         </a>
 

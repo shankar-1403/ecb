@@ -150,7 +150,7 @@ function About() {
                   className="group rounded-2xl p-5 border border-[#143973]/20 bg-white/90 hover:border-[#143973]/60 hover:shadow-[0_12px_32px_-8px_rgba(20,57,115,0.2)] transition-all duration-300"
                 >
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#143973] group-hover:border-[#143973] transition-all duration-300" style={{ backgroundColor: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.4)" }}>
-                    <Icon className="w-5 h-5 group-hover:text-white transition-colors duration-300" style={{ color: "#9B72C4" }} />
+                    <Icon className="w-5 h-5 group-hover:text-white transition-colors duration-300" style={{ color: "#6D28D9" }} />
                   </div>
                   <h3 className="text-sm font-semibold text-[#1D2F4F] group-hover:text-[#143973] transition-colors">{title}</h3>
                   <p className="text-xs text-muted-foreground mt-1">{detail}</p>
@@ -238,7 +238,7 @@ function About() {
                     }}
                   >
                     <div className="ci w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: "rgba(218,201,235,0.2)", border: "1px solid rgba(218,201,235,0.4)" }}>
-                      <Icon className="w-5 h-5" style={{ color: "#9B72C4" }} />
+                      <Icon className="w-5 h-5" style={{ color: "#6D28D9" }} />
                     </div>
 
                     <p className="ct text-sm font-semibold text-[#1D2F4F] mb-1.5">{title}</p>

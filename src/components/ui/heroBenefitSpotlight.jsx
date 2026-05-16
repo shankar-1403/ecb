@@ -83,7 +83,7 @@ export function HeroBenefitSpotlight({
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
                     <div className="absolute inset-0 rounded-2xl bg-white/10" />
-                    <Icon className="relative h-7 w-7" style={{ color: "#9B72C4" }} />
+                    <Icon className="relative h-7 w-7 text-white" />
                     <motion.div
                       className="absolute inset-0 rounded-2xl"
                       animate={{ boxShadow: ["0 0 0px 0px rgba(20,57,115,0)", "0 0 16px 4px rgba(20,57,115,0.35)", "0 0 0px 0px rgba(20,57,115,0)"] }}
