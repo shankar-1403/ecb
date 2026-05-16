@@ -681,7 +681,7 @@ function Home() {
                         <div className="md:col-span-2 space-y-4">
                             {[
                                 { icon: Mail, label: "Email", value: "ecb@ec-bharat.com", href: "mailto:ecb@ec-bharat.com" },
-                                { icon: Phone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+912235120060" },
+                                { icon: Phone, label: "Phone", value: "+91 72088 12845", href: "tel:+917208812845" },
                                 { icon: MapPin, label: "Location", value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093", href: "https://www.google.com/maps?q=Lodha+Supremus+Andheri+East+Mumbai" },
                             ].map(({ icon: Icon, label, value, href }) => {
                                 const inner = (
