@@ -28,7 +28,7 @@ function Label({ htmlFor, children }) {
 }
 
 
-const initialFormData = { company: '', company_website:'', company_size: '', turnover:'', name: '', designation: '', email: '', phone: '', location: '', experience: '', services: '', industry: '', background: '' };
+const initialFormData = { company: '', pan:'', company_website:'', company_size: '', turnover:'', name: '', designation: '', email: '', phone: '', location: '', experience: '', services: '', industry: '', background: '' };
 
 function Partners() {
   const {showSnackbar} = useSnackbar();
@@ -43,13 +43,14 @@ function Partners() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.company || !formData.company_size || !formData.turnover || !formData.name || !formData.designation || !formData.email || !formData.phone || !formData.location || !formData.experience || !formData.services || !formData.industry || !formData.background) {
+    if (!formData.company || !formData.pan || !formData.company_size || !formData.turnover || !formData.name || !formData.designation || !formData.email || !formData.phone || !formData.location || !formData.experience || !formData.services || !formData.industry || !formData.background) {
       showSnackbar('Please fill all the required details in *','error');
       return;
     }
 
     const payload = {
       company: formData.company,
+      company: formData.pan,
       company_size: formData.company_size,
       company_website: formData.company_website,
       turnover: formData.turnover,
@@ -158,10 +159,14 @@ function Partners() {
 
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <Label htmlFor="name">Company name <span className="text-red-500">*</span></Label>
-                      <input id="name" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
+                      <Label htmlFor="company">Company name <span className="text-red-500">*</span></Label>
+                      <input id="company" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase}/>
                     </div>
-                    <div className="sm:col-span-2">
+                    <div>
+                      <Label htmlFor="pan">PAN <span className="text-red-500">*</span></Label>
+                      <input id="pan" name="pan" value={formData.pan} onChange={handleInputChange} className={`${fieldBase} uppercase`} maxLength={10} />
+                    </div>
+                    <div>
                       <Label htmlFor="company_website">Company website <span className="text-red-500">*</span></Label>
                       <input id="company_website" name="company_website" value={formData.company_website} onChange={handleInputChange} className={fieldBase} />
                     </div>

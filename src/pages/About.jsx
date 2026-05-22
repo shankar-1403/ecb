@@ -141,7 +141,7 @@ function About() {
               {[
                 { icon: Lightbulb, title: "Promote entrepreneurship in India", detail: "Building the foundation for a thriving ecosystem." },
                 { icon: Building2, title: "Support MSMEs and startups", detail: "Connecting businesses with the right resources." },
-                { icon: Users, title: "Create networking opportunities", detail: "500+ entrepreneurs across 20+ states." },
+                { icon: Users, title: "Create networking opportunities", detail: "10L+ entrepreneurs across 20+ states." },
                 { icon: TrendingUp, title: "Provide business growth support", detail: "End-to-end guidance for scaling businesses." },
                 { icon: Sparkles, title: "Encourage innovation and collaboration", detail: "Fostering creative thinking across ECB to build impactful and innovation across all teams." },
               ].map(({ icon: Icon, title, detail }) => (
@@ -215,7 +215,7 @@ function About() {
               {[
                 { angle: 200, floatClass: "f0", icon: Lightbulb, title: "Promote entrepreneurship in India", detail: "Building the foundation for a thriving ecosystem." },
                 { angle: 240, floatClass: "f1", icon: Building2, title: "Support MSMEs and startups", detail: "Connecting businesses with the right resources." },
-                { angle: 270, floatClass: "f2", icon: Users, title: "Create networking opportunities", detail: "5000+ entrepreneurs across 20+ states." },
+                { angle: 270, floatClass: "f2", icon: Users, title: "Create networking opportunities", detail: "10L+ entrepreneurs across 20+ states." },
                 { angle: 300, floatClass: "f3", icon: TrendingUp, title: "Provide business growth support", detail: "End-to-end guidance for scaling businesses." },
                 { angle: 340, floatClass: "f4", icon: Sparkles, title: "Encourage innovation and collaboration", detail: "Fostering creative thinking across ECB to build impactful and innovation across all teams." },
               ].map(({ angle, floatClass, icon: Icon, title, detail }) => {

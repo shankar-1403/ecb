@@ -76,10 +76,10 @@ const MEMBERSHIP_BENEFIT_CARDS = [
 ];
 
 const STATS = [
-    { value: 5000, label: "Entrepreneurs Connected", icon: Users },
+    { value: 10, label: "Entrepreneurs Connected", icon: Users },
     { value: 20, label: "States Covered", icon: Globe },
     { value: 100, label: "Startups Supported", icon: Rocket },
-    { value: 200, label: "Businesses Empowered", icon: TrendingUp },
+    { value: 50, label: "Businesses Empowered", icon: TrendingUp },
 ];
 
 const TESTIMONIALS = [
@@ -146,7 +146,7 @@ function CountUpStat({ value, label, Icon }) {
                 <Icon className="h-4 w-4 text-white" />
             </div>
             <div className="font-heading text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
-                {isInView && <CountUp end={value} suffix="+" />}
+                {isInView && <CountUp end={value} suffix={Icon == Users ? 'L+' : Icon == TrendingUp ? 'K+' : '+'} />}
             </div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50 leading-relaxed max-w-25">
                 {label}
@@ -357,7 +357,7 @@ function Home() {
                                     ))}
                                 </div>
                                 <p className="text-sm text-gray-500">
-                                    <span className="font-semibold text-gray-700">5000+</span> entrepreneurs already growing with ECB
+                                    <span className="font-semibold text-gray-700">10L+</span> entrepreneurs already growing with ECB
                                 </p>
                             </motion.div>
                         </div>
@@ -423,7 +423,7 @@ function Home() {
                                 animate={{ y: [0, -8, 0] }}
                                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                             >
-                                <p className="text-2xl font-bold text-[#143973]">5000+</p>
+                                <p className="text-2xl font-bold text-[#143973]">10L+</p>
                                 <p className="text-xs text-gray-500">Entrepreneurs Connected</p>
                             </motion.div>
                         </div>

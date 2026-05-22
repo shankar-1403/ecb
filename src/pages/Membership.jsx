@@ -28,7 +28,7 @@ const STEPS = [
   { n: "4", title: "Review & Submit", body: "We validate and route to the right expert.", Icon: CheckCircle2 },
 ]
 
-const initialFormData = { name: '', company: '', entrepreneurs:'', phone: '', email: '', location: '', experience: '', links: '', file: null, message: '' };
+const initialFormData = { name: '', company: '', pan:'', entrepreneurs:'', phone: '', email: '', location: '', experience: '', links: '', file: null, message: '' };
 
 function Membership() {
   const { showSnackbar } = useSnackbar();
@@ -45,7 +45,7 @@ function Membership() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.entrepreneurs || !formData.phone || !formData.email || !formData.location || !formData.experience || !formData.message) {
+    if (!formData.name || !formData.pan || !formData.entrepreneurs || !formData.phone || !formData.email || !formData.location || !formData.experience || !formData.message) {
       showSnackbar('Please fill all the required details with *',"error");
       return;
     }
@@ -53,6 +53,7 @@ function Membership() {
     const payload = {
       name: formData.name,
       company: formData.company,
+      pan: formData.pan,
       entrepreneurs:formData.entrepreneurs,
       phone: formData.phone,
       email: formData.email,
@@ -61,14 +62,19 @@ function Membership() {
       links: formData.links,
       message: formData.message,
     };
+
     try {
       setSubmit(true);
-      const newRef = push(ref(db, 'elite_ambassador'))
+      let fileURL="";
+      let filePath="";
+      if(file){
+        filePath = `elite_ambassador/${Date.now()}_${file.name}`
+        const fileRef = storageRef(storage, filePath);
+        await uploadBytes(fileRef, file);
+        fileURL = await getDownloadURL(fileRef);
+      }
 
-      const filePath = `elite_ambassador/${Date.now()}_${file.name}`
-      const fileRef = storageRef(storage, filePath);
-      await uploadBytes(fileRef, file);
-      const fileURL = await getDownloadURL(fileRef);
+      const newRef = push(ref(db, 'elite_ambassador'))
 
       await set(newRef, {
         ...payload,
@@ -188,8 +194,11 @@ function Membership() {
                       <Label htmlFor="company">Company name</Label>
                       <input id="company" name="company" value={formData.company} onChange={handleInputChange} className={fieldBase} />
                     </div>
-
-                    <div className="sm:col-span-2 relative">
+                    <div>
+                      <Label htmlFor="pan">PAN <span className="text-red-500">*</span></Label>
+                      <input id="pan" name="pan" value={formData.pan} onChange={handleInputChange} className={`${fieldBase} uppercase`} maxLength={10} />
+                    </div>
+                    <div>
                       <Label htmlFor="entrepreneurs">Approximate network of Entrepreneurs <span className="text-red-500">*</span></Label>
                       <input id="entrepreneurs" name="entrepreneurs" value={formData.entrepreneurs} onChange={handleInputChange} className={fieldBase}/>
                     </div>
