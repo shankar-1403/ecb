@@ -96,7 +96,7 @@ const TESTIMONIALS = [
 
 const ABOUT_STRENGTHS = [
     { icon: Globe, text: "Pan-India network spanning 20+ states with verified domain experts" },
-    { icon: ShieldCheck, text: "Trusted by 5000+ entrepreneurs, MSMEs and growing businesses" },
+    { icon: ShieldCheck, text: "Trusted by 10L+ entrepreneurs, MSMEs and growing businesses" },
     { icon: Handshake, text: "Strategic tie-ups with government bodies, NBFCs and corporates" },
     { icon: Rocket, text: "End-to-end support from ideation to scale across 21 service domains" },
     { icon: Award, text: "Recognized platform for Elite Ambassadors across India" },
@@ -742,7 +742,7 @@ function Home() {
                                         </div>
                                         <div>
                                             <Label htmlFor="phone">Phone *</Label>
-                                            <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
+                                            <input id="phone" name="phone" placeholder="XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10} />
                                         </div>
 
                                     </div>

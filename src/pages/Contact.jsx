@@ -183,7 +183,7 @@ function Contact() {
                     </div>
                     <div>
                       <Label htmlFor="phone">Phone <span className="text-red-500">*</span></Label>
-                      <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
+                      <input id="phone" name="phone" placeholder="XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={fieldBase} maxLength={10}/>
                     </div>
                     
                   </div>

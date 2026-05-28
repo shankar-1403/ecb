@@ -210,7 +210,7 @@ function Membership() {
 
                     <div>
                       <Label htmlFor="phone">Phone <span className="text-red-500">*</span></Label>
-                      <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={`appearance-none ${fieldBase}`} maxLength={10} />
+                      <input id="phone" name="phone" placeholder="XXXXX XXXXX" value={formData.phone} onChange={handleInputChange} className={`appearance-none ${fieldBase}`} maxLength={10} />
                     </div>
 
                     <div>
