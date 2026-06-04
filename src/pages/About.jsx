@@ -12,20 +12,30 @@ import vijay_sharma from "../assets/teamwebp/vijay_sharma.webp";
 import sanjay_jhanwar from "../assets/teamwebp/sanjay_jhanwar.webp";
 import takshilkumar from "../assets/teamwebp/takshilkumar.webp";
 import {ArrowRight, Target, Users, Lightbulb, HeartHandshake, InfoIcon, Building2, TrendingUp, Sparkles, Eye} from "lucide-react";
-import img_2 from "../assets/employees/2.png"
-import img_3 from "../assets/employees/3.png"
-import img_4 from "../assets/employees/4.png"
-import img_5 from "../assets/employees/5.png"
-import img_6 from "../assets/employees/6.png"
-import img_7 from "../assets/employees/7.png"
-import img_8 from "../assets/employees/8.png"
-import img_9 from "../assets/employees/9.png"
-import img_10 from "../assets/employees/10.png"
-import img_11 from "../assets/employees/11.png"
-import img_12 from "../assets/employees/12.png"
-import img_13 from "../assets/employees/13.png"
-import img_14 from "../assets/employees/14.png"
-import img_15 from "../assets/employees/15.png"
+import emp_ganpath from "../assets/employees/ganpath.webp"
+import emp_rohan from "../assets/employees/rohan.webp"
+import emp_suraj from "../assets/employees/suraj.webp"
+import emp_jigar from "../assets/employees/jigar.webp"
+import emp_gurveen from "../assets/employees/gurveen.webp"
+import emp_vinod from "../assets/employees/vinod.webp"
+import emp_adithya from "../assets/employees/adithya.webp"
+import emp_sachin from "../assets/employees/sachin.webp"
+import emp_shankar from "../assets/employees/shankar.webp"
+import emp_sarang from "../assets/employees/sarang.webp"
+import emp_rayhan from "../assets/employees/rayhan.webp"
+import emp_rambo from "../assets/employees/rambo.webp"
+import emp_trupti from "../assets/employees/trupti.webp"
+import emp_mrunal from "../assets/employees/mrunal.webp"
+import emp_abhijit from "../assets/employees/abhijit.webp"
+import emp_josphine from "../assets/employees/josphine.webp"
+import emp_parin from "../assets/employees/parin.webp"
+import emp_piyush from "../assets/employees/piyush.webp"
+import emp_pramod from "../assets/employees/pramod.webp"
+import emp_rahul from "../assets/employees/rahul.webp"
+import emp_simmi from "../assets/employees/simmi.webp"
+import emp_simran from "../assets/employees/simran.webp"
+import emp_tripurari from "../assets/employees/tripurari.webp"
+import emp_vaibhav from "../assets/employees/vaibhav.webp"
 import { cn } from "../lib/utils";
 
 const objectives = [
@@ -80,20 +90,30 @@ const employee = [
 ];
 
 const employees = [
-  { name: "Mr. Ganpat Malviya",img: img_2 },
-  { name: "Mr. Rohan Yadav",img: img_3 },
-  { name: "Mr. Suraj Dubey",img: img_13 },
-  { name: "Mr. Jigar Thakkar",img: img_11 },
-  { name: "Ms. Gurveen Kaur",img: img_5 },
-  { name: "Mr. Vinod Dubey",img: img_9 },
-  { name: "Mr. Aditya Dogra",img: img_6 },
-  { name: "Mr. Sachin Kaushal",img: img_7 },
-  { name: "Mr. Shankar Manjrekar",img: img_15 },
-  { name: "Mr. Sarang Krishna",img: img_4 },
-  { name: "Mr. Rayhan Shaikh",img: img_8 },
-  { name: "Mr. Rambo Dogra",img: img_12 },
-  { name: "Ms. Trupti Jaiswal",img: img_14 },
-  { name: "Ms. Mrunal Kamble",img: img_10 },
+  { name: "Mr. Piyush Trivedi", img: emp_piyush },
+  { name: "Mr. Tripurari Jha", img: emp_tripurari },
+  { name: "Mr. Vinod Dubey", img: emp_vinod },
+  { name: "Mr. Parin Shah", img: emp_parin },
+  { name: "Mr. Rohan Yadav", img: emp_rohan },
+  { name: "Mr. Ganpat Malviya", img: emp_ganpath },
+  { name: "Mr. Vaibhav Gada", img: emp_vaibhav },
+  { name: "Mr. Suraj Dubey", img: emp_suraj },
+  { name: "Ms. Gurveen Kaur", img: emp_gurveen },
+  { name: "Mr. Rambo Dogra", img: emp_rambo },
+  { name: "Ms. Josphine Makasare", img: emp_josphine },
+  { name: "Mr. Shankar Manjrekar", img: emp_shankar },
+  { name: "Mr. Sarang Krishna", img: emp_sarang },
+  { name: "Mr. Rayhan Shaikh", img: emp_rayhan },
+  { name: "Ms. Mrunal Kamble", img: emp_mrunal },
+  { name: "Mr. Jigar Thakkar", img: emp_jigar },
+  { name: "Mr. Aditya Dogra", img: emp_adithya },
+  { name: "Mr. Sachin Kaushal", img: emp_sachin },
+  { name: "Ms. Trupti Jaiswal", img: emp_trupti },
+  { name: "Ms. Simran Ghotra", img: emp_simran },
+  { name: "Mr. Abhishek Prajapati", img: emp_abhijit },
+  { name: "Mr. Rahul Chavan", img: emp_rahul },
+  { name: "Ms. Simmi Panchal", img: emp_simmi },
+  { name: "Mr. Pramod Kamble", img: emp_pramod },
 ];
 
 function About() {
