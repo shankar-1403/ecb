@@ -36,6 +36,11 @@ import emp_simmi from "../assets/employees/simmi.webp"
 import emp_simran from "../assets/employees/simran.webp"
 import emp_tripurari from "../assets/employees/tripurari.webp"
 import emp_vaibhav from "../assets/employees/vaibhav.webp"
+import emp_aakash from "../assets/employees/aakash.webp"
+import emp_abhijitt from "../assets/employees/abhijitt.webp"
+import emp_ashish from "../assets/employees/ashish.webp"
+import emp_balaji from "../assets/employees/balaji.webp"
+import emp_mihir from "../assets/employees/mihir.webp"
 import { cn } from "../lib/utils";
 
 const objectives = [
@@ -91,12 +96,14 @@ const employee = [
 
 const employees = [
   { name: "Mr. Piyush Trivedi", img: emp_piyush },
+  { name: "Mr. Mihir Oza", img: emp_mihir },
   { name: "Mr. Tripurari Jha", img: emp_tripurari },
   { name: "Mr. Vinod Dubey", img: emp_vinod },
   { name: "Mr. Parin Shah", img: emp_parin },
   { name: "Mr. Rohan Yadav", img: emp_rohan },
   { name: "Mr. Ganpat Malviya", img: emp_ganpath },
   { name: "Mr. Vaibhav Gada", img: emp_vaibhav },
+  { name: "Ms. Simmi Panchal", img: emp_simmi },
   { name: "Mr. Suraj Dubey", img: emp_suraj },
   { name: "Ms. Gurveen Kaur", img: emp_gurveen },
   { name: "Mr. Rambo Dogra", img: emp_rambo },
@@ -112,8 +119,11 @@ const employees = [
   { name: "Ms. Simran Ghotra", img: emp_simran },
   { name: "Mr. Abhishek Prajapati", img: emp_abhijit },
   { name: "Mr. Rahul Chavan", img: emp_rahul },
-  { name: "Ms. Simmi Panchal", img: emp_simmi },
   { name: "Mr. Pramod Kamble", img: emp_pramod },
+  { name: "Mr. Aakash Reddy", img: emp_aakash },
+  { name: "Mr. Abhijitt Landge", img: emp_abhijitt },
+  { name: "Mr. Ashish Mishra", img: emp_ashish },
+  { name: "Mr. Balaji Rao", img: emp_balaji },
 ];
 
 function About() {
