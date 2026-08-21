@@ -105,13 +105,10 @@ const employees = [
   { name: "Mr. Vaibhav Gada", img: emp_vaibhav },
   { name: "Ms. Simmi Panchal", img: emp_simmi },
   { name: "Mr. Suraj Dubey", img: emp_suraj },
-  { name: "Ms. Gurveen Kaur", img: emp_gurveen },
   { name: "Mr. Rambo Dogra", img: emp_rambo },
-  { name: "Ms. Josphine Makasare", img: emp_josphine },
   { name: "Mr. Shankar Manjrekar", img: emp_shankar },
   { name: "Mr. Sarang Krishna", img: emp_sarang },
   { name: "Mr. Rayhan Shaikh", img: emp_rayhan },
-  { name: "Ms. Mrunal Kamble", img: emp_mrunal },
   { name: "Mr. Jigar Thakkar", img: emp_jigar },
   { name: "Mr. Aditya Dogra", img: emp_adithya },
   { name: "Mr. Sachin Kaushal", img: emp_sachin },
@@ -120,10 +117,7 @@ const employees = [
   { name: "Mr. Abhishek Prajapati", img: emp_abhijit },
   { name: "Mr. Rahul Chavan", img: emp_rahul },
   { name: "Mr. Pramod Kamble", img: emp_pramod },
-  { name: "Mr. Aakash Reddy", img: emp_aakash },
-  { name: "Mr. Abhijitt Landge", img: emp_abhijitt },
   { name: "Mr. Ashish Mishra", img: emp_ashish },
-  { name: "Mr. Balaji Rao", img: emp_balaji },
 ];
 
 function About() {
@@ -298,7 +292,7 @@ function About() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 md:py-24">
+        <section className="pb-16 sm:pb-20 md:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
             <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h5>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
