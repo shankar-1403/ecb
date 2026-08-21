@@ -288,32 +288,6 @@ function About() {
           </div>
         </section>
 
-        <section className="py-5 sm:py-6 md:py-1">
-          <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-7">
-            <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F] text-center">Leadership</h5>
-            <div className="mt-12 flex justify-center">
-              {leadership.map((member, index) => (
-                <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl lg:max-w-6xl group">
-                  <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ scale: 1.03 }} className="relative md:col-span-2 lg:col-span-1">
-                    <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-[#0d2850] via-[#143973] to-[#2563eb] opacity-20 blur-lg group-hover:opacity-40 transition"></div>
-                    <img src={member.img} alt={member.name} className="relative w-full h-auto object-cover rounded-2xl shadow-lg" />
-                  </motion.div>
-                  <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} whileHover={{ y: -5 }} className="text-center md:text-left md:col-span-2 lg:col-span-1 lg:max-w-none">
-                    <h5 className="text-2xl font-bold text-[#1D2F4F]">{member.name}</h5>
-                    <p className="text-[#143973] font-semibold mt-1">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Rameshkumar, Chairman of Entrepreneur Connect Bharat (ECB), is the Chief Business Officer at <a href="https://www.pcred.org/" target="_blank" className="text-[#143973] font-bold hover:opacity-80 transition-opacity">PCRED</a> Venture Pvt. Ltd. and Executive Director at <a href="https://insurath.com/" target="_blank" className="text-[#143973]">Insurath</a>, with over 25 years of experience in the BFSI and MSME ecosystem. He has supported 100,000+ MSMEs across India in accessing finance, scaling growth, and leveraging government schemes.
-                    </p>
-                    <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Dr. G. Rameshkumar also played a key leadership role in Bharat Manch, driving partnerships and transforming it into an action-driven platform for MSME growth, with a strong focus on building sustainable business ecosystems and bridging the gap between entrepreneurs and financial institutions.</p>
-                    <a href="https://www.drgrameshkumar.com/" target="_blank" className="text-[#143973] underline mt-4">https://www.drgrameshkumar.com/</a>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="py-16 sm:py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-6 text-center">
             <h5 className="text-3xl md:text-4xl font-bold text-[#1D2F4F]">Management and Board Members</h5>
